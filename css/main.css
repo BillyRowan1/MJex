@@ -1,6 +1,26 @@
 .green-text{
 	color: #00cc00;
 }
+.red-bg{
+	background-color: red;
+}
+.green-bg{
+	background-color: #00cc00;
+}
+.black-bg{
+	background-color: #333333;
+}
+.purple-bg{
+	background-color: #8f00ca;
+}
+.fluid-center{
+	top: 50%;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	left: 50%;
+}
 .clearfix{
 	clear: both;
 }
@@ -109,11 +129,12 @@ input{
 	margin-top: 40px;
 }
 
-#Home .title{
+#Home h1.title{
 	text-align: center;
 	font-family: 'caviar_dreamsbold_italic';
 	font-size: 23px;
 }
+
 .home-search-wrap{
     height: 80px;
     position: relative;
@@ -195,8 +216,87 @@ input{
 	position: relative;
 	margin-bottom: 50px;
 }
+#pricing .btn{
+    text-transform: uppercase;
+    font-size: 20px;
+    width: 150px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    line-height: 50px;
+    padding: 0;
+    margin: 0 auto;
+    display: block;
+    margin-top: 30px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    color: white;
+}
+#pricing ul {
+    padding: 0;
+}
+
+#pricing li {
+    list-style: none;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    padding: 10px;
+    width: 83%;
+    margin: 0 auto;
+    color: #868686;
+}
+#pricing .title{
+	width: 182px;
+	height: 55px;
+	display: block;
+	margin: 0 auto;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	color: white;
+	text-transform: uppercase;
+	font-family: arial, sans-serif;
+	line-height: 55px;
+	margin-top: -12px;
+	font-size: 17px;
+	margin-bottom: 20px;
+}
+#price-free .title{
+	background-image: url(../img/price-free.png);
+}
+
+#price-free .price {
+    font-size: 55px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #00cc00;
+    text-align: center;
+    display: block;
+    font-family: "Myriad Pro", arial, sans-serif;
+}
+
+#price-free .btn {
+    background-image: url(../img/price-free-btn.png);
+    margin-top: 54px;
+}
+#price-monthly .title{
+	background-image: url(../img/price-monthly.png);
+}
+#price-monthly .btn{
+	background-image: url(../img/price-monthly-btn.png);
+	margin-top: 45px;
+}
+#price-monthly-pro .title{
+	background-image: url(../img/price-monthly-pro.png);
+	margin-bottom: 10px;
+}
+#price-monthly-pro .btn{
+	background-image: url(../img/price-monthly-pro-btn.png);
+	margin-top: 10px;
+}
 #pricing .wrapper{
-	width: 750px;
+	width: 772px;
 	top: 50%;
 	position: absolute;
 	transform: translate(-50%, -50%);
@@ -210,10 +310,46 @@ input{
 	border-radius: 10px;
 	width: 250px;
 	box-shadow: 0 0 10px black;
+	padding-bottom: 20px;
+	position: relative;
 }
-#price-free{}
-#price-monthly{}
-#price-monthly-pro{}
+
+#pricing #price-monthly{
+    z-index: 3;
+    margin-top: -20px;
+    width: 272px;
+}
+
+#price-monthly .number,
+#price-monthly-pro .number {
+    font-size: 72px;
+    font-weight: bold;
+}
+
+#price-monthly .price,
+#price-monthly-pro .price {
+    text-align: center;
+    color: #4319ff;
+    font-family: "Myriad Pro", arial, sans-serif;
+    font-size: 27px;
+    margin: 0 auto;
+    width: 134px;
+}
+
+#price-monthly-pro .price{
+	color: #cc6514;
+	width: 165px;
+	height: 90px;
+}
+
+#price-monthly .price .currency,
+#price-monthly-pro .price .currency {float: left;margin-top: 10px;}
+
+#price-monthly .price .small,
+#price-monthly-pro .price .small {
+    float: right;
+    margin-top: 14px;
+}
 
 footer{
 	height: 90px;
@@ -222,6 +358,7 @@ footer{
 	width: 100%;
 	color: white;
 	margin: 0;
+	margin-top: 30px;
 }
 
 #footer-menu{
@@ -238,4 +375,148 @@ footer{
     float: left;
     list-style: none;
     margin-right: 20px;
+}
+
+.section-posts{
+	background-color: #eaecec;
+	border-radius: 5px;
+	margin: 20px auto;
+}
+
+.section-posts h2.title {
+    text-align: left;
+    padding: 15px;
+    text-transform: uppercase;
+    font-family: "Myriad Pro", arial, sans-serif;
+    font-weight: bold;
+    display: inline-block;
+    margin: 0;
+}
+
+.section-posts .sort {
+    float: right;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+
+.section-posts .sort a {
+    margin: 0 10px;
+}
+
+.post{}
+.post table{
+	width: 100%;
+	margin-bottom: 15px;
+}
+
+.post .content {
+    padding: 10px;
+}
+
+.post .content .thumb {
+    width: 55px;
+    height: 55px;
+    background-color: #333;
+    float: left;
+    margin-right: 10px;
+}
+.post table thead{
+	color: white;
+}
+.post table th{
+	text-align: center;
+}
+
+.post table td {
+    text-align: center;
+}
+.bg-cover{
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+#legal-page{
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(255,255,255,0.6);
+	z-index: 100;
+}
+#legal-page .btn{
+	width: 137px;
+	height: 58px;
+	color: white;
+	font-size: 20px;
+	text-align: center;
+	line-height: 58px;
+	padding: 0;
+	text-transform: uppercase;
+}
+#legal-page .btn.yes{
+	background-image: url(../img/yes-bg.png);
+}
+#legal-page .btn.no{
+	background-image: url(../img/no-bg.png);
+	margin-right: 30px;
+}
+#legal-page .content{
+	background-color: #2c2c2c;
+	border-radius: 30px;
+	color: #cccccc;
+	text-align: center;
+	padding: 20px;
+	font-size: 20px;
+}
+#legal-page .title{
+	padding-top: 0;
+	color: red;
+}
+
+#legal-page .btn-group {
+    margin-top: 20px;
+}
+
+#Contact .title{
+	text-align: center;
+	font-family: "Myriad Pro", arial, sans-serif;
+	font-size: 45px;
+	margin-top: 60px;
+	margin-bottom: 80px;
+}
+#Contact .btn[type=submit]{
+	color: white;
+	float: right;
+	margin-top: 20px;
+	margin-right: 88px;
+}
+#Contact .form-group{
+	display: block;
+	margin: 10px auto;
+}
+
+#Contact .form-control {width: 300px;background-color: #EDEDED;}
+
+#Contact .form-group label {
+    width: 70px;
+}
+
+#Contact .contact-box{
+	background-color: #ededed;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 20px;
+	margin-bottom: 30px;
+}
+
+#Contact .contact-box h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: normal;
+    margin-bottom: 20px;
+    border-bottom: 1px dashed;
+    padding-bottom: 10px;
+    font-family: "Myriad Pro", arial, sans-serif;
 }
