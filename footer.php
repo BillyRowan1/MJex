@@ -3,11 +3,11 @@
         <div class="container">
             <div class="row">
                 <ul id="footer-menu">
-                    <li><a class="active" href="#">home</a></li>
-                    <li><a href="#">contact</a></li>
+                    <li><a class="active" href="index.php">home</a></li>
+                    <li><a href="contact.php">contact</a></li>
                     <li><a href="#">account</a></li>
                     <li><a href="#">post ad</a></li>
-                    <li><a href="#">find growers</a></li>
+                    <li><a href="find-growers.php">find growers</a></li>
                     <li><a href="#">faq</a></li>
                 </ul>
             </div>

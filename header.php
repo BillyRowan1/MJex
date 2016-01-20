@@ -45,11 +45,11 @@
             </div>
         </nav>
         <ul id="main-menu" class="clearfix">
-            <li><a class="active" href="#">home</a></li>
-            <li><a href="#">contact</a></li>
-            <li class="active"><a href="#">sign up</a></li>
+            <li><a class="active" href="index.php">home</a></li>
+            <li><a href="contact.php">contact</a></li>
+            <li class="active"><a href="signup.php">sign up</a></li>
             <li><a href="#">post ad</a></li>
-            <li><a href="#">find growers</a></li>
+            <li><a href="find-growers.php">find growers</a></li>
             <li><a href="#">faq</a></li>
         </ul>
     </header>
