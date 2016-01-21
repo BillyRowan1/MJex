@@ -5,7 +5,7 @@
                 <ul id="footer-menu">
                     <li><a class="active" href="index.php">home</a></li>
                     <li><a href="contact.php">contact</a></li>
-                    <li><a href="#">account</a></li>
+                    <li><a href="account.php">account</a></li>
                     <li><a href="#">post ad</a></li>
                     <li><a href="find-growers.php">find growers</a></li>
                     <li><a href="#">faq</a></li>
@@ -38,6 +38,7 @@
     window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
     </script>
     <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="libs/jquery.nicescroll/jquery.nicescroll.min.js"></script>
     <script src="js/main.js"></script>
 </body>
 

@@ -621,21 +621,21 @@ footer {
     text-align: center;
 }
 /* Base for label styling */
-[type="checkbox"]:not(:checked),
-[type="checkbox"]:checked {
+.circle-checkboxes [type="checkbox"]:not(:checked),
+.circle-checkboxes [type="checkbox"]:checked {
     position: absolute;
     left: -9999px;
 }
 
-[type="checkbox"]:not(:checked) + label,
-[type="checkbox"]:checked + label {
+.circle-checkboxes [type="checkbox"]:not(:checked) + .circle-checkboxes label,
+.circle-checkboxes [type="checkbox"]:checked + .circle-checkboxes label {
     position: relative;
     cursor: pointer;
     padding-top: 50px;
 }
 /* checkbox aspect */
-[type="checkbox"]:not(:checked) + label:before,
-[type="checkbox"]:checked + label:before {
+.circle-checkboxes [type="checkbox"]:not(:checked) + .circle-checkboxes label:before,
+.circle-checkboxes [type="checkbox"]:checked + .circle-checkboxes label:before {
     content: '';
     position: absolute;
     left: 50%;
@@ -647,8 +647,8 @@ footer {
     margin-left: -23px;
 }
 /* checked mark aspect */
-[type="checkbox"]:not(:checked) + label:after,
-[type="checkbox"]:checked + label:after {
+.circle-checkboxes [type="checkbox"]:not(:checked) + .circle-checkboxes label:after,
+.circle-checkboxes [type="checkbox"]:checked + .circle-checkboxes label:after {
     content: "";
     top: 0;
     left: 0;
@@ -659,35 +659,35 @@ footer {
     height: 46px;
 }
 /* checked mark aspect changes */
-[type="checkbox"]:not(:checked) + label:after {
+.circle-checkboxes [type="checkbox"]:not(:checked) + .circle-checkboxes label:after {
     opacity: 0;
     transform: scale(0);
 }
 
-[type="checkbox"]:checked + label:after {
+.circle-checkboxes [type="checkbox"]:checked + .circle-checkboxes label:after {
     opacity: 1;
     transform: scale(1);
 }
 /* disabled checkbox */
-[type="checkbox"]:disabled:not(:checked) + label:before,
-[type="checkbox"]:disabled:checked + label:before {
+.circle-checkboxes [type="checkbox"]:disabled:not(:checked) + .circle-checkboxes label:before,
+.circle-checkboxes [type="checkbox"]:disabled:checked + .circle-checkboxes label:before {
     box-shadow: none;
     border-color: #bbb;
     background-color: #ddd;
 }
-[type="checkbox"]:disabled:checked + label:after {
+.circle-checkboxes [type="checkbox"]:disabled:checked + label:after {
     color: #999;
 }
-[type="checkbox"]:disabled + label {
+.circle-checkboxes [type="checkbox"]:disabled + label {
     color: #aaa;
 }
 /* accessibility */
-[type="checkbox"]:checked:focus + label:before,
-[type="checkbox"]:not(:checked):focus + label:before {
+.circle-checkboxes [type="checkbox"]:checked:focus + .circle-checkboxes label:before,
+.circle-checkboxes [type="checkbox"]:not(:checked):focus + .circle-checkboxes label:before {
     border: 1px dotted blue;
 }
 /* hover style just for information */
-label:hover:before {
+.circle-checkboxes label:hover:before {
     background: url(../img/checkbox-checked.png) no-repeat center;
 }
 
@@ -720,4 +720,135 @@ label:hover:before {
     background: #00cc00;
     font-family: arial, sans-serif;
     font-size: 18px;
+}
+
+#Account .nav.nav-tabs{
+    margin-top: 50px;
+}
+#Account .nav.nav-tabs li{
+    width: 33.3333333333%;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 20px;
+    background-color: #555;
+}
+
+#Account .nav.nav-tabs li.active a {
+    border-radius: 0;
+}
+
+#Account .nav.nav-tabs li.active {}
+
+#Account .nav.nav-tabs li.active a {
+    color: black;
+    background-color: #dedede;
+}
+
+#Account .nav.nav-tabs li a {
+    color: white;
+    border-radius: 0;
+    margin: 0;
+    border-right: 1px solid white;
+}
+
+#Account .nav.nav-tabs li a:hover {
+    color: black;
+}
+#Account .tab-content{
+    background-color: #dedede;
+    padding: 15px 30px;
+}
+#Account .tab-content table{
+    border: 1px solid #555;
+}
+
+#Account .tab-content table tbody {
+    background-color: #e6e6e6;
+}
+
+#Account .tab-content table thead {
+    background-color: #555;
+    color: white;
+    text-transform: uppercase;
+}
+#Account .tab-content [type=checkbox]{
+    margin-right: 10px;
+}
+
+#tab-chat-history{}
+#tab-chat-history .box{
+    background-color: white;
+    border: 1px solid #555;
+    position: relative;
+}
+
+#tab-chat-history .chats ul {
+    padding: 15px;
+}
+
+#tab-chat-history .nicescroll {
+    height: 400px;
+}
+
+#tab-chat-history .chats li {
+    list-style: none;
+    margin-bottom: 15px;
+    margin-left: 30px;
+}
+
+#tab-chat-history .chats .me .message {
+    background-color: #9fcf9f;
+}
+
+#tab-chat-history .chats .time {
+    font-size: 11px;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+
+#tab-chat-history .chats .message {
+    background-color: #b9cfb9;
+    padding: 7px 10px;
+    border-radius: 7px;
+    position: relative;
+    padding-top: 18px;
+}
+
+#tab-chat-history .chats .name {}
+
+#tab-chat-history .chats ul li.me {
+    margin-left: 0;
+}
+#Account .tab-content .title{
+    background-color: #555;
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    padding: 10px;
+    font-size: 18px;
+    margin: 0;
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+#tab-chat-history .users ul {
+    padding: 12px;
+}
+
+#tab-chat-history .users .date {
+    width: 93px;
+    display: inline-block;
+}
+
+#tab-chat-history .users ul li {
+    list-style: none;
+    line-height: 26px;
+}
+
+#tab-chat-history .users ul li.active {
+    color: #00cc00;
 }

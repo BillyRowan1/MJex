@@ -26,7 +26,7 @@
 					<input type="text" name="name" class="form-control">
 				</div>
 				<label for="">Select as many as apply</label>
-				<div class="form-group checkbox-group clearfix">
+				<div class="form-group checkbox-group circle-checkboxes clearfix">
 					<input type="checkbox" id="for-medical" name="use-for[]">
 					<label for="for-medical">Medical</label>
 
@@ -68,7 +68,7 @@
 					</select>
 				</div>
 				<label for="">Select as many as apply</label>
-				<div class="form-group checkbox-group clearfix">
+				<div class="form-group checkbox-group circle-checkboxes clearfix">
 					<input type="checkbox" id="bsn-for-grower" name="use-for[]">
 					<label for="bsn-for-grower">Grower</label>
 
@@ -88,7 +88,7 @@
 					<label for="for-manufacturer">Manufacturer</label>
 				</div>
 				<label for="">Choose ad package</label>
-				<div class="form-group checkbox-group clearfix">
+				<div class="form-group checkbox-group circle-checkboxes clearfix">
 					<input type="checkbox" id="ad-package-1" value="free" name="ad-package[]">
 					<label for="ad-package-1">Free</label>
 
