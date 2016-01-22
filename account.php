@@ -39,9 +39,9 @@
 		        				<td>sativa</td>
 		        				<td>20 usd</td>
 		        				<td>0</td>
-		        				<td><img src="img/ic-repost.png" alt="" class="repost"></td>
-		        				<td><img src="img/ic-delete.png"></td>
-		        				<td><img src="img/ic-edit.png"></td>
+		        				<td><a href="#"><img src="img/ic-repost.png" alt="" class="repost"></a></td>
+		        				<td><a href="#"><img src="img/ic-delete.png"></a></td>
+		        				<td><a href="#"><img src="img/ic-edit.png"></a></td>
 		        			</tr>
 		        		</tbody>
 		        	</table>
