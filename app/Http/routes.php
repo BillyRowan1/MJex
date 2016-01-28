@@ -30,11 +30,20 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/contact', function () {
         return view('contact');
     });
-    Route::get('/signup', function () {
-        return view('signup');
+    Route::get('/signup', function (\Illuminate\Http\Request $request) {
+        $package = $request->input('package');
+        return view('signup', compact('package'));
     });
     Route::get('/find-growers', function () {
         return view('find_growers');
+    });
+
+    Route::get('/post-ad', function () {
+        return view('post_ad');
+    });
+
+    Route::get('/faq', function () {
+        return view('faq');
     });
 
 });

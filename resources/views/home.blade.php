@@ -73,7 +73,7 @@
                                     <br>Includes
                                     <br>Sellers Page/Shopping Cart</li>
                             </ul>
-                            <a href="{{ url('signup') }}" class="btn sign-up">sign up</a>
+                            <a href="{{ url('signup') }}?package=free" class="btn sign-up">sign up</a>
                         </div>
                         <div class="box" id="price-monthly">
                             <span class="title">monthly</span>
@@ -88,7 +88,7 @@
                                 <li>Ad thumbnail with text formatting</li>
                                 <li>Only $60/ yr</li>
                             </ul>
-                            <a href="{{ url('signup') }}" class="btn sign-up">sign up</a>
+                            <a href="{{ url('signup') }}?package=monthly" class="btn sign-up">sign up</a>
                         </div>
                         <div class="box" id="price-monthly-pro">
                             <span class="title">monthly pro</span>
@@ -103,7 +103,7 @@
                                 <li>Ad thumbnail with text formatting</li>
                                 <li>Only $100 / yr</li>
                             </ul>
-                            <a href="{{ url('signup') }}" class="btn sign-up">sign up</a>
+                            <a href="{{ url('signup') }}?package=monthly_pro" class="btn sign-up">sign up</a>
                         </div>
                     </div>
                 </div>

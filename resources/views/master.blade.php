@@ -29,7 +29,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"><img src="img/logo.png" alt="logo"></a>
+            <a class="navbar-brand" href="{{ url('/') }}"><img src="img/logo.png" alt="logo"></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <form class="navbar-form navbar-right" role="form">
@@ -40,7 +40,7 @@
                     <input type="password" placeholder="Password" class="form-control">
                 </div>
                 <button type="submit" class="btn btn-default">LOG IN</button>
-                <button type="submit" class="btn green-gradient sign-up-btn">SIGN UP</button>
+                <a href="{{ url('signup') }}" class="btn green-gradient sign-up-btn">SIGN UP</a>
             </form>
         </div>
     </nav>

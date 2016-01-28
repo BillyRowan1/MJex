@@ -93,13 +93,13 @@
                     </div>
                     <label for="">Choose ad package</label>
                     <div class="form-group checkbox-group circle-checkboxes clearfix">
-                        <input type="checkbox" id="ad-package-1" value="free" name="ad-package[]">
+                        <input type="checkbox" id="ad-package-1" {{ $package=='free'?'checked':'' }} value="free" name="ad-package[]">
                         <label for="ad-package-1">Free</label>
 
-                        <input type="checkbox" id="ad-package-2" value="5" name="ad-package[]">
+                        <input type="checkbox" id="ad-package-2" {{ $package=='monthly'?'checked':'' }} value="monthly" name="ad-package[]">
                         <label for="ad-package-2">$5.00 per month</label>
 
-                        <input type="checkbox" id="ad-package-3" value="10" name="ad-package[]">
+                        <input type="checkbox" id="ad-package-3" {{ $package=='monthly_pro'?'checked':'' }} value="monthly_pro" name="ad-package[]">
                         <label for="ad-package-3">$10.00 per month</label>
                     </div>
                     <button type="submit" class="btn green-gradient">CONTINUE TO PAYMENTS</button>
