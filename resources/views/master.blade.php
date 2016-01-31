@@ -16,22 +16,16 @@
     <link rel="stylesheet" href="{{ asset('fonts/fonts.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap-theme.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/main-responsive.css') }}">
     <script src="{{ asset('js/vendor/modernizr-2.8.3-respond-1.4.2.min.js') }}"></script>
 </head>
 
 <body id="mjex">
 <header>
-    <nav id="top-nav" class="navbar navbar-inverse" role="navigation">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{{ url('/') }}"><img src="img/logo.png" alt="logo"></a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
+    <nav id="top-nav">
+        <a class="navbar-brand" href="{{ url('/') }}"><img id="logo" src="img/logo.png" alt="logo"></a>
+        <div>
+            <a href="{{ url('signup') }}" class="btn green-gradient sign-up-btn">SIGN UP</a>
             <form class="navbar-form navbar-right" role="form">
                 <div class="form-group">
                     <input type="text" placeholder="Email" class="form-control">
@@ -40,7 +34,6 @@
                     <input type="password" placeholder="Password" class="form-control">
                 </div>
                 <button type="submit" class="btn btn-default">LOG IN</button>
-                <a href="{{ url('signup') }}" class="btn green-gradient sign-up-btn">SIGN UP</a>
             </form>
         </div>
     </nav>

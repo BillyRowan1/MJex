@@ -1,0 +1,143 @@
+@media only screen and (min-width: 768px) {
+    .cd-faq-content {
+        display: none;
+        padding: 0 24px 30px;
+    }
+    .cd-faq-content p {
+        line-height: 1.6;
+    }
+    .no-js .cd-faq-content {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    #FindGrowers header .btn{
+        float: none;
+    }
+    .page hr{
+        width: 100%;
+        margin: 10px 0;
+    }
+    #PostAds img{
+        max-width: 100%;
+    }
+    #Signup .btn{
+        width: 100%;
+    }
+    #Contact .title{
+        font-size: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .home-search-wrap .search-submit-wrap{
+        width: 56px;
+        top: 60px;
+        border-radius: 0;
+    }
+
+.home-search-wrap .search-submit {
+    font-size: 13px;
+}
+
+.home-search-wrap .search-submit {
+    background-size: 22px;
+}
+
+.home-search-wrap .search {position: static;width: 100%;padding-left: 10px;}
+
+.home-search-wrap .zipcode {
+    width: 100%;
+    border-radius: 0;
+    float: none;
+}
+
+.home-search-wrap {
+    height: 60px;
+}
+
+.home-search-wrap .zipcode input {
+    width: 100%;
+}
+
+.home-search-wrap span {
+    font-size: 11px;
+    margin: 0;
+}
+    .navbar-toggle{
+        border: 1px solid;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    #main-menu li a {
+        font-size: 13px;
+        width: 100%;
+        line-height: 45px;
+    }
+    #pricing .wrapper {
+        position: static;
+        transform: translate(0, 0);
+        -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+        -moz-transform: translate(0, 0);
+        width: auto;
+    }
+    #pricing {
+        height: auto;
+        background: white;
+    }
+    #Home .step {
+        font-size: 14px;
+        line-height: 26px;
+        margin-top: 79px;
+    }
+    #pricing .box {
+        float: none;
+        margin: 0 auto;
+        margin-bottom: 45px;
+    }
+    #price-free .price {
+        font-size: 40px;
+    }
+    #pricing .title {}
+    #logo {
+        width: 190px;
+    }
+    .navbar-form input.form-control {
+        margin: 0 auto;
+        padding: 5px 12px;
+        width: 90%;
+    }
+    .navbar-form .form-group {
+        width: 50%;
+        float: left;
+    }
+    .navbar-form .btn {
+        margin-left: 2.5%;
+        padding: 5px 10px;
+    }
+    #top-nav .sign-up-btn {
+        float: none;
+        font-size: 14px;
+        width: 70px;
+        line-height: 32px;
+        position: absolute;
+        bottom: 9px;
+        left: 54px;
+    }
+    #main-menu {}
+    #top-nav .navbar-form {
+        border: none;
+        box-shadow: none;
+        margin-top: 0;
+        clear: both;
+        margin-bottom: -1px;
+    }
+    #top-nav {
+        height: auto;
+        margin: 0;
+        padding: 0;
+        position: relative;
+    }
+}

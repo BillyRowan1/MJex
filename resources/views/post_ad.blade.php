@@ -97,12 +97,12 @@
                 <h2>CHOOSE PAYMENT TYPE</h2>
                 <div class="row">
                     <div class="col-md-6">
-                        <a href=""><img src="img/card.png" height="131" width="388" alt=""></a>
-                        <a href=""><img src="img/paypal.png" height="210" width="327" alt=""></a>
+                        <a href=""><img src="img/card.png" alt=""></a>
+                        <a href=""><img src="img/paypal.png" alt=""></a>
                     </div>
                     <div class="col-md-6">
-                        <a href=""><img src="img/savepay.png" height="210" width="327" alt=""></a>
-                        <a href=""><img src="img/bitcoin.png" height="68" width="315" alt=""></a>
+                        <a href=""><img src="img/savepay.png" alt=""></a>
+                        <a href=""><img src="img/bitcoin.png" alt=""></a>
                     </div>
                 </div>
             </div>

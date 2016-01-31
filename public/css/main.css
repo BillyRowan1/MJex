@@ -104,13 +104,30 @@ input {
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#cccccc', endColorstr='#b4b4b4', GradientType=0);
 }
 
+#top-nav {
+    background: black;
+    height: 60px;
+}
+
+#top-nav .sign-up-btn {
+    font-size: 22px;
+    margin-top: 8px;
+    float: right;
+    padding: 0;
+    /* height: 43px; */
+    line-height: 47px;
+    width: 100px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
 #main-menu {
-    height: 80px;
     padding: 0;
     margin: 0;
-    display: block;
-    box-shadow: 0 1px 5px black;
-    margin-top: 1px;
+}
+
+.navbar-toggle .icon-bar {
+    background: white;
 }
 
 #main-menu li a {
@@ -296,6 +313,10 @@ input {
     font-size: 17px;
     margin-bottom: 20px;
     text-align: center;
+    position: absolute;
+    left: 50%;
+    margin-left: -91px;
+    top: 0;
 }
 
 #price-free .title {
@@ -354,6 +375,7 @@ input {
     box-shadow: 0 0 10px black;
     padding-bottom: 20px;
     position: relative;
+    padding-top: 52px;
 }
 
 #pricing #price-monthly {
@@ -585,7 +607,9 @@ footer {
 
 /*Sign up*/
 
-#Signup {}
+#Signup .banner {
+    width: 100%;
+}
 
 #Signup .block {
     background-color: #dddddd;
@@ -1036,9 +1060,11 @@ label:hover:before {
 .cd-faq-categories li:last-child a {
     border-bottom: none;
 }
-.cd-faq-categories{
+
+.cd-faq-categories {
     padding: 0;
 }
+
 @media only screen and (min-width: 768px) {
     .cd-faq-categories {
         width: 20%;
@@ -1229,6 +1255,13 @@ label:hover:before {
 
 .cd-close-panel.move-left {
     right: 2%;
+    color: black;
+    width: auto;
+    height: auto;
+    right: 15px;
+    display: inline-block;
+    left: auto;
+    top: 13px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -1237,7 +1270,8 @@ label:hover:before {
     }
 }
 
-.cd-faq-group {/* hide group not selected */
+.cd-faq-group {
+    /* hide group not selected */
     display: none;
     list-style: none;
 }
@@ -1300,65 +1334,74 @@ label:hover:before {
     color: #1DDF1D;
     text-decoration: none;
 }
-.cd-faq-trigger:hover{
+
+.cd-faq-trigger:hover {
     text-decoration: none;
 }
 
+
 /*@media only screen and (min-width: 768px) {*/
-    .cd-faq-trigger {
-        font-size: 24px;
-        font-weight: 300;
-        margin: 0;
-        padding: 24px 72px 24px 24px;
-    }
-    .cd-faq-trigger:before,
-    .cd-faq-trigger:after
-    {
-        /* arrow icon on the right */
-        position: absolute;
-        right: 24px;
-        top: 50%;
-        height: 2px;
-        width: 13px;
-        background: #cfdca0;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        -webkit-transition-property: -webkit-transform;
-        -moz-transition-property: -moz-transform;
-        transition-property: transform;
-        -webkit-transition-duration: 0.2s;
-        -moz-transition-duration: 0.2s;
-        transition-duration: 0.2s;
-    }
-    .cd-faq-trigger::before {
-        -webkit-transform: rotate(45deg);
-        -moz-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        -o-transform: rotate(45deg);
-        transform: rotate(45deg);
-        right: 32px;
-    }
-    .cd-faq-trigger::after {
-        -webkit-transform: rotate(-45deg);
-        -moz-transform: rotate(-45deg);
-        -ms-transform: rotate(-45deg);
-        -o-transform: rotate(-45deg);
-        transform: rotate(-45deg);
-    }
-    .content-visible .cd-faq-trigger::before {
-        -webkit-transform: rotate(-45deg);
-        -moz-transform: rotate(-45deg);
-        -ms-transform: rotate(-45deg);
-        -o-transform: rotate(-45deg);
-        transform: rotate(-45deg);
-    }
-    .content-visible .cd-faq-trigger::after {
-        -webkit-transform: rotate(45deg);
-        -moz-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        -o-transform: rotate(45deg);
-        transform: rotate(45deg);
-    }
+
+.cd-faq-trigger {
+    font-size: 24px;
+    font-weight: 300;
+    margin: 0;
+    padding: 24px 72px 24px 24px;
+}
+
+.cd-faq-trigger:before,
+.cd-faq-trigger:after {
+    /* arrow icon on the right */
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    height: 2px;
+    width: 13px;
+    background: #cfdca0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition-property: -webkit-transform;
+    -moz-transition-property: -moz-transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+}
+
+.cd-faq-trigger::before {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    right: 32px;
+}
+
+.cd-faq-trigger::after {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.content-visible .cd-faq-trigger::before {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.content-visible .cd-faq-trigger::after {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
 /*}*/
 
 .cd-faq-content p {
@@ -1366,17 +1409,4 @@ label:hover:before {
     /* font-size: 0.875rem; */
     line-height: 1.4;
     color: #6c7d8e;
-}
-
-@media only screen and (min-width: 768px) {
-    .cd-faq-content {
-        display: none;
-        padding: 0 24px 30px;
-    }
-    .cd-faq-content p {
-        line-height: 1.6;
-    }
-    .no-js .cd-faq-content {
-        display: block;
-    }
 }
