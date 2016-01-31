@@ -30,10 +30,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/contact', function () {
         return view('contact');
     });
-    Route::get('/signup', function (\Illuminate\Http\Request $request) {
-        $package = $request->input('package');
-        return view('signup', compact('package'));
-    });
+    Route::controller('signup', 'SignUpController');
     Route::get('/find-growers', function () {
         return view('find_growers');
     });
@@ -45,5 +42,4 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/faq', function () {
         return view('faq');
     });
-
 });
