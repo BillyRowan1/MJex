@@ -24,22 +24,34 @@
 */
 
 Route::group(['middleware' => ['web']], function () {
+    Route::auth();
+
     Route::get('/', function () {
-        return view('home');
+        return view('index');
     });
+
     Route::get('/contact', function () {
         return view('contact');
     });
-    Route::controller('signup', 'SignUpController');
+
     Route::get('/find-growers', function () {
         return view('find_growers');
-    });
-
-    Route::get('/post-ad', function () {
-        return view('post_ad');
     });
 
     Route::get('/faq', function () {
         return view('faq');
     });
+
+    Route::get('/home', 'HomeController@index');
+
+    Route::group(['middleware' => ['auth']], function () {
+        Route::get('account', function(){
+            return view('account');
+        });
+
+        Route::get('/post-ad', function () {
+            return view('post_ad');
+        });
+    });
+
 });

@@ -2,6 +2,7 @@
 
 namespace Mjex\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
 use Mjex\User;
 use Validator;
 use Mjex\Http\Controllers\Controller;
@@ -28,45 +29,71 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/account';
 
     /**
      * Create a new authentication controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Request $request)
     {
-        $this->middleware('guest', ['except' => 'logout']);
+        $this->middleware('guest', ['except' => 'logout','getRegister']);
+        $this->request = $request;
+    }
+
+    public function showRegistrationForm()
+    {
+        $package = $this->request->input('package');
+        return view('auth.register',compact('package'));
     }
 
     /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
+     * Sign up as Seller
+     * @param Request $request
+     * @return array|string
      */
-    protected function validator(array $data)
+    public function postRegister(Request $request)
     {
-        return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|confirmed|min:6',
-        ]);
+        $rules = [
+            'email' => 'required|email',
+            'password' => 'required',
+            'community_name' => 'required|unique:users,community_name|min:3',
+            'zipcode' => 'required|numeric',
+        ];
+        if($request->input('_type') == 'seller') {
+            $rules['package'] = 'required';
+            $rules['delivery'] = 'required|boolean';
+        }
+        $this->validate($request,$rules);
+
+        $user = new User;
+        $user->email = $request->input('email');
+        $user->type = $request->input('_type');
+        $user->password = \Hash::make($request->input('password'));
+        $anonymous_email = $this->incrementalHash() . '@mjex.com';
+        $user->anonymous_email = $anonymous_email;
+        $user->community_name = $request->input('community_name');
+        $user->zipcode = $request->input('zipcode');
+        $user->package = $request->input('package','none');
+        $user->delivery = $request->input('delivery',false);
+        if($request->has('purpose')) $user->purpose = json_encode($request->input('purpose'));
+
+        $user->save();
+        return redirect()->back()->with('message','Thank you for sign up. Now you can login to our system using anonymous email: '. $anonymous_email);
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return User
-     */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+    private function incrementalHash($len = 6){
+        $charset = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+        $base = strlen($charset);
+        $result = '';
+
+        $now = explode(' ', microtime())[1];
+        while ($now >= $base){
+            $i = $now % $base;
+            $result = $charset[$i] . $result;
+            $now /= $base;
+        }
+        return substr($result, -5);
     }
 }

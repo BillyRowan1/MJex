@@ -25,7 +25,7 @@
     <nav id="top-nav">
         <a class="navbar-brand" href="{{ url('/') }}"><img id="logo" src="img/logo.png" alt="logo"></a>
         <div>
-            <a href="{{ url('signup') }}" class="btn green-gradient sign-up-btn">SIGN UP</a>
+            <a href="{{ url('register') }}" class="btn green-gradient sign-up-btn">SIGN UP</a>
             <form class="navbar-form navbar-right" role="form">
                 <div class="form-group">
                     <input type="text" placeholder="Email" class="form-control">

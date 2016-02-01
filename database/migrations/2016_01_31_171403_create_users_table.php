@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSellersTable extends Migration
+class CreateUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,16 +12,17 @@ class CreateSellersTable extends Migration
      */
     public function up()
     {
-        Schema::create('sellers', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
+            $table->enum('type',['seeker','seller']);
             $table->string('email');
             $table->string('password', 60);
             $table->string('anonymous_email')->unique();
-            $table->string('community_name');
+            $table->string('community_name')->unique();
             $table->string('zipcode');
             $table->boolean('delivery');
             $table->string('purpose');
-            $table->enum('package',['free','monthly','monthly_pro']);
+            $table->enum('package',['none','free','monthly','monthly_pro']);
             $table->timestamps();
         });
     }
@@ -33,6 +34,6 @@ class CreateSellersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('sellers');
+        Schema::drop('users');
     }
 }

@@ -12,11 +12,12 @@
             <div class="col-md-6">
                 <div class="block seeker">
                     <h3 class="title">SIGN UP AS SEEKER</h3>
-                    <form action="{{ url('signup/seeker') }}" method="post">
+                    <form action="{{ url('register') }}" method="post">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="hidden" name="_type" value="seeker">
                         <div class="form-group">
                             <label for="">Email*</label>
-                            <input type="email" name="email" value="{{ old('email') }}" class="form-control">
+                            <input type="email" name="email" value="{{ old('_type')=='seeker'?old('email'):'' }}" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="">Password*</label>
@@ -24,11 +25,11 @@
                         </div>
                         <div class="form-group">
                             <label for="">Your Community Name*</label>
-                            <input type="text" name="community_name" value="{{ old('community_name') }}" class="form-control">
+                            <input type="text" name="community_name" value="{{ old('_type')=='seeker'?old('community_name'):'' }}" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="">Zipcode*</label>
-                            <input type="text" name="zipcode" value="{{ old('zipcode') }}" class="form-control">
+                            <input type="text" name="zipcode" value="{{ old('_type')=='seeker'?old('zipcode'):'' }}" class="form-control">
                         </div>
                         <label for="">Select as many as apply</label>
                         <div class="form-group checkbox-group circle-checkboxes clearfix">
@@ -51,11 +52,12 @@
             <div class="col-md-6">
                 <div class="block business">
                     <h3 class="title">SIGN UP AS A BUSINESS</h3>
-                    <form action="{{ url('signup/seller') }}" method="post">
+                    <form action="{{ url('register') }}" method="post">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="hidden" name="_type" value="seller">
                         <div class="form-group">
                             <label for="">Email*</label>
-                            <input type="email" name="email" value="{{ old('email') }}" class="form-control">
+                            <input type="email" name="email" value="{{ old('_type')=='seller'?old('email'):'' }}" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="">Password*</label>
@@ -63,11 +65,11 @@
                         </div>
                         <div class="form-group">
                             <label for="">Your Community Name*</label>
-                            <input type="text" name="community_name" value="{{ old('community_name') }}" class="form-control">
+                            <input type="text" name="community_name" value="{{ old('_type')=='seller'?old('community_name'):'' }}" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="">Zipcode*</label>
-                            <input type="text" name="zipcode" value="{{ old('zipcode') }}" class="form-control">
+                            <input type="text" name="zipcode" value="{{ old('_type')=='seller'?old('zipcode'):'' }}" class="form-control">
                             <div class="form-group">
                             </div>
                             <label for="">Delivery</label>
@@ -99,13 +101,13 @@
                         </div>
                         <label for="">Choose ad package</label>
                         <div class="form-group checkbox-group circle-checkboxes clearfix">
-                            <input type="checkbox" id="package-1" {{ $package=='free'?'checked':'' }} value="free" name="package">
+                            <input type="checkbox" id="package-1" {{ (!empty($package)&&$package=='free')?'checked':'' }} value="free" name="package">
                             <label for="package-1">Free</label>
 
-                            <input type="checkbox" id="package-2" {{ $package=='monthly'?'checked':'' }} value="monthly" name="package">
+                            <input type="checkbox" id="package-2" {{ (!empty($package)&&$package=='monthly')?'checked':'' }} value="monthly" name="package">
                             <label for="package-2">$5.00 per month</label>
 
-                            <input type="checkbox" id="package-3" {{ $package=='monthly_pro'?'checked':'' }} value="monthly_pro" name="package">
+                            <input type="checkbox" id="package-3" {{ (!empty($package)&&$package=='monthly_pro')?'checked':'' }} value="monthly_pro" name="package">
                             <label for="package-3">$10.00 per month</label>
                         </div>
                         <button type="submit" class="btn green-gradient">CONTINUE TO PAYMENTS</button>
