@@ -24,18 +24,31 @@
 <header>
     <nav id="top-nav">
         <a class="navbar-brand" href="{{ url('/') }}"><img id="logo" src="img/logo.png" alt="logo"></a>
+        @if(!auth()->user())
         <div>
             <a href="{{ url('register') }}" class="btn green-gradient sign-up-btn">SIGN UP</a>
-            <form class="navbar-form navbar-right" role="form">
+            <form class="navbar-form navbar-right" method="post" action="{{ url('login') }}" role="form">
+                {!! csrf_field() !!}
+                <input type="hidden" name="_topbar_login" value="1">
+                <script>
+                    @if (count($errors) > 0 && old('_topbar_login') == '1')
+                        @foreach ($errors->all() as $error)
+                            alert('{{ $error . '\n' }}');
+                        @endforeach
+                    @endif
+                </script>
                 <div class="form-group">
-                    <input type="text" placeholder="Email" class="form-control">
+                    <input type="text" placeholder="Email" name="email" class="form-control">
                 </div>
                 <div class="form-group">
-                    <input type="password" placeholder="Password" class="form-control">
+                    <input type="password" placeholder="Password" name="password" class="form-control">
                 </div>
                 <button type="submit" class="btn btn-default">LOG IN</button>
             </form>
         </div>
+        @else
+            <p class="welcome">Welcome, {{ auth()->user()->community_name }}. <a href="{{ url('logout') }}">Logout</a></p>
+        @endif
     </nav>
     @include('inc.menu')
 </header>

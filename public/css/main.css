@@ -108,7 +108,18 @@ input {
     background: black;
     height: 60px;
 }
+#top-nav .welcome{
+    color: white;
+    float: right;
+    margin-right: 20px;
+    line-height: 59px;
+    padding: 0;
+    margin-bottom: 0;
+}
 
+#top-nav .welcome a {
+    color: #38F238;
+}
 #top-nav .sign-up-btn {
     font-size: 22px;
     margin-top: 8px;

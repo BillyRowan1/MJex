@@ -45,9 +45,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/home', 'HomeController@index');
 
     Route::group(['middleware' => ['auth']], function () {
-        Route::get('account', function(){
-            return view('account');
-        });
+        Route::controller('account','AccountController');
 
         Route::get('/post-ad', function () {
             return view('post_ad');

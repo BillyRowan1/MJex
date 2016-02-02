@@ -11,7 +11,7 @@
             <div class="col-md-6 col-md-offset-3">
                 <div class="block seeker">
                     <h3 class="title">SIGN IN</h3>
-                    <form action="{{ url('signin') }}" method="post">
+                    <form action="{{ url('login') }}" method="post">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-group">
                             <label for="">Email*</label>

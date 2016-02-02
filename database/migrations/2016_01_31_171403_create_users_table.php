@@ -22,7 +22,10 @@ class CreateUsersTable extends Migration
             $table->string('zipcode');
             $table->boolean('delivery');
             $table->string('purpose');
+            $table->string('state');
+            $table->string('country');
             $table->enum('package',['none','free','monthly','monthly_pro']);
+            $table->rememberToken();
             $table->timestamps();
         });
     }
