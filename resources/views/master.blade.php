@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('fonts/fonts.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap-theme.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('libs/trumbo/ui/trumbowyg.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('css/main-responsive.css') }}">
     <script src="{{ asset('js/vendor/modernizr-2.8.3-respond-1.4.2.min.js') }}"></script>
@@ -23,7 +24,7 @@
 <body id="mjex">
 <header>
     <nav id="top-nav">
-        <a class="navbar-brand" href="{{ url('/') }}"><img id="logo" src="img/logo.png" alt="logo"></a>
+        <a class="navbar-brand" href="{{ url('/') }}"><img id="logo" src="{{ asset('img/logo.png') }}" alt="logo"></a>
         @if(!auth()->user())
         <div>
             <a href="{{ url('register') }}" class="btn green-gradient sign-up-btn">SIGN UP</a>
@@ -85,11 +86,15 @@
 
 <script src="{{ asset('libs/jquery.min.js') }}"></script>
 <script>
-    window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
+    window.jQuery || document.write('<script src="libs/jquery.min.js"><\/script>')
 </script>
 <script src="{{ asset('js/vendor/bootstrap.min.js') }}"></script>
 <script src="{{ asset('libs/jquery.nicescroll/jquery.nicescroll.min.js') }}"></script>
+<script src="{{ asset('libs/trumbo/trumbowyg.min.js') }}"></script>
+
 <script src="{{ asset('js/main.js') }}"></script>
+
+@yield('page-js')
 </body>
 
 </html>

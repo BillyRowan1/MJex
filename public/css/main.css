@@ -961,14 +961,31 @@ label:hover:before {
     padding: 15px;
     margin: 0;
 }
-
+/*Post ad*/
+.simple-editor.trumbowyg-editor{
+    background-color: white;
+}
+.trumbowyg-box, .trumbowyg-editor{
+    width: 100%;
+}
+#PostAds img.preview{
+    width: 100%;
+    border: none;
+    display: none;
+}
+#postAdEditorTxt{
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
 #PostAds .box {
     background-color: #eeeeee;
     padding: 20px 30px;
     margin-top: 30px;
 }
 
-#PostAds .btn-group {
+#PostAds .btn-group.mjex {
     margin-top: 30px;
     left: 50%;
     transform: translateX(-50%);
@@ -977,7 +994,7 @@ label:hover:before {
     -ms-transform: translateX(-50%);
 }
 
-#PostAds .btn-group .btn {
+#PostAds .btn-group.mjex .btn {
     margin-right: 15px;
     border-radius: 5px;
     font-size: 20px;

@@ -2,91 +2,123 @@
 
 @section('main')
     <section id="PostAds" class="container">
-        <div class="btn-group">
+        <div class="btn-group mjex">
             <a href="#" class="btn green-gradient">post a free ad</a>
             <a href="#" class="btn green-gradient">post a paid ad</a>
         </div>
-
-        <div id="step1">
-            <div class="box">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="">Type of Product</label>
-                            <select name="type-of-product" class="form-control">
-                                <option value="Flowers">Flowers</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="">Unit Description</label>
-                            <select name="unit-desc" class="form-control">
-                                <option value="Ounce">Ounce</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="">Amount</label>
-                            <input type="text" class="form-control" name="amount">
-                        </div>
-                        <div class="form-group">
-                            <label for="">Header color</label>
-                            <select name="header-color" class="form-control"></select>
-                        </div>
-                        <div class="form-group">
-                            <label for="">Location</label>
-                            <input type="text" class="form-control" name="location">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="">Type of Strain</label>
-                            <input type="text" class="form-control" name="type-of-strain">
-                        </div>
-                        <div class="form-group">
-                            <label for="">Price per Unit in USD</label>
-                            <input type="text" class="form-control" name="type-of-strain">
-                        </div>
-                        <div class="form-group">
-                            <label>Price per Quantity in USD</label>
-                            <div class="clearfix">
-                                <div class="input-box">
-                                    <span>Gram</span>
-                                    <input type="text" name="ppq-gram">
+        @include('inc.msg')
+        <form action="{{ route('ad.store') }}" method="post" enctype="multipart/form-data">
+            <div id="step1">
+                    {!! csrf_field() !!}
+                    <div class="box">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Type of Product</label>
+                                    <select name="type_of_product" class="form-control">
+                                        <option value="Flowers">Flowers</option>
+                                    </select>
                                 </div>
-                                <div class="input-box">
-                                    <span>Eighth</span>
-                                    <input type="text" name="ppq-eighth">
+                                <div class="form-group">
+                                    <label for="">Unit Description</label>
+                                    <select name="unit_desc" class="form-control">
+                                        <option value="Ounce">Ounce</option>
+                                    </select>
                                 </div>
-                                <div class="input-box">
-                                    <span>Quarter</span>
-                                    <input type="text" name="ppq-quarter">
+                                <div class="form-group">
+                                    <label for="">Amount</label>
+                                    <input type="text" class="form-control" name="amount">
                                 </div>
-                                <div class="input-box">
-                                    <span>Half</span>
-                                    <input type="text" name="ppq-half">
+                                <div class="form-group">
+                                    <label for="">Header color</label>
+                                    <select name="header_color" class="form-control">
+                                        <option value="green">Green</option>
+                                        <option value="red">Red</option>
+                                        <option value="blue">Blue</option>
+                                        <option value="purple">Purple</option>
+                                        <option value="dark_gray">Dark gray</option>
+                                    </select>
                                 </div>
-                                <div class="input-box">
-                                    <span>Ounce</span>
-                                    <input type="text" name="ppq-ounce">
+                                <div class="form-group">
+                                    <label for="">Location</label>
+                                    <input type="text" class="form-control" name="location">
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="">Upload Logo/Product for Thumbnnail</label>
-                            <input type="file" name="thumb">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Type of Strain</label>
+                                    <input type="text" class="form-control" name="type_of_strain">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Price per Unit in USD</label>
+                                    <input type="text" class="form-control" name="price_per_unit">
+                                </div>
+                                <div class="form-group">
+                                    <label>Price per Quantity in USD</label>
+                                    <div class="clearfix">
+                                        <div class="input-box">
+                                            <span>Gram</span>
+                                            <input type="text" name="price_per_quantity[][gram]">
+                                        </div>
+                                        <div class="input-box">
+                                            <span>Eighth</span>
+                                            <input type="text" name="price_per_quantity[][eighth]">
+                                        </div>
+                                        <div class="input-box">
+                                            <span>Quarter</span>
+                                            <input type="text" name="price_per_quantity[][quater]">
+                                        </div>
+                                        <div class="input-box">
+                                            <span>Half</span>
+                                            <input type="text" name="price_per_quantity[][half]">
+                                        </div>
+                                        <div class="input-box">
+                                            <span>Ounce</span>
+                                            <input type="text" name="price_per_quantity[][ounce]">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Upload Logo/Product for Thumbnail</label>
+                                    <input type="file" name="thumb" accept="image/*">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <div class="simple-editor" id="adContent"></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group col-md-12">
-                        <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
-                    </div>
-                </div>
-            </div>
-            <div class="dropzone">
-                <label for="">Upload up to 4 Photos</label>
-            </div>
-        </div>
-        <!-- /#step1 -->
+                    <div class="dropzone">
+                        <h3 class="text-center">Upload up to 4 Photos</h3>
 
-        <div class="row" id="step2">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img src="" class="preview">
+                                <input type="file" name="gallery[]" accept="image/*">
+                            </div>
+                            <div class="col-md-3">
+                                <img src="" class="preview">
+                                <input type="file" name="gallery[]" accept="image/*">
+                            </div>
+                            <div class="col-md-3">
+                                <img src="" class="preview">
+                                <input type="file" name="gallery[]" accept="image/*">
+                            </div>
+                            <div class="col-md-3">
+                                <img src="" class="preview">
+                                <input type="file" name="gallery[]" accept="image/*">
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <!-- /#step1 -->
+            <div class="btn-group mjex">
+                <a href="#" class="btn green-gradient">skip</a>
+                <button type="submit" class="btn green-gradient">next</button>
+            </div>
+        </form>
+
+        <div class="row" id="step2" style="display: none;">
             <header>
                 <div class="col-md-12">
                     <h3 class="title">Welcome to the ad payment page</h3>
@@ -108,10 +140,32 @@
             </div>
         </div>
         <!-- /#step2 -->
-
-        <div class="btn-group">
-            <a href="#" class="btn green-gradient">skip</a>
-            <a href="post-ad-2.php" class="btn green-gradient">next</a>
-        </div>
     </section>
+@endsection
+
+@section('page-js')
+    <script>
+        function previewFile(input, previewImg) {
+            var preview = previewImg;
+            var file    = input.files[0];
+            var reader  = new FileReader();
+
+            reader.onloadend = function () {
+                preview.src = reader.result;
+            }
+
+            if (file) {
+                reader.readAsDataURL(file);
+            } else {
+                preview.src = "";
+            }
+        }
+        jQuery(document).ready(function($) {
+            $('[name="gallery[]"]').change(function(){
+                var previewImg = $(this).parent().find('img');
+                previewImg.show();
+                previewFile($(this)[0], previewImg[0]);
+            });
+        });
+    </script>
 @endsection

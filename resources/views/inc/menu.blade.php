@@ -15,8 +15,8 @@
         @else
             <li class="active"><a href="{{ url('account') }}">account</a></li>
         @endif
-	    <li><a href="{{ url('post-ad') }}">post ad</a></li>
-	    <li><a href="{{ url('find-growers') }}">find growers</a></li>
-	    <li><a href="{{ url('faq') }}">faq</a></li>	
+        <li><a href="{{ route('ad.create') }}">post ad</a></li>
+        <li><a href="{{ url('find-growers') }}">find growers</a></li>
+	    <li><a href="{{ url('faq') }}">faq</a></li>
     </ul>
 </nav>

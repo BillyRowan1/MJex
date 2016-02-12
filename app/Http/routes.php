@@ -46,10 +46,10 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::group(['middleware' => ['auth']], function () {
         Route::controller('account','AccountController');
-
-        Route::get('/post-ad', function () {
-            return view('post_ad');
-        });
+        Route::controller('ad', 'AdController', [
+            'getCreate' => 'ad.create',
+            'postStore' => 'ad.store',
+            'postRePost' => 'ad.repost'
+        ]);
     });
-
 });
