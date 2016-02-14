@@ -20,7 +20,7 @@
                 <h2 class="step"><span class="green-text">Step 1</span>  Sign Up to open an account with an anonymous email.
                     <br><span class="green-text">Step 2</span>  Use your anonymous email to buy and sell.</h2>
 
-                <div class="section-posts">
+                <div style="display: none;" class="section-posts">
                     <h2 class="title">search results</h2>
                     <div class="sort">
                         Sort By: <a href="#">latest</a> <a href="#">closest to me</a>
