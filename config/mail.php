@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'cs@mjex.co', 'name' => 'Marijuana Exchange'],
+    'from' => ['address' => 'JayMjex@gmail.com', 'name' => 'Marijuana Exchange'],
 
     /*
     |--------------------------------------------------------------------------

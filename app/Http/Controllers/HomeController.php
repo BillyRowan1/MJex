@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Mjex\Http\Controllers;
 
-use App\Http\Requests;
+use Mjex\Http\Requests;
 use Illuminate\Http\Request;
+use Mjex\Ad;
+use Mjex\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
@@ -24,6 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $latestAds = Ad::orderBy('created_at','desc')->limit(10)->get();
+        return view('index', compact('latestAds'));
     }
 }

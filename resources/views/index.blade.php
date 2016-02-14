@@ -114,38 +114,41 @@
                         Sort By: <a href="#">latest</a> <a href="#">closest to me</a>
                     </div>
 
-                    <div class="post">
-                        <table>
-                            <thead class="red-bg">
-                            <th>SELLER</th>
-                            <th>TYPE OF PRODUCT</th>
-                            <th>TYPE OR STRAIN</th>
-                            <th>UNIT</th>
-                            <th>DESC</th>
-                            <th>PRICE/UNIT</th>
-                            <th>AMT</th>
-                            <th>LOCATION</th>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>bambam (30+; 100%)      </td>
-                                <td>Flowers         </td>
-                                <td>Sativa/Sour Diesel  </td>
-                                <td>Gram            </td>
-                                <td>20 USD          </td>
-                                <td>2       </td>
-                                <td>Michigan/USA</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <div class="content">
-                            <div class="thumb"></div>
-                            <p>This is where 3 lines of text for the ad that the buyer wants.
-                                This is where 3 lines of text for the ad that the buyer wants.This is where 3 lines of text for the ad that the buyer wants. This
-                                of text for the ad that the buyer wants. This is where 3 lines of text for the ad that the buyer wants. This is where 3 lines of.</p>
-                        </div>
-                    </div>
-                    <!-- end post -->
+                    @if($latestAds)
+                        @foreach($latestAds as $ad)
+                            <div class="post">
+                                <table>
+                                    <thead class="red-bg" style="background-color: {{ $ad->header_color }};">
+                                        <th>SELLER</th>
+                                        <th>TYPE OF PRODUCT</th>
+                                        <th>TYPE OR STRAIN</th>
+                                        <th>UNIT DESC</th>
+                                        <th>PRICE/UNIT</th>
+                                        <th>AMT</th>
+                                        <th>LOCATION</th>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>{{ $ad->user->community_name }}</td>
+                                        <td>{{ $ad->type_of_product }}</td>
+                                        <td>{{ $ad->type_of_strain }}</td>
+                                        <td>{{ $ad->unit_desc }}</td>
+                                        <td>{{ $ad->price_per_unit }}</td>
+                                        <td></td>
+                                        <td>{{ $ad->location }}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <div class="content clearfix">
+                                    @if(!empty($ad->thumb))
+                                    <div class="thumb" style="background-image: url('{{ url($ad->thumb) }}')"></div>
+                                    @endif
+                                    <p>{!! $ad->content !!}</p>
+                                </div>
+                            </div>
+                            <!-- end post -->
+                        @endforeach
+                    @endif
                 </div>
             </div>
         </div>

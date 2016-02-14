@@ -31,6 +31,7 @@ class AdController extends Controller
         ]);
 
         $ad = new Ad;
+        $ad->user_id = auth()->user()->id;
         $ad->type_of_product = $request->input('type_of_product');
         $ad->unit_desc = $request->input('unit_desc');
         $ad->amount = $request->input('amount');

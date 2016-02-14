@@ -46,6 +46,9 @@
                             <label for="for-adult">Adult use</label>
                         </div>
                         <button type="submit" class="btn green-gradient">SIGN UP</button>
+                        <br>
+                        <span style="text-align: center; display: block;">Already have account?</span>
+                        <a href="{{ url('login') }}" class="btn btn-default">SIGN IN</a>
                     </form>
                 </div>
             </div>

@@ -32,11 +32,11 @@
                                 <div class="form-group">
                                     <label for="">Header color</label>
                                     <select name="header_color" class="form-control">
-                                        <option value="green">Green</option>
-                                        <option value="red">Red</option>
-                                        <option value="blue">Blue</option>
-                                        <option value="purple">Purple</option>
-                                        <option value="dark_gray">Dark gray</option>
+                                        <option value="#00cc00">Green</option>
+                                        <option value="#ff0000">Red</option>
+                                        <option value="#0000ff">Blue</option>
+                                        <option value="#970097">Purple</option>
+                                        <option value="#333">Dark gray</option>
                                     </select>
                                 </div>
                                 <div class="form-group">

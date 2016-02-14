@@ -5,7 +5,7 @@
             <header>
                 <div class="col-md-12">
                     <h3 class="title">Welcome to the find a grower page</h3>
-                    <a href="#" class="btn green-gradient">REGISTER AS A GROWER</a>
+                    <a href="{{ url('register') }}" class="btn green-gradient">REGISTER AS A GROWER</a>
                     <hr>
                 </div>
             </header>

@@ -493,10 +493,17 @@ footer {
     padding: 10px;
 }
 
+#Home .content{
+    padding-top: 0;
+}
+
 .post .content .thumb {
     width: 55px;
     height: 55px;
-    background-color: #333;
+    /*background-color: #333;*/
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     float: left;
     margin-right: 10px;
 }

@@ -5,22 +5,24 @@
         <h1 class="title">Find Classifieds, Growers, Dispensaries <br>and Other <span class="green-text">Cannabis</span> Products</h1>
         <div class="row">
             <div class="col-md-6">
-                <form action="contact.php" class="form-inline">
+                @include('inc.msg')
+                <form action="{{ route('contact') }}" method="post" class="form-inline">
+                    {!! csrf_field() !!}
                     <div class="form-group">
                         <label for="">Name*</label>
-                        <input type="text" class="form-control">
+                        <input type="text" name="name" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="">Email*</label>
-                        <input type="text" class="form-control">
+                        <input type="email" name="email" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="">Subject</label>
-                        <input type="text" class="form-control">
+                        <label for="">Subject*</label>
+                        <input type="text" name="subject" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="">Phone</label>
-                        <input type="text" class="form-control">
+                        <input type="text" name="phone" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="">Message*</label>

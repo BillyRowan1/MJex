@@ -26,13 +26,9 @@
 Route::group(['middleware' => ['web']], function () {
     Route::auth();
 
-    Route::get('/', function () {
-        return view('index');
-    });
-
-    Route::get('/contact', function () {
-        return view('contact');
-    });
+    Route::controller('contact', 'ContactController',[
+        'getIndex' => 'contact'
+    ]);
 
     Route::get('/find-growers', function () {
         return view('find_growers');
@@ -42,7 +38,7 @@ Route::group(['middleware' => ['web']], function () {
         return view('faq');
     });
 
-    Route::get('/home', 'HomeController@index');
+    Route::get('/', 'HomeController@index');
 
     Route::group(['middleware' => ['auth']], function () {
         Route::controller('account','AccountController');
