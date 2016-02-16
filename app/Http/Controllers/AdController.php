@@ -10,9 +10,14 @@ use Mjex\Http\Controllers\Controller;
 
 class AdController extends Controller
 {
-    public function getCreate()
+    public function getCreateFree()
     {
-        return view('post_ad');
+        return view('post_free_ad');
+    }
+
+    public function getCreatePaid()
+    {
+        return view('post_paid_ad');
     }
 
     public function postStore(Request $request)
@@ -42,7 +47,11 @@ class AdController extends Controller
         if($request->has('price_per_quantity')) {
             $ad->price_per_quantity = json_encode($request->input('price_per_quantity'));
         }
-        $ad->content = $request->input('adContent');
+        if($request->input('ad_type')=="free"){
+            $ad->content = strip_tags($request->input('adContent'));
+        }else{
+            $ad->content = $request->input('adContent');
+        }
         $ad->expired_date = strtotime('now') + 30*86400;
 
         $destinationPath = 'uploads';

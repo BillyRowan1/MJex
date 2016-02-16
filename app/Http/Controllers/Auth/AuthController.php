@@ -80,7 +80,7 @@ class AuthController extends Controller
         if($request->has('purpose')) $user->purpose = json_encode($request->input('purpose'));
 
         $user->save();
-        return redirect()->back()->with('message','Thank you for sign up. Now you can login to our system using anonymous email: '. $request->input('email'));
+        return redirect()->back()->with('message','Thank you for sign up. Now you can login to our system using email: '. $request->input('email'));
     }
 
     private function incrementalHash($len = 6){

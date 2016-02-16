@@ -3,13 +3,15 @@
 @section('main')
     <section id="PostAds" class="container">
         <div class="btn-group mjex">
-            <a href="#" class="btn green-gradient">post a free ad</a>
-            <a href="#" class="btn green-gradient">post a paid ad</a>
+            <a href="{{ route('ad.create.free') }}" class="btn green-gradient">post a free ad</a>
+            <a href="{{ route('ad.create.paid') }}" class="btn green-gradient">post a paid ad</a>
         </div>
+        <h2 class="text-center">Free ad</h2>
         @include('inc.msg')
         <form action="{{ route('ad.store') }}" method="post" enctype="multipart/form-data">
             <div id="step1">
                     {!! csrf_field() !!}
+                <input type="hidden" name="ad_type" value="free">
                     <div class="box">
                         <div class="row">
                             <div class="col-md-6">
@@ -46,8 +48,15 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="">Type of Strain</label>
-                                    <input type="text" class="form-control" name="type_of_strain">
+                                    <label for="">Type or Strain</label>
+                                    <select name="type_of_strain" class="form-control">
+                                        <option value="Edibles">Edibles</option>
+                                        <option value="Flower">Flower</option>
+                                        <option value="Oil">Oil</option>
+                                        <option value="Tincture">Tincture</option>
+                                        <option value="Patches">Patches</option>
+                                        <option value="Indica/Sativa">Indica/Sativa</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Price per Unit in USD</label>
@@ -83,8 +92,10 @@
                                     <input type="file" name="thumb" accept="image/*">
                                 </div>
                             </div>
+                            <hr class="clearfix" style="border-color: #000000;">
                             <div class="form-group col-md-12">
-                                <div class="simple-editor" id="adContent"></div>
+                                <label for="">Ad content</label>
+                                <input type="text" placeholder="This is one line of text that buyers want" name="adContent" class="form-control">
                             </div>
                         </div>
                     </div>
@@ -113,7 +124,7 @@
             </div>
             <!-- /#step1 -->
             <div class="btn-group mjex">
-                <a href="#" class="btn green-gradient">skip</a>
+                {{--<a href="#" class="btn green-gradient">skip</a>--}}
                 <button type="submit" class="btn green-gradient">next</button>
             </div>
         </form>

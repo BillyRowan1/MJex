@@ -30,20 +30,22 @@ Route::group(['middleware' => ['web']], function () {
         'getIndex' => 'contact'
     ]);
 
-    Route::get('/find-growers', function () {
-        return view('find_growers');
-    });
+    Route::controller('find-growers', 'FindGrowerController',[
+        'getIndex' => 'find-growers'
+    ]);
 
     Route::get('/faq', function () {
         return view('faq');
     });
 
     Route::get('/', 'HomeController@index');
+    Route::post('search', 'HomeController@search');
 
     Route::group(['middleware' => ['auth']], function () {
         Route::controller('account','AccountController');
         Route::controller('ad', 'AdController', [
-            'getCreate' => 'ad.create',
+            'getCreateFree' => 'ad.create.free',
+            'getCreatePaid' => 'ad.create.paid',
             'postStore' => 'ad.store',
             'postRePost' => 'ad.repost'
         ]);

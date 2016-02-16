@@ -5,7 +5,9 @@
             <header>
                 <div class="col-md-12">
                     <h3 class="title">Welcome to the find a grower page</h3>
+                    @if(auth()->user()->type!="seller" || !in_array('grower',json_decode(auth()->user()->purpose)))
                     <a href="{{ url('register') }}" class="btn green-gradient">REGISTER AS A GROWER</a>
+                    @endif
                     <hr>
                 </div>
             </header>
@@ -22,7 +24,9 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                <form action="find-growers.php">
+                @include('inc.msg')
+                <form action="{{ route('find-growers') }}" method="post">
+                    {!! csrf_field() !!}
                     <div class="form-group">
                         <label for="">Subject</label>
                         <input type="text" name="subject" class="form-control">

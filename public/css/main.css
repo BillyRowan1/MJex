@@ -482,7 +482,11 @@ footer {
     margin: 0 10px;
 }
 
-.post {}
+.post {
+    margin-bottom: 15px;
+    border: 1px solid black;
+    background-color: #F5F5F5;
+}
 
 .post table {
     width: 100%;
@@ -495,6 +499,10 @@ footer {
 
 #Home .content{
     padding-top: 0;
+}
+
+.post .content p{
+    margin: 0;
 }
 
 .post .content .thumb {

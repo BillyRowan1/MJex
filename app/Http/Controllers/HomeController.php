@@ -19,4 +19,20 @@ class HomeController extends Controller
         $latestAds = Ad::orderBy('created_at','desc')->limit(10)->get();
         return view('index', compact('latestAds'));
     }
+
+    public function search(Request $request)
+    {
+        $this->validate($request,[
+            'keyword' => 'required'
+        ]);
+
+        $query = $request->input('keyword');
+
+        $latestAds = Ad::orderBy('created_at','desc')->limit(10)->get();
+        $searchResults = Ad::search($query)
+            ->with('user')
+            ->get();
+
+        return view('index', compact('searchResults','latestAds'));
+    }
 }

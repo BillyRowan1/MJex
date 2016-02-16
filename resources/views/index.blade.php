@@ -7,58 +7,68 @@
             <div class="row">
                 <img src="img/logo2.png" alt="logo" class="second-logo">
                 <h1 class="title">Connecting <span class="green-text">Seekers and Sellers</span> Anonymously</h1>
+                @include('inc.msg')
                 <div class="home-search-wrap clearfix">
-                    <div class="zipcode">
-                        <span>Your zipcode</span>
-                        <input type="text" name="zipcode">
-                    </div>
-                    <input type="text" placeholder="What are you looking for?" class="search">
-                    <div class="green-gradient search-submit-wrap">
-                        <button class="search-submit" type="submit">Search</button>
-                    </div>
-                </div>
-                <h2 class="step"><span class="green-text">Step 1</span>  Sign Up to open an account with an anonymous email.
-                    <br><span class="green-text">Step 2</span>  Use your anonymous email to buy and sell.</h2>
+                    <form action="{{ url('search') }}" method="post">
+                        {!! csrf_field() !!}
+                        <div class="zipcode">
+                            <span>Your zipcode</span>
+                            <input type="text" name="zipcode">
+                        </div>
+                        <input type="text" name="keyword" placeholder="What are you looking for?" class="search">
+                        <div class="green-gradient search-submit-wrap">
+                            <button class="search-submit" type="submit">Search</button>
+                        </div>
+                    </form>
 
-                <div style="display: none;" class="section-posts">
+                </div>
+                {{--Search results--}}
+                @if(isset($searchResults))
+                <div class="section-posts">
                     <h2 class="title">search results</h2>
                     <div class="sort">
                         Sort By: <a href="#">latest</a> <a href="#">closest to me</a>
                     </div>
 
-                    <div class="post">
-                        <table>
-                            <thead class="red-bg">
-                            <th>SELLER</th>
-                            <th>TYPE OF PRODUCT</th>
-                            <th>TYPE OR STRAIN</th>
-                            <th>UNIT</th>
-                            <th>DESC</th>
-                            <th>PRICE/UNIT</th>
-                            <th>AMT</th>
-                            <th>LOCATION</th>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>bambam (30+; 100%)      </td>
-                                <td>Flowers         </td>
-                                <td>Sativa/Sour Diesel  </td>
-                                <td>Gram            </td>
-                                <td>20 USD          </td>
-                                <td>2       </td>
-                                <td>Michigan/USA</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <div class="content">
-                            <div class="thumb"></div>
-                            <p>This is where 3 lines of text for the ad that the buyer wants.
-                                This is where 3 lines of text for the ad that the buyer wants.This is where 3 lines of text for the ad that the buyer wants. This
-                                of text for the ad that the buyer wants. This is where 3 lines of text for the ad that the buyer wants. This is where 3 lines of.</p>
+                    @foreach($searchResults as $ad)
+                        <div class="post">
+                            <table>
+                                <thead class="red-bg" style="background-color: {{ $ad->header_color }};">
+                                <th>SELLER</th>
+                                <th>TYPE OF PRODUCT</th>
+                                <th>TYPE OR STRAIN</th>
+                                <th>UNIT DESC</th>
+                                <th>PRICE/UNIT</th>
+                                <th>AMT</th>
+                                <th>LOCATION</th>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>{{ $ad->user->community_name }}</td>
+                                    <td>{{ $ad->type_of_product }}</td>
+                                    <td>{{ $ad->type_of_strain }}</td>
+                                    <td>{{ $ad->unit_desc }}</td>
+                                    <td>{{ $ad->price_per_unit }}</td>
+                                    <td></td>
+                                    <td>{{ $ad->location }}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div class="content clearfix">
+                                @if(!empty($ad->thumb))
+                                    <div class="thumb" style="background-image: url('{{ url($ad->thumb) }}')"></div>
+                                @endif
+                                <p>{!! $ad->content !!}</p>
+                            </div>
                         </div>
-                    </div>
-                    <!-- end post -->
+                        <!-- end post -->
+                    @endforeach
                 </div>
+                @endif
+
+                @if(!auth()->user())
+                <h2 class="step"><span class="green-text">Step 1</span>  Sign Up to open an account with an anonymous email.
+                    <br><span class="green-text">Step 2</span>  Use your anonymous email to buy and sell.</h2>
 
                 <div id="pricing">
                     <div class="wrapper">
@@ -107,7 +117,9 @@
                         </div>
                     </div>
                 </div>
+                @endif
 
+                {{--Latest posts--}}
                 <div class="section-posts">
                     <h2 class="title">latest posts</h2>
                     <div class="sort">
