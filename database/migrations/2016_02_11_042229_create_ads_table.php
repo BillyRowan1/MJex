@@ -27,6 +27,8 @@ class CreateAdsTable extends Migration
             $table->string('thumb');
             $table->text('gallery');
             $table->string('expired_date');
+
+            $table->boolean('active');
             $table->timestamps();
         });
     }

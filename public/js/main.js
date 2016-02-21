@@ -42,6 +42,19 @@ jQuery(document).ready(function($) {
     });
 });
 
+var Mjex = (function () {
+    function showLoading(state) {
+        if(state == false) {
+            $('#loading').hide();
+        }else{
+            $('#loading').show();
+        }
+    }
+    return {
+        showLoading
+    }
+})();
+
 var FAQ = (function(){
     try{
         var MqM= 768,

@@ -6,7 +6,8 @@
             <div class="col-md-12">
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation"><a href="#tab-orders" aria-controls="home" role="tab" data-toggle="tab">Ads and Orders</a></li>
+                    <li role="presentation"><a href="#tab-orders" aria-controls="home" role="tab" data-toggle="tab">Orders</a></li>
+                    <li role="presentation"><a href="#tab-ads" aria-controls="home" role="tab" data-toggle="tab">Ads</a></li>
                     <li role="presentation"><a href="#tab-chat-history" aria-controls="profile" role="tab" data-toggle="tab">Chat history</a></li>
                     <li role="presentation" class="active"><a href="#tab-contact" aria-controls="messages" role="tab" data-toggle="tab">Profile</a></li>
                 </ul>
@@ -29,21 +30,58 @@
                             <th>description</th>
                             <th>price / unit</th>
                             <th>sold</th>
+                            </thead>
+                            <tbody>
+                                @if(isset($orders)&& (!empty($orders)))
+                                    @foreach($orders as $order)
+                                    <tr>
+                                        <td>{{ $order->id }}</td>
+                                        <td>12/24/2015</td>
+                                        <td>{{ $order->unit_desc }}</td>
+                                        <td>{{ $order->amount }}</td>
+                                        <td>0</td>
+                                    </tr>
+                                    @endforeach
+                                @endif
+                            </tbody>
+                        </table>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="tab-ads">
+                        <div class="form-group">
+                            <label for="filter_1">Medical</label>
+                            <input type="checkbox" name="medical">
+                            <label for="filter_2">Adult use</label>
+                            <input type="checkbox" id="filter_2" name="medical">
+                            <label for="filter_3">Both</label>
+                            <input type="checkbox" id="filter_3" name="medical">
+                        </div>
+
+                        <table class="table">
+                            <thead>
+                            <th>#</th>
+                            <th>DATE</th>
+                            <th>description</th>
+                            <th>price / unit</th>
+                            <th>type of product</th>
                             <th>repost</th>
                             <th>delete</th>
                             <th>edit</th>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>005</td>
-                                <td>12/24/2015</td>
-                                <td>sativa</td>
-                                <td>20 usd</td>
-                                <td>0</td>
-                                <td><a href="#"><img src="img/ic-repost.png" alt="" class="repost"></a></td>
-                                <td><a href="#"><img src="img/ic-delete.png"></a></td>
-                                <td><a href="#"><img src="img/ic-edit.png"></a></td>
-                            </tr>
+                                @if(isset($ads)&& (!empty($ads)))
+                                    @foreach($ads as $ad)
+                                    <tr>
+                                        <td>{{ $ad->id }}</td>
+                                        <td>{{ $ad->created_at }}</td>
+                                        <td>{{ $ad->unit_desc }}</td>
+                                        <td>{{ $ad->price_per_unit }}</td>
+                                        <td>{{ $ad->type_of_product }}</td>
+                                        <td><a href="#"><img src="img/ic-repost.png" alt="" class="repost"></a></td>
+                                        <td><a href="#" data-ad-id="{{ $ad->id }}" onclick="deleteAd({{ $ad->id }})"><img src="img/ic-delete.png"></a></td>
+                                        <td><a href="#"><img src="img/ic-edit.png"></a></td>
+                                    </tr>
+                                    @endforeach
+                                @endif
                             </tbody>
                         </table>
                     </div>
@@ -424,7 +462,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label for="" class="text-center">Separate payment types with a comma ex: (Cash, Walmart 2 Walmart, Bitcoin etc)</label>
-                                                    <input type="text" class="form-control" name="accepted-payment">
+                                                    <input type="text" class="form-control" name="accepted_payment">
                                                 </div>
                                             </div>
                                         </div>
@@ -437,4 +475,31 @@
             </div>
         </div>
     </section>
+@endsection
+
+@section('page-js')
+    <script>
+        function deleteAd(id, ele) {
+            if (confirm("Are you sure?")) {
+                Mjex.showLoading();
+                $.ajax({
+                    url: '{{ route("ad.destroy") }}',
+                    type: 'POST',
+                    data: {id: id}
+                })
+                .done(function(res) {
+                    console.log(res);
+                    if(status == 'ok') {
+                        $('[data-ad-id='+id+']').parents('tr').remove();
+                    }
+                })
+                .fail(function() {
+                    console.log("deleteAd error");
+                })
+                .always(function() {
+                    Mjex.showLoading(false);
+                });
+            }
+        }
+    </script>
 @endsection

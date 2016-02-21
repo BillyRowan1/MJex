@@ -7,83 +7,102 @@ use Illuminate\Http\Request;
 use Mjex\Ad;
 use Mjex\Http\Requests;
 use Mjex\Http\Controllers\Controller;
+use Mjex\Repo\UserRepo;
 
 class AdController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('seller');
+    }
     public function getCreateFree()
     {
-        return view('post_free_ad');
+        $canCreate = true;
+        if($this->getAdsThisMonth('count') >= 1) {
+            $canCreate = false;
+        }
+
+        return view('post_free_ad', compact('canCreate'));
     }
 
-    public function getCreatePaid()
+    public function getCreatePaid(UserRepo $userRepo)
     {
-        return view('post_paid_ad');
+        $zipcodes = $userRepo->getAllZipcode();
+
+        return view('post_paid_ad', compact('zipcodes'));
     }
 
     public function postStore(Request $request)
     {
-        $this->validate($request, [
-            "type_of_product" => "required",
-            "unit_desc" => "required",
-            "amount" => "required",
-            "header_color" => "required",
-            "location" => "required",
-            "type_of_strain" => "required",
-            "price_per_unit" => "",
-            "price_per_quantity" => "",
-            "adContent" => "required",
-            "thumb" => 'image'
-        ]);
+        // Condition: Each package only have 1 ad per package.
+        // First check if this user have 1 free ad this month
+        if($this->getAdsThisMonth('count') < 1) {
+            $this->validate($request, [
+                "type_of_product" => "required",
+                "unit_desc" => "required",
+                "amount" => "required",
+                "header_color" => "required",
+                "location" => "required",
+                "type_of_strain" => "required",
+                "price_per_unit" => "",
+                "price_per_quantity" => "",
+                "adContent" => "required",
+                "thumb" => 'image'
+            ]);
 
-        $ad = new Ad;
-        $ad->user_id = auth()->user()->id;
-        $ad->type_of_product = $request->input('type_of_product');
-        $ad->unit_desc = $request->input('unit_desc');
-        $ad->amount = $request->input('amount');
-        $ad->header_color = $request->input('header_color');
-        $ad->location = $request->input('location');
-        $ad->type_of_strain = $request->input('type_of_strain');
-        $ad->price_per_unit = $request->input('price_per_unit');
-        if($request->has('price_per_quantity')) {
-            $ad->price_per_quantity = json_encode($request->input('price_per_quantity'));
-        }
-        if($request->input('ad_type')=="free"){
-            $ad->content = strip_tags($request->input('adContent'));
-        }else{
-            $ad->content = $request->input('adContent');
-        }
-        $ad->expired_date = strtotime('now') + 30*86400;
+            $ad = new Ad;
+            $ad->user_id = auth()->user()->id;
+            $ad->type_of_product = $request->input('type_of_product');
+            $ad->unit_desc = $request->input('unit_desc');
+            $ad->amount = $request->input('amount');
+            $ad->header_color = $request->input('header_color');
+            $ad->location = $request->input('location');
+            $ad->type_of_strain = $request->input('type_of_strain');
+            $ad->price_per_unit = $request->input('price_per_unit');
+            if($request->has('price_per_quantity')) {
+                $ad->price_per_quantity = json_encode($request->input('price_per_quantity'));
+            }
+            if($request->input('ad_type')=="free"){
+                $ad->content = strip_tags($request->input('adContent'));
+            }else{
+                $ad->content = $request->input('adContent');
+            }
+            $ad->expired_date = strtotime('now') + 30*86400;
 
-        $destinationPath = 'uploads';
-        if($request->hasFile('thumb')) {
-            $fileName = $request->file('thumb')->getClientOriginalName();
-            $fileNameArr = explode('.', $fileName);
-            $newFileName = $fileNameArr[0] . strtotime('now') . '.' . $fileNameArr[1];
-            $request->file('thumb')->move($destinationPath, $newFileName);
-
-            $ad->thumb = implode('/', [$destinationPath, $newFileName]);
-        }
-
-        if($request->hasFile('gallery')) {
-            $galleries = [];
-            $files = $request->file('gallery');
-            foreach($files as $file) {
-                if(!$file) continue;
-                $fileName = $file->getClientOriginalName();
+            $destinationPath = 'uploads';
+            if($request->hasFile('thumb')) {
+                $fileName = $request->file('thumb')->getClientOriginalName();
                 $fileNameArr = explode('.', $fileName);
                 $newFileName = $fileNameArr[0] . strtotime('now') . '.' . $fileNameArr[1];
-                $file->move($destinationPath, $newFileName);
+                $request->file('thumb')->move($destinationPath, $newFileName);
 
-                $galleries[] = implode('/', [$destinationPath, $newFileName]);
+                $ad->thumb = implode('/', [$destinationPath, $newFileName]);
             }
-            $ad->gallery = json_encode($galleries);
+
+            if($request->hasFile('gallery')) {
+                $galleries = [];
+                $files = $request->file('gallery');
+                foreach($files as $file) {
+                    if(!$file) continue;
+                    $fileName = $file->getClientOriginalName();
+                    $fileNameArr = explode('.', $fileName);
+                    $newFileName = $fileNameArr[0] . strtotime('now') . '.' . $fileNameArr[1];
+                    $file->move($destinationPath, $newFileName);
+
+                    $galleries[] = implode('/', [$destinationPath, $newFileName]);
+                }
+                $ad->gallery = json_encode($galleries);
+            }
+
+            if($ad->save()) {
+                $msg = 'Ad created';
+            }else{
+                $msg = 'Can not create ad, please try again';
+            }
+        }else{
+            $msg = "Can't create more than 1 free ad per month. Please wait until next month or create a " . "<a href='". route('ad.create.paid') ."'>Paid ad</a>";
         }
 
-        if($ad->save()) {
-            $msg = 'Ad created';
-        }else{
-            $msg = 'Can not create ad, please try again';
-        }
         return redirect()->back()->with('message', $msg);
     }
 
@@ -105,5 +124,31 @@ class AdController extends Controller
         }
 
         return response()->json(['status'=>$status, 'message'=>$msg]);
+    }
+
+    public function postDestroy(Request $request)
+    {
+        $this->validate($request,[
+            'id' => 'required'
+        ]);
+
+        $id = $request->input('id');
+        $ad = Ad::find($id);
+        if($ad->delete()){
+            return response()->json(['status'=>'ok']);
+        }else{
+            return response()->json(['status'=>'failed']);
+        }
+    }
+
+    private function getAdsThisMonth($action)
+    {
+        if($action == 'count') {
+            $adThisMonth = Ad::where('user_id', auth()->user()->id)->where( \DB::raw('MONTH(created_at)'), '=', date('n') )->count();
+        }else{
+            $adThisMonth = Ad::where('user_id', auth()->user()->id)->where( \DB::raw('MONTH(created_at)'), '=', date('n') )->get();
+        }
+
+        return $adThisMonth;
     }
 }

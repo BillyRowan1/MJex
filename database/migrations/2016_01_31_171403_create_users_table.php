@@ -15,16 +15,22 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->enum('type',['seeker','seller']);
-            $table->string('email');
+            $table->string('email')->unique();
             $table->string('password', 60);
             $table->string('anonymous_email')->unique();
             $table->string('community_name')->unique();
-            $table->string('zipcode');
             $table->boolean('delivery');
             $table->string('purpose');
             $table->string('state');
-            $table->string('country');
             $table->enum('package',['none','free','monthly','monthly_pro']);
+
+            $table->string('accepted_payment')->null();
+
+            $table->string('zipcode');
+            $table->string('country');
+
+            $table->boolean('active');
+            $table->string('activation_code')->null();
             $table->rememberToken();
             $table->timestamps();
         });

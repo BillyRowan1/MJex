@@ -24,7 +24,42 @@
 */
 
 Route::group(['middleware' => ['web']], function () {
+//    Route::get('test',function(){
+//        $zipcode="100000";
+//        $country = strtoupper("us");
+//        $url = "http://maps.googleapis.com/maps/api/geocode/json?address=".$zipcode."&components=country:".$country."&sensor=false";
+//        $details=file_get_contents($url);
+//        $result = json_decode($details,true);
+//
+//        $lat=$result['results'][0]['geometry']['location']['lat'];
+//
+//        $lng=$result['results'][0]['geometry']['location']['lng'];
+//
+//        echo "Latitude :" .$lat;
+//        echo '<br>';
+//        echo "Longitude :" .$lng;
+//    });
+
     Route::auth();
+    Route::get('empty',function(){
+        return view('errors.empty');
+    });
+
+    Route::controller('cart','CartController',[
+        'getIndex' => 'cart.index'
+    ]);
+
+    Route::get('activate',function(Illuminate\Http\Request $request) {
+        $user = \Mjex\User::where('activation_code', $request->input('activation_code'))->first();
+        if($user) {
+            $user->active = 1;
+            $user->save();
+            $msg = 'Your account is activated. Please log in';
+        }else{
+            $msg = 'We can not found this activation code';
+        }
+        return redirect()->to('/login')->with('message', $msg);
+    });
 
     Route::controller('contact', 'ContactController',[
         'getIndex' => 'contact'
@@ -43,11 +78,13 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::group(['middleware' => ['auth']], function () {
         Route::controller('account','AccountController');
+
         Route::controller('ad', 'AdController', [
             'getCreateFree' => 'ad.create.free',
             'getCreatePaid' => 'ad.create.paid',
             'postStore' => 'ad.store',
-            'postRePost' => 'ad.repost'
+            'postRePost' => 'ad.repost',
+            'postDestroy' => 'ad.destroy'
         ]);
     });
 });

@@ -1,3 +1,20 @@
+#loading{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255,255,255,0.8);
+    z-index: 9999;
+}
+#loading img{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -27px;
+    margin-top: -27px;
+}
 body,
 html {
     font-family: "Myriad Pro", Arial, sans-serif;
@@ -456,6 +473,9 @@ footer {
     margin-right: 20px;
 }
 
+.section-posts a{
+    color: black;
+}
 .section-posts {
     background-color: #eaecec;
     border-radius: 5px;
@@ -815,7 +835,7 @@ label:hover:before {
 }
 
 #Account .nav.nav-tabs li {
-    width: 33.3333333333%;
+    width: 25%;
     text-align: center;
     text-transform: uppercase;
     font-size: 20px;
@@ -1039,7 +1059,93 @@ label:hover:before {
     height: 25px;
     text-align: center;
 }
+/*cart*/
+#ShoppingCart li{
+    list-style: none;
+}
 
+#ShoppingCart .cart li input {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 7px;
+}
+
+#ShoppingCart .cart li .price {
+    float: right;
+}
+
+#ShoppingCart .cart li {
+    height: 60px;
+    line-height: 60px;
+    border-bottom: 1px solid #ddd;
+    width: 90%;
+    margin: 0 auto;
+}
+#ShoppingCart ul{
+    padding-left: 0;
+}
+
+#ShoppingCart .ads {
+    margin-top: 100px;
+}
+
+#ShoppingCart .cart {
+    border: 1px solid #aaa;
+    border-radius: 4px;
+}
+
+#ShoppingCart .cart .footer p {
+    float: right;
+    margin-top: 23px;
+    margin-right: 10px;
+}
+
+#ShoppingCart .cart .footer .subtotal {
+}
+
+#ShoppingCart .cart .footer .btn {
+    margin: 13px;
+}
+
+#ShoppingCart {
+    margin-top: 30px;
+    border: 1px solid;
+    padding: 20px;
+    box-shadow: 0 0 10px;
+}
+
+#ShoppingCart .header {
+    background-color: #f5f5f5;
+    padding: 7px 18px;
+    font-size: 20px;
+}
+
+#ShoppingCart .welcome {
+    border-radius: 4px;
+}
+
+#ShoppingCart .welcome .header,#ShoppingCart .welcome .footer {
+    background: #333;
+    color: white;
+    border-radius: 4px;
+}
+
+#ShoppingCart .welcome .content {
+    background: #ddd;
+    padding: 6px 20px;
+    margin: 5px auto;
+    border-radius: 4px 4px 0 0px;
+}
+
+#ShoppingCart .welcome .footer .btn {
+    margin: 10px;
+}
+
+#ShoppingCart .ads > li {
+    background: url(../img/line.png) no-repeat top center;
+    padding-top: 30px;
+}
 
 /*FAQ*/
 

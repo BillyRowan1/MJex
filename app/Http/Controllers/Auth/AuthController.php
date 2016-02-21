@@ -3,6 +3,8 @@
 namespace Mjex\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
+use Auth;
+use Mjex\Events\UserRegistered;
 use Mjex\User;
 use Validator;
 use Mjex\Http\Controllers\Controller;
@@ -44,19 +46,35 @@ class AuthController extends Controller
 
     public function showRegistrationForm()
     {
-        $package = $this->request->input('package');
+        $package = $this->request->input('package','free');
         return view('auth.register',compact('package'));
     }
 
+    public function login()
+    {
+        $email = $this->request->input('email');
+        $password = $this->request->input('password');
+
+        if (Auth::attempt(['email' => $email, 'password' => $password, 'active'=>1])) {
+            return redirect()->intended($this->redirectTo);
+        }
+
+        return redirect()->back()
+            ->withInput($this->request->only($this->loginUsername(), 'remember'))
+            ->withErrors([
+                $this->loginUsername() =>  "These credentials do not match our records. Or you haven't activated your account",
+            ]);
+    }
+
     /**
-     * Sign up as Seller
+     * Sign up
      * @param Request $request
      * @return array|string
      */
     public function register(Request $request)
     {
         $rules = [
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users,email',
             'password' => 'required',
             'community_name' => 'required|unique:users,community_name|min:3',
             'zipcode' => 'required|numeric',
@@ -77,10 +95,13 @@ class AuthController extends Controller
         $user->zipcode = $request->input('zipcode');
         $user->package = $request->input('package','none');
         $user->delivery = $request->input('delivery',false);
+        $user->activated = 0;
+        $user->activation_code = \Hash::make($user->email);
         if($request->has('purpose')) $user->purpose = json_encode($request->input('purpose'));
 
         $user->save();
-        return redirect()->back()->with('message','Thank you for sign up. Now you can login to our system using email: '. $request->input('email'));
+        \Event::fire(new UserRegistered($user));
+        return redirect()->back()->with('message','Thank you for signing up. Please check your email to active your account');
     }
 
     private function incrementalHash($len = 6){

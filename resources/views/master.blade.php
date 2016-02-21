@@ -9,7 +9,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title></title>
+    <title>Mjex</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
@@ -19,9 +20,23 @@
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('css/main-responsive.css') }}">
     <script src="{{ asset('js/vendor/modernizr-2.8.3-respond-1.4.2.min.js') }}"></script>
+    <script src="{{ asset('libs/jquery.min.js') }}"></script>
+
+    <script>
+        jQuery(document).ready(function($) {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name=csrf-token]').attr('content')
+                }
+            });
+        }); 
+    </script>
 </head>
 
 <body id="mjex">
+<div id="loading">
+    <img src="{{ asset('img/ajax-loader.gif') }}" alt="loading">
+</div>
 <header>
     <nav id="top-nav">
         <a class="navbar-brand" href="{{ url('/') }}"><img id="logo" src="{{ asset('img/logo.png') }}" alt="logo"></a>
@@ -84,7 +99,6 @@
     </div>
 </section>
 
-<script src="{{ asset('libs/jquery.min.js') }}"></script>
 <script>
     window.jQuery || document.write('<script src="libs/jquery.min.js"><\/script>')
 </script>

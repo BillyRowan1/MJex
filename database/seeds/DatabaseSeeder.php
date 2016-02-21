@@ -29,13 +29,31 @@ class UserTableSeeder extends Seeder{
             'email' => 'tjntun@yopmail.com',
             'password' => \Hash::make('hunter'),
             'anonymous_email' => 'aQeKJ@mjex.com',
-            'community_name' => 'tjntun',
-            'zipcode' => '100000',
+            'community_name' => 'tjntun seeker',
+            'zipcode' => '90001',
             'delivery' => false,
             'purpose' => '["medical"]',
-            'state' => 'hanoi',
-            'country' => 'vn',
+            'state' => 'California',
+            'country' => 'us',
             'package' => 'none',
+            'active' => 0,
+            'activation_code' => \Hash::make('tjntun@yopmail.com')
+        ]);
+
+        \Mjex\User::create([
+            'type' => 'seller',
+            'email' => 'tjntunseller@yopmail.com',
+            'password' => \Hash::make('hunter'),
+            'anonymous_email' => 'eQeKJ@mjex.com',
+            'community_name' => 'tjntun seller',
+            'zipcode' => '90002',
+            'delivery' => false,
+            'purpose' => '["medical"]',
+            'state' => 'California',
+            'country' => 'us',
+            'package' => 'none',
+            'active' => 1,
+            'activation_code' => \Hash::make('tjntunseller@yopmail.com')
         ]);
     }
 }

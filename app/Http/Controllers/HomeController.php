@@ -23,6 +23,7 @@ class HomeController extends Controller
     public function search(Request $request)
     {
         $this->validate($request,[
+            'zipcode' => 'required|numeric',
             'keyword' => 'required'
         ]);
 

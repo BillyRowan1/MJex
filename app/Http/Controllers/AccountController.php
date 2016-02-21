@@ -4,6 +4,7 @@ namespace Mjex\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Mjex\Ad;
 use Mjex\Http\Requests;
 use Mjex\Http\Controllers\Controller;
 use Mjex\User;
@@ -13,7 +14,9 @@ class AccountController extends Controller
     public function getIndex()
     {
         $user = User::find(auth()->user()->id);
-        return view('account', compact('user'));
+        $ads = Ad::where('user_id', $user->id)->get();
+
+        return view('account', compact('user','ads'));
     }
 
     /**
