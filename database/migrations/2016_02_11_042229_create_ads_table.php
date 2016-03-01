@@ -26,7 +26,10 @@ class CreateAdsTable extends Migration
             $table->string('price_per_quantity');
             $table->string('thumb');
             $table->text('gallery');
+
             $table->string('expired_date');
+
+            $table->string('ad_type');
 
             $table->boolean('active');
             $table->timestamps();

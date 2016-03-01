@@ -24,36 +24,57 @@ class UserTableSeeder extends Seeder{
      */
     public function run()
     {
-        \Mjex\User::create([
-            'type' => 'seeker',
-            'email' => 'tjntun@yopmail.com',
-            'password' => \Hash::make('hunter'),
-            'anonymous_email' => 'aQeKJ@mjex.com',
-            'community_name' => 'tjntun seeker',
-            'zipcode' => '90001',
-            'delivery' => false,
-            'purpose' => '["medical"]',
-            'state' => 'California',
-            'country' => 'us',
-            'package' => 'none',
-            'active' => 0,
-            'activation_code' => \Hash::make('tjntun@yopmail.com')
-        ]);
-
-        \Mjex\User::create([
-            'type' => 'seller',
-            'email' => 'tjntunseller@yopmail.com',
-            'password' => \Hash::make('hunter'),
-            'anonymous_email' => 'eQeKJ@mjex.com',
-            'community_name' => 'tjntun seller',
-            'zipcode' => '90002',
-            'delivery' => false,
-            'purpose' => '["medical"]',
-            'state' => 'California',
-            'country' => 'us',
-            'package' => 'none',
-            'active' => 1,
-            'activation_code' => \Hash::make('tjntunseller@yopmail.com')
+//        \Mjex\User::create([
+//            'type' => 'seeker',
+//            'email' => 'seeker@yopmail.com',
+//            'password' => \Hash::make('hunter'),
+//            'anonymous_email' => 'aQeKJ@mjex.com',
+//            'community_name' => 'tjntun seeker',
+//            'zipcode' => '90001',
+//            'delivery' => false,
+//            'purpose' => '["medical"]',
+//            'state' => 'California',
+//            'country' => 'us',
+//            'package' => 'none',
+//            'active' => 1,
+//            'activation_code' => \Hash::make('seeker@yopmail.com')
+//        ]);
+//
+//        \Mjex\User::create([
+//            'type' => 'seller',
+//            'email' => 'sellerfree@yopmail.com',
+//            'password' => \Hash::make('hunter'),
+//            'anonymous_email' => 'eQeKJ@mjex.com',
+//            'community_name' => 'seller free',
+//            'zipcode' => '90002',
+//            'delivery' => false,
+//            'purpose' => '["medical"]',
+//            'state' => 'California',
+//            'country' => 'us',
+//            'package' => 'free',
+//            'active' => 1,
+//            'activation_code' => \Hash::make('sellerfree@yopmail.com')
+//        ]);
+//
+//        \Mjex\User::create([
+//            'type' => 'seller',
+//            'email' => 'sellermonthly@yopmail.com',
+//            'password' => \Hash::make('hunter'),
+//            'anonymous_email' => 'eQeKW@mjex.com',
+//            'community_name' => 'seller monthly',
+//            'zipcode' => '90002',
+//            'delivery' => false,
+//            'purpose' => '["medical"]',
+//            'state' => 'California',
+//            'country' => 'us',
+//            'package' => 'monthly',
+//            'active' => 1,
+//            'activation_code' => \Hash::make('sellerfree@yopmail.com')
+//        ]);
+        \Mjex\Review::create([
+            'user_id' => 1,
+            'content' => 'Quality was better than expected',
+            'reviewer' => 'Jim'
         ]);
     }
 }

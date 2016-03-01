@@ -8,6 +8,7 @@ use Mjex\Ad;
 use Mjex\Http\Requests;
 use Mjex\Http\Controllers\Controller;
 use Mjex\Repo\UserRepo;
+use Mjex\User;
 
 class AdController extends Controller
 {
@@ -17,12 +18,21 @@ class AdController extends Controller
     }
     public function getCreateFree()
     {
-        $canCreate = true;
-        if($this->getAdsThisMonth('count') >= 1) {
-            $canCreate = false;
+        $adsThisMonth = $this->getAdsThisMonth('count');
+
+        switch(auth()->user()->package) {
+            case 'free':
+                $adsLeft = 1 - $adsThisMonth;
+                break;
+            case 'monthly':
+                $adsLeft = 5 - $adsThisMonth;
+                break;
+            case 'monthly_pro':
+                $adsLeft = 5 - $adsThisMonth;
+                break;
         }
 
-        return view('post_free_ad', compact('canCreate'));
+        return view('post_free_ad', compact('adsLeft'));
     }
 
     public function getCreatePaid(UserRepo $userRepo)
@@ -32,7 +42,21 @@ class AdController extends Controller
         return view('post_paid_ad', compact('zipcodes'));
     }
 
-    public function postStore(Request $request)
+    public function postStoreFree(Request $request)
+    {
+        $msg = $this->store($request, 'free');
+
+        return redirect()->back()->with('message', $msg);
+    }
+
+    public function postStorePaid(Request $request)
+    {
+        $msg = $this->store($request, 'paid');
+
+        return redirect()->back()->with('message', $msg);
+    }
+
+    private function store($request, $type = 'free')
     {
         // Condition: Each package only have 1 ad per package.
         // First check if this user have 1 free ad this month
@@ -59,14 +83,11 @@ class AdController extends Controller
             $ad->location = $request->input('location');
             $ad->type_of_strain = $request->input('type_of_strain');
             $ad->price_per_unit = $request->input('price_per_unit');
+            $ad->ad_type = $type;
             if($request->has('price_per_quantity')) {
                 $ad->price_per_quantity = json_encode($request->input('price_per_quantity'));
             }
-            if($request->input('ad_type')=="free"){
-                $ad->content = strip_tags($request->input('adContent'));
-            }else{
-                $ad->content = $request->input('adContent');
-            }
+
             $ad->expired_date = strtotime('now') + 30*86400;
 
             $destinationPath = 'uploads';
@@ -94,6 +115,17 @@ class AdController extends Controller
                 $ad->gallery = json_encode($galleries);
             }
 
+            if($type == "paid") {
+                $user = User::find(auth()->user()->id);
+                // Charge $2 per paid ad
+                $user->charge(200);
+            }
+            if(auth()->user()->package == 'free') {
+                $ad->content = strip_tags($request->input('adContent'));
+            }else{
+                $ad->content = $request->input('adContent');
+            }
+
             if($ad->save()) {
                 $msg = 'Ad created';
             }else{
@@ -102,8 +134,6 @@ class AdController extends Controller
         }else{
             $msg = "Can't create more than 1 free ad per month. Please wait until next month or create a " . "<a href='". route('ad.create.paid') ."'>Paid ad</a>";
         }
-
-        return redirect()->back()->with('message', $msg);
     }
 
     public function postRePost(Request $request)
@@ -143,10 +173,13 @@ class AdController extends Controller
 
     private function getAdsThisMonth($action)
     {
+        $query = Ad::where('user_id', auth()->user()->id)
+                    ->where('ad_type','free')
+                    ->where( \DB::raw('MONTH(created_at)'), '=', date('n') );
         if($action == 'count') {
-            $adThisMonth = Ad::where('user_id', auth()->user()->id)->where( \DB::raw('MONTH(created_at)'), '=', date('n') )->count();
+            $adThisMonth = $query->count();
         }else{
-            $adThisMonth = Ad::where('user_id', auth()->user()->id)->where( \DB::raw('MONTH(created_at)'), '=', date('n') )->get();
+            $adThisMonth = $query->get();
         }
 
         return $adThisMonth;

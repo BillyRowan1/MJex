@@ -6,10 +6,10 @@
             <a href="{{ route('ad.create.free') }}" class="btn green-gradient">post a free ad</a>
             <a href="{{ route('ad.create.paid') }}" class="btn green-gradient">post a paid ad</a>
         </div>
-        <h2 class="text-center">Free ad</h2>
+        <h2 class="text-center">Free ad ({{ $adsLeft }} ads left)</h2>
         @include('inc.msg')
-        @if(isset($canCreate) && $canCreate)
-            <form action="{{ route('ad.store') }}" method="post" enctype="multipart/form-data">
+        @if(isset($adsLeft) && $adsLeft > 0)
+            <form action="{{ route('ad.store.free') }}" method="post" enctype="multipart/form-data">
                 <div id="step1">
                         {!! csrf_field() !!}
                     <input type="hidden" name="ad_type" value="free">
@@ -153,7 +153,7 @@
             </div>
             <!-- /#step2 -->
         @else
-            <p class="text-center">Can't create more than 1 free ad per month. Please wait until next month or create a <a href='{{ route('ad.create.paid') }}'>Paid ad</a></p>
+            <p class="text-center">Can't create more ad. Please wait until next month or create a <a href='{{ route('ad.create.paid') }}'>Paid ad</a></p>
         @endif
     </section>
 @endsection

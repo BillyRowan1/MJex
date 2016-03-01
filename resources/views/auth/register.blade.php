@@ -55,7 +55,7 @@
             <div class="col-md-6">
                 <div class="block business">
                     <h3 class="title">SIGN UP AS A BUSINESS</h3>
-                    <form action="{{ url('register') }}" method="post">
+                    <form id="seller-signup" action="{{ url('register') }}" method="post">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <input type="hidden" name="_type" value="seller">
                         <div class="form-group">
@@ -104,19 +104,74 @@
                         </div>
                         <label for="">Choose ad package</label>
                         <div class="form-group checkbox-group circle-checkboxes clearfix">
-                            <input type="checkbox" id="package-1" {{ (!empty($package)&&$package=='free')?'checked':'' }} value="free" name="package">
+                            <input type="radio" id="package-1" {{ (!empty($package)&&$package=='free')?'checked':'' }} value="free" name="package">
                             <label for="package-1">Free</label>
 
-                            <input type="checkbox" id="package-2" {{ (!empty($package)&&$package=='monthly')?'checked':'' }} value="monthly" name="package">
+                            <input type="radio" id="package-2" {{ (!empty($package)&&$package=='monthly')?'checked':'' }} value="monthly" name="package">
                             <label for="package-2">$5.00 per month</label>
 
-                            <input type="checkbox" id="package-3" {{ (!empty($package)&&$package=='monthly_pro')?'checked':'' }} value="monthly_pro" name="package">
+                            <input type="radio" id="package-3" {{ (!empty($package)&&$package=='monthly_pro')?'checked':'' }} value="monthly_pro" name="package">
                             <label for="package-3">$10.00 per month</label>
+                            <input type="hidden" name="stripeToken">
                         </div>
-                        <button type="submit" class="btn green-gradient">CONTINUE TO PAYMENTS</button>
+                        <script src="https://checkout.stripe.com/checkout.js"></script>
+                        <button id="stripeCheckoutBtn" class="btn green-gradient">CONTINUE TO PAYMENTS</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
+@endsection
+
+@section('page-js')
+<script>
+  var handler = StripeCheckout.configure({
+    key: 'pk_test_u4oPjGiJ2fCtkuat5LY1cIjG',
+    image: '/img/logo-stripe.png',
+    locale: 'auto',
+    token: function(token) {
+        console.log(token);
+        // You can access the token ID with `token.id`
+        $('[name=stripeToken]').val(token.id);
+        $('#seller-signup').submit();
+    }
+});
+
+jQuery(document).ready(function($) {
+    $('#stripeCheckoutBtn').on('click', function(e) {
+        e.preventDefault();
+        
+        var package = $('[name=package]:checked').val();
+        var amount = 0;
+        var description = '';
+        switch (package) {
+            case 'free':
+                amount = 0;
+                description = 'Free';
+                break;
+            case 'monthly':
+                description = 'Monthly ($5.00)';
+                amount = 500;
+                break;
+            case 'monthly_pro':
+                description = 'Monthly ($10.00)';
+                amount = 1000;
+                break;
+        }
+        // Open Checkout with further options
+        handler.open({
+            name: 'Mjex',
+            description: description,
+            amount: amount,
+            email: $('#seller-signup [name=email]').val()
+        });
+    });
+
+    // Close Checkout on page navigation
+    $(window).on('popstate', function() {
+        handler.close();
+    });
+});
+
+</script>
 @endsection

@@ -63,7 +63,7 @@
             </form>
         </div>
         @else
-            <p class="welcome">Welcome, {{ auth()->user()->community_name }}. <a href="{{ url('logout') }}">Logout</a></p>
+            <p class="welcome">Hi, <a href="{{ url('account') }}">{{ auth()->user()->community_name }}</a>. Current package: {{ str_replace('_',' ', strtoupper(auth()->user()->package)) }}. <a href="{{ url('logout') }}">Logout</a></p>
         @endif
     </nav>
     @include('inc.menu')

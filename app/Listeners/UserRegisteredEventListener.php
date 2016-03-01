@@ -27,8 +27,11 @@ class UserRegisteredEventListener
     {
         $user = $event->user;
 
+        // Send activation email
         \Mail::send('emails.activate', ['user' => $user], function ($m) use ($user) {
             $m->to($user->email)->subject('Mjex Account activation');
         });
+
+
     }
 }

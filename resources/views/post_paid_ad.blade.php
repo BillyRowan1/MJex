@@ -6,9 +6,9 @@
             <a href="{{ route('ad.create.free') }}" class="btn green-gradient">post a free ad</a>
             <a href="{{ route('ad.create.paid') }}" class="btn green-gradient">post a paid ad</a>
         </div>
-        <h2 class="text-center">Paid ad</h2>
+        <h2 class="text-center">Paid ad ($2 per additional ad)</h2>
         @include('inc.msg')
-        <form action="{{ route('ad.store') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('ad.store.paid') }}" method="post" enctype="multipart/form-data">
             <div id="step1">
                 {!! csrf_field() !!}
                 <input type="hidden" name="ad_type" value="paid">
@@ -123,33 +123,9 @@
             </div>
             <!-- /#step1 -->
             <div class="btn-group mjex">
-                <a href="#" class="btn green-gradient">skip</a>
                 <button type="submit" class="btn green-gradient">next</button>
             </div>
         </form>
-
-        <div class="row" id="step2" style="display: none;">
-            <header>
-                <div class="col-md-12">
-                    <h3 class="title">Welcome to the ad payment page</h3>
-                    <hr>
-                </div>
-            </header>
-            <div class="col-md-12">
-                <h2>CHOOSE PAYMENT TYPE</h2>
-                <div class="row">
-                    <div class="col-md-6">
-                        <a href=""><img src="img/card.png" alt=""></a>
-                        <a href=""><img src="img/paypal.png" alt=""></a>
-                    </div>
-                    <div class="col-md-6">
-                        <a href=""><img src="img/savepay.png" alt=""></a>
-                        <a href=""><img src="img/bitcoin.png" alt=""></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /#step2 -->
     </section>
 @endsection
 

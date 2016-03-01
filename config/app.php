@@ -156,6 +156,9 @@ return [
         Mjex\Providers\EventServiceProvider::class,
         Mjex\Providers\RouteServiceProvider::class,
 
+        Laravel\Cashier\CashierServiceProvider::class,
+        Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class
+
     ],
 
     /*
@@ -201,7 +204,7 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
-
+        'Cart'            => 'Gloudemans\Shoppingcart\Facades\Cart',
     ],
 
 ];

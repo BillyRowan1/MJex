@@ -24,6 +24,7 @@
 */
 
 Route::group(['middleware' => ['web']], function () {
+    Route::post('stripe/webhook', '\Laravel\Cashier\WebhookController@handleWebhook');
 //    Route::get('test',function(){
 //        $zipcode="100000";
 //        $country = strtoupper("us");
@@ -45,9 +46,7 @@ Route::group(['middleware' => ['web']], function () {
         return view('errors.empty');
     });
 
-    Route::controller('cart','CartController',[
-        'getIndex' => 'cart.index'
-    ]);
+
 
     Route::get('activate',function(Illuminate\Http\Request $request) {
         $user = \Mjex\User::where('activation_code', $request->input('activation_code'))->first();
@@ -76,13 +75,28 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/', 'HomeController@index');
     Route::post('search', 'HomeController@search');
 
+    Route::controller('review', 'ReviewController', [
+        'postStore' => 'review.store',
+    ]);
+
     Route::group(['middleware' => ['auth']], function () {
+        Route::controller('cart','CartController',[
+            'getIndex' => 'cart.index',
+            'postAddToCart' => 'cart.add',
+            'postClearCart' => 'cart.clear',
+            'postSendOrder' => 'cart.send.order',
+            'postUpdateQty' => 'cart.update.qty',
+        ]);
         Route::controller('account','AccountController');
+        Route::controller('chat','ChatController',[
+            'postStore' => 'chat.store'
+        ]);
 
         Route::controller('ad', 'AdController', [
             'getCreateFree' => 'ad.create.free',
             'getCreatePaid' => 'ad.create.paid',
-            'postStore' => 'ad.store',
+            'postStoreFree' => 'ad.store.free',
+            'postStorePaid' => 'ad.store.paid',
             'postRePost' => 'ad.repost',
             'postDestroy' => 'ad.destroy'
         ]);

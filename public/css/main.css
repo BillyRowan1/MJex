@@ -476,6 +476,10 @@ footer {
 .section-posts a{
     color: black;
 }
+
+.section-posts a:hover {
+    text-decoration: none;
+}
 .section-posts {
     background-color: #eaecec;
     border-radius: 5px;
@@ -674,11 +678,17 @@ footer {
     border-radius: 7px;
 }
 
-#Signup .btn {
+#Signup .btn, #Signup [type=submit] span,#Signup [type=submit] {
     margin: 0 auto;
     width: 250px;
     display: block;
     border: none;
+    color: white;
+    background: #4bff4b;
+    background: -moz-linear-gradient(top, #4bff4b 0%, #25e525 50%, #00cc00 100%);
+    background: -webkit-linear-gradient(top, #4bff4b 0%, #25e525 50%, #00cc00 100%);
+    background: linear-gradient(to bottom, #4bff4b 0%, #25e525 50%, #00cc00 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#4bff4b', endColorstr='#00cc00', GradientType=0);
 }
 
 #Signup .checkbox-group {
@@ -698,20 +708,88 @@ footer {
     float: left;
     text-align: center;
 }
-
-
-/* Base for label styling */
-
+/* Checkbox styling */
 .circle-checkboxes {
     position: relative;
 }
-
+.circle-checkboxes [type="radio"]:not(:checked),
+.circle-checkboxes [type="radio"]:checked {
+    position: absolute;
+    left: -9999px;
+}
+.circle-checkboxes [type="radio"]:not(:checked) + label,
+.circle-checkboxes [type="radio"]:checked + label {
+    position: relative;
+    cursor: pointer;
+    padding-top: 50px;
+    text-align: center;
+}
+/* checkbox aspect */
+.circle-checkboxes [type="radio"]:not(:checked) + label:before,
+.circle-checkboxes [type="radio"]:checked + label:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 46px;
+    height: 46px;
+    background: url(../img/checkbox.png) no-repeat center;
+    border-radius: 3px;
+    margin-left: -23px;
+}
+/* checked mark aspect */
+.circle-checkboxes [type="radio"]:not(:checked) + label:after,
+.circle-checkboxes [type="radio"]:checked + label:after {
+    content: "";
+    top: 0;
+    left: 50%;
+    position: absolute;
+    transition: all .2s;
+    background: url(../img/checkbox-checked.png);
+    width: 46px;
+    height: 46px;
+    margin-left: -23px;
+}
+/* checked mark aspect changes */
+.circle-checkboxes [type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    transform: scale(0);
+}
+.circle-checkboxes [type="radio"]:checked + label:after {
+    opacity: 1;
+    transform: scale(1);
+}
+/* disabled checkbox */
+.circle-checkboxes [type="radio"]:disabled:not(:checked) + label:before,
+.circle-checkboxes [type="radio"]:disabled:checked + label:before {
+    box-shadow: none;
+    border-color: #bbb;
+    background-color: #ddd;
+}
+.circle-checkboxes [type="radio"]:disabled:checked + label:after {
+    color: #999;
+}
+.circle-checkboxes [type="radio"]:disabled + label {
+    color: #aaa;
+}
+/* accessibility */
+.circle-checkboxes [type="radio"]:checked:focus + label:before,
+.circle-checkboxes [type="radio"]:not(:checked):focus + label:before {
+    border: 1px dotted blue;
+}
+/* hover style just for information */
+.circle-checkboxes label:hover:before {
+    background: url(../img/checkbox-checked.png) no-repeat center;
+}
+/* Checkbox styling */
+.circle-checkboxes {
+    position: relative;
+}
 .circle-checkboxes [type="checkbox"]:not(:checked),
 .circle-checkboxes [type="checkbox"]:checked {
     position: absolute;
     left: -9999px;
 }
-
 .circle-checkboxes [type="checkbox"]:not(:checked) + label,
 .circle-checkboxes [type="checkbox"]:checked + label {
     position: relative;
@@ -719,10 +797,7 @@ footer {
     padding-top: 50px;
     text-align: center;
 }
-
-
 /* checkbox aspect */
-
 .circle-checkboxes [type="checkbox"]:not(:checked) + label:before,
 .circle-checkboxes [type="checkbox"]:checked + label:before {
     content: '';
@@ -735,10 +810,7 @@ footer {
     border-radius: 3px;
     margin-left: -23px;
 }
-
-
 /* checked mark aspect */
-
 .circle-checkboxes [type="checkbox"]:not(:checked) + label:after,
 .circle-checkboxes [type="checkbox"]:checked + label:after {
     content: "";
@@ -751,50 +823,35 @@ footer {
     height: 46px;
     margin-left: -23px;
 }
-
-
 /* checked mark aspect changes */
-
 .circle-checkboxes [type="checkbox"]:not(:checked) + label:after {
     opacity: 0;
     transform: scale(0);
 }
-
 .circle-checkboxes [type="checkbox"]:checked + label:after {
     opacity: 1;
     transform: scale(1);
 }
-
-
 /* disabled checkbox */
-
 .circle-checkboxes [type="checkbox"]:disabled:not(:checked) + label:before,
 .circle-checkboxes [type="checkbox"]:disabled:checked + label:before {
     box-shadow: none;
     border-color: #bbb;
     background-color: #ddd;
 }
-
 .circle-checkboxes [type="checkbox"]:disabled:checked + label:after {
     color: #999;
 }
-
 .circle-checkboxes [type="checkbox"]:disabled + label {
     color: #aaa;
 }
-
-
 /* accessibility */
-
 .circle-checkboxes [type="checkbox"]:checked:focus + label:before,
 .circle-checkboxes [type="checkbox"]:not(:checked):focus + label:before {
     border: 1px dotted blue;
 }
-
-
 /* hover style just for information */
-
-label:hover:before {
+.circle-checkboxes label:hover:before {
     background: url(../img/checkbox-checked.png) no-repeat center;
 }
 
@@ -834,12 +891,20 @@ label:hover:before {
     margin-top: 50px;
 }
 
+#Account #tab-chat-history .users .nav {
+    margin-top: 0;
+}
+
 #Account .nav.nav-tabs li {
     width: 25%;
     text-align: center;
     text-transform: uppercase;
     font-size: 20px;
     background-color: #555;
+}
+
+#Account.seeker .nav.nav-tabs li {
+    width: 33.3333333333%;
 }
 
 #Account .nav.nav-tabs li.active a {
@@ -860,6 +925,19 @@ label:hover:before {
     border-right: 1px solid white;
 }
 
+#Account #tab-chat-history .users li {
+    width: 100%;
+    text-align: initial;
+    text-transform: none;
+    background-color: transparent;
+    font-size: 14px;
+}
+
+#Account #tab-chat-history li a {
+    color: black;
+    border: none;
+}
+
 #Account .nav.nav-tabs li a:hover {
     color: black;
 }
@@ -867,6 +945,10 @@ label:hover:before {
 #Account .tab-content {
     background-color: #dedede;
     padding: 15px 30px;
+}
+
+#Account #tab-chat-history .tab-content {
+    padding: 0;
 }
 
 #Account .tab-content table {
@@ -895,7 +977,11 @@ label:hover:before {
     position: relative;
 }
 
-#tab-chat-history ul {
+#tab-chat-history .box.chats {
+    background: #DEDEDE;
+}
+
+#tab-chat-history .users ul {
     padding: 15px;
 }
 
@@ -949,7 +1035,7 @@ label:hover:before {
     z-index: 1;
 }
 
-#tab-chat-history .users ul {
+#tab-chat-history ul {
     padding: 12px;
 }
 
@@ -1060,8 +1146,30 @@ label:hover:before {
     text-align: center;
 }
 /*cart*/
+#ShoppingCart #tab-chat .content{
+    position: relative;
+    margin-bottom: 0;
+}
+#ShoppingCart #tab-chat li{
+    padding-bottom: 10px;
+}
+#ShoppingCart #tab-chat li.last{
+}
+#ShoppingCart #tab-chat li.last input{
+    border: none;
+    background-color: #cccccc;
+    padding: 10px;
+    width: 100%;
+}
+#ShoppingCart #tab-chat li.you{
+    padding-left: 20px;
+}
 #ShoppingCart li{
     list-style: none;
+}
+
+#ShoppingCart p{
+    margin: 0;
 }
 
 #ShoppingCart .cart li input {
@@ -1071,7 +1179,7 @@ label:hover:before {
     margin-right: 7px;
 }
 
-#ShoppingCart .cart li .price {
+#ShoppingCart .cart li .price,#ShoppingCart .cart li .delete {
     float: right;
 }
 
@@ -1084,6 +1192,22 @@ label:hover:before {
 }
 #ShoppingCart ul{
     padding-left: 0;
+}
+
+#ShoppingCart .cart .items {
+    height: 183px;
+}
+
+#ShoppingCart .gallery li {
+    height: 170px;
+    display: inline-block;
+    width: 25%;
+}
+
+ul.gallery {}
+
+#ShoppingCart .gallery {
+    margin: 15px auto;
 }
 
 #ShoppingCart .ads {
@@ -1136,6 +1260,7 @@ label:hover:before {
     padding: 6px 20px;
     margin: 5px auto;
     border-radius: 4px 4px 0 0px;
+    min-height: 192px;
 }
 
 #ShoppingCart .welcome .footer .btn {

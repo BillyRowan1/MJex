@@ -80,10 +80,12 @@ class AuthController extends Controller
             'zipcode' => 'required|numeric',
         ];
         if($request->input('_type') == 'seller') {
+            $rules['stripeToken'] = 'required';
             $rules['package'] = 'required';
             $rules['delivery'] = 'required|boolean';
         }
         $this->validate($request,$rules);
+        $creditCardToken = $request->input('stripeToken');
 
         $user = new User;
         $user->email = $request->input('email');
@@ -95,12 +97,16 @@ class AuthController extends Controller
         $user->zipcode = $request->input('zipcode');
         $user->package = $request->input('package','none');
         $user->delivery = $request->input('delivery',false);
-        $user->activated = 0;
+        $user->active = 0;
         $user->activation_code = \Hash::make($user->email);
         if($request->has('purpose')) $user->purpose = json_encode($request->input('purpose'));
-
+        if($user->type == 'seller') {
+            // Subscribe this user
+            $user->subscription('mjex-'. $user->package)->create($creditCardToken);
+        }
         $user->save();
         \Event::fire(new UserRegistered($user));
+
         return redirect()->back()->with('message','Thank you for signing up. Please check your email to active your account');
     }
 
