@@ -16,15 +16,17 @@
                             <div class="col-md-6">
                                 <h4>PAYMENT METHODS:</h4>
                                 <p>{{ $seller->accepted_payment }}</p>
-                                <h4>LOCATION: {{ $seller->state }}, {{ $seller->zipcode }}</h4>
+                                <h4>LOCATION: {{ $seller->state }}, {{ $seller->zipcode }}, {{ $seller->country }}</h4>
 
                             </div>
+                            @if(in_array('grower', $seller->purpose))
                             <div class="col-md-6">
                                 <h4>SELECT AS YOUR  GROWER</h4>
                                 <p>Click the green button below to
                                     a email this grower</p>
-                                <button class="btn green-gradient">SELECT AS MY GROWER</button>
+                                <a href="mailto:{{ $seller->email }}" class="btn green-gradient">SELECT AS MY GROWER</a>
                             </div>
+                            @endif
                         </div>
                     </div>
 
@@ -191,7 +193,6 @@
                 .always(function() {
                     Mjex.showLoading(false);
                 });
-                
             }
             function add(product, strain, price, qty, ad_id) {
                 Mjex.showLoading(true);
@@ -252,7 +253,26 @@
                 .always(function() {
                      Mjex.showLoading(false);
                 });
-                
+            }
+
+            function removeItem(rowId) {
+                Mjex.showLoading(true);
+                $.ajax({
+                    url: '{{ route("cart.delete") }}',
+                    type: 'POST',
+                    data: {
+                        rowId: rowId,
+                    }
+                })
+                .done(function(res) {
+                    $('.cart .items').html(res);
+                })
+                .fail(function() {
+                    alert('Can not update cart');
+                })
+                .always(function() {
+                     Mjex.showLoading(false);
+                });
             }
 
             $('#cartCheckout').click(function(event) {
@@ -290,6 +310,8 @@
 
             $('body').delegate('.cart .delete', 'click', function(event) {
                 event.preventDefault();
+                var rowId = $(this).parents('li').data('rowid');
+                removeItem(rowId);
                 $(this).parent().remove();
             });
 

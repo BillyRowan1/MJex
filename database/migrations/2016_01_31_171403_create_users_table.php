@@ -29,6 +29,9 @@ class CreateUsersTable extends Migration
             $table->string('zipcode');
             $table->string('country');
 
+            $table->string('lat');
+            $table->string('lng');
+
             $table->boolean('active');
             $table->string('activation_code')->null();
             $table->rememberToken();

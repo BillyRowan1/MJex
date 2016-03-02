@@ -1,3 +1,7 @@
+.modal-backdrop.in{
+    z-index: 0;
+}
+
 #loading{
     display: none;
     position: fixed;
@@ -7,6 +11,10 @@
     bottom: 0;
     background-color: rgba(255,255,255,0.8);
     z-index: 9999;
+}
+#map{
+    width: 100%;
+    min-height: 250px;
 }
 #loading img{
     position: absolute;
@@ -205,7 +213,46 @@ input {
     font-family: 'caviar_dreamsbold_italic';
     font-size: 23px;
 }
+#bannerAds{
+    width: 728px;
+    height: 90px;
+    background-color: whitesmoke;
+    margin: 0 auto;
+    padding-left: 0;
+    margin-bottom: 40px;
+}
 
+/*#bannerAds .carousel {
+    height: 90px;
+    width: 728px;
+}*/
+
+#bannerAds .item {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    line-height: 90px;
+    font-size: 20px;
+}
+.carousel-indicators .active{
+    background-color: black;
+}
+.carousel-indicators li{
+    background-color: gray;
+}
+.carousel-inner{
+    height: 100%;
+}
+.carousel-indicators{
+    bottom: -20px;
+}
+@media screen and (max-width: 600px) {
+    #bannerAds{
+        width: 100%;
+        height: 50px;
+    }
+}
 .home-search-wrap {
     height: 80px;
     position: relative;
@@ -221,7 +268,7 @@ input {
 }
 
 .home-search-wrap .zipcode {
-    height: 100%;
+    height: 80px;
     width: 182px;
     background: #00cc00;
     float: left;
@@ -231,6 +278,10 @@ input {
     z-index: 2;
     position: relative;
     border-radius: 7px 0 0 7px;
+}
+
+.home-search-wrap .zipcode .btn {
+    width: 100%;
 }
 
 .home-search-wrap .zipcode input {

@@ -16,14 +16,14 @@
                 <!-- Tab panes -->
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane" id="tab-orders">
-                        <div class="form-group">
-                            <label for="filter_1">Medical</label>
-                            <input type="checkbox" name="medical">
-                            <label for="filter_2">Adult use</label>
-                            <input type="checkbox" id="filter_2" name="medical">
-                            <label for="filter_3">Both</label>
-                            <input type="checkbox" id="filter_3" name="medical">
-                        </div>
+                        {{--<div class="form-group">--}}
+                            {{--<label for="filter_1">Medical</label>--}}
+                            {{--<input type="checkbox" name="medical">--}}
+                            {{--<label for="filter_2">Adult use</label>--}}
+                            {{--<input type="checkbox" id="filter_2" name="medical">--}}
+                            {{--<label for="filter_3">Both</label>--}}
+                            {{--<input type="checkbox" id="filter_3" name="medical">--}}
+                        {{--</div>--}}
 
                         <table class="table">
                             <thead>
@@ -39,9 +39,9 @@
                                     <tr>
                                         <td>{{ $order->id }}</td>
                                         <td>12/24/2015</td>
-                                        <td>{{ $order->unit_desc }}</td>
-                                        <td>{{ $order->amount }}</td>
-                                        <td>0</td>
+                                        <td>{{ $order->desc }}</td>
+                                        <td>${{ $order->price }}</td>
+                                        <td>{{ $order->qty }}</td>
                                     </tr>
                                     @endforeach
                                 @endif
@@ -80,7 +80,7 @@
                                         <td>{{ $ad->price_per_unit }}</td>
                                         <td>{{ $ad->type_of_product }}</td>
                                         <td><a href="#"><img src="img/ic-repost.png" alt="" class="repost"></a></td>
-                                        <td><a href="#" data-ad-id="{{ $ad->id }}" onclick="deleteAd({{ $ad->id }})"><img src="img/ic-delete.png"></a></td>
+                                        <td><a href="#" data-ad-id="{{ $ad->id }}" class="delete-ad-btn"><img src="img/ic-delete.png"></a></td>
                                         <td><a href="#"><img src="img/ic-edit.png"></a></td>
                                     </tr>
                                     @endforeach
@@ -163,6 +163,16 @@
                                                     <label for="">State or Province</label>
                                                     <input type="text" name="state" value="{{ $user->state }}" class="form-control">
                                                 </div>
+                                                <div class="form-group">
+                                                    @if(auth()->user()->type == 'seller')
+                                                        <label for="">Drag marker around to select your Store location (<i>this will be use to target your ads to the right Seeker</i>)</label>
+                                                    @else
+                                                        <label for="">Drag marker around to select your location (<i>this will be use to display nearest Store</i>)</label>
+                                                    @endif
+                                                    <div id="map"></div>
+                                                    <input type="hidden" name="lat" value="{{ $user->lat }}">
+                                                    <input type="hidden" name="lng" value="{{ $user->lng }}">
+                                                </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
@@ -183,40 +193,40 @@
                                         <div class="row">
                                             @if(auth()->user()->type == 'seeker')
                                             <div class="form-group circle-checkboxes col-md-12">
-                                                <input type="checkbox" name="purpose[]" id="use_for_1" value="Medical" name="use_for[]">
+                                                <input type="checkbox" name="purpose[]" id="use_for_1" {{ in_array('medical',$user->purpose)?'checked':'' }} value="medical" name="use_for[]">
                                                 <label for="use_for_1">Medical</label>
 
-                                                <input type="checkbox" name="purpose[]" id="use_for_2" value="Grower" name="use_for[]">
+                                                <input type="checkbox" name="purpose[]" id="use_for_2" {{ in_array('grower',$user->purpose)?'checked':'' }} value="grower" name="use_for[]">
                                                 <label for="use_for_2">Grower</label>
 
-                                                <input type="checkbox" name="purpose[]" id="use_for_3" value="Doctor" name="use_for[]">
+                                                <input type="checkbox" name="purpose[]" id="use_for_3" {{ in_array('doctor',$user->purpose)?'checked':'' }} value="doctor" name="use_for[]">
                                                 <label for="use_for_3">Doctor</label>
 
-                                                <input type="checkbox" name="purpose[]" id="use_for_4" value="Adult use" name="use_for[]">
+                                                <input type="checkbox" name="purpose[]" id="use_for_4" {{ in_array('adult_use',$user->purpose)?'checked':'' }} value="adult_use" name="use_for[]">
                                                 <label for="use_for_4">Adult use</label>
                                             </div>
                                             @else
                                             <div class="form-group col-md-12">
                                                 <div class="circle-checkboxes">
-                                                    <input type="checkbox" name="purpose[]" id="use_for_1" value="Medical" name="use_for[]">
+                                                    <input type="checkbox" name="purpose[]" id="use_for_1" {{ in_array('grower', $user->purpose)?'checked':'' }} value="grower" name="use_for[]">
                                                     <label for="use_for_1">Grower</label>
 
-                                                    <input type="checkbox" name="purpose[]" id="use_for_2" value="Grower" name="use_for[]">
+                                                    <input type="checkbox" name="purpose[]" id="use_for_2" {{ in_array('doctor', $user->purpose)?'checked':'' }} value="doctor" name="use_for[]">
                                                     <label for="use_for_2">Doctor</label>
 
-                                                    <input type="checkbox" name="purpose[]" id="use_for_3" value="Doctor" name="use_for[]">
+                                                    <input type="checkbox" name="purpose[]" id="use_for_3" {{ in_array('dispensary', $user->purpose)?'checked':'' }} value="dispensary" name="use_for[]">
                                                     <label for="use_for_3">Dispensary</label>
                                                 </div>
 
                                                 <div class="circle-checkboxes">
-                                                    <input type="checkbox" name="purpose[]" id="use_for_4" value="Adult use" name="use_for[]">
-                                                    <label for="use_for_4">Wholesaler</label>
+                                                    <input type="checkbox" name="purpose[]" id="use_for_5" {{ in_array('wholesaler', $user->purpose)?'checked':'' }} value="wholesaler" name="use_for[]">
+                                                    <label for="use_for_5">Wholesaler</label>
 
-                                                    <input type="checkbox" name="purpose[]" id="use_for_4" value="Adult use" name="use_for[]">
-                                                    <label for="use_for_4">Lab</label>
+                                                    <input type="checkbox" name="purpose[]" id="use_for_6" {{ in_array('lab', $user->purpose)?'checked':'' }} value="lab" name="use_for[]">
+                                                    <label for="use_for_6">Lab</label>
 
-                                                    <input type="checkbox" name="purpose[]" id="use_for_4" value="Adult use" name="use_for[]">
-                                                    <label for="use_for_4">Manufacturer</label>
+                                                    <input type="checkbox" name="purpose[]" id="use_for_7" {{ in_array('manufacturer', $user->purpose)?'checked':'' }} value="manufacturer" name="use_for[]">
+                                                    <label for="use_for_7">Manufacturer</label>
                                                 </div>
                                             </div>
                                             @endif
@@ -245,28 +255,59 @@
 @endsection
 
 @section('page-js')
-    <script>
-        function deleteAd(id, ele) {
-            if (confirm("Are you sure?")) {
-                Mjex.showLoading();
-                $.ajax({
-                    url: '{{ route("ad.destroy") }}',
-                    type: 'POST',
-                    data: {id: id}
-                })
-                .done(function(res) {
-                    console.log(res);
-                    if(status == 'ok') {
-                        $('[data-ad-id='+id+']').parents('tr').remove();
-                    }
-                })
-                .fail(function() {
-                    console.log("deleteAd error");
-                })
-                .always(function() {
-                    Mjex.showLoading(false);
-                });
-            }
+<script>
+(function() {
+    var defaultLocation = { lat: 36.228300, lng: -119.494996 };
+    var $latInput = $('[name=lat]');
+    var $lngInput = $('[name=lng]');
+    if($latInput.val()) { defaultLocation.lat = $latInput.val(); }
+    if($lngInput.val()) { defaultLocation.lng = $lngInput.val(); }
+    var map = new GMaps({
+        el: '#map',
+        lat: defaultLocation.lat,
+        lng: defaultLocation.lng,
+        zoom: 5
+    });
+    var marker = map.addMarker({
+        lat: defaultLocation.lat,
+        lng: defaultLocation.lng,
+        draggable: true,
+        dragend: function () {
+            var lat = this.getPosition().lat(),
+                lng = this.getPosition().lng();
+            $('[name=lat]').val(lat);
+            $('[name=lng]').val(lng);
         }
-    </script>
+    });
+
+    // Delete ad clicked
+    $('.delete-ad-btn').click(function(event) {
+        deleteAd($(this).data('ad-id'));
+    });
+
+    function deleteAd(id) {
+        if (confirm("Are you sure?")) {
+            Mjex.showLoading();
+            $.ajax({
+                url: '{{ route("ad.destroy") }}',
+                type: 'POST',
+                data: { id: id }
+            })
+            .done(function(res) {
+                console.log(res);
+                if (res == 'ok') {
+                    $('[data-ad-id=' + id + ']').parents('tr').remove();
+                }
+            })
+            .fail(function() {
+                console.log("deleteAd error");
+            })
+            .always(function() {
+                Mjex.showLoading(false);
+            });
+        }
+    }
+})();
+
+</script>
 @endsection

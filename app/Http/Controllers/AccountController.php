@@ -8,6 +8,7 @@ use Mjex\Ad;
 use Mjex\Chat;
 use Mjex\Http\Requests;
 use Mjex\Http\Controllers\Controller;
+use Mjex\Order;
 use Mjex\User;
 
 class AccountController extends Controller
@@ -15,7 +16,9 @@ class AccountController extends Controller
     public function getIndex()
     {
         $user = User::find(auth()->user()->id);
-        $ads = Ad::where('user_id', $user->id)->get();
+        if($user->purpose) $user->purpose = json_decode($user->purpose);
+
+        $ads = Ad::where('user_id', $user->id)->where('active',1)->orderBy('created_at','desc')->get();
         $allMsg = Chat::where(auth()->user()->type . '_id', auth()->user()->id)->orderBy('created_at','desc')->get();
         $contactedUsers = [];
 
@@ -40,7 +43,9 @@ class AccountController extends Controller
             $contactedUser->messages = $messages;
         }
 
-        return view('account', compact('user','ads','contactedUsers','allMsg'));
+        $orders = Order::where($user->type . '_id', auth()->user()->id)->orderBy('created_at','desc')->get();
+
+        return view('account', compact('user','ads','contactedUsers','allMsg','orders'));
     }
 
     /**
@@ -62,7 +67,9 @@ class AccountController extends Controller
         $user->state = $request->input('state');
         $user->country = $request->input('country');
         $user->accepted_payment = $request->input('accepted_payment');
-        if($request->has('password')) $user->purpose = json_encode($request->input('purpose'));
+        $user->lat = $request->input('lat');
+        $user->lng = $request->input('lng');
+        if($request->has('password')) $user->password = \Hash::make($user->password);
         if($request->has('purpose')) $user->purpose = json_encode($request->input('purpose'));
 
         if($user->save())

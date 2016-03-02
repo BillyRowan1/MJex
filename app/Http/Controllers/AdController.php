@@ -84,6 +84,7 @@ class AdController extends Controller
             $ad->type_of_strain = $request->input('type_of_strain');
             $ad->price_per_unit = $request->input('price_per_unit');
             $ad->ad_type = $type;
+            $ad->active = 1;
             if($request->has('price_per_quantity')) {
                 $ad->price_per_quantity = json_encode($request->input('price_per_quantity'));
             }
@@ -164,7 +165,9 @@ class AdController extends Controller
 
         $id = $request->input('id');
         $ad = Ad::find($id);
-        if($ad->delete()){
+        $ad->active = 0;
+
+        if($ad->save()){
             return response()->json(['status'=>'ok']);
         }else{
             return response()->json(['status'=>'failed']);

@@ -102,6 +102,8 @@
 <script>
     window.jQuery || document.write('<script src="libs/jquery.min.js"><\/script>')
 </script>
+<script src="http://maps.google.com/maps/api/js"></script>
+<script src="{{ asset('libs/gmaps.min.js') }}"></script>
 <script src="{{ asset('js/vendor/bootstrap.min.js') }}"></script>
 <script src="{{ asset('libs/jquery.nicescroll/jquery.nicescroll.min.js') }}"></script>
 <script src="{{ asset('libs/trumbo/trumbowyg.min.js') }}"></script>
