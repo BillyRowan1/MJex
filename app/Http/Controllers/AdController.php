@@ -60,7 +60,6 @@ class AdController extends Controller
     {
         // Condition: Each package only have 1 ad per package.
         // First check if this user have 1 free ad this month
-        if($this->getAdsThisMonth('count') < 1) {
             $this->validate($request, [
                 "type_of_product" => "required",
                 "unit_desc" => "required",
@@ -132,9 +131,8 @@ class AdController extends Controller
             }else{
                 $msg = 'Can not create ad, please try again';
             }
-        }else{
-            $msg = "Can't create more than 1 free ad per month. Please wait until next month or create a " . "<a href='". route('ad.create.paid') ."'>Paid ad</a>";
-        }
+
+        return $msg;
     }
 
     public function postRePost(Request $request)
