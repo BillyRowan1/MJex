@@ -128,7 +128,7 @@
 
             <ul class="gallery">
                 @foreach($gallery as $image)
-                    <li style="background-image: url('{{ $image }}')"></li>
+                    <li style="background-image: url('{{ asset($image) }}')"></li>
                 @endforeach
             </ul>
 		</li>

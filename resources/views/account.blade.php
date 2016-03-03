@@ -86,7 +86,7 @@
                                             @endif
                                         </td>
                                         <td><a href="#" data-ad-id="{{ $ad->id }}" class="delete-ad-btn"><img src="img/ic-delete.png"></a></td>
-                                        <td><a href="#"><img src="img/ic-edit.png"></a></td>
+                                        <td><a href="{{ route('ad.edit') }}?id={{ $ad->id }}"><img src="img/ic-edit.png"></a></td>
                                     </tr>
                                     @endforeach
                                 @endif

@@ -1272,6 +1272,9 @@ footer {
     height: 170px;
     display: inline-block;
     width: 25%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 ul.gallery {}

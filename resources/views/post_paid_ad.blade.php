@@ -68,23 +68,23 @@
                                 <div class="clearfix">
                                     <div class="input-box">
                                         <span>Gram</span>
-                                        <input type="text" name="price_per_quantity[][gram]">
+                                        <input type="text" name="price_per_quantity[gram]">
                                     </div>
                                     <div class="input-box">
                                         <span>Eighth</span>
-                                        <input type="text" name="price_per_quantity[][eighth]">
+                                        <input type="text" name="price_per_quantity[eighth]">
                                     </div>
                                     <div class="input-box">
                                         <span>Quarter</span>
-                                        <input type="text" name="price_per_quantity[][quater]">
+                                        <input type="text" name="price_per_quantity[quater]">
                                     </div>
                                     <div class="input-box">
                                         <span>Half</span>
-                                        <input type="text" name="price_per_quantity[][half]">
+                                        <input type="text" name="price_per_quantity[half]">
                                     </div>
                                     <div class="input-box">
                                         <span>Ounce</span>
-                                        <input type="text" name="price_per_quantity[][ounce]">
+                                        <input type="text" name="price_per_quantity[ounce]">
                                     </div>
                                 </div>
                             </div>

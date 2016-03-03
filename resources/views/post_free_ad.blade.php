@@ -68,23 +68,23 @@
                                         <div class="clearfix">
                                             <div class="input-box">
                                                 <span>Gram</span>
-                                                <input type="text" name="price_per_quantity[][gram]">
+                                                <input type="text" name="price_per_quantity[gram]">
                                             </div>
                                             <div class="input-box">
                                                 <span>Eighth</span>
-                                                <input type="text" name="price_per_quantity[][eighth]">
+                                                <input type="text" name="price_per_quantity[eighth]">
                                             </div>
                                             <div class="input-box">
                                                 <span>Quarter</span>
-                                                <input type="text" name="price_per_quantity[][quater]">
+                                                <input type="text" name="price_per_quantity[quater]">
                                             </div>
                                             <div class="input-box">
                                                 <span>Half</span>
-                                                <input type="text" name="price_per_quantity[][half]">
+                                                <input type="text" name="price_per_quantity[half]">
                                             </div>
                                             <div class="input-box">
                                                 <span>Ounce</span>
-                                                <input type="text" name="price_per_quantity[][ounce]">
+                                                <input type="text" name="price_per_quantity[ounce]">
                                             </div>
                                         </div>
                                     </div>
@@ -94,10 +94,16 @@
                                     </div>
                                 </div>
                                 <hr class="clearfix" style="border-color: #000000;">
-                                <div class="form-group col-md-12">
-                                    <label for="">Ad content</label>
-                                    <input type="text" placeholder="This is one line of text that buyers want" name="adContent" class="form-control">
-                                </div>
+                                @if(auth()->user()->package == 'monthly' || auth()->user()->package == 'monthly_pro')
+                                    <div class="form-group col-md-12">
+                                        <div class="simple-editor" id="adContent"></div>
+                                    </div>
+                                @else
+                                    <div class="form-group col-md-12">
+                                        <label for="">Ad content</label>
+                                        <input type="text" placeholder="This is one line of text that buyers want" name="adContent" class="form-control">
+                                    </div>
+                                @endif
                             </div>
                         </div>
                         <div class="dropzone">

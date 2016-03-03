@@ -83,6 +83,8 @@ Route::group(['middleware' => ['web']], function () {
         Route::controller('ad', 'AdController', [
             'getCreateFree' => 'ad.create.free',
             'getCreatePaid' => 'ad.create.paid',
+            'getEdit' => 'ad.edit',
+            'postUpdate' => 'ad.update',
             'postStoreFree' => 'ad.store.free',
             'postStorePaid' => 'ad.store.paid',
             'postRePost' => 'ad.repost',
