@@ -27,7 +27,7 @@ class CreateAdsTable extends Migration
             $table->string('thumb');
             $table->text('gallery');
 
-            $table->string('expired_date');
+            $table->bigInteger('expired_date');
 
             $table->string('ad_type');
 

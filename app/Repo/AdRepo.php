@@ -10,11 +10,17 @@ class AdRepo{
         $this->model = $ad;
     }
 
+    public function getLatestAds($limit = 10)
+    {
+        return $this->model->orderBy('updated_at','desc')->where('active',1)->limit($limit)->get();
+    }
+
     public function search($keyword, $lat = 0, $lng = 0)
     {
-        $searchResults = Ad::search($keyword)
+        $searchResults = $this->model->search($keyword)
             ->with('user')
             ->where('active',1)
+            ->where('expired_date','>',strtotime('now'))
             ->get();
 
         foreach($searchResults as &$ad) {
@@ -60,6 +66,7 @@ class AdRepo{
                                 + SIN(RADIANS($lat))
                                 * SIN(RADIANS(users.lat)))) AS distance")
             )
+            ->where('expired_date','>',strtotime('now'))
             ->orderBy('distance','asc')
             ->limit(5)
             ->get();

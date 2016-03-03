@@ -73,13 +73,18 @@
                             <tbody>
                                 @if(isset($ads)&& (!empty($ads)))
                                     @foreach($ads as $ad)
-                                    <tr>
+                                        <?php $expired = $ad->expired_date<strtotime('now')?true:false; ?>
+                                    <tr class="{{ $expired?'expired':'' }}">
                                         <td>{{ $ad->id }}</td>
                                         <td>{{ $ad->created_at }}</td>
                                         <td>{{ $ad->unit_desc }}</td>
                                         <td>{{ $ad->price_per_unit }}</td>
                                         <td>{{ $ad->type_of_product }}</td>
-                                        <td><a href="#"><img src="img/ic-repost.png" alt="" class="repost"></a></td>
+                                        <td>
+                                            @if($expired)
+                                            <a href="#" data-ad-id="{{ $ad->id }}" class="repost-btn"><img src="img/ic-repost.png" alt=""></a>
+                                            @endif
+                                        </td>
                                         <td><a href="#" data-ad-id="{{ $ad->id }}" class="delete-ad-btn"><img src="img/ic-delete.png"></a></td>
                                         <td><a href="#"><img src="img/ic-edit.png"></a></td>
                                     </tr>
@@ -91,13 +96,13 @@
                     @endif
                     <div role="tabpanel" class="tab-pane" id="tab-chat-history">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-4 col-sm-4">
                                 <div class="users box">
                                     <h3 class="title">users</h3>
                                     <ul class="nicescroll nav nav-tabs" role="tablist">
                                         @if(isset($contactedUsers))
                                         @foreach($contactedUsers as $idx => $contactedUser)
-                                        <li role="presentation" class="{{ $idx==0?'active':'' }}"><a href="#chat-{{ $contactedUser->id }}" role="tab" data-toggle="tab">
+                                        <li data-user-id="{{ $contactedUser->id }}" role="presentation" class="{{ $idx==0?'active':'' }}"><a href="#chat-{{ $contactedUser->id }}" role="tab" data-toggle="tab">
                                         <!-- <span class="date">12/04/15</span> -->
                                         {{ $contactedUser->anonymous_email }}</a></li>
                                         @endforeach
@@ -105,33 +110,37 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-8 col-sm-8">
                                 <div class="box chats">
                                     <h3 class="title">chats</h3>
                                     <div class="tab-content">
-                                    @if(isset($contactedUsers))
-                                        @foreach($contactedUsers as $idx => $contactedUser)
-                                        <ul class="nicescroll tab-pane {{ $idx==0?'active':'' }}" role="tabpanel" id="chat-{{ $contactedUser->id }}">
-                                            @if(isset($contactedUser->messages))
-                                            @foreach($contactedUser->messages as $msg)
-                                            <?php 
-                                                $isMe = false;
-                                                if(auth()->user()->id == $msg->sender_id) {
-                                                    $isMe = true;
-                                                }
-                                            ?>
-                                            <li class="{{ $isMe?'me':'' }}">
-                                                <span class="name">{{ $isMe?'You':explode('@',$contactedUser->anonymous_email)[0] }}</span>
-                                                <div class="message">
-                                                    {{ $msg->message }}
-                                                    <span class="time">{{ $msg->created_at }}</span>
-                                                </div>
-                                            </li>
+                                        @if(isset($contactedUsers))
+                                            @foreach($contactedUsers as $idx => $contactedUser)
+                                            <ul class="nicescroll tab-pane {{ $idx==0?'active':'' }}" role="tabpanel" id="chat-{{ $contactedUser->id }}">
+                                                @if(isset($contactedUser->messages))
+                                                @foreach($contactedUser->messages as $msg)
+                                                <?php 
+                                                    $isMe = false;
+                                                    if(auth()->user()->id == $msg->sender_id) {
+                                                        $isMe = true;
+                                                    }
+                                                ?>
+                                                <li class="{{ $isMe?'me':'' }}">
+                                                    <span class="name">{{ $isMe?'You':explode('@',$contactedUser->anonymous_email)[0] }}</span>
+                                                    <div class="message">
+                                                        {{ $msg->message }}
+                                                        <span class="time">{{ $msg->created_at }}</span>
+                                                    </div>
+                                                </li>
+                                                @endforeach
+                                                @endif
+                                            </ul>                                        
                                             @endforeach
-                                            @endif
-                                        </ul>
-                                        @endforeach
-                                    @endif
+                                        @endif
+                                        <div id="chat-message-wrap">
+                                            <input type="text" class="form-control" name="chat-message" placeholder="Enter your message">
+                                            <button id="sendChatBtn" class="btn btn-default">Send</button>
+                                        </div>
                                     </div>
                                 </div>
                                 
@@ -150,7 +159,7 @@
                                         {!! csrf_field() !!}
                                         <input type="hidden" name="_method" value="PUT">
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-6 col-sm-6">
                                                 <div class="form-group">
                                                     <label for="">Your contact Email*</label>
                                                     <input type="email" name="email" value="{{ $user->email }}" class="form-control">
@@ -174,7 +183,7 @@
                                                     <input type="hidden" name="lng" value="{{ $user->lng }}">
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-6 col-sm-6">
                                                 <div class="form-group">
                                                     <label for="">Password</label>
                                                     <input type="password" name="password" class="form-control">
@@ -256,6 +265,41 @@
 
 @section('page-js')
 <script>
+var Chat = (function () {
+    $('#sendChatBtn').click(function(event) {
+        var message = $('[name=chat-message]').val();
+        var chatWithUser = $('#Account #tab-chat-history .users li.active').data('user-id');
+        if(message != '') {
+            Mjex.showLoading(true);
+            $.ajax({
+                url: '{{ route("chat.store") }}',
+                type: 'POST',
+                data: {
+                    message: message,
+                    {{ auth()->user()->type }}_id: {{ auth()->user()->id }},
+                    {{ auth()->user()->type=='seeker'?'seller':'seeker'}}_id: chatWithUser
+                }
+            }).done(function(res) {
+                console.log(res);
+                if(res.status == 'ok') {
+                    addMessage(message);
+                    $('#tab-chat [name=message]').val('');
+                }
+            }).always(function() {
+                Mjex.showLoading(false);
+            });
+                
+        }else{
+            alert('Please enter message');
+        }
+    });
+
+    function addMessage(message) {
+        var item = '<li class="me"><span class="name">You</span><div class="message">'+message+'<span class="time">2016-03-03 16:56:53</span></div></li>';
+        
+        $('#tab-chat-history .nicescroll.active').prepend(item);
+    }
+})();
 (function() {
     var defaultLocation = { lat: 36.228300, lng: -119.494996 };
     var $latInput = $('[name=lat]');
@@ -285,6 +329,12 @@
         deleteAd($(this).data('ad-id'));
     });
 
+    // Repost ad clicked
+    $('.repost-btn').click(function(event) {
+        event.preventDefault();
+        repostAd($(this).data('ad-id'));
+    });
+
     function deleteAd(id) {
         if (confirm("Are you sure?")) {
             Mjex.showLoading();
@@ -306,6 +356,25 @@
                 Mjex.showLoading(false);
             });
         }
+    }
+
+    function repostAd(id) {
+        $.ajax({
+            url: '{{ route("ad.repost") }}',
+            type: 'POST',
+            data: {id: id},
+        })
+        .done(function() {
+            $('a[data-ad-id='+id+']').parents('tr').removeClass('expired');
+            alert('Ad reposted');
+        })
+        .fail(function() {
+            console.log("error");
+        })
+        .always(function() {
+            console.log("complete");
+        });
+
     }
 })();
 

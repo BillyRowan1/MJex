@@ -15,9 +15,9 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(AdRepo $adRepo)
     {
-        $latestAds = Ad::orderBy('created_at','desc')->where('active',1)->limit(10)->get();
+        $latestAds = $adRepo->getLatestAds();
 
         return view('index', compact('latestAds'));
     }

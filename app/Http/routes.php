@@ -31,7 +31,9 @@ Route::group(['middleware' => ['web']], function () {
         return view('errors.empty');
     });
 
-
+    Route::get('test',function(){
+        return strtotime('now');
+    });
 
     Route::get('activate',function(Illuminate\Http\Request $request) {
         $user = \Mjex\User::where('activation_code', $request->input('activation_code'))->first();

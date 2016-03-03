@@ -946,6 +946,21 @@ footer {
     margin-top: 0;
 }
 
+#Account #tab-chat-history [name=chat-message]{
+    width: 100%;
+    border: none;
+    border-radius: 0;
+}
+
+#Account #chat-message-wrap{
+    position: relative;
+}
+#Account #chat-message-wrap .btn{
+    position: absolute;
+    right: 0;
+    top: 2px;
+}
+
 #Account .nav.nav-tabs li {
     width: 25%;
     text-align: center;
@@ -1004,6 +1019,10 @@ footer {
 
 #Account .tab-content table {
     border: 1px solid #555;
+}
+
+#Account tr.expired {
+    opacity: .5;
 }
 
 #Account .tab-content table tbody {
@@ -1338,7 +1357,7 @@ ul.gallery {}
     clear: both;
 }
 
-@media only screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
     .cd-faq {
         position: relative;
         margin: 4em auto;
@@ -1390,7 +1409,7 @@ ul.gallery {}
     padding: 0;
 }
 
-@media only screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
     .cd-faq-categories {
         width: 20%;
         float: left;
@@ -1664,9 +1683,6 @@ ul.gallery {}
     text-decoration: none;
 }
 
-
-/*@media only screen and (min-width: 768px) {*/
-
 .cd-faq-trigger {
     font-size: 24px;
     font-weight: 300;
@@ -1725,9 +1741,6 @@ ul.gallery {}
     -o-transform: rotate(45deg);
     transform: rotate(45deg);
 }
-
-
-/*}*/
 
 .cd-faq-content p {
     font-size: 14px;

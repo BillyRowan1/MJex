@@ -4,7 +4,7 @@
     <section id="Contact" class="container">
         <h1 class="title">Find Classifieds, Growers, Dispensaries <br>and Other <span class="green-text">Cannabis</span> Products</h1>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 col-sm-6">
                 @include('inc.msg')
                 <form action="{{ route('contact') }}" method="post" class="form-inline">
                     {!! csrf_field() !!}
@@ -31,7 +31,7 @@
                     <button class="btn green-gradient" type="submit">SEND</button>
                 </form>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-6">
                 <div class="contact-box">
                     <h3><span class="green-text">Contact</span> us here</h3>
                     <p>MJex.co <br>Street No.1234, <br>Portland, Oregon <br>USA</p>

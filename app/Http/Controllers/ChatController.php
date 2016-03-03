@@ -22,14 +22,20 @@ class ChatController extends Controller
 
         $chat = new Chat();
         $chat->message = $this->request->input('message');
-        if($this->request->has('seller_id')) {
+        if($this->request->has('seller_id') && $this->request->has('seeker_id')) {
             $chat->seller_id = $this->request->input('seller_id');
-            $chat->seeker_id = auth()->user()->id;
-        }
-        if($this->request->has('seeker_id')) {
             $chat->seeker_id = $this->request->input('seeker_id');
-            $chat->seller_id = auth()->user()->id;
+        }else{
+            if($this->request->has('seller_id')) {
+                $chat->seller_id = $this->request->input('seller_id');
+                $chat->seeker_id = auth()->user()->id;
+            }
+            if($this->request->has('seeker_id')) {
+                $chat->seeker_id = $this->request->input('seeker_id');
+                $chat->seller_id = auth()->user()->id;
+            }    
         }
+        
         $chat->sender_id = auth()->user()->id;
         $chat->save();
         $status = 'ok';
