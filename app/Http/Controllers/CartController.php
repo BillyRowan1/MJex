@@ -66,7 +66,7 @@ class CartController extends Controller
 
     public function postSendOrder(Request $request)
     {
-//        $seller = User::find($request->input('seller_id'));
+        $seller = User::find($request->input('seller_id'));
 
         foreach(Cart::content() as $cartItem){
             $order = new Order;
@@ -80,13 +80,33 @@ class CartController extends Controller
             $order->save();
         }
 
-//        \Mail::send('emails.order',[], function ($m) use ($seller){
-//            $m->to($seller->email)->subject('Mjex order');
-//        });
+        \Mail::send('emails.order',[], function ($m) use ($seller){
+            $m->to($seller->email)->subject('Mjex order');
+        });
+
+        return redirect()->back();
     }
 
     public function postClearCart()
     {
         Cart::destroy();
+    }
+
+    public function postSendMessageToGrower(Request $request)
+    {
+        $this->validate($request,[
+            'msg' => 'required',
+            'grower_email' => 'required'
+        ],[
+            'msg.required' => 'You must enter your message to this grower'
+        ]);
+        $msg = $request->input('msg');
+        $growerEmail = $request->input('grower_email');
+
+        \Mail::send('emails.msg_to_grower',['msg'=>$msg], function ($m) use ($growerEmail){
+            $m->to($growerEmail)->subject('Message from Seeker');
+        });
+
+        return redirect()->back()->with('message','Your message has been sent');
     }
 }

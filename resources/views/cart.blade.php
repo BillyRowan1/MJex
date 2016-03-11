@@ -16,15 +16,19 @@
                             <div class="col-md-6">
                                 <h4>PAYMENT METHODS:</h4>
                                 <p>{{ $seller->accepted_payment }}</p>
-                                <h4>LOCATION: {{ $seller->state }}, {{ $seller->zipcode }}, {{ $seller->country }}</h4>
+                                <h4>LOCATION: {{ $seller->state }}, {{ $seller->country }}</h4>
+                                <h4>AREAS SERVED: {{ $seller->zipcode }}</h4>
 
                             </div>
                             @if(in_array('grower', $seller->purpose))
                             <div class="col-md-6">
-                                <h4>SELECT AS YOUR  GROWER</h4>
-                                <p>Click the green button below to
-                                    a email this grower</p>
-                                <a href="mailto:{{ $seller->email }}" class="btn green-gradient">SELECT AS MY GROWER</a>
+                                {!! Form::open(['route'=>'cart.send.to.grower','method'=>'post','id'=>'emailThisGrowerForm']) !!}
+                                <input type="hidden" name="grower_email" value="{{ $seller->email }}">
+                                <textarea name="msg" class="form-control" cols="30" rows="5" placeholder="Enter your message"></textarea>
+                                <br>
+                                <button type="submit" class="btn green-gradient">SEND</button>
+                                <button type="button" class="btn close-form">CLOSE</button>
+                                {!! Form::close() !!}
                             </div>
                             @endif
                         </div>
@@ -32,11 +36,15 @@
 
                     <div class="footer ">
                         @if(auth()->user() && auth()->user()->type == 'seeker')
-                        <button id="openChatBtn" class="btn">Open chat window</button>
-                        @else
-                        <button class="btn">You must login as Seeker to chat</button>
+                            <button id="openChatBtn" class="btn">Open chat window</button>
+
+                            @if(in_array('grower', $seller->purpose))
+                                <button id="emailThisGrowerBtn" class="btn">Email This Grower</button>
+                            @endif
+                                
+                            @else
+                            <button class="btn">You must login as Seeker to chat</button>
                         @endif
-                        {{--<button class="btn">Send an email</button>--}}
                     </div>
                 </div>
                 <div class="tab" id="tab-reviews">
@@ -141,6 +149,15 @@
 <script>
     
     jQuery(document).ready(function($) {
+        // Email grower
+        $('#emailThisGrowerForm').hide();
+        $('#emailThisGrowerBtn').click(function(){
+            $('#emailThisGrowerForm').show();
+        });
+        $('#emailThisGrowerForm .close-form').click(function(){
+            $('#emailThisGrowerForm').hide();
+        });
+        //////
         var Chat = (function () {
             $('#sendChatBtn').click(function(event) {
                 var message = $('#tab-chat [name=message]').val();

@@ -169,7 +169,7 @@ input {
 #main-menu li a {
     height: 100%;
     background: #cacaca;
-    width: 16.666666667%;
+    width: 20%;
     float: left;
     line-height: 80px;
     background: #cccccc;
@@ -931,7 +931,7 @@ footer {
     font-size: 18px;
 }
 
-#FindGrowers [type=submit] {
+#FindGrowers .btn[type=submit] {
     float: right;
     background: #00cc00;
     font-family: arial, sans-serif;

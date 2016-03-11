@@ -74,6 +74,7 @@ Route::group(['middleware' => ['web']], function () {
             'postDelete' => 'cart.delete',
             'postSendOrder' => 'cart.send.order',
             'postUpdateQty' => 'cart.update.qty',
+            'postSendMessageToGrower' => 'cart.send.to.grower',
         ]);
         Route::controller('account','AccountController');
         Route::controller('chat','ChatController',[

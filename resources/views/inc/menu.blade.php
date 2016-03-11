@@ -8,8 +8,7 @@
         </button>
     </div>
     <ul id="main-menu" class="collapse navbar-collapse">
-    	<li><a class="active" href="{{ url('/') }}">home</a></li>
-	    <li><a href="{{ route('contact') }}">contact</a></li>
+    	<li><a class="active" href="{{ url('/') }}">search</a></li>
         @if(!auth()->user())
     	    <li class="active"><a href="{{ url('register') }}">sign up</a></li>
         @else

@@ -109,6 +109,7 @@
 <script src="{{ asset('libs/trumbo/trumbowyg.min.js') }}"></script>
 
 <script src="{{ asset('js/main.js') }}"></script>
+<script src="{{ asset('js/search.js') }}"></script>
 
 @yield('page-js')
 </body>

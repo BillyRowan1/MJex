@@ -77,7 +77,7 @@ class AuthController extends Controller
             'email' => 'required|email|unique:users,email',
             'password' => 'required',
             'community_name' => 'required|unique:users,community_name|min:3',
-            'zipcode' => 'required|numeric',
+            'zipcode' => 'required',
         ];
         if($request->input('_type') == 'seller') {
             $rules['stripeToken'] = 'required';

@@ -51,7 +51,7 @@ var Mjex = (function () {
         }
     }
     return {
-        showLoading
+        showLoading: showLoading
     }
 })();
 

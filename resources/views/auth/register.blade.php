@@ -71,7 +71,7 @@
                             <input type="text" name="community_name" value="{{ old('_type')=='seller'?old('community_name'):'' }}" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="">Zipcode*</label>
+                            <label for="">Zipcode* (can add more than one, separate by commas)</label>
                             <input type="text" name="zipcode" value="{{ old('_type')=='seller'?old('zipcode'):'' }}" class="form-control">
                             <div class="form-group">
                             </div>

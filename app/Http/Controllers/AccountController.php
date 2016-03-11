@@ -58,7 +58,7 @@ class AccountController extends Controller
             'email' => 'required|email',
             'password' => 'min:6',
             'community_name' => 'required|unique:users,community_name,'.auth()->user()->id,
-            'zipcode' => 'required|numeric',
+            'zipcode' => 'required',
         ]);
         $user = User::find(auth()->user()->id);
         $user->email = $request->email;

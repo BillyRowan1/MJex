@@ -12,6 +12,9 @@
                 </div>
             </header>
 
+            @include('inc.search')
+            @include('inc.msg')
+
             <div class="col-md-12">
                 <p>Patient to Grower Connection</p>
                 <p>MJex understands that not all OMMP patients are able or willing to grow their own medication. We are continuously
@@ -24,7 +27,6 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                @include('inc.msg')
                 <form action="{{ route('find-growers') }}" method="post">
                     {!! csrf_field() !!}
                     <div class="form-group">
