@@ -5,11 +5,11 @@ jQuery(document).ready(function($) {
     $('.simple-editor').trumbowyg({
         btns: ['bold', 'italic', 'underline']
     });
-    $('[name="price_per_quantity[]"]').keydown(function () {
+    $('#pricePerQuantity input').keydown(function () {
         $('[name="price_per_unit"]').val('');
     });
     $('[name="price_per_unit"]').keydown(function () {
-        $('[name="price_per_quantity[]"]').val('');
+        $('#pricePerQuantity input').val("");
     });
 
     /*============================

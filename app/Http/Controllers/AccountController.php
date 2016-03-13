@@ -20,7 +20,7 @@ class AccountController extends Controller
 
         $ads = Ad::where('user_id', $user->id)->where('active',1)->orderBy('created_at','desc')->get();
         $allMsg = Chat::where(auth()->user()->type . '_id', auth()->user()->id)->orderBy('created_at','desc')->get();
-        $contactedUsers = [];
+        $contactedUsers = $contactedUserIds = [];
 
         foreach($allMsg as $msg){
             if(auth()->user()->type == 'seeker') {

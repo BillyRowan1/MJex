@@ -63,7 +63,7 @@
                                         <label for="">Price per Unit in USD</label>
                                         <input type="text" class="form-control" name="price_per_unit">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group" id="pricePerQuantity">
                                         <label>Price per Quantity in USD</label>
                                         <div class="clearfix">
                                             <div class="input-box">
@@ -96,11 +96,12 @@
                                 <hr class="clearfix" style="border-color: #000000;">
                                 @if(auth()->user()->package == 'monthly' || auth()->user()->package == 'monthly_pro')
                                     <div class="form-group col-md-12">
+                                        <label for="">Place your Ad copy here</label>
                                         <div class="simple-editor" id="adContent"></div>
                                     </div>
                                 @else
                                     <div class="form-group col-md-12">
-                                        <label for="">Ad content</label>
+                                        <label for="">Place your Ad copy here</label>
                                         <input type="text" placeholder="This is one line of text that buyers want" name="adContent" class="form-control">
                                     </div>
                                 @endif

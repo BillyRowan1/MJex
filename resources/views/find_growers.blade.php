@@ -12,10 +12,10 @@
                 </div>
             </header>
 
-            @include('inc.search')
-            @include('inc.msg')
-
             <div class="col-md-12">
+                @include('inc.search')
+                @include('inc.msg')
+
                 <p>Patient to Grower Connection</p>
                 <p>MJex understands that not all OMMP patients are able or willing to grow their own medication. We are continuously
                     approached about connecting new patients to growers so we would like to offer our Patient to Grower Connection. If
@@ -26,7 +26,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 col-md-offset-3">
                 <form action="{{ route('find-growers') }}" method="post">
                     {!! csrf_field() !!}
                     <div class="form-group">

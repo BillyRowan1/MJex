@@ -92,8 +92,12 @@ input {
 .navbar-form input.form-control {
     margin: 0;
     border: none;
-    padding: 20px 15px;
+    padding: 0px 15px;
     width: 200px;
+    color: black;
+    font-size: 14px;
+    line-height: 20px;
+    height: 40px;
 }
 
 .navbar-form .btn {
@@ -1338,6 +1342,10 @@ ul.gallery {}
 
 #ShoppingCart .welcome .footer .btn {
     margin: 10px;
+}
+
+.btn {
+    background: #ababab;
 }
 
 #ShoppingCart .ads > li {

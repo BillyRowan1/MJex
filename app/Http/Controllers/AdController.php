@@ -147,7 +147,7 @@ class AdController extends Controller
                 "header_color" => "required",
                 "location" => "required",
                 "type_of_strain" => "required",
-                "price_per_unit" => "",
+                "price_per_unit" => "numeric",
                 "price_per_quantity" => "",
                 "adContent" => "required",
                 "thumb" => 'image'

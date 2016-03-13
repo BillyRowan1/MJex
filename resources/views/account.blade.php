@@ -136,11 +136,14 @@
                                                 @endif
                                             </ul>                                        
                                             @endforeach
-                                        @endif
+
+                                        @if(count($contactedUsers)>0)
                                         <div id="chat-message-wrap">
                                             <input type="text" class="form-control" name="chat-message" placeholder="Enter your message">
                                             <button id="sendChatBtn" class="btn btn-default">Send</button>
                                         </div>
+                                        @endif
+                                        @endif
                                     </div>
                                 </div>
                                 

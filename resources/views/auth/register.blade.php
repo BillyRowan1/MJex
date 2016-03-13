@@ -139,32 +139,34 @@
 
 jQuery(document).ready(function($) {
     $('#stripeCheckoutBtn').on('click', function(e) {
-        e.preventDefault();
-        
         var package = $('[name=package]:checked').val();
-        var amount = 0;
-        var description = '';
-        switch (package) {
-            case 'free':
-                amount = 0;
-                description = 'Free';
-                break;
-            case 'monthly':
-                description = 'Monthly ($5.00)';
-                amount = 500;
-                break;
-            case 'monthly_pro':
-                description = 'Monthly ($10.00)';
-                amount = 1000;
-                break;
+        if(package != 'free') {
+            e.preventDefault();
+
+            var amount = 0;
+            var description = '';
+            switch (package) {
+                case 'free':
+                    amount = 0;
+                    description = 'Free';
+                    break;
+                case 'monthly':
+                    description = 'Monthly ($5.00)';
+                    amount = 500;
+                    break;
+                case 'monthly_pro':
+                    description = 'Monthly ($10.00)';
+                    amount = 1000;
+                    break;
+            }
+            // Open Checkout with further options
+            handler.open({
+                name: 'Mjex',
+                description: description,
+                amount: amount,
+                email: $('#seller-signup [name=email]').val()
+            });
         }
-        // Open Checkout with further options
-        handler.open({
-            name: 'Mjex',
-            description: description,
-            amount: amount,
-            email: $('#seller-signup [name=email]').val()
-        });
     });
 
     // Close Checkout on page navigation

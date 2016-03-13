@@ -7,6 +7,7 @@
             <a href="{{ route('ad.create.paid') }}" class="btn green-gradient">post a paid ad</a>
         </div>
         <h2 class="text-center">Paid ad ($2 per additional ad)</h2>
+        <p class="text-center">(This money automatically charge from your saved Credit card)</p>
         @include('inc.msg')
         <form action="{{ route('ad.store.paid') }}" method="post" enctype="multipart/form-data">
             <div id="step1">
