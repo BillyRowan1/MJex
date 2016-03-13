@@ -144,6 +144,14 @@ input {
     line-height: 59px;
     padding: 0;
     margin-bottom: 0;
+    padding-right: 10px;
+}
+
+#top-nav .dropdown > span {color: white;position: absolute;right: 0;top: 21px;right: 10px;cursor: pointer;}
+
+#top-nav .dropdown {
+    float: right;
+    cursor: pointer;
 }
 
 #top-nav .welcome a {

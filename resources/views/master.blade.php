@@ -14,8 +14,8 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('fonts/fonts.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap-theme.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('fonts/fonts.css') }}">
     <link rel="stylesheet" href="{{ asset('libs/trumbo/ui/trumbowyg.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('css/main-responsive.css') }}">
@@ -63,7 +63,22 @@
             </form>
         </div>
         @else
-            <p class="welcome">Hi, <a href="{{ url('account') }}">{{ auth()->user()->community_name }}</a>. Current package: {{ str_replace('_',' ', strtoupper(auth()->user()->package)) }}. <a href="{{ url('logout') }}">Logout</a></p>
+            <div class="dropdown">
+                <p data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="welcome">Hi, {{ auth()->user()->community_name }} <span class="glyphicon glyphicon-chevron-down"></span></p>
+                
+                <ul class="dropdown-menu pull-right">
+                    @if(auth()->user()->package != 'none')
+                    <li><a href="#">Current package: {{ str_replace('_',' ', strtoupper(auth()->user()->package)) }}</a></li>
+
+                    @if(auth()->user()->package != 'monthly_pro')
+                    <li><a href="{{ url('account/upgrade') }}"><span class="glyphicon glyphicon-fire"></span> UPGRADE NOW</a></li>
+                    @endif
+
+                    <li role="separator" class="divider"></li>
+                    @endif
+                    <li><a href="{{ url('logout') }}"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
+                </ul>
+            </div>
         @endif
     </nav>
     @include('inc.menu')

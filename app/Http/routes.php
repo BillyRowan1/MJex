@@ -31,8 +31,21 @@ Route::group(['middleware' => ['web']], function () {
         return view('errors.empty');
     });
 
-    Route::get('test',function(){
-        return strtotime('now');
+    Route::get('confirm-order',function(Illuminate\Http\Request $request) {
+        $msg = "Sorry, seller refuse your order";
+        $buyer = \Mjex\User::find($request->input('b'));
+
+        if(!is_null($buyer)) {
+            if($request->input('a') ==  'yes') {
+                $msg = "Thanks, your order is being processed";
+            }
+        }
+
+        \Mail::send('emails.msg_to_grower',['msg'=>$msg], function ($m) use ($buyer){
+            $m->to($buyer->email)->subject('Mjex order confirmation');
+        });
+
+        return "Your confirmation has been sent to buyer";
     });
 
     Route::get('activate',function(Illuminate\Http\Request $request) {

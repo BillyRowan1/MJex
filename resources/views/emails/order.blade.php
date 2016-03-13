@@ -7,4 +7,12 @@
             <span class="price">${{ $cartItem->price }}</span>
         </li>
     @endforeach
+
+    @if(is_grower($seller))
+        <p class="text-center">
+            Confirm order:
+                <a href="{{ url('confirm-order') . '?b=' . $buyer->id . '&a=no' }}">Refuse</a>
+                <a href="{{ url('confirm-order') . '?b=' . $buyer->id . '&a=yes'}}">Accept</a>
+        </p>
+    @endif
 </ul>

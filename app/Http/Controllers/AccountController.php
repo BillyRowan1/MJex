@@ -77,4 +77,29 @@ class AccountController extends Controller
 
         return redirect()->back()->with('message','Please try again');
     }
+
+    public function getUpgrade()
+    {
+        if(auth()->user()->package == 'none') return redirect()->to('/')->with('message','Please register a Seller account to access Upgrade page');
+        return view('upgrade');
+    }
+
+    public function postUpgrade(Request $request)
+    {
+        $this->validate($request, [
+            'package' => 'required'
+        ]);
+        $package = $request->input('package');
+
+        $user = User::find(auth()->user()->id);
+        $user->package = $package;
+
+        if($user->save()) {
+            $msg = "Your account is upgraded";
+        }else{
+            $msg = "Can not save your info. Please contact us for more information";
+        }
+
+        return redirect()->back()->with('message',$msg);
+    }
 }

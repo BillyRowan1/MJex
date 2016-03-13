@@ -293,6 +293,11 @@
             }
 
             $('#cartCheckout').click(function(event) {
+                if ($('li[data-rowid]').length == 0) {
+                    alert('Can not checkout. Your cart is empty');
+                    return false;
+                }
+
                 Mjex.showLoading(true);
                 $.ajax({
                     url: '{{ route("cart.send.order") }}',

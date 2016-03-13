@@ -80,7 +80,7 @@ class CartController extends Controller
             $order->save();
         }
 
-        \Mail::send('emails.order',[], function ($m) use ($seller){
+        \Mail::send('emails.order',['seller'=>$seller,'buyer'=>auth()->user()], function ($m) use ($seller){
             $m->to($seller->email)->subject('Mjex order');
         });
 

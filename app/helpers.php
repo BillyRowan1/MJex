@@ -17,3 +17,12 @@ function distance($lat1, $lng1, $lat2, $lng2, $unit = "M") {
         return $miles;
     }
 }
+
+function is_grower($user) {
+    if($user && !empty($user->purpose)) {
+        $purposes = json_decode($user->purpose);
+
+        if(in_array('grower', $purposes)) return true;
+    }
+    return false;
+}
