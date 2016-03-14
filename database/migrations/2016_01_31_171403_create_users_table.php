@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('community_name')->unique();
             $table->boolean('delivery');
             $table->string('purpose');
+            $table->integer('patients_available');
             $table->string('state');
             $table->enum('package',['none','free','monthly','monthly_pro']);
 

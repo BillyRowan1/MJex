@@ -73,13 +73,24 @@
                         <div class="form-group">
                             <label for="">Zipcode* (can add more than one, separate by commas)</label>
                             <input type="text" name="zipcode" value="{{ old('_type')=='seller'?old('zipcode'):'' }}" class="form-control">
-                            <div class="form-group">
-                            </div>
+                        </div>
+                        <div class="form-group">
                             <label for="">Delivery</label>
                             <select name="delivery" class="form-control">
                                 <option value="">-Select-</option>
                                 <option value="1">Yes</option>
                                 <option value="0">No</option>
+                            </select>
+                        </div>
+                        <div class="form-group" id="growerPatientsAvailable">
+                            <label for="">Number of patients available</label>
+                            <select name="patients_available" class="form-control">
+                                <option value="">-Select-</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
                             </select>
                         </div>
                         <label for="">Select as many as apply</label>
@@ -138,6 +149,22 @@
 });
 
 jQuery(document).ready(function($) {
+    $('#growerPatientsAvailable').hide();
+    $('.business [name="purpose[]"]').click(function(event) {
+        var isGrower = false;
+        $('.business [name="purpose[]"]').each(function(event) {
+            if ($(this).is(':checked') && $(this).val() == 'grower') {
+                isGrower = true;
+            }
+        });
+        console.log(isGrower);
+        if(isGrower) {
+            $('#growerPatientsAvailable').show();
+        }else{
+            $('#growerPatientsAvailable').hide();
+        }
+    });
+    
     $('#stripeCheckoutBtn').on('click', function(e) {
         var package = $('[name=package]:checked').val();
         if(package != 'free') {

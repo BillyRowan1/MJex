@@ -80,7 +80,7 @@ class AuthController extends Controller
             'zipcode' => 'required',
         ];
         if($request->input('_type') == 'seller') {
-            $rules['stripeToken'] = 'required';
+            if($request->input('package') != 'free') $rules['stripeToken'] = 'required';
             $rules['package'] = 'required';
             $rules['delivery'] = 'required|boolean';
         }
@@ -99,8 +99,14 @@ class AuthController extends Controller
         $user->delivery = $request->input('delivery',false);
         $user->active = 0;
         $user->activation_code = \Hash::make($user->email);
-        if($request->has('purpose')) $user->purpose = json_encode($request->input('purpose'));
-        if($user->type == 'seller') {
+        if($request->has('purpose')) {
+            $user->purpose = json_encode($request->input('purpose'));
+
+            if(is_grower($user)) {
+                $user->patients_available = $request->input('patients_available');
+            }
+        }
+        if($user->type == 'seller' && $user->package != 'free') {
             // Subscribe this user
             $user->subscription('mjex-'. $user->package)->create($creditCardToken);
         }
