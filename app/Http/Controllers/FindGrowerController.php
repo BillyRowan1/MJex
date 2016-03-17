@@ -27,7 +27,7 @@ class FindGrowerController extends Controller
         $mjexUsers = User::all();
         $bcc = [];
         foreach($mjexUsers as $mjexUser){
-            if($mjexUser->type=="seller" && in_array('grower',json_decode($mjexUser->purpose))){
+            if($mjexUser->type=="seller" && has_purpose('grower',$mjexUser)) {
                 $bcc[] = $mjexUser->email;
             }
         }

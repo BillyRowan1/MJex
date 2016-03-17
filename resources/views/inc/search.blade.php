@@ -25,7 +25,7 @@
             <input type="hidden" name="lat" value="{{ auth()->user()?auth()->user()->lat:'' }}">
             <input type="hidden" name="lng" value="{{ auth()->user()?auth()->user()->lng:'' }}">
         </div>
-        <input type="text" name="keyword" placeholder="What are you looking for?" class="search">
+        <input type="text" name="keyword" placeholder="Type in a City, State, or Product Name" class="search">
         <div class="green-gradient search-submit-wrap">
             <button class="search-submit" type="submit">Search</button>
         </div>

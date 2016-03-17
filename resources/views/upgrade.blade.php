@@ -14,12 +14,12 @@
                         <label class="text-center">Choose ad package</label>
                         <div class="form-group checkbox-group circle-checkboxes clearfix">
                             @if(auth()->user()->package == 'free')
-                            <input type="radio" id="package-2" value="monthly" name="package">
+                            <input type="radio" id="package-2" value="weekly" name="package">
                             <label for="package-2">$5.00 per month</label>
                             @endif
 
-                            @if(auth()->user()->package == 'free' || auth()->user()->package == 'monthly')
-                            <input type="radio" id="package-3" value="monthly_pro" name="package">
+                            @if(auth()->user()->package == 'free' || auth()->user()->package == 'weekly')
+                            <input type="radio" id="package-3" value="weekly_pro" name="package">
                             <label for="package-3">$10.00 per month</label>
                             @endif
                             <input type="hidden" name="stripeToken">
@@ -57,12 +57,12 @@ jQuery(document).ready(function($) {
         var amount = 0;
         var description = '';
         switch (package) {
-            case 'monthly':
-                description = 'Monthly ($5.00)';
+            case 'weekly':
+                description = 'Weekly ($5.00)';
                 amount = 500;
                 break;
-            case 'monthly_pro':
-                description = 'Monthly ($10.00)';
+            case 'weekly_pro':
+                description = 'Weekly pro ($10.00)';
                 amount = 1000;
                 break;
         }

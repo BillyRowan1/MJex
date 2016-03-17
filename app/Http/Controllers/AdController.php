@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Mjex\Ad;
 use Mjex\Http\Requests;
 use Mjex\Http\Controllers\Controller;
+use Mjex\Repo\AdRepo;
 use Mjex\Repo\UserRepo;
 use Mjex\User;
 
@@ -16,22 +17,22 @@ class AdController extends Controller
     {
         $this->middleware('seller');
     }
-    public function getCreateFree()
+    public function getCreateFree(AdRepo $adRepo)
     {
-        $adsThisMonth = $this->getAdsThisMonth('count');
+        $adsThisWeek = $this->getAdsThisWeek('count');
+//        $adsLeft = 0;
 
         switch(auth()->user()->package) {
             case 'free':
-                $adsLeft = 1 - $adsThisMonth;
+                $adsLeft = 1 - $adRepo->getTotalAd(auth()->user()->id);
                 break;
-            case 'monthly':
-                $adsLeft = 5 - $adsThisMonth;
+            case 'weekly':
+                $adsLeft = 1 - $adsThisWeek;
                 break;
-            case 'monthly_pro':
-                $adsLeft = 5 - $adsThisMonth;
+            case 'weekly_pro':
+                $adsLeft = 1 - $adsThisWeek;
                 break;
         }
-
         return view('post_free_ad', compact('adsLeft'));
     }
 
@@ -257,6 +258,20 @@ class AdController extends Controller
         $query = Ad::where('user_id', auth()->user()->id)
                     ->where('ad_type','free')
                     ->where( \DB::raw('MONTH(created_at)'), '=', date('n') );
+        if($action == 'count') {
+            $adThisMonth = $query->count();
+        }else{
+            $adThisMonth = $query->get();
+        }
+
+        return $adThisMonth;
+    }
+
+    private function getAdsThisWeek($action)
+    {
+        $query = Ad::where('user_id', auth()->user()->id)
+            ->where('ad_type','free')
+            ->where( \DB::raw('WEEK(created_at)'), '=', date('n') );
         if($action == 'count') {
             $adThisMonth = $query->count();
         }else{

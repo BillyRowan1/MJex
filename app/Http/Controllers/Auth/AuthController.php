@@ -105,10 +105,12 @@ class AuthController extends Controller
             if(is_grower($user)) {
                 $user->patients_available = $request->input('patients_available');
             }
+        }else{
+            $user->purpose = json_encode([]);
         }
         if($user->type == 'seller' && $user->package != 'free') {
             // Subscribe this user
-            $user->subscription('mjex-'. $user->package)->create($creditCardToken);
+            $user->subscription($user->package)->create($creditCardToken);
         }
         $user->save();
         \Event::fire(new UserRegistered($user));

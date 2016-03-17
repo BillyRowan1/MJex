@@ -58,16 +58,16 @@ class UserTableSeeder extends Seeder{
 //
 //        \Mjex\User::create([
 //            'type' => 'seller',
-//            'email' => 'sellermonthly@yopmail.com',
+//            'email' => 'sellerweekly@yopmail.com',
 //            'password' => \Hash::make('hunter'),
 //            'anonymous_email' => 'eQeKW@mjex.com',
-//            'community_name' => 'seller monthly',
+//            'community_name' => 'seller weekly',
 //            'zipcode' => '90002',
 //            'delivery' => false,
 //            'purpose' => '["medical"]',
 //            'state' => 'California',
 //            'country' => 'us',
-//            'package' => 'monthly',
+//            'package' => 'weekly',
 //            'active' => 1,
 //            'activation_code' => \Hash::make('sellerfree@yopmail.com')
 //        ]);

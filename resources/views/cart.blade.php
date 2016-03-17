@@ -23,7 +23,7 @@
                                 @endif
 
                             </div>
-                            @if(in_array('grower', $seller->purpose))
+                            @if(has_purpose('grower', $seller))
                             <div class="col-md-6">
                                 {!! Form::open(['route'=>'cart.send.to.grower','method'=>'post','id'=>'emailThisGrowerForm']) !!}
                                 <input type="hidden" name="grower_email" value="{{ $seller->email }}">
@@ -41,7 +41,7 @@
                         @if(auth()->user() && auth()->user()->type == 'seeker')
                             <button id="openChatBtn" class="btn">Open chat window</button>
 
-                            @if(in_array('grower', $seller->purpose))
+                            @if(has_purpose('grower', $seller))
                                 <button id="emailThisGrowerBtn" class="btn">Email This Grower</button>
                             @endif
                                 

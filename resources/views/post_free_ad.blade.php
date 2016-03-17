@@ -94,7 +94,7 @@
                                     </div>
                                 </div>
                                 <hr class="clearfix" style="border-color: #000000;">
-                                @if(auth()->user()->package == 'monthly' || auth()->user()->package == 'monthly_pro')
+                                @if(auth()->user()->package == 'weekly' || auth()->user()->package == 'weekly_pro')
                                     <div class="form-group col-md-12">
                                         <label for="">Place your Ad copy here</label>
                                         <div class="simple-editor" id="adContent"></div>

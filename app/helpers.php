@@ -19,10 +19,19 @@ function distance($lat1, $lng1, $lat2, $lng2, $unit = "M") {
 }
 
 function is_grower($user) {
-    if($user && !empty($user->purpose)) {
+    if($user && isset($user->purpose) && !empty($user->purpose)) {
         $purposes = json_decode($user->purpose);
-
+        if(!is_array($purposes)) return false;
         if(in_array('grower', $purposes)) return true;
+    }
+    return false;
+}
+
+function has_purpose($purpose, $user) {
+    if($user && isset($user->purpose) && !empty($user->purpose)) {
+        $purposes = json_decode($user->purpose);
+        if(!is_array($purposes)) return false;
+        if(in_array($purpose, $purposes)) return true;
     }
     return false;
 }

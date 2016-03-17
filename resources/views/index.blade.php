@@ -20,44 +20,39 @@
                             <span class="title">basic</span>
                             <span class="price">free</span>
                             <ul>
-                                <li>Post a one line ad
-                                    <br>+ $1 for formatting
-                                    <br>(Good for one month)</li>
-                                <li>$2 per extra ad
-                                    <br>Includes
-                                    <br>Sellers Page/Shopping Cart</li>
+                                <li>Post an ad for 1 week free</li>
+                                <li>Sellers Page/Shopping Cart</li>
                             </ul>
                             <a href="{{ url('register') }}?package=free" class="btn sign-up">sign up</a>
                         </div>
                         <div class="box" id="price-monthly">
-                            <span class="title">monthly</span>
+                            <span class="title">WEEKLY</span>
                             <div class="price">
                                 <span class="currency">$</span>
                                 <span class="number">5</span>
-                                <span class="small">month</span>
+                                <span class="small">/ad/week</span>
                             </div>
                             <ul>
-                                <li>5 ads per month</li>
+                                <li>$5 per ad per week</li>
                                 <li>Sellers Page/Shopping Cart</li>
                                 <li>Ad thumbnail with text formatting</li>
-                                <li>Only $60/ yr</li>
                             </ul>
-                            <a href="{{ url('register') }}?package=monthly" class="btn sign-up">sign up</a>
+                            <a href="{{ url('register') }}?package=weekly" class="btn sign-up">sign up</a>
                         </div>
                         <div class="box" id="price-monthly-pro">
-                            <span class="title">monthly pro</span>
+                            <span class="title">WEEKLY pro</span>
                             <div class="price">
                                 <span class="currency">$</span>
                                 <span class="number">10</span>
-                                <span class="small">month</span>
+                                <span class="small">/ad/week</span>
                             </div>
                             <ul>
-                                <li>5 ads per month</li>
-                                <li>Sellers Page/Shopping Cart 728x90 Banner</li>
+                                <li>$10 per ad per week</li>
+                                <li>Sellers Page/Shopping Cart</li>
+                                <li>728x90 Banner</li>
                                 <li>Ad thumbnail with text formatting</li>
-                                <li>Only $100 / yr</li>
                             </ul>
-                            <a href="{{ url('register') }}?package=monthly_pro" class="btn sign-up">sign up</a>
+                            <a href="{{ url('register') }}?package=weekly_pro" class="btn sign-up">sign up</a>
                         </div>
                     </div>
                 </div>

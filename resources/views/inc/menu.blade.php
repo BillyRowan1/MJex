@@ -8,14 +8,14 @@
         </button>
     </div>
     <ul id="main-menu" class="collapse navbar-collapse">
-    	<li><a class="active" href="{{ url('/') }}">search</a></li>
+    	<li class="{{ Request::url()==url('/')?'active':'' }}"><a href="{{ url('/') }}">search</a></li>
         @if(!auth()->user())
-    	    <li class="active"><a href="{{ url('register') }}">sign up</a></li>
+    	    <li class="{{ Request::url()==url('register')?'active':'' }}"><a href="{{ url('register') }}">sign up</a></li>
         @else
-            <li class="active"><a href="{{ url('account') }}">account</a></li>
+            <li class="{{ Request::url()==url('account')?'active':'' }}"><a href="{{ url('account') }}">account</a></li>
         @endif
-        <li><a href="{{ route('ad.create.free') }}">post ad</a></li>
-        <li><a href="{{ url('find-growers') }}">find growers</a></li>
-	    <li><a href="{{ url('faq') }}">faq</a></li>
+        <li class="{{ Request::url()==route('ad.create.free')?'active':'' }}"><a href="{{ route('ad.create.free') }}">post ad</a></li>
+        <li class="{{ Request::url()==url('find-growers')?'active':'' }}"><a href="{{ url('find-growers') }}">find growers</a></li>
+	    <li class="{{ Request::url()==url('faq')?'active':'' }}"><a href="{{ url('faq') }}">faq</a></li>
     </ul>
 </nav>

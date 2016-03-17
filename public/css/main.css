@@ -195,6 +195,7 @@ input {
     text-align: center;
     font-family: caviar_dreamsbold;
     text-decoration: none;
+    border-right: 1px solid;
 }
 
 #main-menu li {
@@ -290,6 +291,7 @@ input {
     z-index: 2;
     position: relative;
     border-radius: 7px 0 0 7px;
+    display: none;
 }
 
 .home-search-wrap .zipcode .btn {
@@ -317,7 +319,8 @@ input {
     bottom: 0;
     width: 95%;
     z-index: 1;
-    padding-left: 192px;
+    padding-left: 20px;
+    border-radius: 7px;
 }
 
 .home-search-wrap .search-submit {
@@ -372,6 +375,7 @@ input {
     background-size: contain;
     background-position: center;
     color: white;
+    background-color: transparent;
 }
 
 #pricing ul {
@@ -385,7 +389,7 @@ input {
     padding: 10px;
     width: 83%;
     margin: 0 auto;
-    color: #868686;
+    color: black;
 }
 
 #pricing .title {
@@ -426,7 +430,7 @@ input {
 
 #price-free .btn {
     background-image: url(../img/price-free-btn.png);
-    margin-top: 32px;
+    margin-top: 104px;
 }
 
 #price-monthly .title {
@@ -469,15 +473,20 @@ input {
     padding-top: 52px;
 }
 
+div#price-free {
+    height: 388px;
+}
+
 #pricing #price-monthly {
     z-index: 3;
     margin-top: -20px;
     width: 272px;
+    height: 425px;
 }
 
 #price-monthly .number,
 #price-monthly-pro .number {
-    font-size: 72px;
+    font-size: 63px;
     font-weight: bold;
 }
 
@@ -488,12 +497,12 @@ input {
     font-family: "Myriad Pro", arial, sans-serif;
     font-size: 27px;
     margin: 0 auto;
-    width: 134px;
+    width: 148px;
 }
 
 #price-monthly-pro .price {
     color: #cc6514;
-    width: 165px;
+    width: 179px;
     height: 70px;
 }
 

@@ -70,7 +70,7 @@
                     @if(auth()->user()->package != 'none')
                     <li><a href="#">Current package: {{ str_replace('_',' ', strtoupper(auth()->user()->package)) }}</a></li>
 
-                    @if(auth()->user()->package != 'monthly_pro')
+                    @if(auth()->user()->package != 'weekly_pro')
                     <li><a href="{{ url('account/upgrade') }}"><span class="glyphicon glyphicon-fire"></span> UPGRADE NOW</a></li>
                     @endif
 

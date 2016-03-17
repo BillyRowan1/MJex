@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('purpose');
             $table->integer('patients_available');
             $table->string('state');
-            $table->enum('package',['none','free','monthly','monthly_pro']);
+            $table->enum('package',['none','free','weekly','weekly_pro']);
 
             $table->string('accepted_payment')->null();
 

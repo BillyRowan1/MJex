@@ -5,7 +5,7 @@
             <header>
                 <div class="col-md-12">
                     <h3 class="title">Welcome to the find a grower page</h3>
-                    @if(!auth()->user() || auth()->user()->type!="seller" || !in_array('grower',json_decode(auth()->user()->purpose)))
+                    @if(!auth()->user() || auth()->user()->type!="seller" || !is_grower(auth()->user()))
                         <a href="{{ url('register') }}" class="btn green-gradient">REGISTER AS A GROWER</a>
                     @endif
                     <hr>

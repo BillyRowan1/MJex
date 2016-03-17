@@ -118,11 +118,11 @@
                             <input type="radio" id="package-1" {{ (!empty($package)&&$package=='free')?'checked':'' }} value="free" name="package">
                             <label for="package-1">Free</label>
 
-                            <input type="radio" id="package-2" {{ (!empty($package)&&$package=='monthly')?'checked':'' }} value="monthly" name="package">
-                            <label for="package-2">$5.00 per month</label>
+                            <input type="radio" id="package-2" {{ (!empty($package)&&$package=='weekly')?'checked':'' }} value="weekly" name="package">
+                            <label for="package-2">$5.00 per ad per week</label>
 
-                            <input type="radio" id="package-3" {{ (!empty($package)&&$package=='monthly_pro')?'checked':'' }} value="monthly_pro" name="package">
-                            <label for="package-3">$10.00 per month</label>
+                            <input type="radio" id="package-3" {{ (!empty($package)&&$package=='weekly_pro')?'checked':'' }} value="weekly_pro" name="package">
+                            <label for="package-3">$10.00 per ad per week</label>
                             <input type="hidden" name="stripeToken">
                         </div>
                         <script src="https://checkout.stripe.com/checkout.js"></script>
@@ -177,12 +177,12 @@ jQuery(document).ready(function($) {
                     amount = 0;
                     description = 'Free';
                     break;
-                case 'monthly':
-                    description = 'Monthly ($5.00)';
+                case 'weekly':
+                    description = 'Weekly ($5.00)';
                     amount = 500;
                     break;
-                case 'monthly_pro':
-                    description = 'Monthly ($10.00)';
+                case 'weekly_pro':
+                    description = 'Weekly pro ($10.00)';
                     amount = 1000;
                     break;
             }
