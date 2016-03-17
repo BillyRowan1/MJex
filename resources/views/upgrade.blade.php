@@ -15,12 +15,12 @@
                         <div class="form-group checkbox-group circle-checkboxes clearfix">
                             @if(auth()->user()->package == 'free')
                             <input type="radio" id="package-2" value="weekly" name="package">
-                            <label for="package-2">$5.00 per month</label>
+                            <label for="package-2">$5.00 per ad per week</label>
                             @endif
 
                             @if(auth()->user()->package == 'free' || auth()->user()->package == 'weekly')
                             <input type="radio" id="package-3" value="weekly_pro" name="package">
-                            <label for="package-3">$10.00 per month</label>
+                            <label for="package-3">$10.00 per ad per week</label>
                             @endif
                             <input type="hidden" name="stripeToken">
                         </div>
