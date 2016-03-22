@@ -29,7 +29,11 @@ function is_grower($user) {
 
 function has_purpose($purpose, $user) {
     if($user && isset($user->purpose) && !empty($user->purpose)) {
-        $purposes = json_decode($user->purpose);
+        if(!is_array($user->purpose)) {
+            $purposes = json_decode($user->purpose);
+        }else{
+            $purposes = $user->purpose;
+        }
         if(!is_array($purposes)) return false;
         if(in_array($purpose, $purposes)) return true;
     }
