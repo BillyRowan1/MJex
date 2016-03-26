@@ -95,6 +95,7 @@ class AuthController extends Controller
         $user->anonymous_email = $anonymous_email;
         $user->community_name = $request->input('community_name');
         $user->zipcode = $request->input('zipcode');
+        $user->state = $request->input('state');
         $user->package = $request->input('package','none');
         $user->delivery = $request->input('delivery',false);
         $user->active = 0;
@@ -102,8 +103,12 @@ class AuthController extends Controller
         if($request->has('purpose')) {
             $user->purpose = json_encode($request->input('purpose'));
 
-            if(is_grower($user)) {
+            if(has_purpose('grower', $user)) {
                 $user->patients_available = $request->input('patients_available');
+            }
+            if(has_purpose('medical', $user) && $user->type == 'seeker') {
+                $user->medical_card_number = $request->input('medical_card_number');
+                $user->desired_alotment = $request->input('desired_alotment');
             }
         }else{
             $user->purpose = json_encode([]);

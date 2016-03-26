@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a68c45e-ab50-4614-a562-6c70354337b4" name="Default" comment="change month to week on upgrade page">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers.php" afterPath="$PROJECT_DIR$/app/helpers.php" />
+    <list default="true" id="8a68c45e-ab50-4614-a562-6c70354337b4" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_01_31_171403_create_users_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_01_31_171403_create_users_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/AccountController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/AccountController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/account.blade.php" afterPath="$PROJECT_DIR$/resources/views/account.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/cart.blade.php" afterPath="$PROJECT_DIR$/resources/views/cart.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/main.css" afterPath="$PROJECT_DIR$/public/css/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="mjex.iws" />
@@ -24,28 +30,7 @@
     <favorites_list name="mjex" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="helpers.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/helpers.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7867079">
-              <caret line="34" column="39" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="account.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/account.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.961538">
-              <caret line="210" column="125" selection-start-line="210" selection-start-column="119" selection-end-line="210" selection-end-column="125" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -72,7 +57,6 @@
         <option value="$PROJECT_DIR$/app/User.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_02_29_171936_create_reviews_table.php" />
         <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
-        <option value="$PROJECT_DIR$/public/css/main.css" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ReviewController.php" />
         <option value="$PROJECT_DIR$/app/Chat.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_02_29_190708_create_chats_table.php" />
@@ -88,7 +72,6 @@
         <option value="$PROJECT_DIR$/resources/views/emails/msg_to_grower.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/post_free_ad.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/master.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/AccountController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CartController.php" />
         <option value="$PROJECT_DIR$/resources/views/emails/order.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
@@ -98,17 +81,19 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
         <option value="$PROJECT_DIR$/resources/views/inc/menu.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/find_growers.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/account.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/cart.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/FindGrowerController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_02_11_042229_create_ads_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2016_01_31_171403_create_users_table.php" />
-        <option value="$PROJECT_DIR$/resources/views/auth/register.blade.php" />
         <option value="$PROJECT_DIR$/app/Repo/AdRepo.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AdController.php" />
         <option value="$PROJECT_DIR$/resources/views/upgrade.blade.php" />
         <option value="$PROJECT_DIR$/app/helpers.php" />
+        <option value="$PROJECT_DIR$/resources/views/cart.blade.php" />
+        <option value="$PROJECT_DIR$/public/css/main.css" />
+        <option value="$PROJECT_DIR$/resources/views/auth/register.blade.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2016_01_31_171403_create_users_table.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php" />
+        <option value="$PROJECT_DIR$/resources/views/account.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/AccountController.php" />
       </list>
     </option>
   </component>
@@ -156,6 +141,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -174,42 +160,9 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mjex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mjex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mjex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mjex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -405,7 +358,13 @@
       <option name="project" value="LOCAL" />
       <updated>1458239246516</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="bug fix has_purpose array check">
+      <created>1458657565923</created>
+      <option name="number" value="00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1458657565923</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -468,7 +427,8 @@
     <MESSAGE value="bug fix" />
     <MESSAGE value="bug fix, change package to weekly, weekly pro" />
     <MESSAGE value="change month to week on upgrade page" />
-    <option name="LAST_COMMIT_MESSAGE" value="change month to week on upgrade page" />
+    <MESSAGE value="bug fix has_purpose array check" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fix has_purpose array check" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -477,13 +437,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_02_29_171936_create_reviews_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37269938">
-          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.78527606">
@@ -656,13 +609,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AccountController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.63076925">
-          <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/emails/activate.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -733,13 +679,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/cart.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36">
-          <caret line="43" column="61" selection-start-line="43" selection-start-column="61" selection-end-line="43" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/find_growers.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.21538462">
@@ -768,13 +707,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_01_31_171403_create_users_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1692308">
-          <caret line="39" column="11" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2016_02_11_042229_create_ads_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.41538462">
@@ -796,20 +728,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/auth/register.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.97846156">
-          <caret line="130" column="22" selection-start-line="130" selection-start-column="22" selection-end-line="130" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5446154">
-          <caret line="99" column="26" selection-start-line="99" selection-start-column="26" selection-end-line="99" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Repo/AdRepo.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.52307695">
@@ -824,18 +742,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/account.blade.php">
+    <entry file="file://$PROJECT_DIR$/public/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.961538">
-          <caret line="210" column="125" selection-start-line="210" selection-start-column="119" selection-end-line="210" selection-end-column="125" />
+        <state vertical-scroll-proportion="0.3625557">
+          <caret line="1292" column="33" selection-start-line="1292" selection-start-column="33" selection-end-line="1292" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/cart.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.041731067">
+          <caret line="80" column="33" selection-start-line="80" selection-start-column="33" selection-end-line="80" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/helpers.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7867079">
-          <caret line="34" column="39" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.29829985">
+          <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2016_01_31_171403_create_users_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.076923">
+          <caret line="29" column="44" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AccountController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40185472">
+          <caret line="72" column="44" selection-start-line="72" selection-start-column="44" selection-end-line="72" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.55641425">
+          <caret line="109" column="42" selection-start-line="109" selection-start-column="23" selection-end-line="109" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/account.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8454405">
+          <caret line="216" column="128" selection-start-line="216" selection-start-column="128" selection-end-line="216" selection-end-column="128" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/auth/register.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5146831">
+          <caret line="57" column="92" selection-start-line="53" selection-start-column="28" selection-end-line="57" selection-end-column="92" />
           <folding />
         </state>
       </provider>

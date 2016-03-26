@@ -67,6 +67,9 @@ class AccountController extends Controller
         $user->state = $request->input('state');
         $user->country = $request->input('country');
         $user->accepted_payment = $request->input('accepted_payment');
+        $user->patients_available = $request->input('patients_available');
+        $user->medical_card_number = $request->input('medical_card_number');
+        $user->desired_alotment = $request->input('desired_alotment');
         $user->lat = $request->input('lat');
         $user->lng = $request->input('lng');
         if($request->has('password')) $user->password = \Hash::make($user->password);

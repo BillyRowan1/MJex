@@ -168,23 +168,25 @@
                                                     <input type="email" name="email" value="{{ $user->email }}" class="form-control">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="">Community Name</label>
+                                                    <label for="">Mjex username</label>
                                                     <input type="text" name="community_name" value="{{ $user->community_name }}" class="form-control">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="">State or Province</label>
                                                     <input type="text" name="state" value="{{ $user->state }}" class="form-control">
                                                 </div>
-                                                <div class="form-group">
-                                                    @if(auth()->user()->type == 'seller')
-                                                        <label for="">Drag marker around to select your Store location (<i>this will be use to target your ads to the right Seeker</i>)</label>
-                                                    @else
-                                                        <label for="">Drag marker around to select your location (<i>this will be use to display nearest Store</i>)</label>
-                                                    @endif
-                                                    <div id="map"></div>
-                                                    <input type="hidden" name="lat" value="{{ $user->lat }}">
-                                                    <input type="hidden" name="lng" value="{{ $user->lng }}">
-                                                </div>
+
+
+                                                {{--<div class="form-group">--}}
+                                                    {{--@if(auth()->user()->type == 'seller')--}}
+                                                        {{--<label for="">Drag marker around to select your Store location (<i>this will be use to target your ads to the right Seeker</i>)</label>--}}
+                                                    {{--@else--}}
+                                                        {{--<label for="">Drag marker around to select your location (<i>this will be use to display nearest Store</i>)</label>--}}
+                                                    {{--@endif--}}
+                                                    {{--<div id="map"></div>--}}
+                                                    {{--<input type="hidden" name="lat" value="{{ $user->lat }}">--}}
+                                                    {{--<input type="hidden" name="lng" value="{{ $user->lng }}">--}}
+                                                {{--</div>--}}
                                             </div>
                                             <div class="col-md-6 col-sm-6">
                                                 <div class="form-group">
@@ -199,6 +201,21 @@
                                                     <label for="">Country</label>
                                                     @include('inc.country_select')
                                                 </div>
+                                                @if(has_purpose('grower', $user) && $user->type == 'seller')
+                                                <div class="form-group">
+                                                    <label for="">Number of patients available</label>
+                                                    {!! Form::select('patients_available',[1,2,3,4,5], $user->patients_available,['class'=>'form-control']) !!}
+                                                </div>
+                                                @endif
+
+                                                @if($user->type == 'seeker' && has_purpose('medical', $user))
+
+                                                    <label for="">Medical card number</label>
+                                                    <input type="text" name="medical_card_number" value="{{ $user->medical_card_number }}" class="form-control">
+                                                    <br>
+                                                    <label for="">Disired alotment</label>
+                                                    <input type="text" name="desired_alotment" value="{{ $user->desired_alotment }}" class="form-control">
+                                                @endif
                                             </div>
                                         </div>
                                         <!-- /.row -->

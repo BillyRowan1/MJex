@@ -1290,6 +1290,7 @@ footer {
 }
 
 #ShoppingCart .gallery li {
+    background-color: whitesmoke;
     height: 170px;
     display: inline-block;
     width: 25%;

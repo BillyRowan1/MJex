@@ -16,6 +16,10 @@
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <input type="hidden" name="_type" value="seeker">
                         <div class="form-group">
+                            <label for="">Select a MJex username*</label>
+                            <input type="text" name="community_name" value="{{ old('_type')=='seeker'?old('community_name'):'' }}" class="form-control">
+                        </div>
+                        <div class="form-group">
                             <label for="">Email*</label>
                             <input type="email" name="email" value="{{ old('_type')=='seeker'?old('email'):'' }}" class="form-control">
                         </div>
@@ -23,13 +27,14 @@
                             <label for="">Password*</label>
                             <input type="password" name="password" class="form-control">
                         </div>
-                        <div class="form-group">
-                            <label for="">Your Community Name*</label>
-                            <input type="text" name="community_name" value="{{ old('_type')=='seeker'?old('community_name'):'' }}" class="form-control">
-                        </div>
+
                         <div class="form-group">
                             <label for="">Zipcode*</label>
                             <input type="text" name="zipcode" value="{{ old('_type')=='seeker'?old('zipcode'):'' }}" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="">City / State</label>
+                            <input type="text" name="state" value="{{ old('_type')=='seeker'?old('state'):'' }}" class="form-control">
                         </div>
                         <label for="">Select as many as apply</label>
                         <div class="form-group checkbox-group circle-checkboxes clearfix">
@@ -43,7 +48,14 @@
                             <label for="for-doctor">Doctor</label>
 
                             <input type="checkbox" id="for-adult" value="adult_use" name="purpose[]">
-                            <label for="for-adult">Adult use</label>
+                            <label for="for-adult">Adult use +21</label>
+                        </div>
+                        <div class="form-group" ng-show="medical">
+                            <label for="">Medical card number</label>
+                            <input type="text" name="medical_card_number" class="form-control">
+                            <br>
+                            <label for="">Disired alotment</label>
+                            <input type="text" name="desired_alotment" class="form-control">
                         </div>
                         <button type="submit" class="btn green-gradient">SIGN UP</button>
                         <br>
@@ -59,6 +71,10 @@
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <input type="hidden" name="_type" value="seller">
                         <div class="form-group">
+                            <label for="">Select a MJex username*</label>
+                            <input type="text" name="community_name" value="{{ old('_type')=='seller'?old('community_name'):'' }}" class="form-control">
+                        </div>
+                        <div class="form-group">
                             <label for="">Email*</label>
                             <input type="email" name="email" value="{{ old('_type')=='seller'?old('email'):'' }}" class="form-control">
                         </div>
@@ -66,13 +82,14 @@
                             <label for="">Password*</label>
                             <input type="password" name="password" class="form-control">
                         </div>
-                        <div class="form-group">
-                            <label for="">Your Community Name*</label>
-                            <input type="text" name="community_name" value="{{ old('_type')=='seller'?old('community_name'):'' }}" class="form-control">
-                        </div>
+
                         <div class="form-group">
                             <label for="">Zipcode* (can add more than one, separate by commas)</label>
                             <input type="text" name="zipcode" value="{{ old('_type')=='seller'?old('zipcode'):'' }}" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="">City / State</label>
+                            <input type="text" name="state" value="{{ old('_type')=='seller'?old('state'):'' }}" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="">Delivery</label>
@@ -149,6 +166,7 @@
 });
 
 jQuery(document).ready(function($) {
+    // Display "Number of patients available" field when sign up as Seller and have 'grower' purpose
     $('#growerPatientsAvailable').hide();
     $('.business [name="purpose[]"]').click(function(event) {
         var isGrower = false;
@@ -157,14 +175,31 @@ jQuery(document).ready(function($) {
                 isGrower = true;
             }
         });
-        console.log(isGrower);
+
         if(isGrower) {
             $('#growerPatientsAvailable').show();
         }else{
             $('#growerPatientsAvailable').hide();
         }
     });
-    
+
+    $('[ng-show=medical]').hide();
+    $('.seeker [name="purpose[]"]').click(function(event) {
+        var isMedical = false;
+        $('.seeker [name="purpose[]"]').each(function(event) {
+            if ($(this).is(':checked') && $(this).val() == 'medical') {
+                isMedical = true;
+            }
+        });
+
+        if(isMedical) {
+            $('[ng-show=medical]').show();
+        }else{
+            $('[ng-show=medical]').hide();
+        }
+    });
+
+    // CLick checkout
     $('#stripeCheckoutBtn').on('click', function(e) {
         var package = $('[name=package]:checked').val();
         if(package != 'free') {

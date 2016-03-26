@@ -21,9 +21,13 @@ class CreateUsersTable extends Migration
             $table->string('community_name')->unique();
             $table->boolean('delivery');
             $table->string('purpose');
-            $table->integer('patients_available');
+            $table->integer('patients_available'); // seller is grower only
             $table->string('state');
             $table->enum('package',['none','free','weekly','weekly_pro']);
+
+            // Seeker has purpose Medical only
+            $table->string('medical_card_number');
+            $table->string('desired_alotment');
 
             $table->string('accepted_payment')->null();
 

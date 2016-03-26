@@ -18,7 +18,7 @@
                                 <p>{{ $seller->accepted_payment }}</p>
                                 <h4>LOCATION: {{ $seller->state }}, {{ $seller->country }}</h4>
                                 <h4>AREAS SERVED: {{ $seller->zipcode }}</h4>
-                                @if(is_grower($seller))
+                                @if(has_purpose('grower',$seller))
                                 <h4>Available Patient Slots: {{ $seller->patients_available }}</h4>
                                 @endif
 
