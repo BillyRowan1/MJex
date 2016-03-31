@@ -1,6 +1,40 @@
 @extends('master')
 
 @section('main')
+        <!-- popups -->
+@if(!null != auth()->user() )
+    <section id="legal-page">
+        <div class="content fluid-center">
+            <h2 class="title">Age Restricted Content</h2>
+            <p>Marijuana Exchange does business in accordance
+                with state laws regarding access to cannabis.
+                <br>
+                You must be at least 21 years old, or a
+                valid medical marijuana patient.
+                <br>
+                Are you eligible to visit
+                Marijuana Exchange?</p>
+            <div class="btn-group" style="margin-bottom: 20px;">
+                <div class="btn bg-cover no">no</div>
+                <div class="btn bg-cover yes">yes</div>
+            </div>
+            <p class="text-center">Also which apply to you?</p>
+            <div class="form-group checkbox-group circle-checkboxes clearfix">
+                <input type="checkbox" id="legal-seeker" value="adult_use" name="purpose[]">
+                <label for="legal-seeker">Seeker</label>
+
+                <input type="checkbox" id="legal-seller" value="medical" name="purpose[]">
+                <label for="legal-seller">Seller</label>
+
+                <input type="checkbox" id="legal-grower" value="grower" name="purpose[]">
+                <label for="legal-grower">Grower</label>
+
+                <input type="checkbox" id="legal-business" value="doctor" name="purpose[]">
+                <label for="legal-business">Business</label>
+            </div>
+        </div>
+    </section>
+@endif
 
     <section id="Home" class="main-content">
         <div class="container">
@@ -73,21 +107,19 @@
                                     <thead class="red-bg" style="background-color: {{ $ad->header_color }};">
                                         <th>SELLER</th>
                                         <th>TYPE OF PRODUCT</th>
-                                        <th>TYPE OR STRAIN</th>
-                                        <th>UNIT DESC</th>
+                                        <th>DESCRIPTION</th>
+                                        <th>UNIT AVAILABLE</th>
                                         <th>PRICE/UNIT</th>
                                         <th>AMOUNT</th>
-                                        <th>LOCATION</th>
                                     </thead>
                                     <tbody>
                                     <tr>
                                         <td>{{ $ad->user->community_name }} ({{ count($ad->user->reviews) . '+' }})</td>
                                         <td>{{ $ad->type_of_product }}</td>
-                                        <td>{{ $ad->type_of_strain }}</td>
-                                        <td>{{ $ad->unit_desc }}</td>
-                                        <td>{{ $ad->price_per_unit }}</td>
+                                        <td>{{ $ad->description }}</td>
+                                        <td>{{ $ad->unit_available }}</td>
+                                        <td>${{ $ad->price_per_unit }}</td>
                                         <td>{{ $ad->amount }}</td>
-                                        <td>{{ $ad->location }}</td>
                                     </tr>
                                     </tbody>
                                 </table>

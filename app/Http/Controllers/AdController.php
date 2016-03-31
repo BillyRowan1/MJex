@@ -33,6 +33,7 @@ class AdController extends Controller
                 $adsLeft = 1 - $adsThisWeek;
                 break;
         }
+        if($adsLeft < 0) $adsLeft = 0;
         return view('post_free_ad', compact('adsLeft'));
     }
 
@@ -50,7 +51,6 @@ class AdController extends Controller
         ]);
 
         $ad = Ad::find($request->input('id'));
-        $ad->price_per_quantity = json_decode($ad->price_per_quantity);
         $ad->gallery = !empty($ad->gallery)?json_decode($ad->gallery):[];
 
         return view('edit_ad', compact('ad'));
@@ -60,28 +60,24 @@ class AdController extends Controller
     {
         $this->validate($request, [
             "type_of_product" => "required",
-            "unit_desc" => "required",
+            "unit_available" => "required",
             "amount" => "required",
             "header_color" => "required",
             "location" => "required",
-            "type_of_strain" => "required",
+            "description" => "required",
             "price_per_unit" => "",
-            "price_per_quantity" => "",
             "adContent" => "required",
             "thumb" => 'image'
         ]);
         $ad = Ad::find($request->input('id'));
 
         $ad->type_of_product = $request->input('type_of_product');
-        $ad->unit_desc = $request->input('unit_desc');
+        $ad->unit_available = $request->input('unit_available');
         $ad->amount = $request->input('amount');
         $ad->header_color = $request->input('header_color');
         $ad->location = $request->input('location');
-        $ad->type_of_strain = $request->input('type_of_strain');
+        $ad->description = $request->input('description');
         $ad->price_per_unit = $request->input('price_per_unit');
-        if($request->has('price_per_quantity')) {
-            $ad->price_per_quantity = json_encode($request->input('price_per_quantity'));
-        }
 
         $destinationPath = 'uploads';
         if($request->hasFile('thumb')) {
@@ -143,13 +139,11 @@ class AdController extends Controller
         // First check if this user have 1 free ad this month
             $this->validate($request, [
                 "type_of_product" => "required",
-                "unit_desc" => "required",
+                "unit_available" => "required",
                 "amount" => "required",
                 "header_color" => "required",
-                "location" => "required",
-                "type_of_strain" => "required",
+                "description" => "required",
                 "price_per_unit" => "numeric",
-                "price_per_quantity" => "",
                 "adContent" => "required",
                 "thumb" => 'image'
             ]);
@@ -157,18 +151,13 @@ class AdController extends Controller
             $ad = new Ad;
             $ad->user_id = auth()->user()->id;
             $ad->type_of_product = $request->input('type_of_product');
-            $ad->unit_desc = $request->input('unit_desc');
+            $ad->unit_available = $request->input('unit_available');
             $ad->amount = $request->input('amount');
             $ad->header_color = $request->input('header_color');
-            $ad->location = $request->input('location');
-            $ad->type_of_strain = $request->input('type_of_strain');
+            $ad->description = $request->input('description');
             $ad->price_per_unit = $request->input('price_per_unit');
             $ad->ad_type = $type;
             $ad->active = 1;
-            if($request->has('price_per_quantity')) {
-                $ad->price_per_quantity = json_encode($request->input('price_per_quantity'));
-            }
-
             $ad->expired_date = strtotime('now') + 30*86400;
 
             $destinationPath = 'uploads';
@@ -271,7 +260,7 @@ class AdController extends Controller
     {
         $query = Ad::where('user_id', auth()->user()->id)
             ->where('ad_type','free')
-            ->where( \DB::raw('WEEK(created_at)'), '=', date('n') );
+            ->where( \DB::raw('WEEK(created_at)'), '=', date('W') );
         if($action == 'count') {
             $adThisMonth = $query->count();
         }else{

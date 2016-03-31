@@ -59,6 +59,7 @@ class AccountController extends Controller
             'password' => 'min:6',
             'community_name' => 'required|unique:users,community_name,'.auth()->user()->id,
             'zipcode' => 'required',
+            'logo' => 'image'
         ]);
         $user = User::find(auth()->user()->id);
         $user->email = $request->email;
@@ -74,6 +75,16 @@ class AccountController extends Controller
         $user->lng = $request->input('lng');
         if($request->has('password')) $user->password = \Hash::make($user->password);
         if($request->has('purpose')) $user->purpose = json_encode($request->input('purpose'));
+
+        $destinationPath = 'uploads';
+        if($request->hasFile('logo')) {
+            $fileName = $request->file('logo')->getClientOriginalName();
+            $fileNameArr = explode('.', $fileName);
+            $newFileName = $fileNameArr[0] . strtotime('now') . '.' . $fileNameArr[1];
+            $request->file('logo')->move($destinationPath, $newFileName);
+
+            $user->logo = implode('/', [$destinationPath, $newFileName]);
+        }
 
         if($user->save())
             return redirect()->back()->with('message','Saved');

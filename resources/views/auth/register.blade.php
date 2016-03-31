@@ -20,24 +20,30 @@
                             <input type="text" name="community_name" value="{{ old('_type')=='seeker'?old('community_name'):'' }}" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="">Email*</label>
+                            <label for="">Enter Email*</label>
                             <input type="email" name="email" value="{{ old('_type')=='seeker'?old('email'):'' }}" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="">Password*</label>
+                            <label for="">Enter Password*</label>
                             <input type="password" name="password" class="form-control">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="">Zipcode*</label>
-                            <input type="text" name="zipcode" value="{{ old('_type')=='seeker'?old('zipcode'):'' }}" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="">City / State</label>
                             <input type="text" name="state" value="{{ old('_type')=='seeker'?old('state'):'' }}" class="form-control">
                         </div>
+                        <div class="form-group">
+                            <label for="">Country</label>
+                            @include('inc.country_select')
+                        </div>
+                        <div class="form-group">
+                            <label for="">Zipcode*</label>
+                            <input type="text" name="zipcode" value="{{ old('_type')=='seeker'?old('zipcode'):'' }}" class="form-control">
+                        </div>
                         <label for="">Select as many as apply</label>
                         <div class="form-group checkbox-group circle-checkboxes clearfix">
+                            <input type="checkbox" id="for-adult" value="adult_use" name="purpose[]">
+                            <label for="for-adult">Adult use +21</label>
+
                             <input type="checkbox" id="for-medical" value="medical" name="purpose[]">
                             <label for="for-medical">Medical</label>
 
@@ -46,9 +52,6 @@
 
                             <input type="checkbox" id="for-doctor" value="doctor" name="purpose[]">
                             <label for="for-doctor">Doctor</label>
-
-                            <input type="checkbox" id="for-adult" value="adult_use" name="purpose[]">
-                            <label for="for-adult">Adult use +21</label>
                         </div>
                         <div class="form-group" ng-show="medical">
                             <label for="">Medical card number</label>
@@ -112,26 +115,20 @@
                         </div>
                         <label for="">Select as many as apply</label>
                         <div class="form-group checkbox-group circle-checkboxes clearfix">
+                            <input type="checkbox" id="bsn-for-adult" value="adult_use" name="purpose[]">
+                            <label for="bsn-for-adult">Adult use +21</label>
+
+                            <input type="checkbox" id="bsn-for-medical" value="medical" name="purpose[]">
+                            <label for="bsn-for-medical">Medical</label>
+
                             <input type="checkbox" id="bsn-for-grower" value="grower" name="purpose[]">
                             <label for="bsn-for-grower">Grower</label>
 
                             <input type="checkbox" id="bsn-for-doctor" value="doctor" name="purpose[]">
                             <label for="bsn-for-doctor">Doctor</label>
-
-                            <input type="checkbox" id="bsn-for-dispensary" value="dispensary" name="purpose[]">
-                            <label for="bsn-for-dispensary">Dispensary</label>
-
-                            <input type="checkbox" id="bsn-for-wholesaler" value="wholesaler" name="purpose[]">
-                            <label for="bsn-for-wholesaler">Wholesaler</label>
-
-                            <input type="checkbox" id="bsn-for-lab" value="lab" name="purpose[]">
-                            <label for="bsn-for-lab">Lab</label>
-
-                            <input type="checkbox" id="for-manufacturer" value="manufacturer" name="purpose[]">
-                            <label for="for-manufacturer">Manufacturer</label>
                         </div>
                         <label for="">Choose ad package</label>
-                        <div class="form-group checkbox-group circle-checkboxes clearfix">
+                        <div class="form-group checkbox-group circle-checkboxes clearfix ad-package">
                             <input type="radio" id="package-1" {{ (!empty($package)&&$package=='free')?'checked':'' }} value="free" name="package">
                             <label for="package-1">Free</label>
 

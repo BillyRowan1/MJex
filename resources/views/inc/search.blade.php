@@ -69,21 +69,19 @@
                         <thead class="red-bg" style="background-color: {{ $ad->header_color }};">
                         <th>SELLER</th>
                         <th>TYPE OF PRODUCT</th>
-                        <th>TYPE OR STRAIN</th>
-                        <th>UNIT DESC</th>
+                        <th>DESCRIPTION</th>
+                        <th>UNIT AVAILABLE</th>
                         <th>PRICE/UNIT</th>
                         <th>AMOUNT</th>
-                        <th>LOCATION</th>
                         </thead>
                         <tbody>
                         <tr>
                             <td>{{ $ad->user->community_name }}</td>
                             <td>{{ $ad->type_of_product }}</td>
-                            <td>{{ $ad->type_of_strain }}</td>
-                            <td>{{ $ad->unit_desc }}</td>
-                            <td>{{ $ad->price_per_unit }}</td>
+                            <td>{{ $ad->description }}</td>
+                            <td>{{ $ad->unit_available }}</td>
+                            <td>${{ $ad->price_per_unit }}</td>
                             <td>{{ $ad->amount }}</td>
-                            <td>{{ $ad->location }}</td>
                         </tr>
                         </tbody>
                     </table>

@@ -24,9 +24,14 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="">Unit Description</label>
-                                <select name="unit_desc" class="form-control">
+                                <label for="">Unit Available</label>
+                                <select name="unit_available" class="form-control">
+                                    <option value="Gram">Gram</option>
+                                    <option value="Eighth">Eighth</option>
+                                    <option value="Quarter">Quarter</option>
+                                    <option value="Half">Half</option>
                                     <option value="Ounce">Ounce</option>
+                                    <option value="lb">lb</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -43,58 +48,27 @@
                                     <option value="#333">Dark gray</option>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label for="">Location</label>
-                                <input type="text" class="form-control" name="location">
-                            </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">Type or Strain</label>
-                                <select name="type_of_strain" class="form-control">
-                                    <option value="Edibles">Edibles</option>
-                                    <option value="Flower">Flower</option>
-                                    <option value="Oil">Oil</option>
-                                    <option value="Tincture">Tincture</option>
-                                    <option value="Patches">Patches</option>
-                                    <option value="Indica/Sativa">Indica/Sativa</option>
-                                </select>
+                                <label for="">Description</label>
+                                <input type="text" name="description" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="">Price per Unit in USD</label>
+                                <label for="">Price (USD)</label>
                                 <input type="text" class="form-control" name="price_per_unit">
                             </div>
+
                             <div class="form-group">
-                                <label>Price per Quantity in USD</label>
-                                <div class="clearfix">
-                                    <div class="input-box">
-                                        <span>Gram</span>
-                                        <input type="text" name="price_per_quantity[gram]">
-                                    </div>
-                                    <div class="input-box">
-                                        <span>Eighth</span>
-                                        <input type="text" name="price_per_quantity[eighth]">
-                                    </div>
-                                    <div class="input-box">
-                                        <span>Quarter</span>
-                                        <input type="text" name="price_per_quantity[quater]">
-                                    </div>
-                                    <div class="input-box">
-                                        <span>Half</span>
-                                        <input type="text" name="price_per_quantity[half]">
-                                    </div>
-                                    <div class="input-box">
-                                        <span>Ounce</span>
-                                        <input type="text" name="price_per_quantity[ounce]">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="">Upload Logo/Product for Thumbnail</label>
+                                <label for="">Upload Product Thumbnail</label>
                                 <input type="file" name="thumb" accept="image/*">
                             </div>
                         </div>
+                        <hr class="clearfix" style="border-color: #000000;">
+
                         <div class="form-group col-md-12">
+
+                            <label for="">Place your Ad copy here</label>
                             <div class="simple-editor" id="adContent"></div>
                         </div>
                     </div>

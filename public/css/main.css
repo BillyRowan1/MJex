@@ -631,7 +631,7 @@ footer {
 }
 
 #legal-page {
-    display: none;
+    /*display: none;*/
     position: fixed;
     top: 0;
     left: 0;
@@ -639,6 +639,11 @@ footer {
     bottom: 0;
     background: rgba(255, 255, 255, 0.75);
     z-index: 100;
+}
+
+#legal-page label {
+    font-size: 15px;
+    width: 18%;
 }
 
 #legal-page .btn {
@@ -650,6 +655,7 @@ footer {
     line-height: 58px;
     padding: 0;
     text-transform: uppercase;
+    background-color: transparent;
 }
 
 #legal-page .btn.yes {
@@ -776,9 +782,13 @@ footer {
 }
 
 #Signup .block.business .checkbox-group label {
-    width: 33.333333333%;
+    width: 25%;
     float: left;
     text-align: center;
+}
+
+#Signup .block.business .ad-package label {
+    width: 33.33333333%;
 }
 /* Checkbox styling */
 .circle-checkboxes {
@@ -1163,7 +1173,7 @@ footer {
 }
 
 #tab-contact .circle-checkboxes {
-    width: 295px;
+    width: 332px;
     margin: 0 auto;
     left: 50%;
     margin-left: -148px;

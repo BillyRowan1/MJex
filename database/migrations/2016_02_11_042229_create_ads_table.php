@@ -17,10 +17,9 @@ class CreateAdsTable extends Migration
             $table->integer('user_id');
             $table->string('content');
             $table->string('type_of_product');
-            $table->string('unit_desc');
+            $table->string('unit_available');
             $table->string('amount');
             $table->string('header_color');
-            $table->string('location');
             $table->string('type_of_strain');
             $table->string('price_per_unit');
             $table->string('price_per_quantity');

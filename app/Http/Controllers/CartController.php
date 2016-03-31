@@ -26,7 +26,7 @@ class CartController extends Controller
         if(is_null($seller)) return redirect()->back();
         if($seller->purpose) $seller->purpose = json_decode($seller->purpose);
 
-        $ads = Ad::where('user_id', $seller->id)->get();
+        $ads = Ad::where('user_id', $seller->id)->orderby('created_at','desc')->get();
         $chats = null;
 
         if(auth()->user() && auth()->user()->type == 'seeker') {

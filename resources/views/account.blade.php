@@ -77,7 +77,7 @@
                                     <tr class="{{ $expired?'expired':'' }}">
                                         <td>{{ $ad->id }}</td>
                                         <td>{{ $ad->created_at }}</td>
-                                        <td>{{ $ad->unit_desc }}</td>
+                                        <td>{{ $ad->unit_available }}</td>
                                         <td>{{ $ad->price_per_unit }}</td>
                                         <td>{{ $ad->type_of_product }}</td>
                                         <td>
@@ -156,7 +156,7 @@
                                 @include('inc.msg')
 
                                 <div class="box">
-                                    <form action="" method="post">
+                                    <form action="" method="post" enctype="multipart/form-data">
                                         <button type="submit" class="green-gradient">SAVE</button>
                                         <h3 class="title">contact info</h3>
                                         {!! csrf_field() !!}
@@ -176,6 +176,20 @@
                                                     <input type="text" name="state" value="{{ $user->state }}" class="form-control">
                                                 </div>
 
+                                                @if($user->type != 'seeker')
+                                                <div class="form-group">
+                                                    <label for="">Delivery</label>
+                                                    {!! Form::select('delivery', ['1'=>'Yes','0'=>'No'], $user->delivery, ['class'=>'form-control']) !!}
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="">Logo</label>
+                                                    {!! Form::file('logo') !!}
+                                                    @if(!empty($user->logo))
+                                                    <img src="{{ $user->logo }}" width="100px">
+                                                    @endif
+                                                </div>
+                                                @endif
 
                                                 {{--<div class="form-group">--}}
                                                     {{--@if(auth()->user()->type == 'seller')--}}
@@ -220,8 +234,11 @@
                                         </div>
                                         <!-- /.row -->
                                         <div class="row">
-                                            @if(auth()->user()->type == 'seeker')
+{{--                                            @if(auth()->user()->type == 'seeker')--}}
                                             <div class="form-group circle-checkboxes col-md-12">
+                                                <input type="checkbox" name="purpose[]" id="use_for_4" {{ has_purpose('adult_use',$user)?'checked':'' }} value="adult_use" name="use_for[]">
+                                                <label for="use_for_4">Adult use +21</label>
+
                                                 <input type="checkbox" name="purpose[]" id="use_for_1" {{ has_purpose('medical',$user)?'checked':'' }} value="medical" name="use_for[]">
                                                 <label for="use_for_1">Medical</label>
 
@@ -230,35 +247,32 @@
 
                                                 <input type="checkbox" name="purpose[]" id="use_for_3" {{ has_purpose('doctor',$user)?'checked':'' }} value="doctor" name="use_for[]">
                                                 <label for="use_for_3">Doctor</label>
-
-                                                <input type="checkbox" name="purpose[]" id="use_for_4" {{ has_purpose('adult_use',$user)?'checked':'' }} value="adult_use" name="use_for[]">
-                                                <label for="use_for_4">Adult use</label>
                                             </div>
-                                            @else
-                                            <div class="form-group col-md-12">
-                                                <div class="circle-checkboxes">
-                                                    <input type="checkbox" name="purpose[]" id="use_for_1" {{ has_purpose('grower', $user)?'checked':'' }} value="grower" name="use_for[]">
-                                                    <label for="use_for_1">Grower</label>
+                                            {{--@else--}}
+                                            {{--<div class="form-group col-md-12">--}}
+                                                {{--<div class="circle-checkboxes">--}}
+                                                    {{--<input type="checkbox" name="purpose[]" id="use_for_1" {{ has_purpose('grower', $user)?'checked':'' }} value="grower" name="use_for[]">--}}
+                                                    {{--<label for="use_for_1">Grower</label>--}}
 
-                                                    <input type="checkbox" name="purpose[]" id="use_for_2" {{ has_purpose('doctor', $user)?'checked':'' }} value="doctor" name="use_for[]">
-                                                    <label for="use_for_2">Doctor</label>
+                                                    {{--<input type="checkbox" name="purpose[]" id="use_for_2" {{ has_purpose('doctor', $user)?'checked':'' }} value="doctor" name="use_for[]">--}}
+                                                    {{--<label for="use_for_2">Doctor</label>--}}
 
-                                                    <input type="checkbox" name="purpose[]" id="use_for_3" {{ has_purpose('dispensary', $user)?'checked':'' }} value="dispensary" name="use_for[]">
-                                                    <label for="use_for_3">Dispensary</label>
-                                                </div>
+                                                    {{--<input type="checkbox" name="purpose[]" id="use_for_3" {{ has_purpose('dispensary', $user)?'checked':'' }} value="dispensary" name="use_for[]">--}}
+                                                    {{--<label for="use_for_3">Dispensary</label>--}}
+                                                {{--</div>--}}
 
-                                                <div class="circle-checkboxes">
-                                                    <input type="checkbox" name="purpose[]" id="use_for_5" {{ has_purpose('wholesaler', $user)?'checked':'' }} value="wholesaler" name="use_for[]">
-                                                    <label for="use_for_5">Wholesaler</label>
+                                                {{--<div class="circle-checkboxes">--}}
+                                                    {{--<input type="checkbox" name="purpose[]" id="use_for_5" {{ has_purpose('wholesaler', $user)?'checked':'' }} value="wholesaler" name="use_for[]">--}}
+                                                    {{--<label for="use_for_5">Wholesaler</label>--}}
 
-                                                    <input type="checkbox" name="purpose[]" id="use_for_6" {{ has_purpose('lab', $user)?'checked':'' }} value="lab" name="use_for[]">
-                                                    <label for="use_for_6">Lab</label>
+                                                    {{--<input type="checkbox" name="purpose[]" id="use_for_6" {{ has_purpose('lab', $user)?'checked':'' }} value="lab" name="use_for[]">--}}
+                                                    {{--<label for="use_for_6">Lab</label>--}}
 
-                                                    <input type="checkbox" name="purpose[]" id="use_for_7" {{ has_purpose('manufacturer', $user)?'checked':'' }} value="manufacturer" name="use_for[]">
-                                                    <label for="use_for_7">Manufacturer</label>
-                                                </div>
-                                            </div>
-                                            @endif
+                                                    {{--<input type="checkbox" name="purpose[]" id="use_for_7" {{ has_purpose('manufacturer', $user)?'checked':'' }} value="manufacturer" name="use_for[]">--}}
+                                                    {{--<label for="use_for_7">Manufacturer</label>--}}
+                                                {{--</div>--}}
+                                            {{--</div>--}}
+                                            {{--@endif--}}
                                         </div>
 
                                         @if(auth()->user()->type == 'seller')

@@ -95,24 +95,7 @@
     </div>
 </footer>
 
-<!-- popups -->
-<section id="legal-page">
-    <div class="content fluid-center">
-        <h2 class="title">Age Restricted Content</h2>
-        <p>Marijuana Exchange does business in accordance
-            with state laws regarding access to cannabis.
-            <br>
-            You must be at least 21 years old, or a
-            valid medical marijuana patient.
-            <br>
-            Are you eligible to visit
-            Marijuana Exchange?</p>
-        <div class="btn-group">
-            <div class="btn bg-cover no">no</div>
-            <div class="btn bg-cover yes">yes</div>
-        </div>
-    </div>
-</section>
+
 
 <script>
     window.jQuery || document.write('<script src="libs/jquery.min.js"><\/script>')

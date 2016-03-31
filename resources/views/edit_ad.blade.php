@@ -20,9 +20,9 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="">Unit Description</label>
-                                    {!! Form::select('unit_desc', array(
+                                    {!! Form::select('unit_available', array(
                                         'Ounce' => 'Ounce',
-                                         ), $ad->unit_desc, ['class'=>'form-control']) !!}
+                                         ), $ad->unit_available, ['class'=>'form-control']) !!}
                                 </div>
                                 <div class="form-group">
                                     <label for="">Amount</label>
@@ -47,14 +47,14 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Type or Strain</label>
-                                    {!! Form::select('type_of_strain', array(
+                                    {!! Form::select('description', array(
                                         'Edibles' => 'Edibles',
                                         'Flower' => 'Flower',
                                         'Oil' => 'Oil',
                                         'Tincture' => 'Tincture',
                                         'Patches' => 'Patches',
                                         'Indica/Sativa' => 'Indica/Sativa',
-                                         ), $ad->type_of_strain, ['class'=>'form-control']) !!}
+                                         ), $ad->description, ['class'=>'form-control']) !!}
                                 </div>
                                 <div class="form-group">
                                     <label for="">Price per Unit in USD</label>

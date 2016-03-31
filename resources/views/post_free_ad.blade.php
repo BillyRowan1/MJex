@@ -19,13 +19,23 @@
                                     <div class="form-group">
                                         <label for="">Type of Product</label>
                                         <select name="type_of_product" class="form-control">
-                                            <option value="Flowers">Flowers</option>
+                                            <option value="Flower">Flower</option>
+                                            <option value="Oil">Oil</option>
+                                            <option value="Edible">Edible</option>
+                                            <option value="Topical">Topical</option>
+                                            <option value="Concentrate">Concentrate</option>
+                                            <option value="Other">Other</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="">Unit Description</label>
-                                        <select name="unit_desc" class="form-control">
+                                        <label for="">Unit Available</label>
+                                        <select name="unit_available" class="form-control">
+                                            <option value="Gram">Gram</option>
+                                            <option value="Eighth">Eighth</option>
+                                            <option value="Quarter">Quarter</option>
+                                            <option value="Half">Half</option>
                                             <option value="Ounce">Ounce</option>
+                                            <option value="lb">lb</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -42,54 +52,43 @@
                                             <option value="#333">Dark gray</option>
                                         </select>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="">Location</label>
-                                        <input type="text" class="form-control" name="location">
-                                    </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="">Type or Strain</label>
-                                        <select name="type_of_strain" class="form-control">
-                                            <option value="Edibles">Edibles</option>
-                                            <option value="Flower">Flower</option>
-                                            <option value="Oil">Oil</option>
-                                            <option value="Tincture">Tincture</option>
-                                            <option value="Patches">Patches</option>
-                                            <option value="Indica/Sativa">Indica/Sativa</option>
-                                        </select>
+                                        <label for="">Description</label>
+                                        <input type="text" name="description" class="form-control">
                                     </div>
                                     <div class="form-group">
-                                        <label for="">Price per Unit in USD</label>
+                                        <label for="">Price (USD)</label>
                                         <input type="text" class="form-control" name="price_per_unit">
                                     </div>
-                                    <div class="form-group" id="pricePerQuantity">
-                                        <label>Price per Quantity in USD</label>
-                                        <div class="clearfix">
-                                            <div class="input-box">
-                                                <span>Gram</span>
-                                                <input type="text" name="price_per_quantity[gram]">
-                                            </div>
-                                            <div class="input-box">
-                                                <span>Eighth</span>
-                                                <input type="text" name="price_per_quantity[eighth]">
-                                            </div>
-                                            <div class="input-box">
-                                                <span>Quarter</span>
-                                                <input type="text" name="price_per_quantity[quater]">
-                                            </div>
-                                            <div class="input-box">
-                                                <span>Half</span>
-                                                <input type="text" name="price_per_quantity[half]">
-                                            </div>
-                                            <div class="input-box">
-                                                <span>Ounce</span>
-                                                <input type="text" name="price_per_quantity[ounce]">
-                                            </div>
-                                        </div>
-                                    </div>
+                                    {{--<div class="form-group" id="pricePerQuantity">--}}
+                                        {{--<label>Price per Quantity in USD</label>--}}
+                                        {{--<div class="clearfix">--}}
+                                            {{--<div class="input-box">--}}
+                                                {{--<span>Gram</span>--}}
+                                                {{--<input type="text" name="price_per_quantity[gram]">--}}
+                                            {{--</div>--}}
+                                            {{--<div class="input-box">--}}
+                                                {{--<span>Eighth</span>--}}
+                                                {{--<input type="text" name="price_per_quantity[eighth]">--}}
+                                            {{--</div>--}}
+                                            {{--<div class="input-box">--}}
+                                                {{--<span>Quarter</span>--}}
+                                                {{--<input type="text" name="price_per_quantity[quater]">--}}
+                                            {{--</div>--}}
+                                            {{--<div class="input-box">--}}
+                                                {{--<span>Half</span>--}}
+                                                {{--<input type="text" name="price_per_quantity[half]">--}}
+                                            {{--</div>--}}
+                                            {{--<div class="input-box">--}}
+                                                {{--<span>Ounce</span>--}}
+                                                {{--<input type="text" name="price_per_quantity[ounce]">--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
                                     <div class="form-group">
-                                        <label for="">Upload Logo/Product for Thumbnail</label>
+                                        <label for="">Upload Product Thumbnail</label>
                                         <input type="file" name="thumb" accept="image/*">
                                     </div>
                                 </div>
@@ -160,7 +159,7 @@
             </div>
             <!-- /#step2 -->
         @else
-            <p class="text-center">Can't create more ad. Please wait until next month or create a <a href='{{ route('ad.create.paid') }}'>Paid ad</a></p>
+            <p class="text-center">Can't create more ad. Please wait until next week or create a <a href='{{ route('ad.create.paid') }}'>Paid ad</a></p>
         @endif
     </section>
 @endsection

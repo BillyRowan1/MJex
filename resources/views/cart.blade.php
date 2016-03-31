@@ -117,22 +117,33 @@
 				{{--<h4>SELECT QUANTITY</h4>--}}
 			{{--</div>--}}
 			<div class="col-md-12">
-                <ul>
-                    <li><strong>Type of product: </strong>{{ $ad->type_of_product }}</li>
-                    <li><strong>Type or strain: </strong>{{ $ad->type_of_strain }}</li>
-                    <li>{!! $ad->content !!}</li>
-                </ul>
+                <div class="row">
+                    @if(!empty($ad->thumb))
+                    <div class="col-md-2">
+                        <img src="{{ url($ad->thumb) }}" width="100px" style="margin-bottom: 10px;">
+                    </div>
+                    @endif
+                    <div class="col-md-10">
+                        <ul>
+                            <li><strong>Type of product: </strong>{{ $ad->type_of_product }}</li>
+                            <li><strong>Description: </strong>{{ $ad->description }}</li>
+                            <li><strong>Price: </strong>{{ $ad->price_per_unit }}</li>
+                            <li>{!! $ad->content !!}</li>
+                        </ul>
+                        @if(auth()->user()->type == 'seeker')
+                            <button class="btn green-gradient add-to-cart"
+                                    data-product="{{ $ad->type_of_product }}"
+                                    data-ad_id="{{ $ad->id }}"
+                                    data-strain="{{ $ad->description }}"
+                                    data-price_per_unit="{{ $ad->price_per_unit }}"
+                                    data-price_per_quantity="{{ $ad->price_per_quantity }}"
+                                    >ADD TO CART</button>
+                        @endif
+                    </div>
+                </div>
                 <?php $gallery = !empty($ad->gallery)?json_decode($ad->gallery):[]; ?>
 
-                @if(auth()->user()->type == 'seeker')
-                <button class="btn green-gradient add-to-cart"
-                        data-product="{{ $ad->type_of_product }}"
-                        data-ad_id="{{ $ad->id }}"
-                        data-strain="{{ $ad->type_of_strain }}"
-                        data-price_per_unit="{{ $ad->price_per_unit }}"
-                        data-price_per_quantity="{{ $ad->price_per_quantity }}"
-                        >ADD TO CART</button>
-                @endif
+
 
                 <div style="margin-bottom: 15px;"></div>
             </div>
