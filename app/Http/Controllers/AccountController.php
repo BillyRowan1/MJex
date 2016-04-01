@@ -61,20 +61,24 @@ class AccountController extends Controller
             'zipcode' => 'required',
             'logo' => 'image'
         ]);
+
         $user = User::find(auth()->user()->id);
         $user->email = $request->email;
         $user->community_name = $request->input('community_name');
         $user->zipcode = $request->input('zipcode');
         $user->state = $request->input('state');
         $user->country = $request->input('country');
+        $user->delivery = $request->input('delivery');
         $user->accepted_payment = $request->input('accepted_payment');
         $user->patients_available = $request->input('patients_available');
         $user->medical_card_number = $request->input('medical_card_number');
         $user->desired_alotment = $request->input('desired_alotment');
         $user->lat = $request->input('lat');
         $user->lng = $request->input('lng');
-        if($request->has('password')) $user->password = \Hash::make($user->password);
-        if($request->has('purpose')) $user->purpose = json_encode($request->input('purpose'));
+        if($request->has('password')) {
+            $user->password = \Hash::make($request->input('password'));
+        }
+        $user->purpose = json_encode($request->input('purpose'));
 
         $destinationPath = 'uploads';
         if($request->hasFile('logo')) {

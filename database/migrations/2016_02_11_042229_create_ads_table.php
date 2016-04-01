@@ -20,7 +20,7 @@ class CreateAdsTable extends Migration
             $table->string('unit_available');
             $table->string('amount');
             $table->string('header_color');
-            $table->string('type_of_strain');
+            $table->string('description');
             $table->string('price_per_unit');
             $table->string('price_per_quantity');
             $table->string('thumb');

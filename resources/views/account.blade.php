@@ -179,7 +179,7 @@
                                                 @if($user->type != 'seeker')
                                                 <div class="form-group">
                                                     <label for="">Delivery</label>
-                                                    {!! Form::select('delivery', ['1'=>'Yes','0'=>'No'], $user->delivery, ['class'=>'form-control']) !!}
+                                                    {!! Form::select('delivery', [1=>'Yes',0 =>'No'], $user->delivery, ['class'=>'form-control']) !!}
                                                 </div>
 
                                                 <div class="form-group">

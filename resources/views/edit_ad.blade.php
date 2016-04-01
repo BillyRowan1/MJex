@@ -15,13 +15,23 @@
                                 <div class="form-group">
                                     <label for="">Type of Product</label>
                                     {!! Form::select('type_of_product', array(
-                                        'Flowers' => 'Flowers',
+                                        'Flowers'=>'Flowers',
+                                        'Oil'=>'Oil',
+                                        'Edible'=>'Edible',
+                                        'Topical'=>'Topical',
+                                        'Concentrate'=>'Concentrate',
+                                        'Other'=>'Other'
                                          ), $ad->type_of_product, ['class'=>'form-control']) !!}
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Unit Description</label>
+                                    <label for="">Unit Available</label>
                                     {!! Form::select('unit_available', array(
-                                        'Ounce' => 'Ounce',
+                                        "Gram" => "Gram",
+                                        "Eighth" => "Eighth",
+                                        "Quarter" => "Quarter",
+                                        "Half" => "Half",
+                                        "Ounce" => "Ounce",
+                                        "lb" => "lb",
                                          ), $ad->unit_available, ['class'=>'form-control']) !!}
                                 </div>
                                 <div class="form-group">
@@ -39,54 +49,19 @@
                                         '#333' => 'Dark gray',
                                          ), $ad->header_color, ['class'=>'form-control']) !!}
                                 </div>
-                                <div class="form-group">
-                                    <label for="">Location</label>
-                                    <input type="text" class="form-control" name="location" value="{{ $ad->location }}">
-                                </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="">Type or Strain</label>
-                                    {!! Form::select('description', array(
-                                        'Edibles' => 'Edibles',
-                                        'Flower' => 'Flower',
-                                        'Oil' => 'Oil',
-                                        'Tincture' => 'Tincture',
-                                        'Patches' => 'Patches',
-                                        'Indica/Sativa' => 'Indica/Sativa',
-                                         ), $ad->description, ['class'=>'form-control']) !!}
+                                    <label for="">Description</label>
+                                    {!! Form::text('description', $ad->description, ['class'=>'form-control']) !!}
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Price per Unit in USD</label>
+                                    <label for="">Price (USD)</label>
                                     <input type="text" class="form-control" name="price_per_unit" value="{{ $ad->price_per_unit }}">
                                 </div>
+
                                 <div class="form-group">
-                                    <label>Price per Quantity in USD</label>
-                                    <div class="clearfix">
-                                        <div class="input-box">
-                                            <span>Gram</span>
-                                            <input type="text" value="{{ $ad->price_per_quantity->gram }}" name="price_per_quantity[gram]">
-                                        </div>
-                                        <div class="input-box">
-                                            <span>Eighth</span>
-                                            <input type="text" value="{{ $ad->price_per_quantity->eighth }}" name="price_per_quantity[eighth]">
-                                        </div>
-                                        <div class="input-box">
-                                            <span>Quarter</span>
-                                            <input type="text" value="{{ $ad->price_per_quantity->quater }}" name="price_per_quantity[quater]">
-                                        </div>
-                                        <div class="input-box">
-                                            <span>Half</span>
-                                            <input type="text" value="{{ $ad->price_per_quantity->half }}" name="price_per_quantity[half]">
-                                        </div>
-                                        <div class="input-box">
-                                            <span>Ounce</span>
-                                            <input type="text" value="{{ $ad->price_per_quantity->ounce }}" name="price_per_quantity[ounce]">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Upload Logo/Product for Thumbnail</label>
+                                    <label for="">Upload Product Thumbnail</label>
                                     <input type="file" name="thumb" accept="image/*">
                                     @if($ad->thumb)
                                     <img style="height: 100px;" src="{{ asset($ad->thumb) }}" alt="">

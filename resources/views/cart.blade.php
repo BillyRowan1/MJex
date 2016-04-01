@@ -143,7 +143,6 @@
                 </div>
                 <?php $gallery = !empty($ad->gallery)?json_decode($ad->gallery):[]; ?>
 
-
                 <div style="margin-bottom: 15px;"></div>
             </div>
 
