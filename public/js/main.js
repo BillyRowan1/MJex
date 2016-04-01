@@ -22,6 +22,9 @@ jQuery(document).ready(function($) {
     }else{
         $('#legal-page').hide();
     }
+    $(window).unload(function(){
+        localStorage.removeItem('mjex.ageRestricted');
+    });
     $('#legal-page .btn').click(function(){
         if($(this).hasClass('yes')) {
             $('#legal-page').hide();
