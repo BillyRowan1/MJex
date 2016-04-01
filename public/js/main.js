@@ -17,9 +17,11 @@ jQuery(document).ready(function($) {
     * ============================*/
     // Legal popup:
     // Show legal page only first time when user visit the site
-    //if(localStorage.getItem('mjex.ageRestricted') == null || localStorage.getItem('mjex.ageRestricted') == 'no') {
-    //    $('#legal-page').show();
-    //}
+    if(localStorage.getItem('mjex.ageRestricted') == null || localStorage.getItem('mjex.ageRestricted') == 'no') {
+        $('#legal-page').show();
+    }else{
+        $('#legal-page').hide();
+    }
     $('#legal-page .btn').click(function(){
         if($(this).hasClass('yes')) {
             $('#legal-page').hide();

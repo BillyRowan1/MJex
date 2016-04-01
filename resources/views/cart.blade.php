@@ -127,7 +127,7 @@
                         <ul>
                             <li><strong>Type of product: </strong>{{ $ad->type_of_product }}</li>
                             <li><strong>Description: </strong>{{ $ad->description }}</li>
-                            <li><strong>Price: </strong>{{ $ad->price_per_unit }}</li>
+                            <li><strong>Price: </strong>${{ $ad->price_per_unit }}</li>
                             <li>{!! $ad->content !!}</li>
                         </ul>
                         @if(auth()->user()->type == 'seeker')
@@ -142,7 +142,6 @@
                     </div>
                 </div>
                 <?php $gallery = !empty($ad->gallery)?json_decode($ad->gallery):[]; ?>
-
 
 
                 <div style="margin-bottom: 15px;"></div>
