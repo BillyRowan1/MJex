@@ -19,28 +19,28 @@ class CreateUsersTable extends Migration
             $table->string('password', 60);
             $table->string('anonymous_email')->unique();
             $table->string('community_name')->unique();
-            $table->boolean('delivery')->null();
+            $table->boolean('delivery')->nullable();
             $table->string('purpose');
-            $table->integer('patients_available')->null(); // seller is grower only
+            $table->integer('patients_available')->nullable(); // seller is grower only
             $table->string('state');
             $table->enum('package',['none','free','weekly','weekly_pro']);
 
             // Seeker has purpose Medical only
-            $table->string('medical_card_number')->null();
-            $table->string('desired_alotment')->null();
+            $table->string('medical_card_number')->nullable();
+            $table->string('desired_alotment')->nullable();
 
-            $table->string('accepted_payment')->null();
+            $table->string('accepted_payment')->nullable();
 
-            $table->string('zipcode')->null();
-            $table->string('country')->null();
+            $table->string('zipcode')->nullable();
+            $table->string('country')->nullable();
 
-            $table->string('lat')->null();
-            $table->string('lng')->null();
+            $table->string('lat')->nullable();
+            $table->string('lng')->nullable();
 
-            $table->string('logo')->null();
+            $table->string('logo')->nullable();
 
             $table->boolean('active');
-            $table->string('activation_code')->null();
+            $table->string('activation_code')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
