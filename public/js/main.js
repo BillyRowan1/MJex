@@ -17,7 +17,7 @@ jQuery(document).ready(function($) {
     * ============================*/
     // Legal popup:
     // Show legal page only first time when user visit the site
-    if(sessionStorage.getItem('mjex.ageRestricted') == null || sessionStorage.getItem('mjex.ageRestricted') == 'no') {
+    if(localStorage.getItem('mjex.ageRestricted') == null || localStorage.getItem('mjex.ageRestricted') == 'no') {
         $('#legal-page').show();
     }else{
         $('#legal-page').hide();
@@ -26,14 +26,14 @@ jQuery(document).ready(function($) {
     $('#legal-page .btn').click(function(){
         if($(this).hasClass('yes')) {
             $('#legal-page').hide();
-            sessionStorage.setItem('mjex.ageRestricted','yes');
+            localStorage.setItem('mjex.ageRestricted','yes');
 
             if($('#legal-page input:checked').length > 0) {
                 window.location.href = '/login';
             }
         }else{
             window.location.href = 'about:blank';
-            sessionStorage.setItem('mjex.ageRestricted','no');
+            localStorage.setItem('mjex.ageRestricted','no');
         }
     });
 

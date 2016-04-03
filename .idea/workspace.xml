@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a68c45e-ab50-4614-a562-6c70354337b4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_01_31_171403_create_users_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_01_31_171403_create_users_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/main.js" afterPath="$PROJECT_DIR$/public/js/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="mjex.iws" />
@@ -79,7 +79,6 @@
         <option value="$PROJECT_DIR$/resources/views/inc/search.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/index.blade.php" />
         <option value="$PROJECT_DIR$/public/css/main.css" />
-        <option value="$PROJECT_DIR$/public/js/main.js" />
         <option value="$PROJECT_DIR$/database/migrations/2016_02_11_042229_create_ads_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_03_02_191925_create_orders_table.php" />
         <option value="$PROJECT_DIR$/resources/views/account.blade.php" />
@@ -88,6 +87,7 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/AdController.php" />
         <option value="$PROJECT_DIR$/resources/views/edit_ad.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_01_31_171403_create_users_table.php" />
+        <option value="$PROJECT_DIR$/public/js/main.js" />
       </list>
     </option>
   </component>
@@ -136,7 +136,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -157,6 +156,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -394,7 +394,13 @@
       <option name="project" value="LOCAL" />
       <updated>1459538075636</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="update schema for user table">
+      <created>1459612315540</created>
+      <option name="number" value="00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1459612315540</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -437,7 +443,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="move frontend to Laravel framework" />
     <MESSAGE value="add FAQ, post ad, account page" />
     <MESSAGE value="make site responsive" />
     <MESSAGE value="seeker, seller sign up" />
@@ -462,7 +467,8 @@
     <MESSAGE value="update legal page" />
     <MESSAGE value="update migration" />
     <MESSAGE value="bug fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fix" />
+    <MESSAGE value="update schema for user table" />
+    <option name="LAST_COMMIT_MESSAGE" value="update schema for user table" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -755,14 +761,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43276662">
           <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.1500742">
-          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -829,7 +827,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.35085008">
           <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -837,6 +834,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.17465223">
           <caret line="18" column="45" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5943536">
+          <caret line="39" column="34" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
           <folding />
         </state>
       </provider>
