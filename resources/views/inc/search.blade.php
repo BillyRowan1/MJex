@@ -53,7 +53,7 @@
                 <div class="carousel-inner" role="listbox">
                     @foreach(session('bannerAds') as $idx => $bannerAd)
                         <div class="item {{ $idx == 0?'active':'' }}" style="background-image: url('{{ $bannerAd->thumb }}')">
-                            {{ $bannerAd->thumb }}
+
                         </div>
                     @endforeach
                 </div>
