@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a68c45e-ab50-4614-a562-6c70354337b4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/inc/search.blade.php" afterPath="$PROJECT_DIR$/resources/views/inc/search.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/FindGrowerController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/FindGrowerController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="mjex.iws" />
@@ -24,20 +24,7 @@
     <favorites_list name="mjex" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="search.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/inc/search.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5356037">
-              <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-              <folding>
-                <element signature="e#2615#2670#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -97,10 +84,10 @@
         <option value="$PROJECT_DIR$/resources/views/find_growers.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
         <option value="$PROJECT_DIR$/resources/views/auth/register.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/FindGrowerController.php" />
         <option value="$PROJECT_DIR$/app/Ad.php" />
         <option value="$PROJECT_DIR$/app/Repo/AdRepo.php" />
         <option value="$PROJECT_DIR$/resources/views/inc/search.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/FindGrowerController.php" />
       </list>
     </option>
   </component>
@@ -431,7 +418,13 @@
       <option name="project" value="LOCAL" />
       <updated>1460139110236</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="update search banner ads">
+      <created>1460139297225</created>
+      <option name="number" value="00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1460139297225</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -474,7 +467,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="merge sellers, seekers table, revert auth controller to laravel default" />
     <MESSAGE value="add login, change profile info, add new fields in users table" />
     <MESSAGE value="add latest ads on home page, contact form now working" />
     <MESSAGE value="remove auth on homepage" />
@@ -499,7 +491,8 @@
     <MESSAGE value="fix age popup only display once" />
     <MESSAGE value="change find grower tab" />
     <MESSAGE value="update search box" />
-    <option name="LAST_COMMIT_MESSAGE" value="update search box" />
+    <MESSAGE value="update search banner ads" />
+    <option name="LAST_COMMIT_MESSAGE" value="update search banner ads" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -835,14 +828,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_01_31_171403_create_users_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36532506">
-          <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6594427">
@@ -875,21 +860,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FindGrowerController.php">
+    <entry file="file://$PROJECT_DIR$/database/migrations/2016_01_31_171403_create_users_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37151703">
-          <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.47368422">
+          <caret line="23" column="47" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/inc/search.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5356037">
-          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.5975232">
+          <caret line="57" column="31" selection-start-line="57" selection-start-column="31" selection-end-line="57" selection-end-column="31" />
           <folding>
             <element signature="e#2615#2670#0#HTML" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FindGrowerController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43343654">
+          <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
