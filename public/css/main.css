@@ -291,7 +291,7 @@ input {
     z-index: 2;
     position: relative;
     border-radius: 7px 0 0 7px;
-    display: none;
+    /* display: none; */
 }
 
 .home-search-wrap .zipcode .btn {
@@ -319,7 +319,7 @@ input {
     bottom: 0;
     width: 95%;
     z-index: 1;
-    padding-left: 20px;
+    padding-left: 180px;
     border-radius: 7px;
 }
 
@@ -1374,7 +1374,7 @@ ul.gallery {}
 }
 
 .btn {
-    background: #ababab;
+    background-color: #ababab;
 }
 
 #ShoppingCart .ads > li {

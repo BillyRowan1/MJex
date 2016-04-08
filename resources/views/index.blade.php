@@ -18,11 +18,8 @@
                 <div class="btn bg-cover no">no</div>
                 <div class="btn bg-cover yes">yes</div>
             </div>
-            <p class="text-center">Also which apply to you?</p>
+            <p class="text-center">Search for which?</p>
             <div class="form-group checkbox-group circle-checkboxes clearfix">
-                <input type="checkbox" id="legal-seeker" value="adult_use" name="purpose[]">
-                <label for="legal-seeker">Seeker</label>
-
                 <input type="checkbox" id="legal-seller" value="medical" name="purpose[]">
                 <label for="legal-seller">Seller</label>
 
