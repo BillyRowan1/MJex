@@ -16,6 +16,7 @@ class FindGrowerController extends Controller
     {
         $growers = User::where('type', 'seller')
             ->where('purpose', 'like' , '%grower%')
+            ->where('active', 1)
             ->get();
 
         $growersSelect = [];

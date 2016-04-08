@@ -46,12 +46,6 @@
 
                             <input type="checkbox" id="for-medical" value="medical" name="purpose[]">
                             <label for="for-medical">Medical</label>
-
-                            <input type="checkbox" id="for-grower" value="grower" name="purpose[]">
-                            <label for="for-grower">Grower</label>
-
-                            <input type="checkbox" id="for-doctor" value="doctor" name="purpose[]">
-                            <label for="for-doctor">Doctor</label>
                         </div>
                         <div class="form-group" ng-show="medical">
                             <label for="">Medical card number</label>
@@ -102,17 +96,7 @@
                                 <option value="0">No</option>
                             </select>
                         </div>
-                        <div class="form-group" id="growerPatientsAvailable">
-                            <label for="">Number of patients available</label>
-                            <select name="patients_available" class="form-control">
-                                <option value="">-Select-</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </div>
+
                         <label for="">Select as many as apply</label>
                         <div class="form-group checkbox-group circle-checkboxes clearfix">
                             <input type="checkbox" id="bsn-for-adult" value="adult_use" name="purpose[]">
@@ -121,11 +105,32 @@
                             <input type="checkbox" id="bsn-for-medical" value="medical" name="purpose[]">
                             <label for="bsn-for-medical">Medical</label>
 
-                            <input type="checkbox" id="bsn-for-grower" value="grower" name="purpose[]">
-                            <label for="bsn-for-grower">Grower</label>
+                            {{--<input type="checkbox" id="bsn-for-grower" value="grower" name="purpose[]">--}}
+                            {{--<label for="bsn-for-grower">Grower</label>--}}
 
-                            <input type="checkbox" id="bsn-for-doctor" value="doctor" name="purpose[]">
-                            <label for="bsn-for-doctor">Doctor</label>
+                            <input type="checkbox" id="bsn-for-other" value="other" name="purpose[]">
+                            <label for="bsn-for-other">Other business</label>
+                        </div>
+                        <div id="growerPatientsAvailable">
+                            <div class="form-group">
+                                <label for="">Number of patients available</label>
+                                <select name="patients_available" class="form-control">
+                                    <option value="">-Select-</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Are you Grower?</label>
+                                <select name="purpose[]" class="form-control">
+                                    <option value="">No</option>
+                                    <option value="grower">Yes</option>
+                                </select>
+                            </div>
                         </div>
                         <label for="">Choose ad package</label>
                         <div class="form-group checkbox-group circle-checkboxes clearfix ad-package">
@@ -168,7 +173,7 @@ jQuery(document).ready(function($) {
     $('.business [name="purpose[]"]').click(function(event) {
         var isGrower = false;
         $('.business [name="purpose[]"]').each(function(event) {
-            if ($(this).is(':checked') && $(this).val() == 'grower') {
+            if ($(this).is(':checked') && $(this).val() == 'medical') {
                 isGrower = true;
             }
         });

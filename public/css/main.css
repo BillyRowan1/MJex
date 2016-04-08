@@ -278,6 +278,7 @@ input {
     display: block;
     margin-bottom: 6px;
     font-family: arial, sans-serif;
+    font-size: 11px;
 }
 
 .home-search-wrap .zipcode {
@@ -292,6 +293,11 @@ input {
     position: relative;
     border-radius: 7px 0 0 7px;
     /* display: none; */
+}
+
+.home-search-wrap .zipcode select {
+    margin-top: 14px;
+    text-transform: capitalize;
 }
 
 .home-search-wrap .zipcode .btn {

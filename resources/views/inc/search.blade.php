@@ -16,8 +16,13 @@
     <form action="{{ url('search') }}" method="get">
         {!! csrf_field() !!}
         <div class="zipcode">
-            <span>Your zipcode</span>
-            <input type="text" name="zipcode">
+            <select name="ad_created_by" class="form-control">
+                <option value="">Select Ad created by - </option>
+                <option value="adult_use">adult</option>
+                <option value="medical">medical</option>
+                <option value="grower">grower</option>
+                <option value="other">other business</option>
+            </select>
         </div>
         {{--<div class="zipcode">--}}
             {{--<span>Your location</span>--}}
@@ -48,7 +53,7 @@
                 <div class="carousel-inner" role="listbox">
                     @foreach(session('bannerAds') as $idx => $bannerAd)
                         <div class="item {{ $idx == 0?'active':'' }}" style="background-image: url('{{ $bannerAd->thumb }}')">
-                            {{ $bannerAd->thumb?'':$bannerAd->content }}
+                            {{ $bannerAd->thumb }}
                         </div>
                     @endforeach
                 </div>
@@ -57,7 +62,7 @@
         </ul>
     @endif
     <div class="section-posts">
-        <h2 class="title">search results</h2>
+        <h2 class="title">search results: {{ count(session('searchResults')) }} result</h2>
         {{--<div class="sort">--}}
         {{--Sort By: <a href="#">latest</a> <a href="#">closest to me</a>--}}
         {{--</div>--}}

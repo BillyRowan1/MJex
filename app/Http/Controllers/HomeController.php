@@ -26,17 +26,14 @@ class HomeController extends Controller
     {
         $this->validate($request,[
             'keyword' => 'required',
-//            'lat' => 'required',
         ],[
             'keyword.required' => 'Please enter keyword to search',
-//            'lat.required' => 'You must choose your location'
         ]);
 
         $keyword = $request->input('keyword');
-//        $lat = $request->input('lat');
-//        $lng = $request->input('lng');
+        $adCreatedBy = $request->input('ad_created_by');
 
-        $searchResults = $adRepo->search($keyword);
+        $searchResults = $adRepo->search($keyword, $adCreatedBy);
 
         $bannerAds = $adRepo->getBannerAds();
 
