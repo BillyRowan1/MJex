@@ -25,6 +25,8 @@
                         <br>
                         <span style="text-align: center; display: block;">Don't have account?</span>
                         <a href="{{ url('register') }}" class="btn btn-default">SIGN UP</a>
+                        <br>
+                        <span style="text-align: center; display: block;">Lost your password? <a href="{{ url('password/email') }}">Reset</a></span>
                     </form>
                 </div>
             </div>
