@@ -58,6 +58,10 @@
                         <br>
                         <span style="text-align: center; display: block;">Already have account?</span>
                         <a href="{{ url('login') }}" class="btn btn-default">SIGN IN</a>
+
+                        <br>
+                        <span style="text-align: center; display: block;">Lost your password? <a href="{{ url('password/email') }}">Reset</a></span>
+
                     </form>
                 </div>
             </div>
@@ -146,6 +150,13 @@
                         </div>
                         <script src="https://checkout.stripe.com/checkout.js"></script>
                         <button id="stripeCheckoutBtn" class="btn green-gradient">CONTINUE TO PAYMENTS</button>
+
+                        <br>
+                        <span style="text-align: center; display: block;">Already have account?</span>
+                        <a href="{{ url('login') }}" class="btn btn-default">SIGN IN</a>
+
+                        <br>
+                        <span style="text-align: center; display: block;">Lost your password? <a href="{{ url('password/email') }}">Reset</a></span>
                     </form>
                 </div>
             </div>
