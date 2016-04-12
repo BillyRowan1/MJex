@@ -55,20 +55,20 @@ class AccountController extends Controller
     public function putIndex(Request $request)
     {
         $this->validate($request,[
-            'email' => 'required|email',
             'password' => 'min:6',
+            'anonymous_email' => 'required|unique:users,anonymous_email,'.auth()->user()->id,
             'community_name' => 'required|unique:users,community_name,'.auth()->user()->id,
-            'zipcode' => 'required',
+            'zipcode' => 'required|numeric',
             'logo' => 'image'
         ]);
 
         $user = User::find(auth()->user()->id);
-        $user->email = $request->email;
         $user->community_name = $request->input('community_name');
         $user->zipcode = $request->input('zipcode');
         $user->state = $request->input('state');
         $user->country = $request->input('country');
         $user->delivery = $request->input('delivery');
+        $user->anonymous_email = $request->input('anonymous_email');
         $user->accepted_payment = $request->input('accepted_payment');
         $user->patients_available = $request->input('patients_available');
         $user->medical_card_number = $request->input('medical_card_number');

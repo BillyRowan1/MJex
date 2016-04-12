@@ -164,15 +164,15 @@
                                         <div class="row">
                                             <div class="col-md-6 col-sm-6">
                                                 <div class="form-group">
-                                                    <label for="">Your contact Email*</label>
-                                                    <input type="email" name="email" value="{{ $user->email }}" class="form-control">
+                                                    <label for="">Your Mjex Email*</label> (<i>Note: only use in Mjex system</i>)
+                                                    <input type="email" name="anonymous_email" value="{{ $user->anonymous_email }}" class="form-control">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="">Mjex username</label>
-                                                    <input type="text" name="community_name" value="{{ $user->community_name }}" class="form-control">
+                                                    <input type="text" readonly name="community_name" value="{{ $user->community_name }}" class="form-control">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="">State or Province</label>
+                                                    <label for="">City / State</label>
                                                     <input type="text" name="state" value="{{ $user->state }}" class="form-control">
                                                 </div>
 
@@ -234,7 +234,7 @@
                                         </div>
                                         <!-- /.row -->
                                         <div class="row">
-{{--                                            @if(auth()->user()->type == 'seeker')--}}
+
                                             <div class="form-group circle-checkboxes col-md-12">
                                                 <input type="checkbox" name="purpose[]" id="use_for_4" {{ has_purpose('adult_use',$user)?'checked':'' }} value="adult_use" name="use_for[]">
                                                 <label for="use_for_4">Adult use +21</label>
@@ -242,37 +242,17 @@
                                                 <input type="checkbox" name="purpose[]" id="use_for_1" {{ has_purpose('medical',$user)?'checked':'' }} value="medical" name="use_for[]">
                                                 <label for="use_for_1">Medical</label>
 
+                                                @if(auth()->user()->type == 'seller')
+
                                                 <input type="checkbox" name="purpose[]" id="use_for_2" {{ has_purpose('grower',$user)?'checked':'' }} value="grower" name="use_for[]">
                                                 <label for="use_for_2">Grower</label>
 
-                                                <input type="checkbox" name="purpose[]" id="use_for_3" {{ has_purpose('doctor',$user)?'checked':'' }} value="doctor" name="use_for[]">
-                                                <label for="use_for_3">Doctor</label>
+                                                <input type="checkbox" name="purpose[]" id="use_for_3" {{ has_purpose('other',$user)?'checked':'' }} value="other" name="use_for[]">
+                                                <label for="use_for_3">Other business</label>
+
+                                                @endif
                                             </div>
-                                            {{--@else--}}
-                                            {{--<div class="form-group col-md-12">--}}
-                                                {{--<div class="circle-checkboxes">--}}
-                                                    {{--<input type="checkbox" name="purpose[]" id="use_for_1" {{ has_purpose('grower', $user)?'checked':'' }} value="grower" name="use_for[]">--}}
-                                                    {{--<label for="use_for_1">Grower</label>--}}
 
-                                                    {{--<input type="checkbox" name="purpose[]" id="use_for_2" {{ has_purpose('doctor', $user)?'checked':'' }} value="doctor" name="use_for[]">--}}
-                                                    {{--<label for="use_for_2">Doctor</label>--}}
-
-                                                    {{--<input type="checkbox" name="purpose[]" id="use_for_3" {{ has_purpose('dispensary', $user)?'checked':'' }} value="dispensary" name="use_for[]">--}}
-                                                    {{--<label for="use_for_3">Dispensary</label>--}}
-                                                {{--</div>--}}
-
-                                                {{--<div class="circle-checkboxes">--}}
-                                                    {{--<input type="checkbox" name="purpose[]" id="use_for_5" {{ has_purpose('wholesaler', $user)?'checked':'' }} value="wholesaler" name="use_for[]">--}}
-                                                    {{--<label for="use_for_5">Wholesaler</label>--}}
-
-                                                    {{--<input type="checkbox" name="purpose[]" id="use_for_6" {{ has_purpose('lab', $user)?'checked':'' }} value="lab" name="use_for[]">--}}
-                                                    {{--<label for="use_for_6">Lab</label>--}}
-
-                                                    {{--<input type="checkbox" name="purpose[]" id="use_for_7" {{ has_purpose('manufacturer', $user)?'checked':'' }} value="manufacturer" name="use_for[]">--}}
-                                                    {{--<label for="use_for_7">Manufacturer</label>--}}
-                                                {{--</div>--}}
-                                            {{--</div>--}}
-                                            {{--@endif--}}
                                         </div>
 
                                         @if(auth()->user()->type == 'seller')
