@@ -87,6 +87,9 @@ Route::group(['middleware' => ['web']], function () {
         'postStore' => 'review.store',
     ]);
 
+    Route::controller('sellermap', 'SellerMapController', [
+    ]);
+
     Route::group(['middleware' => ['auth']], function () {
         Route::controller('cart','CartController',[
             'getIndex' => 'cart.index',

@@ -1,28 +1,53 @@
-.modal-backdrop.in{
+.map-wrapper{
+    position: relative;
+}
+#pac-input {
+    background-color: #fff;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    margin-left: 12px;
+    padding: 0 11px 0 13px;
+    text-overflow: ellipsis;
+    width: 300px;
+    border: none;
+    height: 32px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.18);
+    margin-top: 10px;
+}
+
+#pac-input:focus {
+    border-color: #4d90fe;
+}
+
+.modal-backdrop.in {
     z-index: 0;
 }
 
-#loading{
+#loading {
     display: none;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(255,255,255,0.8);
+    background-color: rgba(255, 255, 255, 0.8);
     z-index: 9999;
 }
-#map{
+
+#map {
     width: 100%;
     min-height: 250px;
 }
-#loading img{
+
+#loading img {
     position: absolute;
     left: 50%;
     top: 50%;
     margin-left: -27px;
     margin-top: -27px;
 }
+
 body,
 html {
     font-family: "Myriad Pro", Arial, sans-serif;
@@ -137,7 +162,8 @@ input {
     background: black;
     height: 60px;
 }
-#top-nav .welcome{
+
+#top-nav .welcome {
     color: white;
     float: right;
     margin-right: 20px;
@@ -147,7 +173,14 @@ input {
     padding-right: 10px;
 }
 
-#top-nav .dropdown > span {color: white;position: absolute;right: 0;top: 21px;right: 10px;cursor: pointer;}
+#top-nav .dropdown > span {
+    color: white;
+    position: absolute;
+    right: 0;
+    top: 21px;
+    right: 10px;
+    cursor: pointer;
+}
 
 #top-nav .dropdown {
     float: right;
@@ -157,6 +190,7 @@ input {
 #top-nav .welcome a {
     color: #38F238;
 }
+
 #top-nav .sign-up-btn {
     font-size: 22px;
     margin-top: 8px;
@@ -215,6 +249,10 @@ input {
     background: #999999;
 }
 
+#Home #sellermap {
+    height: 300px;
+}
+
 #Home .second-logo {
     display: block;
     margin: 20px auto;
@@ -226,7 +264,8 @@ input {
     font-family: 'caviar_dreamsbold_italic';
     font-size: 23px;
 }
-#bannerAds{
+
+#bannerAds {
     width: 728px;
     height: 90px;
     background-color: whitesmoke;
@@ -234,6 +273,7 @@ input {
     padding-left: 0;
     margin-bottom: 40px;
 }
+
 
 /*#bannerAds .carousel {
     height: 90px;
@@ -248,24 +288,30 @@ input {
     line-height: 90px;
     font-size: 20px;
 }
-.carousel-indicators .active{
+
+.carousel-indicators .active {
     background-color: black;
 }
-.carousel-indicators li{
+
+.carousel-indicators li {
     background-color: gray;
 }
-.carousel-inner{
+
+.carousel-inner {
     height: 100%;
 }
-.carousel-indicators{
+
+.carousel-indicators {
     bottom: -20px;
 }
+
 @media screen and (max-width: 600px) {
-    #bannerAds{
+    #bannerAds {
         width: 100%;
         height: 50px;
     }
 }
+
 .home-search-wrap {
     height: 80px;
     position: relative;
@@ -551,13 +597,14 @@ footer {
     margin-right: 20px;
 }
 
-.section-posts a{
+.section-posts a {
     color: black;
 }
 
 .section-posts a:hover {
     text-decoration: none;
 }
+
 .section-posts {
     background-color: #eaecec;
     border-radius: 5px;
@@ -599,11 +646,11 @@ footer {
     padding: 10px;
 }
 
-#Home .content{
+#Home .content {
     padding-top: 0;
 }
 
-.post .content p{
+.post .content p {
     margin: 0;
 }
 
@@ -762,7 +809,9 @@ footer {
     border-radius: 7px;
 }
 
-#Signup .btn, #Signup [type=submit] span,#Signup [type=submit] {
+#Signup .btn,
+#Signup [type=submit] span,
+#Signup [type=submit] {
     margin: 0 auto;
     width: 250px;
     display: block;
@@ -796,15 +845,20 @@ footer {
 #Signup .block.business .ad-package label {
     width: 33.33333333%;
 }
+
+
 /* Checkbox styling */
+
 .circle-checkboxes {
     position: relative;
 }
+
 .circle-checkboxes [type="radio"]:not(:checked),
 .circle-checkboxes [type="radio"]:checked {
     position: absolute;
     left: -9999px;
 }
+
 .circle-checkboxes [type="radio"]:not(:checked) + label,
 .circle-checkboxes [type="radio"]:checked + label {
     position: relative;
@@ -812,7 +866,10 @@ footer {
     padding-top: 50px;
     text-align: center;
 }
+
+
 /* checkbox aspect */
+
 .circle-checkboxes [type="radio"]:not(:checked) + label:before,
 .circle-checkboxes [type="radio"]:checked + label:before {
     content: '';
@@ -825,7 +882,10 @@ footer {
     border-radius: 3px;
     margin-left: -23px;
 }
+
+
 /* checked mark aspect */
+
 .circle-checkboxes [type="radio"]:not(:checked) + label:after,
 .circle-checkboxes [type="radio"]:checked + label:after {
     content: "";
@@ -838,46 +898,66 @@ footer {
     height: 46px;
     margin-left: -23px;
 }
+
+
 /* checked mark aspect changes */
+
 .circle-checkboxes [type="radio"]:not(:checked) + label:after {
     opacity: 0;
     transform: scale(0);
 }
+
 .circle-checkboxes [type="radio"]:checked + label:after {
     opacity: 1;
     transform: scale(1);
 }
+
+
 /* disabled checkbox */
+
 .circle-checkboxes [type="radio"]:disabled:not(:checked) + label:before,
 .circle-checkboxes [type="radio"]:disabled:checked + label:before {
     box-shadow: none;
     border-color: #bbb;
     background-color: #ddd;
 }
+
 .circle-checkboxes [type="radio"]:disabled:checked + label:after {
     color: #999;
 }
+
 .circle-checkboxes [type="radio"]:disabled + label {
     color: #aaa;
 }
+
+
 /* accessibility */
+
 .circle-checkboxes [type="radio"]:checked:focus + label:before,
 .circle-checkboxes [type="radio"]:not(:checked):focus + label:before {
     border: 1px dotted blue;
 }
+
+
 /* hover style just for information */
+
 .circle-checkboxes label:hover:before {
     background: url(../img/checkbox-checked.png) no-repeat center;
 }
+
+
 /* Checkbox styling */
+
 .circle-checkboxes {
     position: relative;
 }
+
 .circle-checkboxes [type="checkbox"]:not(:checked),
 .circle-checkboxes [type="checkbox"]:checked {
     position: absolute;
     left: -9999px;
 }
+
 .circle-checkboxes [type="checkbox"]:not(:checked) + label,
 .circle-checkboxes [type="checkbox"]:checked + label {
     position: relative;
@@ -885,7 +965,10 @@ footer {
     padding-top: 50px;
     text-align: center;
 }
+
+
 /* checkbox aspect */
+
 .circle-checkboxes [type="checkbox"]:not(:checked) + label:before,
 .circle-checkboxes [type="checkbox"]:checked + label:before {
     content: '';
@@ -898,7 +981,10 @@ footer {
     border-radius: 3px;
     margin-left: -23px;
 }
+
+
 /* checked mark aspect */
+
 .circle-checkboxes [type="checkbox"]:not(:checked) + label:after,
 .circle-checkboxes [type="checkbox"]:checked + label:after {
     content: "";
@@ -911,34 +997,49 @@ footer {
     height: 46px;
     margin-left: -23px;
 }
+
+
 /* checked mark aspect changes */
+
 .circle-checkboxes [type="checkbox"]:not(:checked) + label:after {
     opacity: 0;
     transform: scale(0);
 }
+
 .circle-checkboxes [type="checkbox"]:checked + label:after {
     opacity: 1;
     transform: scale(1);
 }
+
+
 /* disabled checkbox */
+
 .circle-checkboxes [type="checkbox"]:disabled:not(:checked) + label:before,
 .circle-checkboxes [type="checkbox"]:disabled:checked + label:before {
     box-shadow: none;
     border-color: #bbb;
     background-color: #ddd;
 }
+
 .circle-checkboxes [type="checkbox"]:disabled:checked + label:after {
     color: #999;
 }
+
 .circle-checkboxes [type="checkbox"]:disabled + label {
     color: #aaa;
 }
+
+
 /* accessibility */
+
 .circle-checkboxes [type="checkbox"]:checked:focus + label:before,
 .circle-checkboxes [type="checkbox"]:not(:checked):focus + label:before {
     border: 1px dotted blue;
 }
+
+
 /* hover style just for information */
+
 .circle-checkboxes label:hover:before {
     background: url(../img/checkbox-checked.png) no-repeat center;
 }
@@ -983,16 +1084,17 @@ footer {
     margin-top: 0;
 }
 
-#Account #tab-chat-history [name=chat-message]{
+#Account #tab-chat-history [name=chat-message] {
     width: 100%;
     border: none;
     border-radius: 0;
 }
 
-#Account #chat-message-wrap{
+#Account #chat-message-wrap {
     position: relative;
 }
-#Account #chat-message-wrap .btn{
+
+#Account #chat-message-wrap .btn {
     position: absolute;
     right: 0;
     top: 2px;
@@ -1193,24 +1295,32 @@ footer {
     padding: 15px;
     margin: 0;
 }
+
+
 /*Post ad*/
-.simple-editor.trumbowyg-editor{
+
+.simple-editor.trumbowyg-editor {
     background-color: white;
 }
-.trumbowyg-box, .trumbowyg-editor{
+
+.trumbowyg-box,
+.trumbowyg-editor {
     width: 100%;
 }
-#PostAds img.preview{
+
+#PostAds img.preview {
     width: 100%;
     border: none;
     display: none;
 }
-#postAdEditorTxt{
+
+#postAdEditorTxt {
     visibility: hidden;
     width: 0;
     height: 0;
     opacity: 0;
 }
+
 #PostAds .box {
     background-color: #eeeeee;
     padding: 20px 30px;
@@ -1256,31 +1366,38 @@ footer {
     height: 25px;
     text-align: center;
 }
+
+
 /*cart*/
-#ShoppingCart #tab-chat .content{
+
+#ShoppingCart #tab-chat .content {
     position: relative;
     margin-bottom: 0;
 }
-#ShoppingCart #tab-chat li{
+
+#ShoppingCart #tab-chat li {
     padding-bottom: 10px;
 }
-#ShoppingCart #tab-chat li.last{
-}
-#ShoppingCart #tab-chat li.last input{
+
+#ShoppingCart #tab-chat li.last {}
+
+#ShoppingCart #tab-chat li.last input {
     border: none;
     background-color: #cccccc;
     padding: 10px;
     width: 100%;
 }
-#ShoppingCart #tab-chat li.you{
+
+#ShoppingCart #tab-chat li.you {
     padding-left: 20px;
 }
-#ShoppingCart li{
+
+#ShoppingCart li {
     list-style: none;
     font-weight: 300;
 }
 
-#ShoppingCart p{
+#ShoppingCart p {
     margin: 0;
 }
 
@@ -1291,7 +1408,8 @@ footer {
     margin-right: 7px;
 }
 
-#ShoppingCart .cart li .price,#ShoppingCart .cart li .delete {
+#ShoppingCart .cart li .price,
+#ShoppingCart .cart li .delete {
     float: right;
 }
 
@@ -1302,7 +1420,8 @@ footer {
     width: 90%;
     margin: 0 auto;
 }
-#ShoppingCart ul{
+
+#ShoppingCart ul {
     padding-left: 0;
 }
 
@@ -1341,8 +1460,7 @@ ul.gallery {}
     margin-right: 10px;
 }
 
-#ShoppingCart .cart .footer .subtotal {
-}
+#ShoppingCart .cart .footer .subtotal {}
 
 #ShoppingCart .cart .footer .btn {
     margin: 13px;
@@ -1365,7 +1483,8 @@ ul.gallery {}
     border-radius: 4px;
 }
 
-#ShoppingCart .welcome .header,#ShoppingCart .welcome .footer {
+#ShoppingCart .welcome .header,
+#ShoppingCart .welcome .footer {
     background: #333;
     color: white;
     border-radius: 4px;
@@ -1391,6 +1510,7 @@ ul.gallery {}
     background: url(../img/line.png) no-repeat top center;
     padding-top: 30px;
 }
+
 
 /*FAQ*/
 

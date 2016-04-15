@@ -88,6 +88,11 @@
                     </div>
                 </div>
                 @endif
+                
+                <section class="map-wrapper">
+                    <input id="pac-input" class="controls" type="text" placeholder="Search">
+                    <div id="sellermap"></div>
+                </section>
 
                 {{--Latest posts--}}
                 <div class="section-posts">

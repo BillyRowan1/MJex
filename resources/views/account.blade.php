@@ -197,16 +197,6 @@
                                                 </div>
                                                 @endif
 
-                                                {{--<div class="form-group">--}}
-                                                    {{--@if(auth()->user()->type == 'seller')--}}
-                                                        {{--<label for="">Drag marker around to select your Store location (<i>this will be use to target your ads to the right Seeker</i>)</label>--}}
-                                                    {{--@else--}}
-                                                        {{--<label for="">Drag marker around to select your location (<i>this will be use to display nearest Store</i>)</label>--}}
-                                                    {{--@endif--}}
-                                                    {{--<div id="map"></div>--}}
-                                                    {{--<input type="hidden" name="lat" value="{{ $user->lat }}">--}}
-                                                    {{--<input type="hidden" name="lng" value="{{ $user->lng }}">--}}
-                                                {{--</div>--}}
                                             </div>
                                             <div class="col-md-6 col-sm-6">
                                                 <div class="form-group">
@@ -236,6 +226,15 @@
                                                     <label for="">Disired alotment</label>
                                                     <input type="text" name="desired_alotment" value="{{ $user->desired_alotment }}" class="form-control">
                                                 @endif
+
+                                                <div class="form-group">
+                                                    @if(auth()->user()->type == 'seller')
+                                                    <label for="">Drag marker around to select your Store location</label>
+                                                    <div id="map"></div>
+                                                    <input type="hidden" name="lat" value="{{ $user->lat }}">
+                                                    <input type="hidden" name="lng" value="{{ $user->lng }}">
+                                                    @endif
+                                                </div>
                                             </div>
                                         </div>
                                         <!-- /.row -->
