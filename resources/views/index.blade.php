@@ -92,6 +92,7 @@
                 <section class="map-wrapper">
                     <input id="pac-input" class="controls" type="text" placeholder="Search">
                     <div id="sellermap"></div>
+                    <button class="btn green-gradient my-location">my location</button>
                 </section>
 
                 {{--Latest posts--}}

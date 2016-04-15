@@ -352,6 +352,19 @@ var Chat = (function () {
 })();
 (function() {
     var defaultLocation = { lat: 36.228300, lng: -119.494996 };
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+    function showPosition(position) {
+        defaultLocation = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+        }
+    }
     var $latInput = $('[name=lat]');
     var $lngInput = $('[name=lng]');
     if($latInput.val()) { defaultLocation.lat = $latInput.val(); }

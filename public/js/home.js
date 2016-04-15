@@ -70,6 +70,26 @@ var SellerMap = (function() {
         map.fitBounds(bounds);
     });
 
+    getStores();
+
+    $('.map-wrapper .my-location').click(function(event) {
+        showMyLocation();
+    });
+
+    //////////
+
+    function showMyLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+
+        function showPosition(position) {
+            map.setCenter(new google.maps.LatLng(position.coords.latitude,position.coords.longitude));
+        }
+    }
+
     function addMarker(location, title, seller_id) {
         console.log(location)
         if (title == undefined) {
@@ -96,10 +116,6 @@ var SellerMap = (function() {
             }
         });
     }
-
-    //////////
-
-    getStores();
 
     function getStores() {
         $.ajax({
