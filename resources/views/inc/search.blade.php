@@ -24,12 +24,8 @@
                 <option value="other">other business</option>
             </select>
         </div>
-        {{--<div class="zipcode">--}}
-            {{--<span>Your location</span>--}}
-            {{--<button type="button" data-toggle="modal" data-target="#chooseLocationModal" class="btn">Choose</button>--}}
-            {{--<input type="hidden" name="lat" value="{{ auth()->user()?auth()->user()->lat:'' }}">--}}
-            {{--<input type="hidden" name="lng" value="{{ auth()->user()?auth()->user()->lng:'' }}">--}}
-        {{--</div>--}}
+        <input type="hidden" name="lat">
+        <input type="hidden" name="lng">
         <input type="text" name="keyword" placeholder="Type in a City, State, or Product Name" class="search">
         <div class="green-gradient search-submit-wrap">
             <button class="search-submit" type="submit">Search</button>

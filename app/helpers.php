@@ -39,3 +39,11 @@ function has_purpose($purpose, $user) {
     }
     return false;
 }
+
+function object_to_array($obj) {
+    return json_decode(json_encode($obj), true);
+}
+
+function array_to_object($arr) {
+    return json_decode(json_encode($arr));
+}

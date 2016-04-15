@@ -32,8 +32,10 @@ class HomeController extends Controller
 
         $keyword = $request->input('keyword');
         $adCreatedBy = $request->input('ad_created_by');
+        $lat = $request->input('lat',0);
+        $lng = $request->input('lng',0);
 
-        $searchResults = $adRepo->search($keyword, $adCreatedBy);
+        $searchResults = $adRepo->search($keyword, $adCreatedBy, $lat, $lng);
 
         $bannerAds = $adRepo->getBannerAds();
 

@@ -136,28 +136,6 @@
                 </div>
             </form>
 
-            <div class="row" id="step2" style="display: none;">
-                <header>
-                    <div class="col-md-12">
-                        <h3 class="title">Welcome to the ad payment page</h3>
-                        <hr>
-                    </div>
-                </header>
-                <div class="col-md-12">
-                    <h2>CHOOSE PAYMENT TYPE</h2>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <a href=""><img src="img/card.png" alt=""></a>
-                            <a href=""><img src="img/paypal.png" alt=""></a>
-                        </div>
-                        <div class="col-md-6">
-                            <a href=""><img src="img/savepay.png" alt=""></a>
-                            <a href=""><img src="img/bitcoin.png" alt=""></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- /#step2 -->
         @else
             <p class="text-center">Can't create more ad. Please wait until next week or create a <a href='{{ route('ad.create.paid') }}'>Paid ad</a></p>
         @endif

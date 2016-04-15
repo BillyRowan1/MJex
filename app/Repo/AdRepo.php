@@ -42,25 +42,48 @@ class AdRepo{
                 ->get();
         }
 
+        // Sort by distance first
+        if($lat != 0) {
+            foreach($searchResults as &$ad) {
+                if($ad->user->lat && $ad->user->lng) {
+                    $ad->distance = distance($lat, $lng, $ad->user->lat, $ad->user->lng);
+                }else{
+                    $ad->distance = 10000000000; // far far away
+                }
+            }
 
-//        foreach($searchResults as &$ad) {
-//            if($ad->user->lat && $ad->user->lng) {
-//                $ad->distance = distance($lat, $lng, $ad->user->lat, $ad->user->lng);
-//            }else{
-//                $ad->distance = 10000000000; // far far away
-//            }
-//        }
-//
-//        $searchResultsArr = json_decode(json_encode($searchResults));
-//
-//        usort($searchResultsArr, function($a, $b)
-//        {
-//            if ($a->distance == $b->distance) {
-//                return 0;
-//            }
-//            return ($a->distance < $b->distance) ? -1 : 1;
-//        });
-//        $searchResults = $searchResultsArr;
+            $searchResultsArr = json_decode(json_encode($searchResults));
+
+            usort($searchResultsArr, function($a, $b)
+            {
+                if ($a->distance == $b->distance) {
+                    return 0;
+                }
+                return ($a->distance < $b->distance) ? -1 : 1;
+            });
+            $searchResults = $searchResultsArr;
+        }
+
+        // Sort result by priority: paid ad > free ad, paid user > free user
+        $searchResults = object_to_array($searchResults);
+        usort($searchResults, function($a, $b) {
+            if($a['ad_type'] == $b['ad_type']) {
+                if ($a['user']['package'] == $a['user']['package']) {
+                    return 0;
+                }elseif($a['user']['package'] == 'weekly_pro') {
+                    return -1;
+                }else{
+                    return 1;
+                }
+            }elseif($a['ad_type'] == 'free'){
+                return 1;
+            }else{
+                return -1;
+            }
+        });
+        $searchResults = array_to_object($searchResults);
+
+
 
         return $searchResults;
     }
@@ -73,11 +96,8 @@ class AdRepo{
 //        $unit = ($unit === "km") ? 6378.10 : 3963.17;
 
         $ads = \DB::table('ads')
-            ->leftJoin('users', function($join)
-            {
-                $join->on('users.id', '=', 'ads.user_id')
-                    ->where('users.package', '=', 'weekly_pro');
-            })
+            ->leftJoin('users', 'users.id', '=', 'ads.user_id')
+            ->select('ads.*', 'users.package')
 //            ->having('distance','<=',$radius)
 //            ->select(\DB::raw("ads.id, ads.user_id, ads.thumb, ads.content,
 //                            ($unit * ACOS(COS(RADIANS($lat))
@@ -87,6 +107,7 @@ class AdRepo{
 //                                * SIN(RADIANS(users.lat)))) AS distance")
 //            )
             ->where('expired_date','>',strtotime('now'))
+            ->where('users.package', 'weekly_pro')
 //            ->orderBy('distance','asc')
             ->orderBy('ads.created_at','desc')
             ->limit(5)

@@ -293,6 +293,7 @@ input {
     text-align: center;
     line-height: 90px;
     font-size: 20px;
+    height: 90px;
 }
 
 .carousel-indicators .active {

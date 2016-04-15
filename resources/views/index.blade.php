@@ -142,3 +142,20 @@
         </div>
     </section>
 @endsection
+
+@section('page-js')
+    <script>
+        getLocation();
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(setLocation);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+        function setLocation(position) {
+            $('.home-search-wrap [name=lat]').val(position.coords.latitude);
+            $('.home-search-wrap [name=lng]').val(position.coords.longitude);
+        }
+    </script>
+@endsection

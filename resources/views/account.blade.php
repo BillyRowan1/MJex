@@ -352,6 +352,7 @@ var Chat = (function () {
 })();
 (function() {
     var defaultLocation = { lat: 36.228300, lng: -119.494996 };
+    getLocation();
     function getLocation() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
@@ -364,28 +365,40 @@ var Chat = (function () {
             lat: position.coords.latitude,
             lng: position.coords.longitude
         }
+        initMap();
     }
-    var $latInput = $('[name=lat]');
-    var $lngInput = $('[name=lng]');
-    if($latInput.val()) { defaultLocation.lat = $latInput.val(); }
-    if($lngInput.val()) { defaultLocation.lng = $lngInput.val(); }
-    var map = new GMaps({
-        el: '#map',
-        lat: defaultLocation.lat,
-        lng: defaultLocation.lng,
-        zoom: 5
-    });
-    var marker = map.addMarker({
-        lat: defaultLocation.lat,
-        lng: defaultLocation.lng,
-        draggable: true,
-        dragend: function () {
-            var lat = this.getPosition().lat(),
-                lng = this.getPosition().lng();
-            $('[name=lat]').val(lat);
-            $('[name=lng]').val(lng);
+    
+    function initMap() {
+        var $latInput = $('[name=lat]');
+        var $lngInput = $('[name=lng]');
+        if($latInput.val()) { 
+            defaultLocation.lat = $latInput.val(); 
+        }else{
+            $latInput.val(defaultLocation.lat);
         }
-    });
+        if($lngInput.val()) { 
+            defaultLocation.lng = $lngInput.val();
+        }else{
+            $lngInput.val(defaultLocation.lng);
+        }
+        var map = new GMaps({
+            el: '#map',
+            lat: defaultLocation.lat,
+            lng: defaultLocation.lng,
+            zoom: 5
+        });
+        var marker = map.addMarker({
+            lat: defaultLocation.lat,
+            lng: defaultLocation.lng,
+            draggable: true,
+            dragend: function () {
+                var lat = this.getPosition().lat(),
+                    lng = this.getPosition().lng();
+                $('[name=lat]').val(lat);
+                $('[name=lng]').val(lng);
+            }
+        });
+    }
 
     // Delete ad clicked
     $('.delete-ad-btn').click(function(event) {

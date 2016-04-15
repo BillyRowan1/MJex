@@ -20,7 +20,12 @@
                             <div class="form-group">
                                 <label for="">Type of Product</label>
                                 <select name="type_of_product" class="form-control">
-                                    <option value="Flowers">Flowers</option>
+                                    <option value="Flower">Flower</option>
+                                    <option value="Oil">Oil</option>
+                                    <option value="Edible">Edible</option>
+                                    <option value="Topical">Topical</option>
+                                    <option value="Concentrate">Concentrate</option>
+                                    <option value="Other">Other</option>
                                 </select>
                             </div>
                             <div class="form-group">
