@@ -108,4 +108,6 @@ return [
 
     'sendmail' => '/usr/sbin/sendmail -bs',
 
+    'contact' => 'jaymjex@gmail.com'
+
 ];

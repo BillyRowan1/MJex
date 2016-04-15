@@ -30,7 +30,7 @@ class ContactController extends Controller
         $user['phone'] = $request->input('phone','');
 
         Mail::send('emails.contact', ['user' => $user], function ($m) use ($user) {
-            $m->to(config('mail.username'))->subject('Contact from Mjex:' . $user['subject']);
+            $m->to(config('mail.contact'))->subject('Contact from Mjex:' . $user['subject']);
         });
 
         return redirect()->back()->with('message','Message sent. Thank you for contacting us');

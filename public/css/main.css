@@ -1041,6 +1041,10 @@ footer {
     border: none;
 }
 
+#Account #tab-chat-history .box.chats a {
+    color: #337ab7;
+}
+
 #Account .nav.nav-tabs li a:hover {
     color: black;
 }

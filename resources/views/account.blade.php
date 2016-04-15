@@ -32,6 +32,9 @@
                             <th>description</th>
                             <th>price / unit</th>
                             <th>sold</th>
+                            @if(auth()->user()->type == 'seller')
+                            <th>request feedback</th>
+                            @endif
                             </thead>
                             <tbody>
                                 @if(isset($orders)&& (!empty($orders)))
@@ -42,6 +45,9 @@
                                         <td>{{ $order->desc }}</td>
                                         <td>${{ $order->price }}</td>
                                         <td>{{ $order->qty }}</td>
+                                        @if(auth()->user()->type == 'seller')
+                                            <th><button data-seeker_id="{{ $order->seeker_id }}" data-seller_id="{{ $order->seller_id }}" title="by pressing this button a message will be send to this seeker" class="requestFeedbackBtn btn green-gradient">Request</button></th>
+                                        @endif
                                     </tr>
                                     @endforeach
                                 @endif
@@ -128,7 +134,7 @@
                                                 <li class="{{ $isMe?'me':'' }}">
                                                     <span class="name">{{ $isMe?'You':explode('@',$contactedUser->anonymous_email)[0] }}</span>
                                                     <div class="message">
-                                                        {{ $msg->message }}
+                                                        {!! $msg->message !!}
                                                         <span class="time">{{ $msg->created_at }}</span>
                                                     </div>
                                                 </li>
@@ -279,6 +285,33 @@
 
 @section('page-js')
 <script>
+jQuery(document).ready(function($) {
+    $('.requestFeedbackBtn').click(function() {
+        var seeker_id = $(this).data('seeker_id'),
+            seller_id = $(this).data('seller_id'),
+            message = 'Can you leave a feedback on my seller page: <a href="{{ url('cart') }}?seller_id='+ seller_id + '">{{ url('cart') }}?seller_id='+ seller_id + '</a>';
+
+        console.log(message)
+        Mjex.showLoading(true);
+            $.ajax({
+                url: '{{ route("chat.store") }}',
+                type: 'POST',
+                data: {
+                    message: message,
+                    seller_id: seller_id,
+                    seeker_id: seeker_id
+                }
+            }).done(function(res) {
+                console.log(res);
+                if(res.status == 'ok') {
+                    alert('Your request was sent to this seeker');
+                    Chat.addMessage(message);
+                }
+            }).always(function() {
+                Mjex.showLoading(false);
+            });
+    });
+});
 var Chat = (function () {
     $('#sendChatBtn').click(function(event) {
         var message = $('[name=chat-message]').val();
@@ -309,9 +342,13 @@ var Chat = (function () {
     });
 
     function addMessage(message) {
-        var item = '<li class="me"><span class="name">You</span><div class="message">'+message+'<span class="time">2016-03-03 16:56:53</span></div></li>';
+        var item = '<li class="me"><span class="name">You</span><div class="message">'+message+'<span class="time">just now</span></div></li>';
         
         $('#tab-chat-history .nicescroll.active').prepend(item);
+    }
+
+    return {
+        addMessage: addMessage
     }
 })();
 (function() {
