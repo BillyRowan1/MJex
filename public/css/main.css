@@ -287,7 +287,9 @@ input {
     height: 90px;
     width: 728px;
 }*/
-
+#AdNetwork{
+    margin-top: 20px;
+}
 #bannerAds .item {
     background-repeat: no-repeat;
     background-position: center;
@@ -1358,7 +1360,7 @@ footer {
     border-radius: 5px;
     font-size: 20px;
     text-transform: uppercase;
-    width: 300px;
+    width: 297px;
 }
 
 #PostAds .input-box {

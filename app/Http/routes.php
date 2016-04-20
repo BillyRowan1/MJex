@@ -76,6 +76,10 @@ Route::group(['middleware' => ['web']], function () {
         'getIndex' => 'find-growers'
     ]);
 
+    Route::controller('ad-network', 'AdNetworkController',[
+        'getIndex' => 'ad-network'
+    ]);
+
     Route::get('/faq', function () {
         return view('faq');
     });
@@ -111,6 +115,7 @@ Route::group(['middleware' => ['web']], function () {
         Route::controller('ad', 'AdController', [
             'getCreateFree' => 'ad.create.free',
             'getCreatePaid' => 'ad.create.paid',
+            'getCreateBanner' => 'ad.create.banner',
             'getEdit' => 'ad.edit',
             'postUpdate' => 'ad.update',
             'postStoreFree' => 'ad.store.free',

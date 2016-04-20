@@ -17,6 +17,12 @@ class AdController extends Controller
     {
         $this->middleware('seller');
     }
+
+    public function getCreateBanner()
+    {
+
+    }
+
     public function getCreateFree(AdRepo $adRepo)
     {
         $adsThisWeek = $this->getAdsThisWeek('count');
