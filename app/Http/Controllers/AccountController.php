@@ -48,6 +48,31 @@ class AccountController extends Controller
         return view('account', compact('user','ads','contactedUsers','allMsg','orders'));
     }
 
+    public function postRequestReview(Request $request)
+    {
+        $status = 'ok'; $msg = '';
+        $orderId = $request->input('order_id');
+        $order = Order::find($orderId);
+
+        if(!is_null($order)) {
+            $msg = 'Can you leave a feedback on my seller page: <a href="'. route('review.write') .'?order_id='. $orderId .'&token='. \Hash::make($orderId) .'">Leave a feedback</a>';
+
+            $chat = new Chat();
+            $chat->message = $msg;
+
+            $chat->seller_id = $order->seller_id;
+            $chat->seeker_id = $order->seeker_id;
+
+            $chat->sender_id = $order->seller_id;
+            $chat->save();
+        }
+
+        return response()->json([
+            'status' => $status,
+            'message' => $msg
+        ]);
+    }
+
     /**
      * Save profile
      * @param Request $request

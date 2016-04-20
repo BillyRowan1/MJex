@@ -163,7 +163,9 @@ input {
     background: linear-gradient(to bottom, #cccccc 0%, #b4b4b4 100%);
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#cccccc', endColorstr='#b4b4b4', GradientType=0);
 }
-
+#SearchBox .bootstrap-select{
+    display: none;
+}
 #top-nav {
     background: black;
     height: 60px;
@@ -320,7 +322,7 @@ input {
 }
 
 .home-search-wrap {
-    height: 80px;
+    min-height: 80px;
     position: relative;
     margin-bottom: 35px;
 }
@@ -335,7 +337,7 @@ input {
 }
 
 .home-search-wrap .zipcode {
-    height: 80px;
+    min-height: 80px;
     width: 182px;
     background: #00cc00;
     float: left;
@@ -351,10 +353,18 @@ input {
 .home-search-wrap .zipcode select {
     margin-top: 14px;
     text-transform: capitalize;
+    margin-bottom: 5px;
 }
 
 .home-search-wrap .zipcode .btn {
     width: 100%;
+}
+
+.home-search-wrap .zipcode .btn span {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    text-transform: none;
+    font-size: 14px;
 }
 
 .home-search-wrap .zipcode input {

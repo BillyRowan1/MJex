@@ -4,8 +4,10 @@ namespace Mjex\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Hash;
 use Mjex\Http\Requests;
 use Mjex\Http\Controllers\Controller;
+use Mjex\Order;
 use Mjex\Review;
 
 class ReviewController extends Controller
@@ -14,21 +16,35 @@ class ReviewController extends Controller
     {
         $this->request = $request;
     }
+
+    public function getWrite()
+    {
+        $orderId = $this->request->input('order_id');
+        $token = $this->request->input('token'); // for check permission
+
+        if(Hash::check($orderId, $token)) {
+            return view('leave_review', compact('orderId'));
+        }
+
+        abort(404);
+    }
+
     public function postStore()
     {
         $this->validate($this->request,[
             'content' => 'required',
-            'reviewer' => 'required',
-            'seller_id' => 'required|numeric'
+            'order_id' => 'required|numeric'
         ]);
+
+        $order = Order::find($this->request->input('order_id'));
 
         $review = new Review;
         $review->content = $this->request->input('content');
-        $review->reviewer = $this->request->input('reviewer','');
-        $review->user_id = $this->request->input('seller_id');
+        $review->reviewer = $order->seeker->community_name;
+        $review->user_id = $order->seller_id;
 
         $review->save();
 
-        return redirect()->back()->with('message','Review sent');
+        return redirect()->back()->with('message','Review saved');
     }
 }

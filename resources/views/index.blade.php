@@ -42,8 +42,7 @@
                 @include('inc.search')
 
                 @if(!auth()->user())
-                <h2 class="step"><span class="green-text">Step 1</span>  Sign Up to open an account with an anonymous email.
-                    <br><span class="green-text">Step 2</span>  Use your anonymous email to buy and sell.</h2>
+                <h2 class="step">Find Classifieds, Growers, Dispensaries <br>and Other <span class="green-text">Cannabis</span> Products</h2>
 
                 <div id="pricing">
                     <div class="wrapper">

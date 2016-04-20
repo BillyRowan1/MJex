@@ -24,7 +24,7 @@ class AdRepo{
         return $this->model->orderBy('updated_at','desc')->where('active',1)->limit($limit)->get();
     }
 
-    public function search($keyword, $adCreatedBy, $lat = 0, $lng = 0)
+    public function search($keyword, $adCreatedBy, $lat = 0, $lng = 0, $growerId)
     {
         if(empty($adCreatedBy)) {
             $searchResults = $this->model->search($keyword)
@@ -32,12 +32,19 @@ class AdRepo{
                 ->where('active',1)
                 ->where('expired_date','>',strtotime('now'))
                 ->get();
-        }else{
+        }elseif(empty($growerId)){
             $searchResults = $this->model->search($keyword)
                 ->where('expired_date','>',strtotime('now'))
                 ->leftJoin('users','users.id','=','ads.user_id')
                 ->where('users.purpose','like','%'.$adCreatedBy.'%')
                 ->where('users.active',1)
+                ->with('user')
+                ->get();
+        }else{
+            $searchResults = $this->model->search($keyword)
+                ->where('expired_date','>',strtotime('now'))
+                ->where('active',1)
+                ->where('user_id', $growerId)
                 ->with('user')
                 ->get();
         }

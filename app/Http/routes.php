@@ -85,6 +85,7 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::controller('review', 'ReviewController', [
         'postStore' => 'review.store',
+        'getWrite' => 'review.write',
     ]);
 
     Route::controller('sellermap', 'SellerMapController', [
@@ -100,7 +101,9 @@ Route::group(['middleware' => ['web']], function () {
             'postUpdateQty' => 'cart.update.qty',
             'postSendMessageToGrower' => 'cart.send.to.grower',
         ]);
-        Route::controller('account','AccountController');
+        Route::controller('account','AccountController',[
+            'postRequestReview' => 'account.request.review'
+        ]);
         Route::controller('chat','ChatController',[
             'postStore' => 'chat.store'
         ]);

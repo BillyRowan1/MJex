@@ -46,7 +46,7 @@
                                         <td>${{ $order->price }}</td>
                                         <td>{{ $order->qty }}</td>
                                         @if(auth()->user()->type == 'seller')
-                                            <th><button data-seeker_id="{{ $order->seeker_id }}" data-seller_id="{{ $order->seller_id }}" title="by pressing this button a message will be send to this seeker" class="requestFeedbackBtn btn green-gradient">Request</button></th>
+                                            <th><button data-order_id="{{ $order->id }}" title="by pressing this button a message will be send to this seeker" class="requestFeedbackBtn btn green-gradient">Request</button></th>
                                         @endif
                                     </tr>
                                     @endforeach
@@ -286,29 +286,25 @@
 <script>
 jQuery(document).ready(function($) {
     $('.requestFeedbackBtn').click(function() {
-        var seeker_id = $(this).data('seeker_id'),
-            seller_id = $(this).data('seller_id'),
-            message = 'Can you leave a feedback on my seller page: <a href="{{ url('cart') }}?seller_id='+ seller_id + '">{{ url('cart') }}?seller_id='+ seller_id + '</a>';
+        var order_id = $(this).data('order_id');
 
-        console.log(message)
         Mjex.showLoading(true);
-            $.ajax({
-                url: '{{ route("chat.store") }}',
-                type: 'POST',
-                data: {
-                    message: message,
-                    seller_id: seller_id,
-                    seeker_id: seeker_id
-                }
-            }).done(function(res) {
-                console.log(res);
-                if(res.status == 'ok') {
-                    alert('Your request was sent to this seeker');
-                    Chat.addMessage(message);
-                }
-            }).always(function() {
-                Mjex.showLoading(false);
-            });
+
+        $.ajax({
+            url: '{{ route("account.request.review") }}',
+            type: 'POST',
+            data: {
+                order_id: order_id
+            }
+        }).done(function(res) {
+            console.log(res);
+            if(res.status == 'ok') {
+                alert('Your request was sent to this seeker');
+                Chat.addMessage(res.message);
+            }
+        }).always(function() {
+            Mjex.showLoading(false);
+        });
     });
 });
 var Chat = (function () {

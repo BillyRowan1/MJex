@@ -1,7 +1,15 @@
 jQuery(document).ready(function($) {
+    // Search
     $('.selectpicker').selectpicker({
         size: 4,
         liveSearch: true
+    });
+    $('[name="ad_created_by"]').change(function(){
+        var val = $(this).val();
+
+        if(val == 'grower') {
+            $('#SearchBox .bootstrap-select').show();
+        }
     });
 
     /*============================

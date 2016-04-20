@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Mjex\Ad;
 use Mjex\Http\Controllers\Controller;
 use Mjex\Repo\AdRepo;
+use Mjex\User;
 
 class HomeController extends Controller
 {
@@ -18,8 +19,19 @@ class HomeController extends Controller
     public function index(AdRepo $adRepo)
     {
         $latestAds = $adRepo->getLatestAds();
+        $growers = User::where('type', 'seller')
+            ->where('purpose', 'like' , '%grower%')
+            ->where('active', 1)
+            ->where('patients_available','>',0)
+            ->get();
 
-        return view('index', compact('latestAds'));
+        $growersSelect = [''=>'none'];
+        foreach($growers as $grower) {
+            $growersSelect[$grower->id] = $grower->community_name;
+        }
+        $growers = $growersSelect;
+
+        return view('index', compact('latestAds','growers'));
     }
 
     public function search(Request $request, AdRepo $adRepo)
@@ -32,10 +44,15 @@ class HomeController extends Controller
 
         $keyword = $request->input('keyword');
         $adCreatedBy = $request->input('ad_created_by');
+        $growerId = $request->input('grower_id');
         $lat = $request->input('lat',0);
         $lng = $request->input('lng',0);
 
-        $searchResults = $adRepo->search($keyword, $adCreatedBy, $lat, $lng);
+        if($adCreatedBy == 'grower') {
+            $searchResults = $adRepo->search($keyword, $adCreatedBy, $lat, $lng, $growerId);
+        }else{
+            $searchResults = $adRepo->search($keyword, $adCreatedBy, $lat, $lng);
+        }
 
         $bannerAds = $adRepo->getBannerAds();
 

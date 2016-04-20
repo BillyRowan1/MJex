@@ -23,17 +23,17 @@
                                 @endif
 
                             </div>
-                            @if(has_purpose('grower', $seller))
-                            <div class="col-md-6">
-                                {!! Form::open(['route'=>'cart.send.to.grower','method'=>'post','id'=>'emailThisGrowerForm']) !!}
-                                <input type="hidden" name="grower_email" value="{{ $seller->email }}">
-                                <textarea name="msg" class="form-control" cols="30" rows="5" placeholder="Enter your message"></textarea>
-                                <br>
-                                <button type="submit" class="btn green-gradient">SEND</button>
-                                <button type="button" class="btn close-form">CLOSE</button>
-                                {!! Form::close() !!}
-                            </div>
-                            @endif
+                            {{--@if(has_purpose('grower', $seller))--}}
+                            {{--<div class="col-md-6">--}}
+                                {{--{!! Form::open(['route'=>'cart.send.to.grower','method'=>'post','id'=>'emailThisGrowerForm']) !!}--}}
+                                {{--<input type="hidden" name="grower_email" value="{{ $seller->email }}">--}}
+                                {{--<textarea name="msg" class="form-control" cols="30" rows="5" placeholder="Enter your message"></textarea>--}}
+                                {{--<br>--}}
+                                {{--<button type="submit" class="btn green-gradient">SEND</button>--}}
+                                {{--<button type="button" class="btn close-form">CLOSE</button>--}}
+                                {{--{!! Form::close() !!}--}}
+                            {{--</div>--}}
+                            {{--@endif--}}
                         </div>
                     </div>
 
@@ -41,9 +41,9 @@
                         @if(auth()->user() && auth()->user()->type == 'seeker')
                             <button id="openChatBtn" class="btn">Open chat window</button>
 
-                            @if(has_purpose('grower', $seller))
-                                <button id="emailThisGrowerBtn" class="btn">Email This Grower</button>
-                            @endif
+                            {{--@if(has_purpose('grower', $seller))--}}
+                                {{--<button id="emailThisGrowerBtn" class="btn">Email This Grower</button>--}}
+                            {{--@endif--}}
                                 
                             @else
                             <button class="btn">You must login as Seeker to chat</button>
@@ -60,16 +60,6 @@
                         </li>
                         @endforeach
                     </ul>
-
-                    <form class="footer" style="padding: 10px;" id="reviewForm" method="post" action="{{ route('review.store') }}">
-                        {!! csrf_field() !!}
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="content" placeholder="Your review">
-                        </div>
-                        <input type="text" class="form-control" value="{{ auth()->user()->type=='seeker'?auth()->user()->community_name:'' }}" placeholder="Your name" name="reviewer">
-                        <input type="hidden" name="seller_id" value="{{ $seller->id }}" >
-                        <input type="submit" style="margin-left: 0;" class="btn btn-default" value="Send">
-                    </form>
                 </div>
                 <div class="tab" id="tab-chat">
                     <ul class="content" style="height: 200px; overflow: auto;">
@@ -162,13 +152,13 @@
     
     jQuery(document).ready(function($) {
         // Email grower
-        $('#emailThisGrowerForm').hide();
-        $('#emailThisGrowerBtn').click(function(){
-            $('#emailThisGrowerForm').show();
-        });
-        $('#emailThisGrowerForm .close-form').click(function(){
-            $('#emailThisGrowerForm').hide();
-        });
+//        $('#emailThisGrowerForm').hide();
+//        $('#emailThisGrowerBtn').click(function(){
+//            $('#emailThisGrowerForm').show();
+//        });
+//        $('#emailThisGrowerForm .close-form').click(function(){
+//            $('#emailThisGrowerForm').hide();
+//        });
         //////
         var Chat = (function () {
             $('#sendChatBtn').click(function(event) {

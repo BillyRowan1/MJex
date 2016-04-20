@@ -12,18 +12,20 @@
     </div>
 </div>
 
-<div class="home-search-wrap clearfix">
+<div id="SearchBox" class="home-search-wrap clearfix">
     <form action="{{ url('search') }}" method="get">
         {!! csrf_field() !!}
         <div class="zipcode">
             <select name="ad_created_by" class="form-control">
-                <option value="">Select Ad created by - </option>
-                <option value="adult_use">adult</option>
-                <option value="medical">medical</option>
-                <option value="grower">grower</option>
-                <option value="other">other business</option>
+                <option value="">View Ad Type</option>
+                <option value="adult_use">Adult Use +21</option>
+                <option value="medical">Medical</option>
+                <option value="grower">Growers</option>
+                <option value="other">Other Businesses</option>
             </select>
+            {!! Form::select('grower_id', $growers, null,['class'=>'selectpicker form-control']) !!}
         </div>
+
         <input type="hidden" name="lat">
         <input type="hidden" name="lng">
         <input type="text" name="keyword" placeholder="Type in a City, State, or Product Name" class="search">
