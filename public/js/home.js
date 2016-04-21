@@ -35,7 +35,7 @@ var SellerMap = (function() {
 
     map = new google.maps.Map(document.getElementById('sellermap'), {
         center: { lat: -34.397, lng: 150.644 },
-        zoom: 8
+        zoom: 5
     });
 
     var geocoder = new google.maps.Geocoder();
@@ -44,7 +44,11 @@ var SellerMap = (function() {
 
     function geocodeAddress(geocoder, resultsMap) {
         var address = 'US';
-        if(currentUserAddress != undefined) address = currentUserAddress;
+        try{
+            if(undefined != currentUserAddress) address = currentUserAddress;
+        }catch(e) {
+            console.log(e, 'User is not login to grab location');
+        }
         geocoder.geocode({ 'address': address }, function(results, status) {
             if (status === google.maps.GeocoderStatus.OK) {
                 resultsMap.setCenter(results[0].geometry.location);
@@ -107,7 +111,6 @@ var SellerMap = (function() {
     }
 
     function addMarker(location, title, seller_id) {
-        console.log(location)
         if (title == undefined) {
             title = '';
         }
@@ -128,7 +131,7 @@ var SellerMap = (function() {
 
         google.maps.event.addListenerOnce(map, 'bounds_changed', function(event) {
             if (this.getZoom()) {
-                this.setZoom(8);
+                this.setZoom(6);
             }
         });
     }
