@@ -4,13 +4,6 @@ jQuery(document).ready(function($) {
         size: 4,
         liveSearch: true
     });
-    $('[name="ad_created_by"]').change(function(){
-        var val = $(this).val();
-
-        if(val == 'grower') {
-            $('#SearchBox .bootstrap-select').show();
-        }
-    });
 
     /*============================
      *             Post ads

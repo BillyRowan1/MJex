@@ -20,7 +20,7 @@
                                 <br>Size: 468 x 60</td>
                             <td>$30 for 1 month</td>
                             <td>
-                                <button class="btn green-gradient">Buy</button>
+                                <a href="{{ url('contact') }}" class="btn green-gradient">Buy</a>
                             </td>
                         </tr>
                         <tr>
@@ -28,7 +28,7 @@
                                 <br>Size: 290 x 100</td>
                             <td>$30 for 1 month</td>
                             <td>
-                                <button class="btn green-gradient">Buy</button>
+                                <a href="{{ url('contact') }}" class="btn green-gradient">Buy</a>
                             </td>
                         </tr>
                         <tr>
@@ -36,7 +36,7 @@
                                 <br>Size: 290 x 100</td>
                             <td>$30 for 1 month</td>
                             <td>
-                                <button class="btn green-gradient">Buy</button>
+                                <a href="{{ url('contact') }}" class="btn green-gradient">Buy</a>
                             </td>
                         </tr>
                     </tbody>

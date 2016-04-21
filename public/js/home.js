@@ -38,6 +38,22 @@ var SellerMap = (function() {
         zoom: 8
     });
 
+    var geocoder = new google.maps.Geocoder();
+
+    geocodeAddress(geocoder, map);
+
+    function geocodeAddress(geocoder, resultsMap) {
+        var address = 'US';
+        if(currentUserAddress != undefined) address = currentUserAddress;
+        geocoder.geocode({ 'address': address }, function(results, status) {
+            if (status === google.maps.GeocoderStatus.OK) {
+                resultsMap.setCenter(results[0].geometry.location);
+            } else {
+                alert('Geocode was not successful for the following reason: ' + status);
+            }
+        });
+    }
+
     // Create the search box and link it to the UI element.
     var input = document.getElementById('pac-input');
     var searchBox = new google.maps.places.SearchBox(input);
@@ -86,7 +102,7 @@ var SellerMap = (function() {
         }
 
         function showPosition(position) {
-            map.setCenter(new google.maps.LatLng(position.coords.latitude,position.coords.longitude));
+            map.setCenter(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
         }
     }
 

@@ -112,6 +112,8 @@
 <script src="{{ asset('libs/jquery.nicescroll/jquery.nicescroll.min.js') }}"></script>
 <script src="{{ asset('libs/trumbo/trumbowyg.min.js') }}"></script>
 
+@yield('page-js-before')
+
 <script src="{{ asset('js/main.js') }}"></script>
 <script src="{{ asset('js/home.js') }}"></script>
 <script src="{{ asset('js/search.js') }}"></script>

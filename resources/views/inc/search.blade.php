@@ -23,7 +23,7 @@
                 <option value="grower">Growers</option>
                 <option value="other">Other Businesses</option>
             </select>
-            {!! Form::select('grower_id', $growers, null,['class'=>'selectpicker form-control']) !!}
+{{--            {!! Form::select('grower_id', $growers, null,['class'=>'selectpicker form-control']) !!}--}}
         </div>
 
         <input type="hidden" name="lat">

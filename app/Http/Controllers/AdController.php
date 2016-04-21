@@ -162,7 +162,7 @@ class AdController extends Controller
             $ad->price_per_unit = $request->input('price_per_unit');
             $ad->ad_type = $type;
             $ad->active = 1;
-            $ad->expired_date = strtotime('now') + 30*86400;
+            $ad->expired_date = strtotime('now') + 7*86400;
 
             $destinationPath = 'uploads';
             if($request->hasFile('thumb')) {
@@ -215,7 +215,7 @@ class AdController extends Controller
         $ad = Ad::find($adId);
         $status = 'failed';
         if($ad) {
-            $ad->expired_date = strtotime('now') + 30*86400;
+            $ad->expired_date = strtotime('now') + 7*86400;
             if($ad->save()){
                 $status = 'ok';
                 $msg = 'Ad reposted';
