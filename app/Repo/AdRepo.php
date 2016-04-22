@@ -21,7 +21,16 @@ class AdRepo{
 
     public function getLatestAds($limit = 10)
     {
-        return $this->model->orderBy('updated_at','desc')->where('active',1)->limit($limit)->get();
+        $latestAds = $this->model->orderBy('ad_type','desc')->where('active',1)->limit($limit)->get();
+
+        $adultUse = [];
+        foreach($latestAds as $ad) {
+            if(has_purpose('adult_use', $ad->user)) {
+                $adultUse[] = $ad;
+            }
+        }
+
+        return $adultUse;
     }
 
     public function search($keyword, $adCreatedBy, $lat = 0, $lng = 0, $growerId)

@@ -19,17 +19,14 @@ class HomeController extends Controller
     public function index(AdRepo $adRepo)
     {
         $latestAds = $adRepo->getLatestAds();
+//        return $latestAds;
         $growers = User::where('type', 'seller')
             ->where('purpose', 'like' , '%grower%')
             ->where('active', 1)
             ->where('patients_available','>',0)
+            ->orderBy('created_at','desc')
+            ->limit(5)
             ->get();
-
-        $growersSelect = [''=>'none'];
-        foreach($growers as $grower) {
-            $growersSelect[$grower->id] = $grower->community_name;
-        }
-        $growers = $growersSelect;
 
         return view('index', compact('latestAds','growers'));
     }

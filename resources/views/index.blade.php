@@ -36,13 +36,13 @@
     <section id="Home" class="main-content">
         <div class="container">
             <div class="row">
-                <img src="img/logo2.png" alt="logo" class="second-logo">
+                <h2 class="step">Find Classifieds, Growers, Dispensaries <br>and Other <span class="green-text">Cannabis</span> Products</h2>
+
                 <h1 class="title">Connecting <span class="green-text">Seekers and Sellers</span> Anonymously</h1>
                 @include('inc.msg')
                 @include('inc.search')
 
                 @if(!auth()->user())
-                <h2 class="step">Find Classifieds, Growers, Dispensaries <br>and Other <span class="green-text">Cannabis</span> Products</h2>
 
                 <div id="pricing">
                     <div class="wrapper">

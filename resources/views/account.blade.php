@@ -214,7 +214,7 @@
                                                 @if(has_purpose('grower', $user) && $user->type == 'seller')
                                                 <div class="form-group">
                                                     <label for="">Number of patients available</label>
-                                                    {!! Form::select('patients_available',[1,2,3,4,5], $user->patients_available,['class'=>'form-control']) !!}
+                                                    {!! Form::select('patients_available',[1=>1,2=>2,3=>3,4=>4,5=>5], $user->patients_available,['class'=>'form-control']) !!}
                                                 </div>
                                                 @endif
 
