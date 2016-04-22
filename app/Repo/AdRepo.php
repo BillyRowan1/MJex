@@ -30,7 +30,7 @@ class AdRepo{
             }
         }
 
-        return $adultUse;
+        return $latestAds;
     }
 
     public function search($keyword, $adCreatedBy, $lat = 0, $lng = 0, $growerId)
