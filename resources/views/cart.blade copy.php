@@ -7,66 +7,62 @@
             @include('inc.msg')
 			<div class="welcome">
 				<div class="header">Welcome to {{ $seller->community_name }} Store
+                    <a tab-target="#tab-reviews" href="#">Reviews</a>
+                    <a tab-target="#tab-general" href="#" style="display: none;">Go back</a>
                 </div>
-                <div class="logo" style="background-image: url({{ $seller->logo }})"></div>
-
-                <div>
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs nav-justified" role="tablist">
-                    <li role="presentation" class="active"><a href="#information" aria-controls="information" role="tab" data-toggle="tab">Information</a></li>
-                    <li role="presentation"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Reviews</a></li>
-                    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
-                </ul>
-                <!-- Tab panes -->
-                <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane active" id="information">
-                        <ul>
-                            @if($seller->accepted_payment)
-                            <li>PAYMENT METHODS: {{ $seller->accepted_payment }}</li>
-                            @endif
-                            <li>LOCATION: {{ $seller->state }}, {{ $seller->country }}</li>
-                            <li>AREAS SERVED: {{ $seller->zipcode }}</li>
-                            @if(has_purpose('grower',$seller))
-                            <li>Available Patient Slots: {{ $seller->patients_available }}</li>
-                            @endif
-                        </ul>
+                <div class="tab" id="tab-general">
+                    <div class="content">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4>PAYMENT METHODS:</h4>
+                                <p>{{ $seller->accepted_payment }}</p>
+                                <h4>LOCATION: {{ $seller->state }}, {{ $seller->country }}</h4>
+                                <h4>AREAS SERVED: {{ $seller->zipcode }}</h4>
+                                @if(has_purpose('grower',$seller))
+                                <h4>Available Patient Slots: {{ $seller->patients_available }}</h4>
+                                @endif
+                            </div>
+                        </div>
                     </div>
-                    <div role="tabpanel" class="tab-pane" id="reviews">
-                        <ul style="height: 200px; overflow: auto;">
-                            @foreach($seller->reviews as $review)
-                            <li>
-                                <strong>REVIEW DATE: {{ $review->created_at }}</strong>
-                                <p>{{ $review->content }}</p>
-                                <span class="reviewer">- <i>{{ $review->reviewer }}</i></span>
+
+                    <div class="footer ">
+                        @if(auth()->user() && auth()->user()->type == 'seeker')
+                            <button id="openChatBtn" class="btn">Open chat window</button>
+                            @else
+                            <button class="btn">You must login as Seeker to chat</button>
+                        @endif
+                    </div>
+                </div>
+                <div class="tab" id="tab-reviews">
+                    <ul class="content" style="height: 200px; overflow: auto;">
+                        @foreach($seller->reviews as $review)
+                        <li>
+                            <strong>REVIEW DATE: {{ $review->created_at }}</strong>
+                            <p>{{ $review->content }}</p>
+                            <span class="reviewer">- <i>{{ $review->reviewer }}</i></span>
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
+                <div class="tab" id="tab-chat">
+                    <ul class="content" style="height: 200px; overflow: auto;">
+                        @if(!is_null($chats) && auth()->user())
+                            @foreach($chats as $chat)
+                            <li class="{{ auth()->user()->id==$chat->sender_id?'you':'' }}">
+                                <strong>{{ auth()->user()->id==$chat->sender_id?'YOU':'' }}</strong><br>
+                                {!! $chat->message !!}
                             </li>
                             @endforeach
-                        </ul>
-                    </div>
-                    <div role="tabpanel" class="tab-pane" id="messages">
-                        <ul class="content">
-                            @if(!is_null($chats) && auth()->user())
-                                @foreach($chats as $chat)
-                                    @if(auth()->user()->id==$chat->sender_id)
-                                        <li class="you">
-                                            {!! $chat->message !!}
-                                        </li>
-                                    @else
-                                        <li>
-                                            {!! $chat->message !!}
-                                        </li>
-                                    @endif
-                                
-                                @endforeach
-                            @endif
-                        </ul>
-                        <li class="last">
-                            <input type="text" name="message" placeholder="Enter message">
-                            <button id="sendChatBtn">SEND</button>
-                        </li>
+                        @endif
+                    </ul>
+                    <li class="last">
+                        <input type="text" name="message" placeholder="Enter message">
+                    </li>
+                    <div class="footer">
+                        <button id="sendChatBtn" class="btn green-gradient">SEND CHAT</button>
+                        <button id="closeChatBtn" class="btn">CLOSE CHAT WINDOW</button>
                     </div>
                 </div>
-            </div>
-
 			</div>
 		</div>
 		<div class="col-md-5">
@@ -137,7 +133,7 @@
     jQuery(document).ready(function($) {
         var Chat = (function () {
             $('#sendChatBtn').click(function(event) {
-                var message = $('#messages input').val();
+                var message = $('#tab-chat [name=message]').val();
                 if(message != '') {
                     Mjex.showLoading(true);
                     $.ajax({
@@ -152,7 +148,7 @@
                         console.log(res);
                         if(res.status == 'ok') {
                             addMessage(message);
-                            $('#messages input').val('');
+                            $('#tab-chat [name=message]').val('');
                         }
                     })
                     .always(function() {
@@ -165,8 +161,8 @@
             });
 
             function addMessage(message) {
-                var item = '<li class="you">'+message+'</li>';
-                $('#messages .content').prepend(item);
+                var item = '<li class="you"><strong>YOU</strong><br>'+message+'</li>';
+                $('#tab-chat .content').prepend(item);
             }
         })();
 

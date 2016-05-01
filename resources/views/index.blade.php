@@ -96,44 +96,68 @@
                 {{--Latest posts--}}
                 <div class="section-posts">
                     <h2 class="title">latest posts</h2>
-                    {{--<div class="sort">--}}
-                        {{--Sort By: <a href="#">latest</a> <a href="#">closest to me</a>--}}
-                    {{--</div>--}}
-
                     @if($latestAds)
-                        @foreach($latestAds as $ad)
-                        <a href="{{ route('cart.index', ['seller_id'=>$ad->user_id]) }}">
-                            <div class="post">
-                                <table>
-                                    <thead class="red-bg" style="background-color: {{ $ad->header_color }};">
-                                        <th>SELLER</th>
-                                        <th>TYPE OF PRODUCT</th>
-                                        <th>DESCRIPTION</th>
-                                        <th>UNIT AVAILABLE</th>
-                                        <th>PRICE/UNIT</th>
-                                        <th>AMOUNT</th>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>{{ $ad->user->community_name }} ({{ count($ad->user->reviews) . '+' }})</td>
-                                        <td>{{ $ad->type_of_product }}</td>
-                                        <td>{{ $ad->description }}</td>
-                                        <td>{{ $ad->unit_available }}</td>
-                                        <td>${{ $ad->price_per_unit }}</td>
-                                        <td>{{ $ad->amount }}</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                                <div class="content clearfix">
-                                    @if(!empty($ad->thumb))
-                                    <div class="thumb" style="background-image: url('{{ url($ad->thumb) }}')"></div>
-                                    @endif
-                                    <p>{!! $ad->content !!}</p>
-                                </div>
-                            </div>
-                            <!-- end post -->
-                        </a>
+                        @foreach($latestAds as $adType => $ads)
+                            <section>
+                                <h3 class="section-title">{{ $adType }}</h3>
+                                @foreach($ads as $ad)
+                                    <a href="{{ route('cart.index', ['seller_id'=>$ad->user_id]) }}">
+                                        <div class="post">
+                                            <table>
+                                                <thead class="red-bg" style="background-color: {{ $ad->header_color }};">
+                                                <th>SELLER</th>
+                                                <th>TYPE OF PRODUCT</th>
+                                                <th>DESCRIPTION</th>
+                                                <th>UNIT AVAILABLE</th>
+                                                <th>PRICE/UNIT</th>
+                                                <th>AMOUNT</th>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>{{ $ad->user->community_name }} ({{ count($ad->user->reviews) . '+' }})</td>
+                                                    <td>{{ $ad->type_of_product }}</td>
+                                                    <td>{{ $ad->description }}</td>
+                                                    <td>{{ $ad->unit_available }}</td>
+                                                    <td>${{ $ad->price_per_unit }}</td>
+                                                    <td>{{ $ad->amount }}</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                            <div class="content clearfix">
+                                                @if(!empty($ad->thumb))
+                                                    <div class="thumb" style="background-image: url('{{ url($ad->thumb) }}')"></div>
+                                                @endif
+                                                <div>{!! $ad->content !!}</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                @endforeach
+                            </section>
                         @endforeach
+                    @endif
+
+                    @if($latestGrowers)
+                        <section>
+                            <div class="section-title">Growers</div>
+                            @foreach($latestGrowers as $grower)
+                            <a href="{{ route('cart.index', ['seller_id' => $grower->id]) }}">
+                                <div class="post">
+                                    <table>
+                                        <thead class="red-bg" style="background-color: {{ $ad->header_color }};">
+                                        <th>Name</th>
+                                        <th>Spots available</th>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td width="50%">{{ $grower->community_name }}</td>
+                                            <td>{{ $grower->patients_available }}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </a>
+                            @endforeach
+                        </section>
                     @endif
                 </div>
             </div>

@@ -17,7 +17,6 @@ class Ad extends Model
     protected $searchable = [
         'columns' => [
             'ads.content' => 10,
-//            'ads.location' => 10,
             'ads.description' => 10,
             'users.community_name' => 1,
         ],

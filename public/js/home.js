@@ -44,9 +44,9 @@ var SellerMap = (function() {
 
     function geocodeAddress(geocoder, resultsMap) {
         var address = 'US';
-        try{
-            if(undefined != currentUserAddress) address = currentUserAddress;
-        }catch(e) {
+        try {
+            if (undefined != currentUserAddress) address = currentUserAddress;
+        } catch (e) {
             console.log(e, 'User is not login to grab location');
         }
         geocoder.geocode({ 'address': address }, function(results, status) {
@@ -110,14 +110,25 @@ var SellerMap = (function() {
         }
     }
 
-    function addMarker(location, title, seller_id) {
+    function addMarker(location, title, seller_id, icon) {
         if (title == undefined) {
             title = '';
         }
+        if (icon) {
+            var pinIcon = new google.maps.MarkerImage(
+                icon,
+                null, /* size is determined at runtime */
+                null, /* origin is 0,0 */
+                null, /* anchor is bottom center of the scaled image */
+                new google.maps.Size(40, 40)
+            );
+        }
+
         var marker = new google.maps.Marker({
             position: location,
             map: map,
-            title: title
+            title: title,
+            icon: pinIcon
         });
         markers.push(marker);
         marker.addListener('click', function() {
@@ -142,7 +153,7 @@ var SellerMap = (function() {
             })
             .done(function(stores) {
                 for (var i in stores) {
-                    addMarker({ lat: parseFloat(stores[i].lat), lng: parseFloat(stores[i].lng) }, stores[i].title, stores[i].seller_id);
+                    addMarker({ lat: parseFloat(stores[i].lat), lng: parseFloat(stores[i].lng) }, stores[i].title, stores[i].seller_id, stores[i].icon);
                 }
             })
             .fail(function(res) {

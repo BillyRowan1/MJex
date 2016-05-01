@@ -23,7 +23,6 @@
                 <option value="grower">Growers</option>
                 <option value="other">Other Businesses</option>
             </select>
-{{--            {!! Form::select('grower_id', $growers, null,['class'=>'selectpicker form-control']) !!}--}}
         </div>
 
         <input type="hidden" name="lat">
@@ -60,13 +59,12 @@
         </ul>
     @endif
     <div class="section-posts">
-        <h2 class="title">search results: {{ count(session('searchResults')) }} result</h2>
-        {{--<div class="sort">--}}
-        {{--Sort By: <a href="#">latest</a> <a href="#">closest to me</a>--}}
-        {{--</div>--}}
+        <h2 class="title">search results</h2>
 
-        @foreach(session('searchResults') as $ad)
-            <a href="{{ route('cart.index', ['seller_id'=>$ad->user_id]) }}">
+        @foreach(session('searchResults') as $adType => $ads)
+            <h3 class="section-title">{{ $adType }}</h3>
+            @foreach($ads as $ad)
+            <a href="{{ route('cart.index', ['seller_id' => $ad->user_id]) }}">
                 <div class="post">
                     <table>
                         <thead class="red-bg" style="background-color: {{ $ad->header_color }};">
@@ -96,7 +94,31 @@
                     </div>
                 </div>
             </a>
-            <!-- end post -->
+            @endforeach
         @endforeach
+
+        @if(session('growerResults'))
+            <section>
+                <div class="section-title">Growers</div>
+                @foreach(session('growerResults') as $grower)
+                    <a href="{{ route('cart.index', ['seller_id' => $grower->id]) }}">
+                        <div class="post">
+                            <table>
+                                <thead class="red-bg" style="background-color: {{ $ad->header_color }};">
+                                <th>Name</th>
+                                <th>Spots available</th>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td width="50%">{{ $grower->community_name }}</td>
+                                    <td>{{ $grower->patients_available }}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </a>
+                @endforeach
+            </section>
+        @endif
     </div>
 @endif

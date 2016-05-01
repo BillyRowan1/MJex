@@ -159,6 +159,7 @@ return [
         Laravel\Cashier\CashierServiceProvider::class,
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        'HappyDemon\UsrLastly\UsrLastlyServiceProvider',
 
     ],
 

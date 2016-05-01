@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Mjex\Ad;
 use Mjex\Http\Controllers\Controller;
 use Mjex\Repo\AdRepo;
+use Mjex\Repo\UserRepo;
 use Mjex\User;
 
 class HomeController extends Controller
@@ -16,22 +17,16 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(AdRepo $adRepo)
+    public function index(AdRepo $adRepo, UserRepo $userRepo)
     {
         $latestAds = $adRepo->getLatestAds();
-//        return $latestAds;
-        $growers = User::where('type', 'seller')
-            ->where('purpose', 'like' , '%grower%')
-            ->where('active', 1)
-            ->where('patients_available','>',0)
-            ->orderBy('created_at','desc')
-            ->limit(5)
-            ->get();
 
-        return view('index', compact('latestAds','growers'));
+        $latestGrowers = $userRepo->getRecentGrower();
+
+        return view('index', compact('latestAds','latestGrowers'));
     }
 
-    public function search(Request $request, AdRepo $adRepo)
+    public function search(Request $request, AdRepo $adRepo, UserRepo $userRepo)
     {
         $this->validate($request,[
             'keyword' => 'required',
@@ -41,18 +36,14 @@ class HomeController extends Controller
 
         $keyword = $request->input('keyword');
         $adCreatedBy = $request->input('ad_created_by');
-        $growerId = $request->input('grower_id');
         $lat = $request->input('lat',0);
         $lng = $request->input('lng',0);
 
-        if($adCreatedBy == 'grower') {
-            $searchResults = $adRepo->search($keyword, $adCreatedBy, $lat, $lng, $growerId);
-        }else{
-            $searchResults = $adRepo->search($keyword, $adCreatedBy, $lat, $lng);
-        }
+        $searchResults = $adRepo->search($keyword, $adCreatedBy, $lat, $lng);
+        $growerResults = $userRepo->searchGrower($keyword);
 
         $bannerAds = $adRepo->getBannerAds();
 
-        return redirect()->back()->with(compact('searchResults','bannerAds'));
+        return redirect()->back()->with(compact('searchResults','growerResults','bannerAds'));
     }
 }

@@ -95,16 +95,18 @@ Route::group(['middleware' => ['web']], function () {
     Route::controller('sellermap', 'SellerMapController', [
     ]);
 
+    Route::controller('cart','CartController',[
+        'getIndex' => 'cart.index',
+        'postAddToCart' => 'cart.add',
+        'postClearCart' => 'cart.clear',
+        'postDelete' => 'cart.delete',
+        'postSendOrder' => 'cart.send.order',
+        'postUpdateQty' => 'cart.update.qty',
+        'postSendMessageToGrower' => 'cart.send.to.grower',
+    ]);
+
     Route::group(['middleware' => ['auth']], function () {
-        Route::controller('cart','CartController',[
-            'getIndex' => 'cart.index',
-            'postAddToCart' => 'cart.add',
-            'postClearCart' => 'cart.clear',
-            'postDelete' => 'cart.delete',
-            'postSendOrder' => 'cart.send.order',
-            'postUpdateQty' => 'cart.update.qty',
-            'postSendMessageToGrower' => 'cart.send.to.grower',
-        ]);
+
         Route::controller('account','AccountController',[
             'postRequestReview' => 'account.request.review'
         ]);

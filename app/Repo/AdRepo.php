@@ -21,19 +21,26 @@ class AdRepo{
 
     public function getLatestAds($limit = 10)
     {
-        $latestAds = $this->model->orderBy('ad_type','desc')->where('active',1)->limit($limit)->get();
+        $latestAds = $this->model->orderBy('ad_type','desc')->where('active',1)->limit($limit)->with('user')->get();
+        $latestAds = $this->sortPaidFirst($latestAds);
 
-        $adultUse = [];
+        $result = [];
         foreach($latestAds as $ad) {
             if(has_purpose('adult_use', $ad->user)) {
-                $adultUse[] = $ad;
+                $result['Adult use'][] = $ad;
+            }
+            if(has_purpose('medical', $ad->user)) {
+                $result['Medical'][] = $ad;
+            }
+            if(has_purpose('other', $ad->user)) {
+                $result['Other business'][] = $ad;
             }
         }
 
-        return $latestAds;
+        return $result;
     }
 
-    public function search($keyword, $adCreatedBy, $lat = 0, $lng = 0, $growerId)
+    public function search($keyword, $adCreatedBy, $lat = 0, $lng = 0)
     {
         if(empty($adCreatedBy)) {
             $searchResults = $this->model->search($keyword)
@@ -41,19 +48,12 @@ class AdRepo{
                 ->where('active',1)
                 ->where('expired_date','>',strtotime('now'))
                 ->get();
-        }elseif(empty($growerId)){
+        }else{
             $searchResults = $this->model->search($keyword)
                 ->where('expired_date','>',strtotime('now'))
                 ->leftJoin('users','users.id','=','ads.user_id')
                 ->where('users.purpose','like','%'.$adCreatedBy.'%')
                 ->where('users.active',1)
-                ->with('user')
-                ->get();
-        }else{
-            $searchResults = $this->model->search($keyword)
-                ->where('expired_date','>',strtotime('now'))
-                ->where('active',1)
-                ->where('user_id', $growerId)
                 ->with('user')
                 ->get();
         }
@@ -81,27 +81,22 @@ class AdRepo{
         }
 
         // Sort result by priority: paid ad > free ad, paid user > free user
-        $searchResults = object_to_array($searchResults);
-        usort($searchResults, function($a, $b) {
-            if($a['ad_type'] == $b['ad_type']) {
-                if ($a['user']['package'] == $a['user']['package']) {
-                    return 0;
-                }elseif($a['user']['package'] == 'weekly_pro') {
-                    return -1;
-                }else{
-                    return 1;
-                }
-            }elseif($a['ad_type'] == 'free'){
-                return 1;
-            }else{
-                return -1;
+        $searchResults = $this->sortPaidFirst($searchResults);
+
+        $result = [];
+        foreach($searchResults as $ad) {
+            if(has_purpose('adult_use', $ad->user)) {
+                $result['Adult use'][] = $ad;
             }
-        });
-        $searchResults = array_to_object($searchResults);
+            if(has_purpose('medical', $ad->user)) {
+                $result['Medical'][] = $ad;
+            }
+            if(has_purpose('other', $ad->user)) {
+                $result['Other business'][] = $ad;
+            }
+        }
 
-
-
-        return $searchResults;
+        return $result;
     }
 
     public function getBannerAds($lat = 0, $lng = 0, $unit = "m")
@@ -128,6 +123,33 @@ class AdRepo{
             ->orderBy('ads.created_at','desc')
             ->limit(5)
             ->get();
+
+        return $ads;
+    }
+
+    private function sortPaidFirst($ads)
+    {
+        foreach($ads as $ad) {
+            $ad->user->reviews = $ad->user->reviews;
+        }
+        // Sort result by priority: paid ad > free ad, paid user > free user
+        $ads = object_to_array($ads);
+        usort($ads, function($a, $b) {
+            if($a['ad_type'] == $b['ad_type']) {
+                if ($a['user']['package'] == $a['user']['package']) {
+                    return 0;
+                }elseif($a['user']['package'] == 'weekly_pro') {
+                    return -1;
+                }else{
+                    return 1;
+                }
+            }elseif($a['ad_type'] == 'free'){
+                return 1;
+            }else{
+                return -1;
+            }
+        });
+        $ads = array_to_object($ads);
 
         return $ads;
     }

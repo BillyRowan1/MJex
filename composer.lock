@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ec3dc9ec5196a8af14a3bb9acaf8e597",
-    "content-hash": "516fe1269e08b0eced16867113089b2e",
+    "hash": "44f10a7a47b6662a8071a54d33a02d36",
+    "content-hash": "49f07dd9701933f0e29689be08e3d051",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -205,6 +205,52 @@
                 "shoppingcart"
             ],
             "time": "2015-02-19 14:36:24"
+        },
+        {
+            "name": "happydemon/usrlastly",
+            "version": "0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/happyDemon/UsrLastly.git",
+                "reference": "8c9dbd27e540f2511e6b236ed00118fe7daa2330"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/happyDemon/UsrLastly/zipball/8c9dbd27e540f2511e6b236ed00118fe7daa2330",
+                "reference": "8c9dbd27e540f2511e6b236ed00118fe7daa2330",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "5.*",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "HappyDemon\\UsrLastly\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maxim Kerstens",
+                    "email": "maxim.kerstens@gmail.com"
+                }
+            ],
+            "description": "Keep track of your users' last visit",
+            "homepage": "http://github.com/happydemon/usrlastly",
+            "keywords": [
+                "Usr",
+                "laravel",
+                "last",
+                "lastly",
+                "seen",
+                "user"
+            ],
+            "time": "2015-04-03 06:51:51"
         },
         {
             "name": "jakub-onderka/php-console-color",
