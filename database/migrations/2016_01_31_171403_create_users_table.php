@@ -22,7 +22,6 @@ class CreateUsersTable extends Migration
             $table->boolean('delivery')->nullable();
             $table->string('purpose');
             $table->integer('patients_available')->nullable(); // seller is grower only
-            $table->string('state');
             $table->enum('package',['none','free','weekly','weekly_pro']);
 
             // Seeker has purpose Medical only
@@ -31,6 +30,7 @@ class CreateUsersTable extends Migration
 
             $table->string('accepted_payment')->nullable();
 
+            $table->string('state');
             $table->string('zipcode')->nullable();
             $table->string('country')->nullable();
 

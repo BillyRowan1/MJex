@@ -62,9 +62,9 @@
                         <div class="box" id="price-monthly">
                             <span class="title">WEEKLY</span>
                             <div class="price">
-                                <span class="currency">$</span>
-                                <span class="number">5</span>
-                                <span class="small">/ad/week</span>
+                                <!-- <span class="currency">$</span> -->
+                                <span class="number">$5</span>
+                                <!-- <span class="small">/ad/week</span> -->
                             </div>
                             <ul>
                                 <li>$5 per ad per week</li>
@@ -76,9 +76,9 @@
                         <div class="box" id="price-monthly-pro">
                             <span class="title">WEEKLY pro</span>
                             <div class="price">
-                                <span class="currency">$</span>
-                                <span class="number">10</span>
-                                <span class="small">/ad/week</span>
+                                <!-- <span class="currency">$</span> -->
+                                <span class="number">$10</span>
+                                <!-- <span class="small">/ad/week</span> -->
                             </div>
                             <ul>
                                 <li>$10 per ad per week</li>

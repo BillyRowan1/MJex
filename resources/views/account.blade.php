@@ -16,15 +16,6 @@
                 <!-- Tab panes -->
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane" id="tab-orders">
-                        {{--<div class="form-group">--}}
-                            {{--<label for="filter_1">Medical</label>--}}
-                            {{--<input type="checkbox" name="medical">--}}
-                            {{--<label for="filter_2">Adult use</label>--}}
-                            {{--<input type="checkbox" id="filter_2" name="medical">--}}
-                            {{--<label for="filter_3">Both</label>--}}
-                            {{--<input type="checkbox" id="filter_3" name="medical">--}}
-                        {{--</div>--}}
-
                         <table class="table">
                             <thead>
                             <th>#</th>
@@ -348,34 +339,17 @@ var Chat = (function () {
 })();
 (function() {
     var defaultLocation = { lat: 36.228300, lng: -119.494996 };
-    getLocation();
-    function getLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
-        } else {
-            x.innerHTML = "Geolocation is not supported by this browser.";
-        }
-    }
-    function showPosition(position) {
-        defaultLocation = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-        }
-        initMap();
-    }
+    
+    initMap();    
     
     function initMap() {
         var $latInput = $('[name=lat]');
         var $lngInput = $('[name=lng]');
         if($latInput.val()) { 
             defaultLocation.lat = $latInput.val(); 
-        }else{
-            $latInput.val(defaultLocation.lat);
         }
         if($lngInput.val()) { 
             defaultLocation.lng = $lngInput.val();
-        }else{
-            $lngInput.val(defaultLocation.lng);
         }
         var map = new GMaps({
             el: '#map',

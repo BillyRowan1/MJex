@@ -16,21 +16,20 @@ class SellerMapController extends Controller
         $stores = [];
 
         foreach($sellers as $seller) {
-            if(!empty($seller->lat) && !empty($seller->lng)) {
-                $marker = [
-                    'title' => $seller->community_name . ' store',
-                    'lat' => $seller->lat,
-                    'lng' => $seller->lng,
-                    'seller_id' => $seller->id,
-                ];
-                if(!empty($seller->logo)) {
-                    $marker['icon'] = url($seller->logo);
-                }else{
-                    $marker['icon'] = '';
-                }
-
-                $stores[] = $marker;
+            $marker = [
+                'title' => $seller->community_name . ' store',
+                'address' => $seller->state . ', ' . $seller->zipcode . ', ' . $seller->country,
+                'lat' => $seller->lat,
+                'lng' => $seller->lng,
+                'seller_id' => $seller->id,
+            ];
+            if(!empty($seller->logo)) {
+                $marker['icon'] = url($seller->logo);
+            }else{
+                $marker['icon'] = '';
             }
+
+            $stores[] = $marker;
         }
 
         return $stores;
