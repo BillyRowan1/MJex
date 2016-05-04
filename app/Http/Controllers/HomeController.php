@@ -8,7 +8,9 @@ use Mjex\Ad;
 use Mjex\Http\Controllers\Controller;
 use Mjex\Repo\AdRepo;
 use Mjex\Repo\UserRepo;
+use Mjex\BannerAd;
 use Mjex\User;
+use Mjex\Repo\BannerAdRepo;
 
 class HomeController extends Controller
 {
@@ -17,13 +19,13 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(AdRepo $adRepo, UserRepo $userRepo)
+    public function index(AdRepo $adRepo, UserRepo $userRepo, BannerAdRepo $bannerAdRepo)
     {
         $latestAds = $adRepo->getLatestAds();
-
         $latestGrowers = $userRepo->getRecentGrower();
+        $bannerAds = $bannerAdRepo->all();
 
-        return view('index', compact('latestAds','latestGrowers'));
+        return view('index', compact('latestAds','latestGrowers','bannerAds'));
     }
 
     public function search(Request $request, AdRepo $adRepo, UserRepo $userRepo)

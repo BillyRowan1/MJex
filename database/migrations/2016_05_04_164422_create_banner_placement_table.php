@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBannerAdTable extends Migration
+class CreateBannerPlacementTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,12 @@ class CreateBannerAdTable extends Migration
      */
     public function up()
     {
-        Schema::create('banner_ads', function(Blueprint $table){
+        Schema::create('banner_placements', function(Blueprint $table){
             $table->increments('id');
-            $table->integer('user_id');
-            $table->integer('placement_id');
-            $table->string('image');
-            $table->bigInteger('expired_date');
-            $table->boolean('active');
+            $table->string('title');
+            $table->integer('max_slot');
+            $table->integer('price');
+            $table->string('placement'); // home_header, sidebar_left, sidebar_right
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateBannerAdTable extends Migration
      */
     public function down()
     {
-        Schema::drop('banner_ads');
+        Schema::drop('banner_placements');
     }
 }

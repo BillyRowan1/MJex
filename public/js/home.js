@@ -24,9 +24,21 @@ jQuery(document).ready(function($) {
         }
     });
 
-    /////////// Map
+    // Home sticky banner
+    // $(".carousel.sidebar").sticky({topSpacing:200});
+    var stickElemOffsetTop = $('.carousel.sidebar').offset().top;
+    function stickyNav() {
+        var scrollTop = $(window).scrollTop();
+        if (scrollTop >= stickElemOffsetTop) {
+            $('.carousel.sidebar').addClass('sticky');
+        } else {
+            $('.carousel.sidebar').removeClass('sticky');
+        }
+    }
 
-
+    $(window).scroll(function(event) {
+        stickyNav();
+    });
 });
 
 var SellerMap = (function() {

@@ -42,16 +42,14 @@
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
-                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    @foreach(session('bannerAds') as $idx => $bannerAd)
+                    <li data-target="#carousel-example-generic" data-slide-to="{{ $idx }}" class="{{ $idx == 0 ? 'active' : '' }}"></li>
+                    @endforeach
                 </ol>
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
                     @foreach(session('bannerAds') as $idx => $bannerAd)
-                        <div class="item {{ $idx == 0?'active':'' }}" style="background-image: url('{{ $bannerAd->thumb }}')">
-
-                        </div>
+                        <div class="item {{ $idx == 0?'active':'' }}" style="background-image: url('{{ $bannerAd->thumb }}')"></div>
                     @endforeach
                 </div>
             </div>

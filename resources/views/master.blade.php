@@ -114,6 +114,7 @@
 <script src="{{ asset('js/vendor/bootstrap.min.js') }}"></script>
 <script src="{{ asset('libs/jquery.nicescroll/jquery.nicescroll.min.js') }}"></script>
 <script src="{{ asset('libs/trumbo/trumbowyg.min.js') }}"></script>
+<script src="{{ asset('libs/stickyjs/jquery.sticky.js') }}"></script>
 
 @yield('page-js-before')
 

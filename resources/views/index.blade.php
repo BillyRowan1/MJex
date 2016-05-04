@@ -34,8 +34,12 @@
 @endif
 
     <section id="Home" class="main-content">
+        @include('inc.sidebar_left_banner')
+        @include('inc.sidebar_right_banner')
         <div class="container">
             <div class="row">
+                @include('inc.home_header_banner')
+
                 <h2 class="step">Find Classifieds, Growers, Dispensaries <br>and Other <span class="green-text">Cannabis</span> Products</h2>
 
                 <h1 class="title">Connecting <span class="green-text">Seekers and Sellers</span> Anonymously</h1>

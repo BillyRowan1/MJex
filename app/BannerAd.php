@@ -10,4 +10,9 @@ class BannerAd extends Model
     {
         return $this->belongsTo('Mjex\User');
     }
+
+    public function bannerPlacement()
+    {
+        return $this->belongsTo('Mjex\BannerPlacement','placement_id','id');
+    }
 }
