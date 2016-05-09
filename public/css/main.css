@@ -1153,7 +1153,36 @@ footer {
     font-family: arial, sans-serif;
     font-size: 18px;
 }
+#Account .bordered{
+    border: 1px solid #BDBDBD;
+    padding: 10px;
+}
+#Account #user_categories{
+}
 
+#Account #user_categories h5 {
+    font-weight: bold;
+}
+
+#Account #user_categories strong {
+    font-size: 12px;
+}
+
+#Account #user_categories > div {
+    text-align: center;
+}
+#Account #user_categories label{
+    font-size: 11px;
+    text-align: center;
+}
+
+#Account #user_categories input {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    width: 15px;
+    font-size: 100px;
+}
 #Account .nav.nav-tabs {
     margin-top: 50px;
 }

@@ -4,8 +4,9 @@ var SellerMap = (function() {
 
     map = new google.maps.Map(document.getElementById('sellermap'), {
         center: { lat: -34.397, lng: 150.644 },
-        zoom: 6
+        zoom: 12
     });
+    getStores();
 
     var geocoder = new google.maps.Geocoder();
 
@@ -17,6 +18,19 @@ var SellerMap = (function() {
         }
     } catch (e) {
         console.log(e, 'User is not login to grab location');
+
+        // check for Geolocation support
+        if (navigator.geolocation) {
+            console.log('Geolocation is supported!');
+            var startPos;
+            var geoSuccess = function(position) {
+                startPos = position;
+                map.setCenter(new google.maps.LatLng(startPos.coords.latitude,startPos.coords.longitude));
+            };
+            navigator.geolocation.getCurrentPosition(geoSuccess);
+        } else {
+            console.log('Geolocation is not supported for this Browser/OS version yet.');
+        }
     }
 
     function geocodeAddress(address, callback) {
@@ -64,7 +78,6 @@ var SellerMap = (function() {
         map.fitBounds(bounds);
     });
 
-    getStores();
 
     //////////
 
@@ -105,14 +118,14 @@ var SellerMap = (function() {
             window.open('/cart?seller_id=' + seller_id);
         });
 
-        var bounds = new google.maps.LatLngBounds();
-        var myLatLng = new google.maps.LatLng(location.lat, location.lng);
-        bounds.extend(myLatLng);
-        map.fitBounds(bounds);
+        // var bounds = new google.maps.LatLngBounds();
+        // var myLatLng = new google.maps.LatLng(location.lat, location.lng);
+        // bounds.extend(myLatLng);
+        // map.fitBounds(bounds);
 
         // google.maps.event.addListenerOnce(map, 'bounds_changed', function(event) {
         //     if (this.getZoom()) {
-        //         this.setZoom(6);
+        //         this.setZoom(12);
         //     }
         // });
     }

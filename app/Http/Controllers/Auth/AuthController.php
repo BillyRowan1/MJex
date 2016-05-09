@@ -91,8 +91,7 @@ class AuthController extends Controller
         $user->email = $request->input('email');
         $user->type = $request->input('_type');
         $user->password = \Hash::make($request->input('password'));
-        $anonymous_email = $this->incrementalHash() . '@mjex.com';
-        $user->anonymous_email = $anonymous_email;
+        
         $user->community_name = $request->input('community_name');
         $user->zipcode = $request->input('zipcode');
         $user->state = $request->input('state');
@@ -118,6 +117,14 @@ class AuthController extends Controller
             $user->subscription($user->package)->create($creditCardToken);
         }
         $user->save();
+        if($user->type == 'seller') {
+            $anonymous_email = 'store' . $user->id . '@mjex.com';
+        }else{
+            $anonymous_email = $this->incrementalHash() . '@mjex.com';
+        }
+        $user->anonymous_email = $anonymous_email;
+        $user->save();
+
         \Event::fire(new UserRegistered($user));
 
         return redirect()->back()->with('message','Thank you for signing up. Please check your email to active your account');

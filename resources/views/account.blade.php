@@ -161,39 +161,18 @@
                                         <div class="row">
                                             <div class="col-md-6 col-sm-6">
                                                 <div class="form-group">
-                                                    <label for="">Your Mjex Email*</label> (<i>Note: only use in Mjex system</i>)
-                                                    <input type="email" name="anonymous_email" value="{{ $user->anonymous_email }}" class="form-control">
+                                                    <label for="">Email*</label>
+                                                    <input type="email" name="email" value="{{ $user->email }}" class="form-control">
                                                 </div>
-                                                <div class="form-group">
-                                                    <label for="">Mjex username</label>
-                                                    <input type="text" readonly name="community_name" value="{{ $user->community_name }}" class="form-control">
+                                                <div class="form-group clearfix">
+                                                    <label for="">Username (This will also be used as your alias email)</label>
+                                                    <input style="width: 80%; float:left;" type="text" readonly name="anonymous_email" value="{{ explode('@',$user->anonymous_email)[0] }}" class="form-control"><span style="margin-top: 6px;float: left;margin-left: 5px;">@Mjex.co</span>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="">City / State</label>
                                                     <input type="text" name="state" value="{{ $user->state }}" class="form-control">
                                                 </div>
-
-                                                @if($user->type != 'seeker')
-                                                <div class="form-group">
-                                                    <label for="">Delivery</label>
-                                                    {!! Form::select('delivery', [1=>'Yes',0 =>'No'], $user->delivery, ['class'=>'form-control']) !!}
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="">Logo</label>
-                                                    {!! Form::file('logo') !!}
-                                                    @if(!empty($user->logo))
-                                                    <img src="{{ $user->logo }}" width="100px">
-                                                    @endif
-                                                </div>
-                                                @endif
-
-                                            </div>
-                                            <div class="col-md-6 col-sm-6">
-                                                <div class="form-group">
-                                                    <label for="">Password</label>
-                                                    <input type="password" name="password" class="form-control">
-                                                </div>
+                                                
                                                 <div class="form-group">
                                                     <label for="">Zip code</label>
                                                     <input type="text" name="zipcode" value="{{ $user->zipcode }}" class="form-control">
@@ -202,22 +181,6 @@
                                                     <label for="">Country</label>
                                                     @include('inc.country_select')
                                                 </div>
-                                                @if(has_purpose('grower', $user) && $user->type == 'seller')
-                                                <div class="form-group">
-                                                    <label for="">Number of patients available</label>
-                                                    {!! Form::select('patients_available',[1=>1,2=>2,3=>3,4=>4,5=>5], $user->patients_available,['class'=>'form-control']) !!}
-                                                </div>
-                                                @endif
-
-                                                @if($user->type == 'seeker' && has_purpose('medical', $user))
-
-                                                    <label for="">Medical card number</label>
-                                                    <input type="text" name="medical_card_number" value="{{ $user->medical_card_number }}" class="form-control">
-                                                    <br>
-                                                    <label for="">Disired alotment</label>
-                                                    <input type="text" name="desired_alotment" value="{{ $user->desired_alotment }}" class="form-control">
-                                                @endif
-
                                                 <div class="form-group">
                                                     @if(auth()->user()->type == 'seller')
                                                     <label for="">Drag marker around to select your Store location</label>
@@ -227,29 +190,74 @@
                                                     @endif
                                                 </div>
                                             </div>
+                                            <div class="col-md-6 col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="">Password</label>
+                                                    <input type="password" name="password" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="">Verify password</label>
+                                                    <input type="password" name="password_confirmation" class="form-control">
+                                                </div>
+                                                @if(has_purpose('grower', $user) && $user->type == 'seller')
+                                                <div class="form-group">
+                                                    <label for="">Number of patients available</label>
+                                                    {!! Form::select('patients_available',[1=>1,2=>2,3=>3,4=>4,5=>5], $user->patients_available,['class'=>'form-control']) !!}
+                                                </div>
+                                                @endif
+                                                @if($user->type != 'seeker')
+                                                <div class="form-group">
+                                                    <label for="">Delivery</label>
+                                                    {!! Form::select('delivery', [1=>'Yes',0 =>'No'], $user->delivery, ['class'=>'form-control']) !!}
+                                                </div>
+
+                                                <div class="form-group bordered">
+                                                    <label for="">Upload your Logo</label>
+                                                    {!! Form::file('logo') !!}
+                                                    @if(!empty($user->logo))
+                                                    <img src="{{ $user->logo }}" width="100px">
+                                                    @endif
+                                                </div>
+                                                @endif
+
+                                                <div class="form-group bordered" id="user_categories">
+                                                    <h5>Category</h5>
+                                                    <strong>You may choose multiple categories if applicable</strong><br>
+                                                    <div class="clearfix">
+                                                    <div class="col-md-3">
+                                                        <label for="use_for_4">Adult use +21</label>
+                                                        <input type="checkbox" name="purpose[]" id="use_for_4" {{ has_purpose('adult_use',$user)?'checked':'' }} value="adult_use" name="use_for[]">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label for="use_for_1">Medical</label>
+                                                        <input type="checkbox" name="purpose[]" id="use_for_1" {{ has_purpose('medical',$user)?'checked':'' }} value="medical" name="use_for[]">
+                                                    </div>
+                                                    @if(auth()->user()->type == 'seller')
+                                                    <div class="col-md-3">
+                                                        <label for="use_for_2">Grower</label>
+                                                        <input type="checkbox" name="purpose[]" id="use_for_2" {{ has_purpose('grower',$user)?'checked':'' }} value="grower" name="use_for[]">
+                                                    </div>
+
+                                                    <div class="col-md-3">
+                                                        <label for="use_for_3">Other</label>
+                                                        <input type="checkbox" name="purpose[]" id="use_for_3" {{ has_purpose('other',$user)?'checked':'' }} value="other" name="use_for[]">
+                                                    </div>
+                                                    @endif
+                                                    </div>
+                                                </div>
+
+                                                @if($user->type == 'seeker' && has_purpose('medical', $user))
+
+                                                    <label for="">Medical card number</label>
+                                                    <input type="text" name="medical_card_number" value="{{ $user->medical_card_number }}" class="form-control">
+                                                    <br>
+                                                    <label for="">Disired alotment</label>
+                                                    <input type="text" name="desired_alotment" value="{{ $user->desired_alotment }}" class="form-control">
+                                                @endif
+                                                
+                                            </div>
                                         </div>
                                         <!-- /.row -->
-                                        <div class="row">
-
-                                            <div class="form-group circle-checkboxes col-md-12">
-                                                <input type="checkbox" name="purpose[]" id="use_for_4" {{ has_purpose('adult_use',$user)?'checked':'' }} value="adult_use" name="use_for[]">
-                                                <label for="use_for_4">Adult use +21</label>
-
-                                                <input type="checkbox" name="purpose[]" id="use_for_1" {{ has_purpose('medical',$user)?'checked':'' }} value="medical" name="use_for[]">
-                                                <label for="use_for_1">Medical</label>
-
-                                                @if(auth()->user()->type == 'seller')
-
-                                                <input type="checkbox" name="purpose[]" id="use_for_2" {{ has_purpose('grower',$user)?'checked':'' }} value="grower" name="use_for[]">
-                                                <label for="use_for_2">Grower</label>
-
-                                                <input type="checkbox" name="purpose[]" id="use_for_3" {{ has_purpose('other',$user)?'checked':'' }} value="other" name="use_for[]">
-                                                <label for="use_for_3">Other business</label>
-
-                                                @endif
-                                            </div>
-
-                                        </div>
 
                                         @if(auth()->user()->type == 'seller')
                                         <h3 class="title">PAYMENTS ACCEPTED VIA</h3>
