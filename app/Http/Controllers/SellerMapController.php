@@ -23,8 +23,9 @@ class SellerMapController extends Controller
                 'lng' => $seller->lng,
                 'seller_id' => $seller->id,
             ];
-            if(!empty($seller->logo)) {
-                $marker['icon'] = url($seller->logo);
+            $seller->purpose = json_decode($seller->purpose);
+            if(count($seller->purpose) > 0) {
+                $marker['icon'] = '/img/marker/' . $seller->purpose[0] . '.png';
             }else{
                 $marker['icon'] = '';
             }

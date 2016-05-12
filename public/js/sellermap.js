@@ -98,20 +98,20 @@ var SellerMap = (function() {
             title = '';
         }
         if (icon) {
-            var pinIcon = new google.maps.MarkerImage(
-                icon,
-                null, /* size is determined at runtime */
-                null, /* origin is 0,0 */
-                null, /* anchor is bottom center of the scaled image */
-                new google.maps.Size(40, 40)
-            );
+            // var pinIcon = new google.maps.MarkerImage(
+            //     icon,
+            //     null, 
+            //     null, 
+            //     null, 
+            //     new google.maps.Size(40, 40)
+            // );
         }
 
         var marker = new google.maps.Marker({
             position: location,
             map: map,
             title: title,
-            icon: pinIcon
+            icon: icon
         });
         markers.push(marker);
         marker.addListener('click', function() {
