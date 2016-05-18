@@ -1686,7 +1686,7 @@ ul.gallery {}
 }
 
 #ShoppingCart .welcome .logo {
-    border-radius: 50%;
+    /* border-radius: 50%; */
     width: 100%;
     height: 100px;
     /* position: absolute; */
