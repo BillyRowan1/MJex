@@ -70,19 +70,21 @@
 			</div>
 		</div>
 		<div class="col-md-5">
-            @if(auth()->user() && auth()->user()->type == 'seeker')
 			<div class="cart">
 				<div class="header">Your Cart</div>
 				<ul class="items nicescroll">
                     @include('inc.carts')
 				</ul>
 				<div class="footer clearfix">
-					<button class="btn green-gradient" id="cartCheckout">CHECKOUT</button>
+					@if(auth()->user() && auth()->user()->type == 'seeker')
+                    <button class="btn green-gradient" id="cartCheckout">CHECKOUT</button>
+                    @else
+                        <a href="{{ url('login') }}"><button class="btn green-gradient">LOGIN AS SEEKER TO CHECKOUT</button></a>
+                    @endif
 					<button class="btn green-gradient clear-cart">CLEAR</button>
 					<p>Subtotal: <span class="subtotal">${{ Cart::total() }}</span></p>
 				</div>
 			</div>
-            @endif
 		</div>
 	</div>
 
@@ -104,15 +106,12 @@
                             <li><strong>Price: </strong>${{ $ad->price_per_unit }}</li>
                             <li>{!! $ad->content !!}</li>
                         </ul>
-                        @if(auth()->user() && auth()->user()->type == 'seeker')
-                            <button class="btn green-gradient add-to-cart"
-                                    data-product="{{ $ad->type_of_product }}"
-                                    data-ad_id="{{ $ad->id }}"
-                                    data-strain="{{ $ad->description }}"
-                                    data-price_per_unit="{{ $ad->price_per_unit }}"
-                                    data-price_per_quantity="{{ $ad->price_per_quantity }}"
-                                    >ADD TO CART</button>
-                        @endif
+                        <button class="btn green-gradient add-to-cart"
+                            data-product="{{ $ad->type_of_product }}"
+                            data-ad_id="{{ $ad->id }}"
+                            data-strain="{{ $ad->description }}"
+                            data-price_per_unit="{{ $ad->price_per_unit }}"
+                            data-price_per_quantity="{{ $ad->price_per_quantity }}">ADD TO CART</button>
                     </div>
                 </div>
                 <?php $gallery = !empty($ad->gallery)?json_decode($ad->gallery):[]; ?>
