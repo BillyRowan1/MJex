@@ -24,7 +24,12 @@
 */
 
 Route::group(['middleware' => ['web']], function () {
-    Route::group(['middleware' => [], 'prefix' => 'admin'], function () {
+    Route::group(['prefix' => 'mjexadmin'], function () {
+        Route::controller('auth', 'Admin\SessionController');
+
+        Route::group(['middleware'=>'admin'], function() {
+            Route::controller('/', 'Admin\DashboardController');
+        });
 
     });
     Route::get('test', function() {

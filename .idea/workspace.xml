@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a68c45e-ab50-4614-a562-6c70354337b4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/cart.blade.php" afterPath="$PROJECT_DIR$/resources/views/cart.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/emails/grower_request.blade.php" afterPath="$PROJECT_DIR$/resources/views/emails/grower_request.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/DashboardController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/SessionController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/login.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/master.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Kernel.php" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/main.css" afterPath="$PROJECT_DIR$/public/css/main.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -32,12 +35,9 @@
       <file leaf-file-name="cart.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/cart.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.6923075">
-              <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-              <folding>
-                <element signature="e#253#305#0#HTML" expanded="true" />
-                <element signature="e#2624#2662#0#HTML" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="-4.6153846">
+              <caret line="146" column="8" selection-start-line="146" selection-start-column="8" selection-end-line="148" selection-end-column="53" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -45,30 +45,40 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.153847">
-              <caret line="48" column="19" selection-start-line="48" selection-start-column="19" selection-end-line="48" selection-end-column="19" />
+            <state vertical-scroll-proportion="-10.692307">
+              <caret line="30" column="64" selection-start-line="30" selection-start-column="64" selection-end-line="30" selection-end-column="64" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="grower_request.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/emails/grower_request.blade.php">
+      <file leaf-file-name="DashboardController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/DashboardController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-20.0">
+              <caret line="49" column="53" selection-start-line="49" selection-start-column="53" selection-end-line="49" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="master.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/master.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-10.269231">
-              <caret line="22" column="124" selection-start-line="22" selection-start-column="124" selection-end-line="22" selection-end-column="124" />
+              <caret line="49" column="55" selection-start-line="49" selection-start-column="55" selection-end-line="49" selection-end-column="55" />
               <folding>
-                <element signature="n#style#0;n#a#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#nav#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CartController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CartController.php">
+      <file leaf-file-name="dashboard.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/dashboard.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.816944">
-              <caret line="110" column="92" selection-start-line="110" selection-start-column="92" selection-end-line="110" selection-end-column="92" />
+            <state vertical-scroll-proportion="0.515885">
+              <caret line="61" column="110" selection-start-line="61" selection-start-column="110" selection-end-line="61" selection-end-column="110" />
               <folding />
             </state>
           </provider>
@@ -87,12 +97,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Http/Controllers/FindGrowerController.php" />
-        <option value="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/auth/register.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/PasswordController.php" />
-        <option value="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ContactController.php" />
         <option value="$PROJECT_DIR$/config/mail.php" />
         <option value="$PROJECT_DIR$/resources/views/edit_ad.blade.php" />
@@ -105,7 +109,6 @@
         <option value="$PROJECT_DIR$/resources/views/leave_review.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/inc/menu.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/inc/footer_menu.blade.php" />
-        <option value="$PROJECT_DIR$/public/css/main.css" />
         <option value="$PROJECT_DIR$/resources/views/post_free_ad.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/faq.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AdController.php" />
@@ -123,7 +126,6 @@
         <option value="$PROJECT_DIR$/resources/views/inc/search.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/SellerMapController.php" />
         <option value="$PROJECT_DIR$/config/app.php" />
-        <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
         <option value="$PROJECT_DIR$/app/User.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_05_04_164422_create_banner_type_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_05_04_164422_create_banner_placements_table.php" />
@@ -134,10 +136,18 @@
         <option value="$PROJECT_DIR$/resources/views/ad_network.blade.php" />
         <option value="$PROJECT_DIR$/app/Listeners/UserRegisteredEventListener.php" />
         <option value="$PROJECT_DIR$/resources/views/emails/activate.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/cart.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/emails/grower_request.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CartController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/login.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/SessionController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Middleware/AdminMiddleware.php" />
+        <option value="$PROJECT_DIR$/public/css/main.css" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/DashboardController.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/master.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" />
       </list>
     </option>
   </component>
@@ -203,6 +213,188 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mjex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mjex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mjex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mjex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mjex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mjex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mjex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mjex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mjex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mjex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mjex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mjex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Middleware" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mjex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mjex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mjex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mjex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Auth" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mjex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mjex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -218,11 +410,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Http/Controllers/Admin" />
+      <recent name="$PROJECT_DIR$/resources/views/admin" />
       <recent name="$PROJECT_DIR$/resources/views/emails" />
       <recent name="$PROJECT_DIR$/resources/views" />
       <recent name="$PROJECT_DIR$/public/js" />
-      <recent name="$PROJECT_DIR$/resources/views/errors" />
-      <recent name="$PROJECT_DIR$/app/Repo" />
     </key>
   </component>
   <component name="RunManager">
@@ -635,92 +827,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AccountController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36267072">
-          <caret line="57" column="121" selection-start-line="57" selection-start-column="121" selection-end-line="57" selection-end-column="121" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/leave_review.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21092564">
-          <caret line="7" column="81" selection-start-line="7" selection-start-column="81" selection-end-line="7" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ReviewController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.72685885">
-          <caret line="43" column="45" selection-start-line="43" selection-start-column="45" selection-end-line="43" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Order.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5159332">
-          <caret line="17" column="57" selection-start-line="17" selection-start-column="57" selection-end-line="17" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/img/search-icon.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FindGrowerController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12139606">
-          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="28" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/find_growers.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45675266">
-          <caret line="33" column="112" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="112" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/auth/emails/password.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1289833">
-          <caret line="6" column="43" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/post_free_ad.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2124431">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/inc/footer_menu.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15174507">
-          <caret line="5" column="52" selection-start-line="5" selection-start-column="52" selection-end-line="5" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/inc/menu.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.54628223">
           <caret line="18" column="116" selection-start-line="18" selection-start-column="116" selection-end-line="18" selection-end-column="116" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47883213">
-          <caret line="1362" column="14" selection-start-line="1362" selection-start-column="14" selection-end-line="1362" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -741,13 +851,6 @@
     <entry file="file://$PROJECT_DIR$/public/img/logo-stripe.png">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/BannerAd.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33383915">
-          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2016_02_11_042229_create_ads_table.php">
@@ -848,13 +951,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Kernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3058104">
-          <caret line="17" column="60" selection-start-line="17" selection-start-column="60" selection-end-line="17" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.36697248">
@@ -866,6 +962,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -876,34 +973,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_05_04_164422_create_banner_placement_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.076923">
-          <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18348624">
-          <caret line="164" column="12" selection-start-line="164" selection-start-column="12" selection-end-line="164" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/ad_network.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5198777">
-          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdNetworkController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5107034">
-          <caret line="54" column="32" selection-start-line="54" selection-start-column="32" selection-end-line="54" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6941896">
@@ -911,17 +980,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.59327215">
-          <caret line="124" column="30" selection-start-line="124" selection-start-column="8" selection-end-line="124" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Events/UserRegistered.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.09174312">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -937,6 +1000,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-15.153846">
           <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="32" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -962,28 +1026,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/cart.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CartController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.6923075">
-          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-          <folding>
-            <element signature="e#253#305#0#HTML" expanded="true" />
-            <element signature="e#2624#2662#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.153847">
-          <caret line="48" column="19" selection-start-line="48" selection-start-column="19" selection-end-line="48" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.3600605">
+          <caret line="42" column="41" selection-start-line="42" selection-start-column="39" selection-end-line="42" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/emails/grower_request.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.269231">
+        <state vertical-scroll-proportion="0.40393344">
           <caret line="22" column="124" selection-start-line="22" selection-start-column="124" selection-end-line="22" selection-end-column="124" />
           <folding>
             <element signature="n#style#0;n#a#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -991,10 +1044,176 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CartController.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.816944">
-          <caret line="110" column="92" selection-start-line="110" selection-start-column="92" selection-end-line="110" selection-end-column="92" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="34" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="4.750378">
+          <caret line="164" column="12" selection-start-line="164" selection-start-column="12" selection-end-line="164" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12102874">
+          <caret line="4" column="4" selection-start-line="0" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
+          <folding>
+            <element signature="e#46#74#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/ThrottlesLogins.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18154311">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/SellerMiddleware.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.51437217">
+          <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="20" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/AdminMiddleware.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.153847">
+          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/ad_network.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8774584">
+          <caret line="45" column="24" selection-start-line="11" selection-start-column="16" selection-end-line="45" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdNetworkController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3207262">
+          <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="22" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/BannerAd.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33282906">
+          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2016_05_04_164422_create_banner_placement_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43419063">
+          <caret line="20" column="33" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/cart.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.6153846">
+          <caret line="146" column="8" selection-start-line="146" selection-start-column="8" selection-end-line="148" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.692307">
+          <caret line="30" column="64" selection-start-line="30" selection-start-column="64" selection-end-line="30" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/login.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3343419">
+          <caret line="13" column="83" selection-start-line="13" selection-start-column="83" selection-end-line="13" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/SessionController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.515885">
+          <caret line="34" column="64" selection-start-line="34" selection-start-column="64" selection-end-line="34" selection-end-column="64" />
+          <folding>
+            <element signature="e#47#75#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/Authenticate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Kernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7579425">
+          <caret line="52" column="63" selection-start-line="52" selection-start-column="63" selection-end-line="52" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.94177586">
+          <caret line="2132" column="22" selection-start-line="2132" selection-start-column="22" selection-end-line="2132" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/master.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.1785173">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/DashboardController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.0">
+          <caret line="49" column="53" selection-start-line="49" selection-start-column="53" selection-end-line="49" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/master.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.269231">
+          <caret line="49" column="55" selection-start-line="49" selection-start-column="55" selection-end-line="49" selection-end-column="55" />
+          <folding>
+            <element signature="n#style#0;n#nav#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/dashboard.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.515885">
+          <caret line="61" column="110" selection-start-line="61" selection-start-column="110" selection-end-line="61" selection-end-column="110" />
           <folding />
         </state>
       </provider>
