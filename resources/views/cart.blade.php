@@ -6,9 +6,9 @@
 		<div class="col-md-7">
             @include('inc.msg')
 			<div class="welcome">
-				<div class="header">Welcome to {{ $seller->community_name }} Store
+                <div class="logo" style="background-image: url('{{ $seller->logo }}')"></div>
+                <div class="header">Welcome to {{ $seller->community_name }} Store
                 </div>
-                <div class="logo" style="background-image: url({{ $seller->logo }})"></div>
 
                 <div>
                 <!-- Nav tabs -->
@@ -32,7 +32,7 @@
                         </ul>
                     </div>
                     <div role="tabpanel" class="tab-pane" id="reviews">
-                        <ul style="height: 200px; overflow: auto;">
+                        <ul style="height: 170px; overflow: auto;">
                             @foreach($seller->reviews as $review)
                             <li>
                                 <strong>REVIEW DATE: {{ $review->created_at }}</strong>

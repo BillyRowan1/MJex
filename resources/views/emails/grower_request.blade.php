@@ -24,13 +24,14 @@
     <div style="background: #282828;width: 100%;height: 50px;margin-top: 10px; margin-bottom: 20px;">
         <img style="height: 18px;margin-top: 17px;margin-left: 15px;" src="{{ url('img/email/logo.png') }}" alt="MJex Marijuana Exchange">
     </div>
-    <img style="width: 100%; border-radius: 4px;" src="{{ url('img/email/banner.jpg') }}" alt="Connecting Seekers & Seller Anonymously">
-    <h1 style="font-family: 'Roboto', sans-serif; font-size: 25px; text-align: center;">Welcome to Marijuana Exchange!</h1>
-    <p style="font-size: 14px; color: #999999; line-height: 22px;">You have successfully signed up for a {{ $user->anonymous_email }} account.
-        <br>Your email: {{ $user->email }}
-        <br>Please complete your registration by clicking the Activate Account button below.</p>
+    <img style="width: 100%; border-radius: 4px;" src="{{ url('img/email/grower-request/banner.jpg') }}" alt="Connecting Seekers & Seller Anonymously">
+    <h1 style="font-family: 'Roboto', sans-serif; font-size: 25px; text-align: center;">You have received a new grower request!</h1>
+    <p style="font-size: 14px; color: #999999; line-height: 22px;">You have received a request to grow from {{ $user->anonymous_email }}
+        You can respond with an email by clicking the Send Email button below.
+        This will take you back to the  website, where you can fill out an email and send it using your anonymous email.
+        Or paste the above email address into an email using an account of your own.</p>
 
-    <a href="{{ url('activate') . '?activation_code=' . $user->activation_code }}" style="
+    <a href="{{ url('cart') . '?seller_id=' . $seller_id }}#messages" style="
     color: white;
     background: #4bff4b;
     text-decoration: none;
@@ -42,10 +43,8 @@
     text-align: center;
     line-height: 33px;
     ">
-        Activate Account
+        Send Email
     </a>
-    <h2 style="font-family: 'Roboto', sans-serif; font-size: 25px; text-align: center;">What happens after I activate my account?</h2>
-    <p style="font-size: 14px; color: #999999; line-height: 22px; text-align: center;">Seekers can view ads and contact sellers immediately. Sellers can get started creating ads to sell their products. To edit your profile click the Account button.</p>
     <footer style="background: black;height: 50px; border-top: 3px solid #007f00; width: 100%; color: white;">
         <span style="
     font-size: 12px;

@@ -24,6 +24,19 @@
 */
 
 Route::group(['middleware' => ['web']], function () {
+    Route::get('test', function(){
+        // Send activation email
+        $user = Mjex\User::first();
+
+        \Mail::send('emails.activate', ['user' => $user], function ($m) use ($user) {
+            $m->to('tjntun@gmail.com')->subject('Mjex Account activation');
+        });
+    });
+    Route::get('email-template/account-activation', function(\Illuminate\Http\Request $request){
+        $user = Mjex\User::find($request->input('id'));
+
+        return view('emails.activate', compact('user'));
+    });
     // Password reset link request routes...
     Route::get('password/email', 'Auth\PasswordController@getEmail');
     Route::post('password/email', 'Auth\PasswordController@postEmail');

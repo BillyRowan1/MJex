@@ -32,6 +32,5 @@ class UserRegisteredEventListener
             $m->to($user->email)->subject('Mjex Account activation');
         });
 
-
     }
 }
