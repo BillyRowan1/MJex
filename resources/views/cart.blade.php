@@ -6,13 +6,15 @@
 		<div class="col-md-7">
             @include('inc.msg')
 			<div class="welcome">
+                @if($seller->logo)
                 <div class="logo" style="background-image: url('{{ $seller->logo }}')"></div>
+                @endif
                 <div class="header">Welcome to {{ $seller->community_name }} Store
                 </div>
 
                 <div>
                 <!-- Nav tabs -->
-                <ul class="nav nav-tabs nav-justified" role="tablist">
+                <ul class="nav nav-tabs nav-justified" role="tablist" id="welcomeTab">
                     <li role="presentation" class="active"><a href="#information" aria-controls="information" role="tab" data-toggle="tab">Information</a></li>
                     <li role="presentation"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Reviews</a></li>
                     <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
@@ -26,8 +28,17 @@
                             @endif
                             <li>LOCATION: {{ $seller->state }}, {{ $seller->country }}</li>
                             <li>AREAS SERVED: {{ $seller->zipcode }}</li>
+                            
                             @if(has_purpose('grower',$seller))
                             <li>Available Patient Slots: {{ $seller->patients_available }}</li>
+                                @if(auth()->user() && auth()->user()->type == 'seeker')
+                                    <form action="{{ route('cart.select.as.grower') }}" method="post">
+                                        {!! csrf_field() !!}
+                                        <input type="hidden" name="seeker_id" value="{{ auth()->user()->id }}">
+                                        <input type="hidden" name="grower_id" value="{{ $seller->id }}">
+                                        <button type="submit" class="btn green-gradient">Select as your Grower</button>
+                                    </form>
+                                @endif
                             @endif
                         </ul>
                     </div>
@@ -132,8 +143,14 @@
 
 @section('page-js')
 <script>
-    
     jQuery(document).ready(function($) {
+        // Go to specific welcome tab
+        var tabId = location.hash;
+        if(tabId) $('a[href='+tabId+']').tab('show');
+
+        // Select as my grower
+
+        // Chat functions
         var Chat = (function () {
             $('#sendChatBtn').click(function(event) {
                 var message = $('#messages input').val();
@@ -339,26 +356,6 @@
         })();
 
         $('.welcome .tab').not('#tab-general').hide();
-
-        $('[tab-target]').click(function(event) {
-            $(this).hide();
-            $(this).siblings('[tab-target]').show();
-            var target = $(this).attr('tab-target');
-            showTab(target);
-        });
-
-        $('#openChatBtn').click(function(event) {
-            showTab('#tab-chat');
-        });
-
-        $('#closeChatBtn').click(function(event) {
-            showTab('#tab-general');
-        });
-
-        function showTab(id) {
-            $('.welcome .tab').hide();
-            $(id).show();
-        }
     });
 </script>
 @endsection

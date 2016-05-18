@@ -92,21 +92,22 @@ class CartController extends Controller
         Cart::destroy();
     }
 
-    public function postSendMessageToGrower(Request $request)
+    public function postSelectAsMyGrower(Request $request)
     {
         $this->validate($request,[
-            'msg' => 'required',
-            'grower_email' => 'required'
-        ],[
-            'msg.required' => 'You must enter your message to this grower'
+            'grower_id' => 'required',
+            'seeker_id' => 'required'
         ]);
-        $msg = $request->input('msg');
-        $growerEmail = $request->input('grower_email');
 
-        \Mail::send('emails.msg_to_grower',['msg'=>$msg], function ($m) use ($growerEmail){
-            $m->to($growerEmail)->subject('Message from Seeker');
-        });
+        $grower = User::find($request->input('grower_id'));
+        $seeker = User::find($request->input('seeker_id'));
 
-        return redirect()->back()->with('message','Your message has been sent');
+        if($grower && $seeker) {
+            \Mail::send('emails.grower_request',compact('grower','seeker'), function ($m) use ($grower){
+                $m->to($grower->email)->subject('A Grower Request');
+            });
+        }
+
+        return redirect()->back()->with('message','Your request has been sent to this Grower');
     }
 }

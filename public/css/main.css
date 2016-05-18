@@ -1617,7 +1617,7 @@ footer {
 }
 
 #ShoppingCart .cart .items {
-    height: 183px;
+    height: 180px;
 }
 
 #ShoppingCart .gallery li {
@@ -1647,7 +1647,7 @@ ul.gallery {}
 
 #ShoppingCart .cart .footer p {
     float: right;
-    margin-top: 23px;
+    margin-top: 4px;
     margin-right: 10px;
 }
 
@@ -1675,7 +1675,7 @@ ul.gallery {}
 #ShoppingCart .welcome {
     position: relative;
     height: 294px;
-    background: whitesmoke;
+    background: #DDDDDD;
 }
 
 #ShoppingCart .welcome .header {

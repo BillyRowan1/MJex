@@ -24,7 +24,10 @@
 */
 
 Route::group(['middleware' => ['web']], function () {
-    Route::get('test', function(){
+    Route::group(['middleware' => [], 'prefix' => 'admin'], function () {
+
+    });
+    Route::get('test', function() {
         // Send activation email
         $user = Mjex\User::first();
 
@@ -32,10 +35,20 @@ Route::group(['middleware' => ['web']], function () {
             $m->to('tjntun@gmail.com')->subject('Mjex Account activation');
         });
     });
+    
     Route::get('email-template/account-activation', function(\Illuminate\Http\Request $request){
         $user = Mjex\User::find($request->input('id'));
+        if(!$user) abort(404);
 
         return view('emails.activate', compact('user'));
+    });
+    Route::get('email-template/grower-request', function(\Illuminate\Http\Request $request){
+        $seeker = Mjex\User::find($request->input('id'));
+        $grower = Mjex\User::find($request->input('grower_id'));
+
+        if(!$seeker) abort(404);
+
+        return view('emails.grower_request', compact('seeker','grower'));
     });
     // Password reset link request routes...
     Route::get('password/email', 'Auth\PasswordController@getEmail');
@@ -115,7 +128,7 @@ Route::group(['middleware' => ['web']], function () {
         'postDelete' => 'cart.delete',
         'postSendOrder' => 'cart.send.order',
         'postUpdateQty' => 'cart.update.qty',
-        'postSendMessageToGrower' => 'cart.send.to.grower',
+        'postSelectAsMyGrower' => 'cart.select.as.grower',
     ]);
 
     Route::group(['middleware' => ['auth']], function () {

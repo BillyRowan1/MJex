@@ -20,18 +20,18 @@
     color: #999999;
     margin-left: 15px;
     margin: 0; padding: 0;
-">Can't see this Email? View it in your <a style="color: black; text-decoration: none;" href="{{ url('email-template/account-activation') }}?id={{ $user->id }}">Browser</a></span>
+">Can't see this Email? View it in your <a style="color: black; text-decoration: none;" href="{{ url('email-template/grower-request') }}?id={{ $seeker->id }}&grower_id={{ $grower->id }}">Browser</a></span>
     <div style="background: #282828;width: 100%;height: 50px;margin-top: 10px; margin-bottom: 20px;">
         <img style="height: 18px;margin-top: 17px;margin-left: 15px;" src="{{ url('img/email/logo.png') }}" alt="MJex Marijuana Exchange">
     </div>
     <img style="width: 100%; border-radius: 4px;" src="{{ url('img/email/grower-request/banner.jpg') }}" alt="Connecting Seekers & Seller Anonymously">
     <h1 style="font-family: 'Roboto', sans-serif; font-size: 25px; text-align: center;">You have received a new grower request!</h1>
-    <p style="font-size: 14px; color: #999999; line-height: 22px;">You have received a request to grow from {{ $user->anonymous_email }}
+    <p style="font-size: 14px; color: #999999; line-height: 22px;">You have received a request to grow from {{ $seeker->anonymous_email }}
         You can respond with an email by clicking the Send Email button below.
         This will take you back to the  website, where you can fill out an email and send it using your anonymous email.
         Or paste the above email address into an email using an account of your own.</p>
 
-    <a href="{{ url('cart') . '?seller_id=' . $seller_id }}#messages" style="
+    <a href="{{ url('cart') . '?seller_id=' . $grower->id }}#messages" style="
     color: white;
     background: #4bff4b;
     text-decoration: none;
@@ -42,6 +42,7 @@
     display: block;
     text-align: center;
     line-height: 33px;
+    margin-bottom: 20px;
     ">
         Send Email
     </a>
