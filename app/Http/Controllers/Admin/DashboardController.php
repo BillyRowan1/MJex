@@ -45,7 +45,7 @@ class DashboardController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function putIndex(Request $request)
+    public function putAdNetwork(Request $request)
     {
         $bannerPlacement = BannerPlacement::find($request->input('id'));
 
@@ -68,7 +68,7 @@ class DashboardController extends Controller
         if($request->has('active')) $bannerAd->active = $request->input('active');
         $bannerAd->save();
 
-        return redirect()->to('mjexadmin#tabBannerAds')->with('message','Saved');
+        return redirect()->to('mjexadmin/ad-network#tabBannerAds')->with('message','Saved');
     }
 
 }
