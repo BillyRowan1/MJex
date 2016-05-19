@@ -21,14 +21,30 @@ class DashboardController extends Controller
     |
     */
 
+    /**
+     * Display admin dashboard
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function getIndex()
     {
-        $bannerPlacements = BannerPlacement::all();
-        $bannerAds = BannerAd::orderBy('created_at','desc')->get();
+        $users = User::orderBy('created_at','desc')->get();
 
-        return view('admin.dashboard', compact('bannerPlacements','bannerAds'));
+        return view('admin.dashboard', compact('users'));
     }
 
+    public function getAdNetwork()
+    {
+        $bannerPlacements = BannerPlacement::orderBy('created_at','desc')->get();
+        $bannerAds = BannerAd::orderBy('created_at','desc')->get();
+
+        return view('admin.adnetwork', compact('bannerPlacements','bannerAds','users'));
+    }
+
+    /**
+     * Change banner placement info
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function putIndex(Request $request)
     {
         $bannerPlacement = BannerPlacement::find($request->input('id'));
@@ -41,6 +57,11 @@ class DashboardController extends Controller
         return redirect()->back()->with('message','Saved');
     }
 
+    /**
+     * Change purchased Banner Ad info
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function putBannerAds(Request $request) {
         $bannerAd = BannerAd::find($request->input('id'));
 

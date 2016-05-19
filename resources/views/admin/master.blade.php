@@ -14,22 +14,22 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic&subset=latin,vietnamese' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-theme.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('fonts/fonts.css') }}">
-    <link rel="stylesheet" href="{{ asset('libs/trumbo/ui/trumbowyg.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/main-responsive.css') }}">
-    <script src="{{ asset('js/vendor/modernizr-2.8.3-respond-1.4.2.min.js') }}"></script>
-    <script src="{{ asset('libs/jquery.min.js') }}"></script>
-    <script src="https://use.fontawesome.com/b3b4e52a0f.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="{{ asset('admin/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/css/bootstrap-reset.css') }}" rel="stylesheet">
+    <!--external css-->
+    <link href="{{ asset('admin/assets/font-awesome/css/font-awesome.css') }}" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="{{ asset('admin/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/css/style-responsive.css') }}" rel="stylesheet" />
+    <script src="{{ asset('admin/js/jquery.js') }}"></script>
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+    <!--[if lt IE 9]>
+    <script src="{{ asset('admin/js/html5shiv.js') }}"></script>
+    <script src="{{ asset('admin/js/respond.min.js') }}"></script>
+    <![endif]-->
 
     <script>
         jQuery(document).ready(function($) {
@@ -43,48 +43,70 @@
 </head>
 
 <body id="mjex">
-<div id="loading">
-    <img src="{{ asset('img/ajax-loader.gif') }}" alt="loading">
-</div>
-<header>
-    <nav id="top-nav" style="background-color: #B25309;">
-        <a class="navbar-brand" href="{{ url('/') }}"><img id="logo" src="{{ asset('img/logo.png') }}" alt="logo"></a>
-        @if(!auth()->user())
-        <div>
-            <a href="{{ url('register') }}" class="btn green-gradient sign-up-btn">SIGN UP</a>
-            <form class="navbar-form navbar-right" method="post" action="{{ url('login') }}" role="form">
-                {!! csrf_field() !!}
-                <input type="hidden" name="_topbar_login" value="1">
-                <script>
-                    @if (count($errors) > 0 && old('_topbar_login') == '1')
-                        @foreach ($errors->all() as $error)
-                            alert('{{ $error . '\n' }}');
-                        @endforeach
-                    @endif
-                </script>
-                <div class="form-group">
-                    <input type="text" placeholder="Email" name="email" class="form-control">
-                </div>
-                <div class="form-group">
-                    <input type="password" placeholder="Password" name="password" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-default">LOG IN</button>
-            </form>
+<section id="container" class="">
+    <!--header start-->
+    <header class="header">
+        <div class="sidebar-toggle-box">
+            <div data-original-title="Toggle Navigation" data-placement="right" class="icon-reorder tooltips"></div>
         </div>
-        @else
-            <div class="dropdown">
-                <p data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="welcome">Hi, admin<span class="glyphicon glyphicon-chevron-down"></span></p>
-                
-                <ul class="dropdown-menu pull-right">
-                    <li><a href="{{ url('mjexadmin/auth/logout') }}"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
-                </ul>
-            </div>
-        @endif
-    </nav>
-</header>
-<!-- end /header -->
+        <!--logo start-->
+        <a href="{{ url('mjexadmin') }}" class="logo"><img style="height: 22px;" src="{{ asset('img/logo.png') }}" alt=""></a>
+        <!--logo end-->
+        <div class="top-nav ">
+            @if(session()->has('mjexadmin'))
+            <ul class="nav pull-right top-menu">
+                <!-- user login dropdown start-->
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="username">Hi, {{ session('mjexadmin')[0] }}</span>
+                    </a>
+                </li>
+                <!-- user login dropdown end -->
+            </ul>
+            @endif
+        </div>
+    </header>
+    <!--header end-->
+    <!--sidebar start-->
+    <aside>
+        <div id="sidebar" class="nav-collapse ">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu">
+                <li class="">
+                    <a class="" href="{{ url('mjexadmin') }}">
+                        <i class="icon-dashboard"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="sub-menu">
+                    <a href="{{ url('mjexadmin/ad-network#tabAdPlacements') }}" class="">
+                        <i class="icon-book"></i>
+                        <span>Ad network</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="" href="{{ url('mjexadmin/auth/logout') }}">
+                        <i class="icon-key"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- sidebar menu end-->
+        </div>
+    </aside>
+    <!--sidebar end-->
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper">
+            <!-- page start-->
+            @yield('main')
+            <!-- page end-->
+        </section>
+    </section>
+    <!--main content end-->
+</section>
 
-@yield('main')
+
 
 <footer>
     <div class="container">
@@ -94,17 +116,19 @@
     </div>
 </footer>
 
-<script>
-    window.jQuery || document.write('<script src="libs/jquery.min.js"><\/script>')
-</script>
-<script src="http://maps.google.com/maps/api/js?libraries=places"></script>
-<script src="{{ asset('libs/gmaps.min.js') }}"></script>
-<script src="{{ asset('js/vendor/bootstrap.min.js') }}"></script>
-<script src="{{ asset('libs/jquery.nicescroll/jquery.nicescroll.min.js') }}"></script>
-<script src="{{ asset('libs/trumbo/trumbowyg.min.js') }}"></script>
-<script src="{{ asset('libs/stickyjs/jquery.sticky.js') }}"></script>
 
-@yield('page-js-before')
+<script src="{{ asset('admin/js/jquery-1.8.3.min.js') }}"></script>
+<script src="{{ asset('admin/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('admin/js/jquery.scrollTo.min.js') }}"></script>
+<script src="{{ asset('admin/js/jquery.nicescroll.js') }}"></script>
+<script src="{{ asset('admin/js/jquery.customSelect.min.js') }}"></script>
+<script src="{{ asset('admin/assets/data-tables/jquery.dataTables.js') }}"></script>
+<script src="{{ asset('admin/assets/data-tables/DT_bootstrap.js') }}"></script>
+
+<!--script for this page only-->
+<script src="{{ asset('admin/js/dynamic-table.js') }}"></script>
+<!--common script for all pages-->
+<script src="{{ asset('admin/js/common-scripts.js') }}"></script>
 
 @yield('page-js')
 </body>
