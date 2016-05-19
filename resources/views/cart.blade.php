@@ -32,13 +32,14 @@
                             @if(has_purpose('grower',$seller))
                             <li>Available Patient Slots: {{ $seller->patients_available }}</li>
                                 @if(auth()->user() && auth()->user()->type == 'seeker')
-                                    <form action="{{ route('cart.select.as.grower') }}" method="post">
+                                    <form style="display: inline-block;" action="{{ route('cart.select.as.grower') }}" method="post">
                                         {!! csrf_field() !!}
                                         <input type="hidden" name="seeker_id" value="{{ auth()->user()->id }}">
                                         <input type="hidden" name="grower_id" value="{{ $seller->id }}">
-                                        <button type="submit" class="btn green-gradient">Select as your Grower</button>
+                                        <button type="submit" class="btn green-gradient"><i class="icon-star"></i> Select as your Grower</button>
                                     </form>
-                                @endif
+                                        <button id="btnChatNow" class="btn green-gradient"><i class="icon-comment"></i> Chat now</button>
+                                    @endif
                             @endif
                         </ul>
                     </div>
@@ -148,7 +149,10 @@
         var tabId = location.hash;
         if(tabId) $('a[href='+tabId+']').tab('show');
 
-        // Select as my grower
+        // Chat now
+        $('#btnChatNow').click(function(){
+            $('a[href="#messages"]').tab('show');
+        });
 
         // Chat functions
         var Chat = (function () {

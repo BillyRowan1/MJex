@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{{ asset('fonts/fonts.css') }}">
     <link rel="stylesheet" href="{{ asset('libs/trumbo/ui/trumbowyg.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <link href="{{ asset('admin/assets/font-awesome/css/font-awesome.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('css/main-responsive.css') }}">
     <script src="{{ asset('js/vendor/modernizr-2.8.3-respond-1.4.2.min.js') }}"></script>
     <script src="{{ asset('libs/jquery.min.js') }}"></script>

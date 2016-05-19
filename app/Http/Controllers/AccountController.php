@@ -94,6 +94,7 @@ class AccountController extends Controller
         $user->state = $request->input('state');
         $user->country = $request->input('country');
         $user->delivery = $request->input('delivery');
+        $user->community_name = $request->input('community_name');
         // $user->anonymous_email = $request->input('anonymous_email');
         $user->email = $request->input('email');
         $user->accepted_payment = $request->input('accepted_payment');
