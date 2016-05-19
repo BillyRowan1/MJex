@@ -101,7 +101,7 @@
                                         @foreach($contactedUsers as $idx => $contactedUser)
                                         <li data-user-id="{{ $contactedUser->id }}" role="presentation" class="{{ $idx==0?'active':'' }}"><a href="#chat-{{ $contactedUser->id }}" role="tab" data-toggle="tab">
                                         <!-- <span class="date">12/04/15</span> -->
-                                        {{ $contactedUser->anonymous_email }}</a></li>
+                                        {{ $contactedUser->community_name }}</a></li>
                                         @endforeach
                                         @endif
                                     </ul>
@@ -123,7 +123,7 @@
                                                     }
                                                 ?>
                                                 <li class="{{ $isMe?'me':'' }}">
-                                                    <span class="name">{{ $isMe?'You':explode('@',$contactedUser->anonymous_email)[0] }}</span>
+                                                    <span class="name">{{ $isMe?'You':explode('@',$contactedUser->community_name)[0] }}</span>
                                                     <div class="message">
                                                         {!! $msg->message !!}
                                                         <span class="time">{{ $msg->created_at }}</span>
@@ -165,13 +165,13 @@
                                                     <input type="email" name="email" value="{{ $user->email }}" class="form-control">
                                                 </div>
                                                 <div class="form-group clearfix">
-                                                    <label for="">Alias email (Anonymous email)</label>
-                                                    <input style="width: 80%; float:left;" type="text" readonly name="anonymous_email" value="{{ explode('@',$user->anonymous_email)[0] }}" class="form-control"><span style="margin-top: 6px;float: left;margin-left: 5px;">@Mjex.co</span>
+                                                    <label for="">Username</label><br>
+                                                    <input style="width: 80%; float:left;" type="text" readonly name="anonymous_email" value="{{ explode('@',$user->community_name)[0] }}" class="form-control"><span style="margin-top: 6px;float: left;margin-left: 5px;">@Mjex.co</span>
                                                 </div>
-                                                <div class="form-group clearfix">
-                                                    <label for="">Username</label>
-                                                    <input type="text"  name="community_name" value="{{ $user->community_name }}" class="form-control">
-                                                </div>
+                                                {{--<div class="form-group clearfix">--}}
+                                                    {{--<label for="">Username</label>--}}
+                                                    {{--<input type="text"  name="community_name" value="{{ $user->community_name }}" class="form-control">--}}
+                                                {{--</div>--}}
 
                                                 <div class="form-group">
                                                     <label for="">City / State</label>
