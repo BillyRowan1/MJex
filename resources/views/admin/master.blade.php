@@ -68,6 +68,7 @@
     </header>
     <!--header end-->
     <!--sidebar start-->
+    @if(session()->has('mjexadmin'))
     <aside>
         <div id="sidebar" class="nav-collapse ">
             <!-- sidebar menu start-->
@@ -94,6 +95,7 @@
             <!-- sidebar menu end-->
         </div>
     </aside>
+    @endif
     <!--sidebar end-->
     <!--main content start-->
     <section id="main-content">
@@ -105,17 +107,6 @@
     </section>
     <!--main content end-->
 </section>
-
-
-
-<footer>
-    <div class="container">
-        <div class="row">
-            @include('inc.footer_menu')
-        </div>
-    </div>
-</footer>
-
 
 <script src="{{ asset('admin/js/jquery-1.8.3.min.js') }}"></script>
 <script src="{{ asset('admin/js/bootstrap.min.js') }}"></script>
