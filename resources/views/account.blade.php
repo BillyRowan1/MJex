@@ -101,7 +101,7 @@
                                         @foreach($contactedUsers as $idx => $contactedUser)
                                         <li data-user-id="{{ $contactedUser->id }}" role="presentation" class="{{ $idx==0?'active':'' }}"><a href="#chat-{{ $contactedUser->id }}" role="tab" data-toggle="tab">
                                         <!-- <span class="date">12/04/15</span> -->
-                                        {{ $contactedUser->community_name }}</a></li>
+                                        {{ $contactedUser->community_name }}@mjex.co</a></li>
                                         @endforeach
                                         @endif
                                     </ul>
@@ -123,7 +123,7 @@
                                                     }
                                                 ?>
                                                 <li class="{{ $isMe?'me':'' }}">
-                                                    <span class="name">{{ $isMe?'You':explode('@',$contactedUser->community_name)[0] }}</span>
+                                                    <span class="name">{{ $isMe?'You':$contactedUser->community_name }}</span>
                                                     <div class="message">
                                                         {!! $msg->message !!}
                                                         <span class="time">{{ $msg->created_at }}</span>
