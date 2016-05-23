@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Mjex\Http\Requests;
 use Mail;
 use Log;
+use Mjex\User;
 
 class DomainEmailController extends Controller
 {
@@ -16,15 +17,15 @@ class DomainEmailController extends Controller
         $recipient = $request->input('recipient');
         $from = $request->input('from');
         $body = $request->input('body-html');
+        Log::info('Mailgun recipient '. $recipient);
+        Log::info('Mailgun subject '. $subject);
 
         if($recipient) {
             $actualRecipient = explode('@', $recipient)[0];
             $user = User::where('community_name', $actualRecipient)->first();
 
             if($user) {
-                Mail::send('emails.mailgun', ['body' => $body], function ($m) use ($user, $from, $recipient, $subject) {
-                    $m->from($from);
-
+                Mail::send('emails.mailgun', ['body' => $body], function ($m) use ($user, $recipient, $subject) {
                     $m->to($user->email)->subject($subject);
                 });
 

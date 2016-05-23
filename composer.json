@@ -12,7 +12,8 @@
         "gloudemans/shoppingcart": "~1.3",
         "laravelcollective/html": "^5.2",
         "happydemon/usrlastly": "^0.2.0",
-        "gufy/cpanel-whm": "~1.0"
+        "gufy/cpanel-whm": "~1.0",
+        "guzzlehttp/guzzle": "^6.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

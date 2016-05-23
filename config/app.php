@@ -160,7 +160,6 @@ return [
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         HappyDemon\UsrLastly\UsrLastlyServiceProvider::class,
-        Gufy\CpanelWhm\CpanelWhmServiceProvider::class,
 
     ],
 
