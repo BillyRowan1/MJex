@@ -24,6 +24,8 @@
 */
 
 Route::group(['middleware' => ['web']], function () {
+    Route::controller('domain-email', 'DomainEmailController');
+
     Route::group(['prefix' => 'mjexadmin'], function () {
         Route::controller('auth', 'Admin\SessionController');
 
@@ -32,6 +34,7 @@ Route::group(['middleware' => ['web']], function () {
         });
 
     });
+
     Route::get('test', function() {
         // Send activation email
         $user = Mjex\User::first();
