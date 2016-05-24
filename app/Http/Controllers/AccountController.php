@@ -82,10 +82,14 @@ class AccountController extends Controller
         $this->validate($request,[
             'password' => 'min:6|confirmed',
             'email' => 'required',
-            'anonymous_email' => 'required|unique:users,anonymous_email,'.auth()->user()->id,
-            // 'community_name' => 'required|unique:users,community_name,'.auth()->user()->id,
+//            'anonymous_email' => 'required|unique:users,anonymous_email,'.auth()->user()->id,
+            'community_name' => '|required|unique:users,community_name,'.auth()->user()->id .'|regex:/^[\pL\s\-]+$/u',
             'zipcode' => 'required|numeric',
             'logo' => 'image'
+        ],[
+            'community_name.unique' => 'The username has already been taken.',
+            'community_name.required' => 'The username is required.',
+            'community_name.regex' => 'The username format is invalid.',
         ]);
 
         $user = User::find(auth()->user()->id);

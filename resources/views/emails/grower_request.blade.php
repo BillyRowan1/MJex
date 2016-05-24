@@ -26,7 +26,7 @@
     </div>
     <img style="width: 100%; border-radius: 4px;" src="{{ url('img/email/grower-request/banner.jpg') }}" alt="Connecting Seekers & Seller Anonymously">
     <h1 style="font-family: 'Roboto', sans-serif; font-size: 25px; text-align: center;">You have received a new grower request!</h1>
-    <p style="font-size: 14px; color: #999999; line-height: 22px;">You have received a request to grow from {{ $seeker->anonymous_email }}
+    <p style="font-size: 14px; color: #999999; line-height: 22px;">You have received a request to grow from {{ $seeker->community_name }}@mjex.co
         You can respond with an email by clicking the Send Email button below.
         This will take you back to the  website, where you can fill out an email and send it using your anonymous email.
         Or paste the above email address into an email using an account of your own.</p>

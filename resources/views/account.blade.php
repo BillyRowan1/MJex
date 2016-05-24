@@ -165,8 +165,8 @@
                                                     <input type="email" name="email" value="{{ $user->email }}" class="form-control">
                                                 </div>
                                                 <div class="form-group clearfix">
-                                                    <label for="">Username</label><br>
-                                                    <input style="width: 80%; float:left;" type="text" readonly name="anonymous_email" value="{{ explode('@',$user->community_name)[0] }}" class="form-control"><span style="margin-top: 6px;float: left;margin-left: 5px;">@Mjex.co</span>
+                                                    <label for="">Username (This will also be used as your alias email)</label><br>
+                                                    <input style="width: 80%; float:left;" type="text" name="community_name" value="{{ explode('@',$user->community_name)[0] }}" class="form-control"><span style="margin-top: 6px;float: left;margin-left: 5px;">@Mjex.co</span>
                                                 </div>
                                                 {{--<div class="form-group clearfix">--}}
                                                     {{--<label for="">Username</label>--}}

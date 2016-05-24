@@ -76,15 +76,21 @@ class AuthController extends Controller
         $rules = [
             'email' => 'required|email|unique:users,email',
             'password' => 'required',
-            'community_name' => 'required|unique:users,community_name|min:3',
+            'community_name' => 'required|unique:users,community_name|min:3|regex:/^[\pL\s\-]+$/u',
             'zipcode' => 'required',
         ];
+        $customErrorMessages = [
+            'community_name.unique' => 'The username has already been taken.',
+            'community_name.required' => 'The username is required.',
+            'community_name.regex' => 'The username format is invalid.',
+        ];
+
         if($request->input('_type') == 'seller') {
             if($request->input('package') != 'free') $rules['stripeToken'] = 'required';
             $rules['package'] = 'required';
             $rules['delivery'] = 'required|boolean';
         }
-        $this->validate($request,$rules);
+        $this->validate($request,$rules,$customErrorMessages);
         $creditCardToken = $request->input('stripeToken');
 
         $user = new User;
