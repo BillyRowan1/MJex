@@ -10,22 +10,20 @@
                 <table class="table table-striped border-top" id="sample_1">
                     <thead>
                     <tr>
-                        <th>Community name</th>
+                        <th>Anonymous username</th>
                         <th>Package</th>
                         <th>Email</th>
                         <th>Type/Purpose</th>
-                        <th>Anonymous username</th>
                         <th>City/State</th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach($users as $user)
                         <tr class="odd gradeX">
-                            <td>{{ $user->community_name }}</td>
+                            <td>{{ $user->community_name }}@mjex.co</td>
                             <td>{{ $user->package }}</td>
                             <td><a href="mailto:{{ $user->email }}">{{ $user->email }}</a></td>
                             <td>{{ $user->type=='seeker'?'Seeker':implode(', ', json_decode($user->purpose)) }}</td>
-                            <td>{{ $user->anonymous_email }}</td>
                             <td>{{ $user->state }}{{ $user->country?', '.$user->country:'' }}</td>
                         </tr>
                     @endforeach

@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'JayMjex@gmail.com', 'name' => 'Marijuana Exchange'],
+    'from' => ['address' => 'cs@mjex.co', 'name' => 'Marijuana Exchange'],
 
     /*
     |--------------------------------------------------------------------------
@@ -108,6 +108,6 @@ return [
 
     'sendmail' => '/usr/sbin/sendmail -bs',
 
-    'contact' => 'jaymjex@gmail.com'
+    'contact' => 'cs@mjex.co'
 
 ];
