@@ -220,7 +220,7 @@
                                                     <label for="">Upload your Logo</label>
                                                     {!! Form::file('logo') !!}
                                                     @if(!empty($user->logo))
-                                                    <img src="{{ $user->logo }}" height="100px">
+                                                    <img src="{{ $user->logo }}" style="max-width: 100%; margin-top: 10px;">
                                                     @endif
                                                 </div>
 
@@ -228,7 +228,7 @@
                                                     <label for="">Upload your Header for your seller page</label>
                                                     {!! Form::file('header') !!}
                                                     @if(!empty($user->header))
-                                                        <img src="{{ $user->header }}" height="100px">
+                                                        <img src="{{ $user->header }}" style="max-width: 100%; margin-top: 10px;">
                                                     @endif
                                                 </div>
                                                 @endif
