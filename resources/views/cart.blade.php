@@ -75,7 +75,7 @@
                             @endif
                         </ul>
                         <li class="last">
-                            @if($seller->id != auth()->user()->id)
+                            @if(!auth()->user() || (auth()->user() && $seller->id != auth()->user()->id))
                                 <input type="text" name="message" placeholder="Enter message">
                                 @if(auth()->user())
                                     <button id="sendChatBtn">SEND</button>
