@@ -38,6 +38,7 @@ class CreateUsersTable extends Migration
             $table->string('lng')->nullable();
 
             $table->string('logo')->nullable();
+            $table->string('header')->nullable();
 
             $table->boolean('active');
             $table->string('activation_code')->nullable();

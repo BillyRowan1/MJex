@@ -6,11 +6,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Cashier\Billable;
 use Laravel\Cashier\Contracts\Billable as BillableContract;
 use Nicolaslopezj\Searchable\SearchableTrait;
-use HappyDemon\UsrLastly\LastSeenTrait as LastSeen;
 
 class User extends Authenticatable implements BillableContract
 {
-    use Billable, SearchableTrait, LastSeen;
+    use Billable, SearchableTrait;
 
     /**
      * Searchable rules.
@@ -20,8 +19,6 @@ class User extends Authenticatable implements BillableContract
     protected $searchable = [
         'columns' => [
             'users.community_name' => 1,
-//            'users.anonymous_email' => 2,
-//            'users.email' => 3,
         ],
     ];
 

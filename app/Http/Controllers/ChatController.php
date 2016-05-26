@@ -4,9 +4,12 @@ namespace Mjex\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Mail;
 use Mjex\Chat;
 use Mjex\Http\Requests;
 use Mjex\Http\Controllers\Controller;
+use Activity;
+use Mjex\User;
 
 class ChatController extends Controller
 {
@@ -39,6 +42,23 @@ class ChatController extends Controller
         $chat->sender_id = auth()->user()->id;
         $chat->save();
         $status = 'ok';
+
+        if($chat->sender_id != $chat->seller_id) {
+            // check if user is offline, send this message to that seller too
+            $activities = \Activity::where('user_id', $chat->seller_id)->usersByMinutes(10)->count();  // Last 10 minutes
+            \Log::info('User ' . $chat->seller_id . ' last activity: ' . $activities);
+            if($activities == 0) {
+                // user is offline
+                $seller = User::find($chat->seller_id);
+                $seeker = User::find($chat->seeker_id);
+                $msg = $chat->message;
+
+                Mail::send('emails.msg_to_grower', ['msg' => $msg], function ($m) use ($seller, $seeker) {
+                    $m->from($seeker->community_name . '@mjex.co');
+                    $m->to($seller->email)->subject('Chat message notification');
+                });
+            }
+        }
 
         return response()->json(compact('status'));
     }

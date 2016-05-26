@@ -83,7 +83,7 @@ class AccountController extends Controller
             'password' => 'min:6|confirmed',
             'email' => 'required',
 //            'anonymous_email' => 'required|unique:users,anonymous_email,'.auth()->user()->id,
-            'community_name' => '|required|unique:users,community_name,'.auth()->user()->id .'|regex:/^[\pL\s\-]+$/u',
+            'community_name' => '|required|unique:users,community_name,'.auth()->user()->id .'|regex:/(^[A-Za-z0-9]+$)+/',
             'zipcode' => 'required|numeric',
             'logo' => 'image'
         ],[
@@ -114,12 +114,27 @@ class AccountController extends Controller
 
         $destinationPath = 'uploads';
         if($request->hasFile('logo')) {
+            if($user->logo && file_exists($user->logo)) {
+                unlink($user->logo);
+            }
             $fileName = $request->file('logo')->getClientOriginalName();
             $fileNameArr = explode('.', $fileName);
             $newFileName = $fileNameArr[0] . strtotime('now') . '.' . $fileNameArr[1];
             $request->file('logo')->move($destinationPath, $newFileName);
 
             $user->logo = implode('/', [$destinationPath, $newFileName]);
+        }
+
+        if($request->hasFile('header')) {
+            if($user->header && file_exists($user->header)) {
+                unlink($user->header);
+            }
+            $fileName = $request->file('header')->getClientOriginalName();
+            $fileNameArr = explode('.', $fileName);
+            $newFileName = $fileNameArr[0] . strtotime('now') . '.' . $fileNameArr[1];
+            $request->file('header')->move($destinationPath, $newFileName);
+
+            $user->header = implode('/', [$destinationPath, $newFileName]);
         }
 
         if($user->save())

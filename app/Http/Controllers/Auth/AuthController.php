@@ -75,7 +75,7 @@ class AuthController extends Controller
     {
         $rules = [
             'email' => 'required|email|unique:users,email',
-            'password' => 'required',
+            'password' => 'required|min:6',
             'community_name' => 'required|unique:users,community_name|min:3|regex:/^[\pL\s\-]+$/u',
             'zipcode' => 'required',
         ];

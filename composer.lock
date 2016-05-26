@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "662131676c87b05526f36e0914c06cb1",
-    "content-hash": "7c3b7d8bb97d3e9ee98e13084bb73cde",
+    "hash": "f8b90ad43be49443dce184075eef578a",
+    "content-hash": "4f0b94005629a43f0d22e9daeb276329",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -207,94 +207,6 @@
             "time": "2015-02-19 14:36:24"
         },
         {
-            "name": "gufy/cpanel-php",
-            "version": "v1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mgufrone/cpanel-php.git",
-                "reference": "a6e2becf590cdfb2c7c2feea4c6682b665761eb4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mgufrone/cpanel-php/zipball/a6e2becf590cdfb2c7c2feea4c6682b665761eb4",
-                "reference": "a6e2becf590cdfb2c7c2feea4c6682b665761eb4",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": "~6",
-                "php": ">=5.3.7"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "4.7.*@dev"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Gufy\\CpanelPhp\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Mochamad Gufron",
-                    "email": "mgufronefendi@gmail.com"
-                }
-            ],
-            "description": "Cpanel/WHM API for PHP",
-            "time": "2016-02-26 14:17:18"
-        },
-        {
-            "name": "gufy/cpanel-whm",
-            "version": "v1.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mgufrone/cpanel-whm.git",
-                "reference": "b78faccac79c234c5aab70e4fd5706fdf34d5d71"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mgufrone/cpanel-whm/zipball/b78faccac79c234c5aab70e4fd5706fdf34d5d71",
-                "reference": "b78faccac79c234c5aab70e4fd5706fdf34d5d71",
-                "shasum": ""
-            },
-            "require": {
-                "gufy/cpanel-php": "~1.0",
-                "illuminate/support": "~5",
-                "php": ">=5.4.0"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "src/migrations"
-                ],
-                "psr-0": {
-                    "Gufy\\CpanelWhm\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Mochamad Gufron",
-                    "email": "mgufronefendi@gmail.com"
-                }
-            ],
-            "description": "Laravel CPanel/WHM API Package.",
-            "keywords": [
-                "CPanel API",
-                "cpanel",
-                "framework",
-                "laravel",
-                "whm"
-            ],
-            "time": "2015-05-05 00:02:51"
-        },
-        {
             "name": "guzzlehttp/guzzle",
             "version": "6.2.0",
             "source": {
@@ -466,52 +378,6 @@
             "time": "2016-04-13 19:56:01"
         },
         {
-            "name": "happydemon/usrlastly",
-            "version": "0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/happyDemon/UsrLastly.git",
-                "reference": "8c9dbd27e540f2511e6b236ed00118fe7daa2330"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/happyDemon/UsrLastly/zipball/8c9dbd27e540f2511e6b236ed00118fe7daa2330",
-                "reference": "8c9dbd27e540f2511e6b236ed00118fe7daa2330",
-                "shasum": ""
-            },
-            "require": {
-                "laravel/framework": "5.*",
-                "php": ">=5.4.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "HappyDemon\\UsrLastly\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Maxim Kerstens",
-                    "email": "maxim.kerstens@gmail.com"
-                }
-            ],
-            "description": "Keep track of your users' last visit",
-            "homepage": "http://github.com/happydemon/usrlastly",
-            "keywords": [
-                "Usr",
-                "laravel",
-                "last",
-                "lastly",
-                "seen",
-                "user"
-            ],
-            "time": "2015-04-03 06:51:51"
-        },
-        {
             "name": "jakub-onderka/php-console-color",
             "version": "0.1",
             "source": {
@@ -657,6 +523,56 @@
             "time": "2015-12-05 17:17:57"
         },
         {
+            "name": "kim/activity",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thomastkim/laravel-online-users.git",
+                "reference": "840d55e727349b7ac206005c021e1f0190a68c6f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thomastkim/laravel-online-users/zipball/840d55e727349b7ac206005c021e1f0190a68c6f",
+                "reference": "840d55e727349b7ac206005c021e1f0190a68c6f",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^5.2",
+                "illuminate/session": "^5.2",
+                "illuminate/support": "^5.2",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "mockery/mockery": "^0.9.4",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Kim\\": "src/Kim"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Thomas Kim",
+                    "email": "thomas@thomastkim.com",
+                    "homepage": "http://thomastkim.com"
+                }
+            ],
+            "description": "Easily retrieve a list of users and guests that are online.",
+            "homepage": "https://github.com/thomastkim/laravel-online-users",
+            "keywords": [
+                "laravel",
+                "online activity",
+                "php"
+            ],
+            "time": "2016-04-18 23:27:58"
+        },
+        {
             "name": "laravel/cashier",
             "version": "v5.0.15",
             "source": {
@@ -715,16 +631,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.2.32",
+            "version": "v5.2.33",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "f688217113f70b01d0e127da9035195415812bef"
+                "reference": "4120808d2e841ba5a94c5e0443e9696ae4fa9bfe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/f688217113f70b01d0e127da9035195415812bef",
-                "reference": "f688217113f70b01d0e127da9035195415812bef",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/4120808d2e841ba5a94c5e0443e9696ae4fa9bfe",
+                "reference": "4120808d2e841ba5a94c5e0443e9696ae4fa9bfe",
                 "shasum": ""
             },
             "require": {
@@ -840,7 +756,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-05-17 13:24:40"
+            "time": "2016-05-25 18:35:42"
         },
         {
             "name": "laravelcollective/html",
@@ -1454,16 +1370,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v3.13.0",
+            "version": "v3.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "7ba7ff9765e3ba530bf4801a8ffc841a1cc1f77d"
+                "reference": "ef3ad438156872a00890f2d590b8b415ed84dbab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/7ba7ff9765e3ba530bf4801a8ffc841a1cc1f77d",
-                "reference": "7ba7ff9765e3ba530bf4801a8ffc841a1cc1f77d",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/ef3ad438156872a00890f2d590b8b415ed84dbab",
+                "reference": "ef3ad438156872a00890f2d590b8b415ed84dbab",
                 "shasum": ""
             },
             "require": {
@@ -1505,7 +1421,7 @@
                 "payment processing",
                 "stripe"
             ],
-            "time": "2016-05-04 22:02:14"
+            "time": "2016-05-25 22:54:42"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2540,16 +2456,16 @@
         },
         {
             "name": "mockery/mockery",
-            "version": "0.9.4",
+            "version": "0.9.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/padraic/mockery.git",
-                "reference": "70bba85e4aabc9449626651f48b9018ede04f86b"
+                "reference": "4db079511a283e5aba1b3c2fb19037c645e70fc2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/padraic/mockery/zipball/70bba85e4aabc9449626651f48b9018ede04f86b",
-                "reference": "70bba85e4aabc9449626651f48b9018ede04f86b",
+                "url": "https://api.github.com/repos/padraic/mockery/zipball/4db079511a283e5aba1b3c2fb19037c645e70fc2",
+                "reference": "4db079511a283e5aba1b3c2fb19037c645e70fc2",
                 "shasum": ""
             },
             "require": {
@@ -2577,7 +2493,7 @@
             ],
             "authors": [
                 {
-                    "name": "Padraic Brady",
+                    "name": "Pádraic Brady",
                     "email": "padraic.brady@gmail.com",
                     "homepage": "http://blog.astrumfutura.com"
                 },
@@ -2601,7 +2517,7 @@
                 "test double",
                 "testing"
             ],
-            "time": "2015-04-02 19:54:00"
+            "time": "2016-05-22 21:52:33"
         },
         {
             "name": "phpdocumentor/reflection-docblock",

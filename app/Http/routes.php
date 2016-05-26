@@ -36,12 +36,7 @@ Route::group(['middleware' => ['web']], function () {
     });
 
     Route::get('test', function() {
-        // Send activation email
-        $user = Mjex\User::first();
-
-        \Mail::send('emails.activate', ['user' => $user], function ($m) use ($user) {
-            $m->to('tjntun@gmail.com')->subject('Mjex Account activation');
-        });
+        return $numberOfUsers = Activity::where('user_id', 1)->usersByMinutes(10)->count();
     });
     
     Route::get('email-template/account-activation', function(\Illuminate\Http\Request $request){

@@ -3,12 +3,13 @@
 @section('main')
 <section id="ShoppingCart" class="container">
 	<div class="row">
+        @if($seller->header)
+            <img class="img-header" src="{{ url($seller->header) }}" alt="header">
+        @endif
 		<div class="col-md-7">
             @include('inc.msg')
 			<div class="welcome">
-                @if($seller->logo)
-                <div class="logo" style="background-image: url('{{ $seller->logo }}')"></div>
-                @endif
+
                 <div class="header">Welcome to {{ $seller->community_name }} Store
                 </div>
 
@@ -23,6 +24,7 @@
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="information">
                         <ul>
+                            <li>Email: <a href="mailto:{{ $seller->community_name }}@mjex.co">{{ $seller->community_name }}@mjex.co</a></li>
                             @if($seller->accepted_payment)
                             <li>PAYMENT METHODS: {{ $seller->accepted_payment }}</li>
                             @endif
@@ -38,9 +40,10 @@
                                         <input type="hidden" name="grower_id" value="{{ $seller->id }}">
                                         <button type="submit" class="btn green-gradient"><i class="icon-star"></i> Select as your Grower</button>
                                     </form>
-                                        <button id="btnChatNow" class="btn green-gradient"><i class="icon-comment"></i> Chat now</button>
+
                                     @endif
                             @endif
+                            <button id="btnChatNow" class="btn green-gradient"><i class="icon-comment"></i> Chat now</button>
                         </ul>
                     </div>
                     <div role="tabpanel" class="tab-pane" id="reviews">
@@ -72,8 +75,14 @@
                             @endif
                         </ul>
                         <li class="last">
-                            <input type="text" name="message" placeholder="Enter message">
-                            <button id="sendChatBtn">SEND</button>
+                            @if($seller->id != auth()->user()->id)
+                                <input type="text" name="message" placeholder="Enter message">
+                                @if(auth()->user())
+                                    <button id="sendChatBtn">SEND</button>
+                                @else
+                                    <button id="sendChatBtn">LOGIN TO CHAT</button>
+                                @endif
+                            @endif
                         </li>
                     </div>
                 </div>

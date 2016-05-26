@@ -19,13 +19,15 @@ class DomainEmailController extends Controller
         $body = $request->input('body-html');
         Log::info('Mailgun recipient '. $recipient);
         Log::info('Mailgun subject '. $subject);
+        Log::info('Mailgun from '. $from);
 
         if($recipient) {
             $actualRecipient = explode('@', $recipient)[0];
             $user = User::where('community_name', $actualRecipient)->first();
 
             if($user) {
-                Mail::send('emails.mailgun', ['body' => $body], function ($m) use ($user, $recipient, $subject) {
+                Mail::send('emails.mailgun', ['body' => $body], function ($m) use ($user, $recipient, $subject, $from) {
+                    $m->from(extract_email_address($from));
                     $m->to($user->email)->subject($subject);
                 });
 
