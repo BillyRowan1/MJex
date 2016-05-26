@@ -118,7 +118,12 @@
                                                 </thead>
                                                 <tbody>
                                                 <tr>
-                                                    <td>{{ $ad->user->community_name }} ({{ count($ad->user->reviews) . '+' }})</td>
+                                                    <td>
+                                                        @if($ad->user->logo)
+                                                            <div class="logo" style="background-image: url('{{url($ad->user->logo)}}')"></div>
+                                                        @endif
+                                                        {{ $ad->user->community_name }} ({{ count($ad->user->reviews) . '+' }})
+                                                    </td>
                                                     <td>{{ $ad->type_of_product }}</td>
                                                     <td>{{ $ad->description }}</td>
                                                     <td>{{ $ad->unit_available }}</td>
