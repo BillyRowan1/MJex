@@ -26,7 +26,7 @@
     </div>
     <img style="width: 100%; border-radius: 4px;" src="{{ url('img/email/banner.jpg') }}" alt="Connecting Seekers & Seller Anonymously">
     <h1 style="font-family: 'Roboto', sans-serif; font-size: 25px; text-align: center;">Welcome to Marijuana Exchange!</h1>
-    <p style="font-size: 14px; color: #999999; line-height: 22px;">You have successfully signed up for a {{ $user->anonymous_email }} account.
+    <p style="font-size: 14px; color: #999999; line-height: 22px;">You have successfully signed up for a {{ $user->community_name }}@mjex.co account.
         <br>Your email: {{ $user->email }}
         <br>Please complete your registration by clicking the Activate Account button below.</p>
 

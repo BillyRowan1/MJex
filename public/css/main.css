@@ -1,51 +1,66 @@
-body, html, *{
+body,
+html,
+* {
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
 }
+
+
 /*Banner*/
-#home-header-banner{
+
+#home-header-banner {
     margin-top: 10px;
 }
-.sticky-wrapper{
+
+.sticky-wrapper {
     position: absolute;
 }
-.carousel.sidebar{
+
+.carousel.sidebar {
     position: absolute;
     top: 200px;
     height: 380px;
     z-index: 11;
     width: 100px;
 }
-.carousel.sidebar.sticky{
+
+.carousel.sidebar.sticky {
     top: 100px;
 }
-.sticky{
+
+.sticky {
     position: fixed!important;
 }
-.carousel.sidebar .carousel-inner .item{
+
+.carousel.sidebar .carousel-inner .item {
     width: 100%;
     height: 100%;
 }
-#sidebar-left-banner{
+
+#sidebar-left-banner {
     left: 10px;
 }
-#sidebar-right-banner{
+
+#sidebar-right-banner {
     right: 10px;
 }
 
-.alert{
+.alert {
     border: none;
     border-radius: 0;
 }
-.map-wrapper{
+
+.map-wrapper {
     position: relative;
 }
-.map-wrapper .my-location{
+
+.map-wrapper .my-location {
     position: absolute;
     right: 10px;
     top: 10px;
     z-index: 11;
 }
+
 #pac-input {
     background-color: #fff;
     font-family: Roboto;
@@ -181,6 +196,10 @@ input {
     font-size: 19px;
 }
 
+.sign-in-btn {
+    display: none;
+}
+
 .navbar img {
     margin-top: 12px;
     margin-left: 20px;
@@ -202,9 +221,11 @@ input {
     background: linear-gradient(to bottom, #cccccc 0%, #b4b4b4 100%);
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#cccccc', endColorstr='#b4b4b4', GradientType=0);
 }
-#SearchBox .bootstrap-select{
+
+#SearchBox .bootstrap-select {
     display: none;
 }
+
 #top-nav {
     background: black;
     height: 60px;
@@ -326,9 +347,11 @@ input {
     height: 90px;
     width: 728px;
 }*/
-#AdNetwork{
+
+#AdNetwork {
     margin-top: 20px;
 }
+
 .carousel-inner .item {
     background-repeat: no-repeat;
     background-position: center;
@@ -654,14 +677,16 @@ footer {
     list-style: none;
     margin-right: 20px;
 }
-.section-posts .logo{
+
+.section-posts .logo {
     width: 80px;
-    height:50px;
+    height: 50px;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     float: left;
 }
+
 .section-posts a {
     color: black;
     text-decoration: none;
@@ -698,8 +723,7 @@ footer {
     margin: 0;
 }
 
-.section-posts section {
-}
+.section-posts section {}
 
 .section-posts .sort {
     float: right;
@@ -1160,12 +1184,13 @@ footer {
     font-family: arial, sans-serif;
     font-size: 18px;
 }
-#Account .bordered{
+
+#Account .bordered {
     border: 1px solid #BDBDBD;
     padding: 10px;
 }
-#Account #user_categories{
-}
+
+#Account #user_categories {}
 
 #Account #user_categories h5 {
     font-weight: bold;
@@ -1178,7 +1203,8 @@ footer {
 #Account #user_categories > div {
     text-align: center;
 }
-#Account #user_categories label{
+
+#Account #user_categories label {
     font-size: 11px;
     text-align: center;
 }
@@ -1190,6 +1216,7 @@ footer {
     width: 15px;
     font-size: 100px;
 }
+
 #Account .nav.nav-tabs {
     margin-top: 50px;
 }
@@ -1483,10 +1510,12 @@ footer {
 
 
 /*cart*/
-#ShoppingCart .img-header{
+
+#ShoppingCart .img-header {
     max-width: 100%;
     margin-bottom: 10px;
 }
+
 #ShoppingCart #tab-chat .content {
     position: relative;
     margin-bottom: 0;
@@ -1542,7 +1571,8 @@ footer {
     line-height: 24px;
     font-weight: bold;
 }
-#ShoppingCart .add-to-cart{
+
+#ShoppingCart .add-to-cart {
     margin-top: 10px;
 }
 
@@ -1575,7 +1605,8 @@ footer {
     position: relative;
     margin-left: 20px;
 }
-#ShoppingCart #sendChatBtn{
+
+#ShoppingCart #sendChatBtn {
     position: absolute;
     right: 0;
     top: 0;
@@ -1588,7 +1619,11 @@ footer {
     position: relative;
 }
 
-#ShoppingCart #messages input{width: 100%;border: none;padding: 5px 10px;}
+#ShoppingCart #messages input {
+    width: 100%;
+    border: none;
+    padding: 5px 10px;
+}
 
 #ShoppingCart #information li {
     list-style: circle;
@@ -2137,8 +2172,7 @@ ul.gallery {}
     color: #6c7d8e;
 }
 
-
-#AdminDashboard h1{
+#AdminDashboard h1 {
     font-size: 22px;
     font-weight: bold;
 }

@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap-theme.min.css') }}">
     <link rel="stylesheet" href="{{ asset('fonts/fonts.css') }}">
-    <link rel="stylesheet" href="{{ asset('libs/trumbo/ui/trumbowyg.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('libs/trumbowyg.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link href="{{ asset('admin/assets/font-awesome/css/font-awesome.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('css/main-responsive.css') }}">
@@ -53,6 +53,7 @@
         @if(!auth()->user())
         <div>
             <a href="{{ url('register') }}" class="btn green-gradient sign-up-btn">SIGN UP</a>
+            <a href="{{ url('login') }}" class="btn green-gradient sign-in-btn">SIGN IN</a>
             <form class="navbar-form navbar-right" method="post" action="{{ url('login') }}" role="form">
                 {!! csrf_field() !!}
                 <input type="hidden" name="_topbar_login" value="1">
@@ -113,9 +114,9 @@
 <script src="http://maps.google.com/maps/api/js?libraries=places"></script>
 <script src="{{ asset('libs/gmaps.min.js') }}"></script>
 <script src="{{ asset('js/vendor/bootstrap.min.js') }}"></script>
-<script src="{{ asset('libs/jquery.nicescroll/jquery.nicescroll.min.js') }}"></script>
-<script src="{{ asset('libs/trumbo/trumbowyg.min.js') }}"></script>
-<script src="{{ asset('libs/stickyjs/jquery.sticky.js') }}"></script>
+<script src="{{ asset('libs/jquery.nicescroll.min.js') }}"></script>
+<script src="{{ asset('libs/trumbowyg.min.js') }}"></script>
+<script src="{{ asset('libs/jquery.sticky.js') }}"></script>
 
 @yield('page-js-before')
 

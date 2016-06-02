@@ -2,9 +2,97 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a68c45e-ab50-4614-a562-6c70354337b4" name="Default" comment="fi">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/jquery.nicescroll/jquery.nicescroll.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/jquery.nicescroll/zoomico.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/stickyjs/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/stickyjs/jquery.sticky.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/langs/ar.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/langs/ca.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/langs/cs.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/langs/da.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/langs/de.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/langs/el.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/langs/es.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/langs/es_ar.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/langs/fa.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/langs/fi.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/langs/fr.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/langs/he.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/langs/hu.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/langs/id.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/langs/it.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/langs/ja.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/langs/ko.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/langs/my.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/langs/nl.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/langs/pl.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/langs/pt.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/langs/ro.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/langs/rs.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/langs/rs_latin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/langs/ru.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/langs/sk.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/langs/sv.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/langs/tr.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/langs/ua.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/langs/vi.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/langs/zh_cn.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/langs/zh_tw.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/plugins/base64/trumbowyg.base64.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/plugins/base64/trumbowyg.base64.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/plugins/colors/trumbowyg.colors.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/plugins/colors/trumbowyg.colors.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/plugins/colors/ui/images/icons-black-2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/plugins/colors/ui/images/icons-black.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/plugins/colors/ui/images/icons-white-2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/plugins/colors/ui/images/icons-white.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/plugins/colors/ui/sass/_sprite-black-2x.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/plugins/colors/ui/sass/_sprite-black.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/plugins/colors/ui/sass/_sprite-white-2x.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/plugins/colors/ui/sass/_sprite-white.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/plugins/colors/ui/sass/trumbowyg.colors.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/plugins/colors/ui/trumbowyg.colors.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/plugins/colors/ui/trumbowyg.colors.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/plugins/editlink/trumbowyg.editlink.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/plugins/editlink/trumbowyg.editlink.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/plugins/preformatted/trumbowyg.preformatted.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/plugins/preformatted/trumbowyg.preformatted.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/plugins/preformatted/ui/images/icons-black-2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/plugins/preformatted/ui/images/icons-black.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/plugins/preformatted/ui/images/icons-white-2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/plugins/preformatted/ui/images/icons-white.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/plugins/preformatted/ui/sass/_sprite-black-2x.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/plugins/preformatted/ui/sass/_sprite-black.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/plugins/preformatted/ui/sass/_sprite-white-2x.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/plugins/preformatted/ui/sass/_sprite-white.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/plugins/preformatted/ui/sass/trumbowyg.preformatted.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/plugins/preformatted/ui/trumbowyg.preformatted.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/plugins/preformatted/ui/trumbowyg.preformatted.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/plugins/upload/trumbowyg.upload.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/plugins/upload/trumbowyg.upload.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/trumbowyg.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/trumbowyg.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/ui/images/icons-black-2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/ui/images/icons-black.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/ui/images/icons-white-2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/ui/images/icons-white.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/ui/sass/_sprite-black-2x.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/ui/sass/_sprite-black.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/ui/sass/_sprite-white-2x.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/ui/sass/_sprite-white.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/ui/sass/mixins/_sprite-pos.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/ui/sass/trumbowyg.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/ui/trumbowyg.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/libs/trumbo/ui/trumbowyg.min.css" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/DomainEmailController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/DomainEmailController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repo/AdRepo.php" afterPath="$PROJECT_DIR$/app/Repo/AdRepo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/main-responsive.css" afterPath="$PROJECT_DIR$/public/css/main-responsive.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/main.css" afterPath="$PROJECT_DIR$/public/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/account.blade.php" afterPath="$PROJECT_DIR$/resources/views/account.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/emails/activate.blade.php" afterPath="$PROJECT_DIR$/resources/views/emails/activate.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/master.blade.php" afterPath="$PROJECT_DIR$/resources/views/master.blade.php" />
     </list>
     <ignored path="mjex.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,45 +113,7 @@
     <favorites_list name="mjex" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="cart.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/cart.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.5">
-              <caret line="77" column="104" selection-start-line="77" selection-start-column="104" selection-end-line="77" selection-end-column="104" />
-              <folding>
-                <element signature="e#6013#6041#0#HTML" expanded="true" />
-                <element signature="e#7135#7163#0#HTML" expanded="true" />
-                <element signature="e#7293#7345#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.208334">
-              <caret line="123" column="0" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
-              <folding>
-                <element signature="e#6182#6239#0#HTML" expanded="true" />
-                <element signature="e#7304#7358#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/css/main.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.46907994">
-              <caret line="661" column="32" selection-start-line="661" selection-start-column="32" selection-end-line="661" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -88,7 +138,6 @@
         <option value="$PROJECT_DIR$/database/migrations/2016_04_23_171841_create_banner_ad_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_05_04_164422_create_banner_placement_table.php" />
         <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/AdNetworkController.php" />
         <option value="$PROJECT_DIR$/resources/views/ad_network.blade.php" />
         <option value="$PROJECT_DIR$/app/Listeners/UserRegisteredEventListener.php" />
         <option value="$PROJECT_DIR$/resources/views/emails/activate.blade.php" />
@@ -109,7 +158,6 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/resources/views/emails/grower_request.blade.php" />
         <option value="$PROJECT_DIR$/app/helpers.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/DomainEmailController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php" />
         <option value="$PROJECT_DIR$/resources/views/account.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_01_31_171403_create_users_table.php" />
@@ -127,6 +175,8 @@
         <option value="$PROJECT_DIR$/resources/views/cart.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/index.blade.php" />
         <option value="$PROJECT_DIR$/public/css/main.css" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/AdNetworkController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/DomainEmailController.php" />
       </list>
     </option>
   </component>
@@ -174,6 +224,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -205,51 +256,10 @@
               <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mjex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mjex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="emails" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mjex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mjex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -611,8 +621,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="737" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1280" height="737" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21953125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -684,20 +694,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/ad_network.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8774584">
-          <caret line="45" column="24" selection-start-line="11" selection-start-column="16" selection-end-line="45" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdNetworkController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3207262">
-          <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="22" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/BannerAd.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33282906">
@@ -842,7 +838,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.97737557">
           <caret line="36" column="30" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -850,7 +845,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6244344">
           <caret line="77" column="41" selection-start-line="77" selection-start-column="41" selection-end-line="77" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -866,7 +860,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -874,10 +867,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.958333">
           <caret line="222" column="87" selection-start-line="222" selection-start-column="87" selection-end-line="222" selection-end-column="87" />
-          <folding>
-            <element signature="e#10700#10731#0#HTML" expanded="true" />
-            <element signature="e#10845#10898#0#HTML" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -885,7 +874,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.0135746">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -903,7 +891,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.7647057">
           <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -911,7 +898,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.833333">
           <caret line="210" column="56" selection-start-line="210" selection-start-column="56" selection-end-line="210" selection-end-column="56" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -919,7 +905,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.3167422">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -927,7 +912,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -935,7 +919,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.68325794">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -943,7 +926,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -951,7 +933,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -959,7 +940,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.26200873">
           <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -967,17 +947,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.08144797">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DomainEmailController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.108597286">
-          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-          <folding>
-            <element signature="e#41#69#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -985,17 +954,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_01_31_171403_create_users_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54298645">
-          <caret line="20" column="42" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="42" />
-          <folding>
-            <element signature="e#7#48#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1003,7 +961,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1011,9 +968,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.26696834">
           <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-          <folding>
-            <element signature="e#41#69#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1021,15 +975,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.36048266">
           <caret line="101" column="33" selection-start-line="101" selection-start-column="29" selection-end-line="101" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.520362">
-          <caret line="38" column="90" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="90" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1037,7 +982,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.21719457">
           <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1045,7 +989,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.16289593">
           <caret line="6" column="46" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1053,37 +996,67 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.3529412">
           <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/cart.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.5">
-          <caret line="77" column="104" selection-start-line="77" selection-start-column="104" selection-end-line="77" selection-end-column="104" />
-          <folding>
-            <element signature="e#6013#6041#0#HTML" expanded="true" />
-            <element signature="e#7135#7163#0#HTML" expanded="true" />
-            <element signature="e#7293#7345#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.208334">
-          <caret line="123" column="0" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
-          <folding>
-            <element signature="e#6182#6239#0#HTML" expanded="true" />
-            <element signature="e#7304#7358#0#HTML" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46907994">
-          <caret line="661" column="32" selection-start-line="661" selection-start-column="32" selection-end-line="661" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.49622926">
+          <caret line="662" column="16" selection-start-line="662" selection-start-column="16" selection-end-line="662" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6591252">
+          <caret line="123" column="0" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/cart.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16289593">
+          <caret line="77" column="104" selection-start-line="77" selection-start-column="104" selection-end-line="77" selection-end-column="104" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3529412">
+          <caret line="20" column="35" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdNetworkController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16289593">
+          <caret line="30" column="47" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5927602">
+          <caret line="148" column="52" selection-start-line="148" selection-start-column="52" selection-end-line="148" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DomainEmailController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7058824">
+          <caret line="30" column="34" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
+          <folding>
+            <element signature="e#41#69#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2016_01_31_171403_create_users_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.51583713">
+          <caret line="20" column="42" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="42" />
           <folding />
         </state>
       </provider>

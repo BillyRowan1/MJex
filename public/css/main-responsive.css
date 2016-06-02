@@ -20,38 +20,42 @@
 .navbar-toggle {
     border: 1px solid;
     position: absolute;
-    top: 0;
+    top: 5px;
     right: 0;
 }
 
-@media only screen 
-and (max-device-width : 736px) 
-and (orientation : landscape) {
-    #main-menu li a{
+@media only screen and (max-device-width: 736px) and (orientation: landscape) {
+    #main-menu li a {
         font-size: 14px;
     }
-    #logo{
+    #logo {
         height: 16px;
         margin-top: 8px;
     }
-    #top-nav .welcome{
+    #top-nav .welcome {
         margin-right: 65px;
     }
 }
 
-@media only screen 
-and (max-device-width : 568px) 
-and (orientation : landscape) {
-    #logo{
+@media only screen and (max-device-width: 568px) and (orientation: landscape) {
+    #logo {
         height: 14px;
         margin-top: 8px;
     }
-    #top-nav .welcome{
+    #top-nav .welcome {
         font-size: 12px;
     }
 }
 
 @media only screen and (max-width: 480px) {
+    #sidebar-left-banner,
+    #sidebar-right-banner
+    {
+        display: none;
+    }
+    #legal-page .content{
+    width: 89%;
+}
     #PostAds .btn-group.mjex .btn {
         width: 100%;
         margin-bottom: 10px;
@@ -101,15 +105,23 @@ and (orientation : landscape) {
         /* position: static; */
         width: 100%;
         padding-left: 100px;
+        font-size: 16px;
     }
     .home-search-wrap .zipcode {
-        width: 100px;
+        width: 105px;
         border-radius: 0;
         /* float: none; */
         height: 60px;
+        min-height: auto;
+        padding: 0 5px;
     }
+
+.home-search-wrap .zipcode select {
+    margin-top: 13px;
+}
     .home-search-wrap {
         height: 60px;
+        min-height: auto;
     }
     .home-search-wrap .zipcode input {
         width: 100%;
@@ -141,7 +153,6 @@ and (orientation : landscape) {
     #Home .step {
         font-size: 14px;
         line-height: 26px;
-        margin-top: 79px;
     }
     #pricing .box {
         float: none;
@@ -153,7 +164,8 @@ and (orientation : landscape) {
     }
     #pricing .title {}
     #logo {
-        width: 190px;
+        width: 162px;
+        margin-top: 8px;
     }
     .navbar-form input.form-control {
         margin: 0 auto;
@@ -170,12 +182,20 @@ and (orientation : landscape) {
     }
     #top-nav .sign-up-btn {
         float: none;
-        font-size: 14px;
-        width: 70px;
+        font-size: 11px;
+        width: 62px;
         line-height: 32px;
         position: absolute;
-        bottom: 9px;
-        left: 54px;
+        top: 9px;
+        right: 40px;
+        line-height: 27px;
+    }
+    #top-nav .sign-in-btn {
+        position: absolute;
+        right: 127px;
+        top: 17px;
+        display: block;
+        font-size: 11px;
     }
     #main-menu {}
     #top-nav .navbar-form {
@@ -184,6 +204,8 @@ and (orientation : landscape) {
         margin-top: 0;
         clear: both;
         margin-bottom: -1px;
+        background: black;
+        display: none;
     }
     #top-nav {
         /* height: auto; */

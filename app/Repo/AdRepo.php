@@ -130,7 +130,9 @@ class AdRepo{
     private function sortPaidFirst($ads)
     {
         foreach($ads as $ad) {
-            $ad->user->reviews = $ad->user->reviews;
+            if($ad->user && $ad->user->reviews) {
+                $ad->user->reviews = $ad->user->reviews;
+            }
         }
         // Sort result by priority: paid ad > free ad, paid user > free user
         $ads = object_to_array($ads);

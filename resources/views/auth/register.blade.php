@@ -4,7 +4,7 @@
     <section id="Signup" class="container">
         <div class="row">
             <div class="col-md-12">
-                <img src="img/signup-banner.png" alt="banner" class="banner">
+                <img src="img/email/banner.jpg" alt="banner" class="banner">
                 @include('inc.msg')
             </div>
         </div>

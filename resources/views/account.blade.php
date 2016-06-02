@@ -264,7 +264,7 @@
                                                     <label for="">Medical card number</label>
                                                     <input type="text" name="medical_card_number" value="{{ $user->medical_card_number }}" class="form-control">
                                                     <br>
-                                                    <label for="">Disired alotment</label>
+                                                    <label for="">Desired Allotment</label>
                                                     <input type="text" name="desired_alotment" value="{{ $user->desired_alotment }}" class="form-control">
                                                 @endif
                                                 

@@ -17,9 +17,10 @@ class DomainEmailController extends Controller
         $recipient = $request->input('recipient');
         $from = $request->input('from');
         $body = $request->input('body-html');
-        Log::info('Mailgun recipient '. $recipient);
-        Log::info('Mailgun subject '. $subject);
-        Log::info('Mailgun from '. $from);
+        // Find user in system to make it anonymous
+        $from = extract_email_address($from);
+        $user = User::where('email', $from)->first();
+        if($user) $from = $user->community_name . '@mjex.co';
 
         if($recipient) {
             $actualRecipient = explode('@', $recipient)[0];
@@ -27,7 +28,7 @@ class DomainEmailController extends Controller
 
             if($user) {
                 Mail::send('emails.mailgun', ['body' => $body], function ($m) use ($user, $recipient, $subject, $from) {
-                    $m->from(extract_email_address($from));
+                    $m->from($from);
                     $m->to($user->email)->subject($subject);
                 });
 
