@@ -26,13 +26,13 @@ class AdRepo{
 
         $result = [];
         foreach($latestAds as $ad) {
-            if(has_purpose('adult_use', $ad->user)) {
+            if($ad->category == 'adult_use') {
                 $result['Adult use'][] = $ad;
             }
-            if(has_purpose('medical', $ad->user)) {
+            if($ad->category == 'medical') {
                 $result['Medical'][] = $ad;
             }
-            if(has_purpose('other', $ad->user)) {
+            if($ad->category == 'other') {
                 $result['Other business'][] = $ad;
             }
         }
@@ -84,16 +84,14 @@ class AdRepo{
         $searchResults = $this->sortPaidFirst($searchResults);
 
         $result = [];
-        foreach($searchResults as $ad) {
-            if(has_purpose('adult_use', $ad->user)) {
-                $result['Adult use'][] = $ad;
-            }
-            if(has_purpose('medical', $ad->user)) {
-                $result['Medical'][] = $ad;
-            }
-            if(has_purpose('other', $ad->user)) {
-                $result['Other business'][] = $ad;
-            }
+        if($ad->category == 'adult_use') {
+            $result['Adult use'][] = $ad;
+        }
+        if($ad->category == 'medical') {
+            $result['Medical'][] = $ad;
+        }
+        if($ad->category == 'other') {
+            $result['Other business'][] = $ad;
         }
 
         return $result;

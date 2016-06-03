@@ -61,6 +61,15 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label for="">Category</label>
+                                    {!! Form::select('category', array(
+                                        'adult_use' => 'Adult use +21',
+                                        'medical' => 'Medical',
+                                        'other' => 'Other',
+                                         ), $ad->category, ['class'=>'form-control']) !!}
+                                </div>
+
+                                <div class="form-group">
                                     <label for="">Upload Product Thumbnail</label>
                                     <input type="file" name="thumb" accept="image/*">
                                     @if($ad->thumb)

@@ -70,6 +70,7 @@ class AdController extends Controller
             "amount" => "required",
             "header_color" => "required",
             "description" => "required",
+            "category" => "required",
             "price_per_unit" => "",
             "adContent" => "required",
             "thumb" => 'image'
@@ -80,6 +81,7 @@ class AdController extends Controller
         $ad->unit_available = $request->input('unit_available');
         $ad->amount = $request->input('amount');
         $ad->header_color = $request->input('header_color');
+        $ad->category = $request->input('category');
         $ad->description = $request->input('description');
         $ad->price_per_unit = $request->input('price_per_unit');
 
@@ -146,6 +148,7 @@ class AdController extends Controller
                 "unit_available" => "required",
                 "amount" => "required",
                 "header_color" => "required",
+                "category" => "required",
                 "description" => "required",
                 "price_per_unit" => "numeric",
                 "adContent" => "required",
@@ -158,6 +161,7 @@ class AdController extends Controller
             $ad->unit_available = $request->input('unit_available');
             $ad->amount = $request->input('amount');
             $ad->header_color = $request->input('header_color');
+            $ad->category = $request->input('category');
             $ad->description = $request->input('description');
             $ad->price_per_unit = $request->input('price_per_unit');
             $ad->ad_type = $type;

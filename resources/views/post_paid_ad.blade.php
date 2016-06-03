@@ -65,6 +65,15 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="">Category</label>
+                                <select name="category" class="form-control">
+                                    <option value="adult_use">Adult use +21</option>
+                                    <option value="medical">Medical</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
                                 <label for="">Upload Product Thumbnail</label>
                                 <input type="file" name="thumb" accept="image/*">
                             </div>

@@ -62,6 +62,14 @@
                                         <label for="">Price (USD)</label>
                                         <input type="text" class="form-control" name="price_per_unit">
                                     </div>
+                                    <div class="form-group">
+                                        <label for="">Category</label>
+                                        <select name="category" class="form-control">
+                                            <option value="adult_use">Adult use +21</option>
+                                            <option value="medical">Medical</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
                                     {{--<div class="form-group" id="pricePerQuantity">--}}
                                         {{--<label>Price per Quantity in USD</label>--}}
                                         {{--<div class="clearfix">--}}

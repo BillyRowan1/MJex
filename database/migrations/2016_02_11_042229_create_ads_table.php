@@ -15,6 +15,7 @@ class CreateAdsTable extends Migration
         Schema::create('ads', function(Blueprint $table){
             $table->increments('id');
             $table->integer('user_id');
+            $table->enum('category',['adult_use','other','medical']);
             $table->string('content');
             $table->string('type_of_product');
             $table->string('unit_available');
