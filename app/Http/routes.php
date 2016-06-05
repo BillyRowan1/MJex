@@ -35,7 +35,8 @@ Route::group(['middleware' => ['web']], function () {
     });
 
     Route::controller('dispensaries', 'DispensaryController');
-    
+    Route::controller('products', 'ProductController');
+
     Route::get('email-template/account-activation', function(\Illuminate\Http\Request $request){
         $user = Mjex\User::find($request->input('id'));
         if(!$user) abort(404);

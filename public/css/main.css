@@ -8,10 +8,24 @@ html,
 #Dispensaries{
     padding-top: 10px;
 }
-#Dispensaries .block{
+#Dispensaries img{
+    max-width: 100%;
+}
+#Dispensaries .block,
+#Dispensaries .cart
+{
     margin-bottom: 10px;
     padding: 10px;
     background: whitesmoke;
+}
+
+#Dispensaries .cart input {
+    width: 30px;
+}
+
+#Dispensaries .cart ul {
+    list-style: none;
+    padding: 0;
 }
 #DispensariesDetail{
     padding-top: 20px;

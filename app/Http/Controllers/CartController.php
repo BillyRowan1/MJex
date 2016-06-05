@@ -16,8 +16,6 @@ class CartController extends Controller
 {
     public function getIndex(Request $request)
     {
-//        return Cart::content();
-
         $this->validate($request,[
             'seller_id' => 'required|numeric'
         ]);
