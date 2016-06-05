@@ -15,7 +15,7 @@
             <li class="{{ Request::url()==url('account')?'active':'' }}"><a href="{{ url('account') }}">account</a></li>
         @endif
         <li class="{{ Request::url()==route('ad.create.free')?'active':'' }}"><a href="{{ route('ad.create.free') }}">post ad</a></li>
-{{--        <li class="{{ Request::url()==url('find-growers')?'active':'' }}"><a href="{{ url('find-growers') }}">find growers</a></li>--}}
+        <li class="{{ preg_match('/dispensaries/', Request::url())?'active':'' }}"><a href="{{ url('dispensaries') }}">dispensaries</a></li>
         <li class="{{ Request::url()==url('ad-network')?'active':'' }}"><a href="{{ url('ad-network') }}">Ad network</a></li>
 	    <li class="{{ Request::url()==url('faq')?'active':'' }}"><a href="{{ url('faq') }}">faq</a></li>
     </ul>

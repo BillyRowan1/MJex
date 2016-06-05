@@ -29,6 +29,7 @@ class DomainEmailController extends Controller
             if($user) {
                 Mail::send('emails.mailgun', ['body' => $body], function ($m) use ($user, $recipient, $subject, $from) {
                     $m->from($from);
+                    $m->replyTo($from);
                     $m->to($user->email)->subject($subject);
                 });
 

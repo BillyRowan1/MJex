@@ -111,7 +111,7 @@
 <script>
     window.jQuery || document.write('<script src="libs/jquery.min.js"><\/script>')
 </script>
-<script src="http://maps.google.com/maps/api/js?libraries=places"></script>
+<script src="https://maps.google.com/maps/api/js?libraries=places&key=AIzaSyBQasHxK7Uy3tBcyerP0QpOmIQzSRx1M_c"></script>
 <script src="{{ asset('libs/gmaps.min.js') }}"></script>
 <script src="{{ asset('js/vendor/bootstrap.min.js') }}"></script>
 <script src="{{ asset('libs/jquery.nicescroll.min.js') }}"></script>

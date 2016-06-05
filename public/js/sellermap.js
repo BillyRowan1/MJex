@@ -97,15 +97,6 @@ var SellerMap = (function() {
         if (title == undefined) {
             title = '';
         }
-        if (icon) {
-            // var pinIcon = new google.maps.MarkerImage(
-            //     icon,
-            //     null, 
-            //     null, 
-            //     null, 
-            //     new google.maps.Size(40, 40)
-            // );
-        }
 
         var marker = new google.maps.Marker({
             position: location,

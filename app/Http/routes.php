@@ -32,12 +32,9 @@ Route::group(['middleware' => ['web']], function () {
         Route::group(['middleware'=>'admin'], function() {
             Route::controller('/', 'Admin\DashboardController');
         });
-
     });
 
-    Route::get('test', function() {
-        return $numberOfUsers = Activity::where('user_id', 1)->usersByMinutes(10)->count();
-    });
+    Route::controller('dispensaries', 'DispensaryController');
     
     Route::get('email-template/account-activation', function(\Illuminate\Http\Request $request){
         $user = Mjex\User::find($request->input('id'));

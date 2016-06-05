@@ -159,7 +159,8 @@ return [
         Laravel\Cashier\CashierServiceProvider::class,
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-        Kim\Activity\ActivityServiceProvider::class
+        Kim\Activity\ActivityServiceProvider::class,
+        'Kozz\Laravel\Providers\Guzzle'
     ],
 
     /*
@@ -208,7 +209,8 @@ return [
         'Cart'      => Gloudemans\Shoppingcart\Facades\Cart::class,
         'Form'      => Collective\Html\FormFacade::class,
         'Html'      => Collective\Html\HtmlFacade::class,
-        'Activity' => Kim\Activity\ActivityFacade::class
+        'Activity' => Kim\Activity\ActivityFacade::class,
+        'Guzzle' => 'Kozz\Laravel\Facades\Guzzle'
     ],
 
 ];

@@ -4,8 +4,83 @@ html,
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
 }
+/*Dispensaries*/
+#Dispensaries{
+    padding-top: 10px;
+}
+#Dispensaries .block{
+    margin-bottom: 10px;
+    padding: 10px;
+    background: whitesmoke;
+}
+#DispensariesDetail{
+    padding-top: 20px;
+}
+#DispensariesDetail .avatar{
+    width: 100%;
+}
+#DispensariesDetail img{
+    max-width: 100%;
+}
+#DispensariesDetail .tab-content .item{
+    padding: 10px 0px;
+    border-bottom: 2px solid #E6E6E6;
+}
+#DispensariesDetail .block{
+    padding: 10px;
+    background: whitesmoke;
+}
+#DispensariesDetail .btn-loadmore{
+    margin-top: 20px;
+}
+#DispensariesDetail .sidebar{
+    text-align: center;
+}
+#DispensariesDetail ul{
+    list-style: none;
+    padding: 0;
+}
 
+#DispensariesDetail a {
+    text-decoration: none;
+}
+#DispensariesDetail .sidebar .more a{
+    float: left;
+    width: 50%;
+    text-align: center;
+    list-style: none;
+    font-size: 20px;
+    color: #A9A9A9;
+    margin-top: 10px;
+}
+#DispensariesDetail .btn-default{
+    background: white;
+    border: 1px solid #797979;
+}
+#DispensariesDetail .menu li{
+    float: left;
+    margin-right: 10px;
+}
 
+#DispensariesDetail .menu li.active a {background: #0DD50D;color: white;text-shadow: none;}
+#DispensariesDetail .sidebar .more a i {
+    display: block;
+    font-size: 30px;
+}
+#DispensariesDetail .sidebar .btn {
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    background: #05D005;
+    width: 200px;
+    font-size: 16px;
+}
+#DispensariesDetail .sidebar .name{
+    font-weight:bold;
+    font-size: 27px;
+    color: #585858;
+    line-height: 34px;
+}
 /*Banner*/
 
 #home-header-banner {
@@ -283,7 +358,7 @@ input {
 #main-menu li a {
     height: 100%;
     background: #cacaca;
-    width: 20%;
+    width: 16.6666666667%;
     float: left;
     line-height: 80px;
     background: #cccccc;
