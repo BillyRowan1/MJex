@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8a68c45e-ab50-4614-a562-6c70354337b4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/dispensaries_detail.blade.php" afterPath="$PROJECT_DIR$/resources/views/dispensaries_detail.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/DispensaryController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/DispensaryController.php" />
     </list>
     <ignored path="mjex.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,12 +26,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="dispensaries_detail.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/dispensaries_detail.blade.php">
+      <file leaf-file-name="DispensaryController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DispensaryController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.53154576">
-              <caret line="47" column="64" selection-start-line="47" selection-start-column="64" selection-end-line="47" selection-end-column="64" />
+            <state vertical-scroll-proportion="-2.2083333">
+              <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CartController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CartController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7080182">
+              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+              <folding>
+                <element signature="e#41#69#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -89,16 +102,16 @@
         <option value="$PROJECT_DIR$/resources/views/partials/extracts_row.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/partials/edibles_row.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/partials/products_row.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/DispensaryController.php" />
         <option value="$PROJECT_DIR$/public/css/main.css" />
         <option value="$PROJECT_DIR$/resources/views/partials/product_cart.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/products.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/inc/menu.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/CartController.php" />
         <option value="$PROJECT_DIR$/resources/views/cart.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" />
         <option value="$PROJECT_DIR$/resources/views/dispensaries_detail.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/DispensaryController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/CartController.php" />
       </list>
     </option>
   </component>
@@ -230,12 +243,6 @@
       <created>1453643038417</created>
       <option name="number" value="Default" />
       <updated>1453643038417</updated>
-    </task>
-    <task id="LOCAL-00008" summary="remove auth on homepage">
-      <created>1455474980352</created>
-      <option name="number" value="00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1455474980352</updated>
     </task>
     <task id="LOCAL-00009" summary="remove search result demo on homepage">
       <created>1455475087456</created>
@@ -525,15 +532,21 @@
       <option name="project" value="LOCAL" />
       <updated>1465222333109</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="change the look of Load more button in Dispensaries detail page">
+      <created>1465225035046</created>
+      <option name="number" value="00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1465225035047</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="735" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21953125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21953125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -568,7 +581,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="fix age popup only display once" />
     <MESSAGE value="change find grower tab" />
     <MESSAGE value="update search box" />
     <MESSAGE value="update search banner ads" />
@@ -593,7 +605,8 @@
     <MESSAGE value="integrate Products from cannabis report" />
     <MESSAGE value="delete vendor.zip" />
     <MESSAGE value="move cannabis products to every seller's page" />
-    <option name="LAST_COMMIT_MESSAGE" value="move cannabis products to every seller's page" />
+    <MESSAGE value="change the look of Load more button in Dispensaries detail page" />
+    <option name="LAST_COMMIT_MESSAGE" value="change the look of Load more button in Dispensaries detail page" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -897,27 +910,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DispensaryController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18154311">
-          <caret line="13" column="30" selection-start-line="12" selection-start-column="8" selection-end-line="13" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProductController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.49016643">
           <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding>
-            <element signature="e#41#69#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CartController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.027231468">
-          <caret line="17" column="11" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
           <folding>
             <element signature="e#41#69#0#PHP" expanded="true" />
           </folding>
@@ -968,9 +964,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/dispensaries_detail.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53154576">
-          <caret line="47" column="64" selection-start-line="47" selection-start-column="64" selection-end-line="47" selection-end-column="64" />
+        <state vertical-scroll-proportion="0.9006309">
+          <caret line="60" column="11" selection-start-line="60" selection-start-column="11" selection-end-line="60" selection-end-column="11" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DispensaryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.2083333">
+          <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CartController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7080182">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding>
+            <element signature="e#41#69#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

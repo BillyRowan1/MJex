@@ -40,7 +40,7 @@ class CartController extends Controller
             $productsRaw = (string) $productsRaw->getBody();
             $products = json_decode($productsRaw, true)['data'];
         }catch(\Exception $e){
-            echo 'API rate limit exceeded';
+
         }
 
         return view('cart', compact('seller','ads','chats', 'products','nextPage'));

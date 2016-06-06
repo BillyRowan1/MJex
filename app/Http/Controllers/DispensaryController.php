@@ -10,14 +10,18 @@ class DispensaryController extends Controller
 {
     public function getIndex(Request $request)
     {
-        $page = $request->input('page', 1);
-        $nextPage = $page + 1;
-        $response = Guzzle::get('https://www.cannabisreports.com/api/v1.0/dispensaries?page='.$page);
-        $response = (string)($response->getBody());
-        $meta = json_decode($response,true)['meta'];
-        $data = json_decode($response)->data;
+        try {
+            $page = $request->input('page', 1);
+            $nextPage = $page + 1;
+            $response = Guzzle::get('https://www.cannabisreports.com/api/v1.0/dispensaries?page=' . $page);
+            $response = (string)($response->getBody());
+            $meta = json_decode($response, true)['meta'];
+            $data = json_decode($response)->data;
 
-        return view('dispensaries', compact('data','nextPage','meta'));
+            return view('dispensaries', compact('data', 'nextPage', 'meta'));
+        }catch(\Exception $e){
+            echo 'API rate limit exceeded';
+        }
     }
 
     public function getDetail($state, $city, $slug)
