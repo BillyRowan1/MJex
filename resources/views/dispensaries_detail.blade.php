@@ -31,28 +31,28 @@
                             @include('partials.flowers_row')
                         </div>
 
-                        <button class="btn btn-primary btn-loadmore" id="loadmore-flowers" data-link="{{ $dispensary['flowers']['link'] }}">Load more</button>
+                        <button class="btn green-gradient btn-loadmore" id="loadmore-flowers" data-link="{{ $dispensary['flowers']['link'] }}">Load more</button>
                     </div>
                     <div role="tabpanel" class="block tab-pane" id="extracts">
                         <div class="content">
                             @include('partials.extracts_row')
                         </div>
 
-                        <button class="btn btn-primary btn-loadmore" id="loadmore-extracts" data-link="{{ $dispensary['extracts']['link'] }}">Load more</button>
+                        <button class="btn green-gradient btn-loadmore" id="loadmore-extracts" data-link="{{ $dispensary['extracts']['link'] }}">Load more</button>
                     </div>
                     <div role="tabpanel" class="block tab-pane" id="edibles">
                         <div class="content">
                             @include('partials.edibles_row')
                         </div>
 
-                        <button class="btn btn-primary btn-loadmore" id="loadmore-edibles" data-link="{{ $dispensary['edibles']['link'] }}">Load more</button>
+                        <button class="btn green-gradient btn-loadmore" id="loadmore-edibles" data-link="{{ $dispensary['edibles']['link'] }}">Load more</button>
                     </div>
                     <div role="tabpanel" class="block tab-pane" id="products">
                         <div class="content">
                             @include('partials.products_row')
                         </div>
 
-                        <button class="btn btn-primary btn-loadmore" id="loadmore-products" data-link="{{ $dispensary['products']['link'] }}">Load more</button>
+                        <button class="btn green-gradient btn-loadmore" id="loadmore-products" data-link="{{ $dispensary['products']['link'] }}">Load more</button>
                     </div>
                 </div>
             </div>
