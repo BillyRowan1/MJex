@@ -93,9 +93,12 @@
 		<div class="col-md-5">
 			<div class="cart">
 				<div class="header">Your Cart</div>
-				<ul class="items nicescroll">
+				<ul class="items items-ads nicescroll">
                     @include('inc.carts')
 				</ul>
+                <ul class="items items-cannabis nicescroll">
+                    @include('partials.product_cart')
+                </ul>
 				<div class="footer clearfix">
 					@if(auth()->user() && auth()->user()->type == 'seeker')
                     <button class="btn green-gradient" id="cartCheckout">CHECKOUT</button>
@@ -127,7 +130,7 @@
                             <li><strong>Price: </strong>${{ $ad->price_per_unit }}</li>
                             <li>{!! $ad->content !!}</li>
                         </ul>
-                        <button class="btn green-gradient add-to-cart"
+                        <button class="btn green-gradient add-to-cart ads-cart"
                             data-product="{{ $ad->type_of_product }}"
                             data-ad_id="{{ $ad->id }}"
                             data-strain="{{ $ad->description }}"
@@ -148,11 +151,44 @@
 		</li>
         @endforeach
 	</ul>
+
+    <div id="Dispensaries">
+        <div class="col-md-12">
+            <h2>Cannabis products</h2>
+            @foreach($products as $product)
+                <div class="row block">
+                    <div class="col-md-3">
+                        <img src="{{ $product['image'] }}" alt="{{ $product['name'] }}">
+                    </div>
+                    <div class="col-md-9">
+                        <h4><strong>{{ $product['name'] }}</strong></h4>
+                        <h5>from <strong>{{ $product['producer']['name'] }}</strong></h5>
+                        <ul>
+                            <li><i class="icon-beaker"></i> CBD: {{ $product['cbd'] }}</li>
+                            <li><i style="color: red;" class="icon-beaker"></i> THC: {{ $product['thc'] }}</li>
+                        </ul>
+
+                        <button class="btn green-gradient add-to-cart products-cart" data-id="{{ $product['ucpc'] }}" data-name="{{ $product['name'].' from '.$product['producer']['name'] }}">ADD TO CART</button>
+                    </div>
+                </div>
+            @endforeach
+
+            @if(count($products))
+                @if($nextPage - 2 > 0)
+                    <a href="{{ url('products') }}?page={{ $nextPage - 2 }}"><button class="btn green-gradient">Previous page</button></a>
+                @endif
+                <a href="{{ url('products') }}?page={{ $nextPage }}"><button class="btn green-gradient">Next page</button></a>
+            @endif
+        </div>
+    </div>
 </section>
+
+
 @endsection
 
 @section('page-js')
 <script>
+    var SITE_URL = '{{ url("/") }}';
     jQuery(document).ready(function($) {
         // Go to specific welcome tab
         var tabId = location.hash;
@@ -231,7 +267,7 @@
                     },
                 })
                 .done(function(res) {
-                    $('.cart .items').html(res);
+                    $('.cart .items.items-ads').html(res);
                     updateSubtotal();
                 })
                 .fail(function() {
@@ -268,7 +304,7 @@
                     }
                 })
                 .done(function(res) {
-                    $('.cart .items').html(res);
+                    $('.cart .items.items-ads').html(res);
                 })
                 .fail(function() {
                     alert('Can not update cart');
@@ -288,7 +324,7 @@
                     }
                 })
                 .done(function(res) {
-                    $('.cart .items').html(res);
+                    $('.cart .items.items-ads').html(res);
                 })
                 .fail(function() {
                     alert('Can not update cart');
@@ -312,16 +348,27 @@
                         seller_id: {{ $seller->id }}
                     }
                 })
-                .done(function() {
-                    alert('Your order has been sent');
-                    clear();
-                })
                 .fail(function() {
                     alert('Can not send order');
                 })
                 .always(function() {
-                    Mjex.showLoading(false);
+                    if($('.cart .items.items-cannabis li').length) {
+                        $.ajax({
+                            url: SITE_URL + '/products/checkout',
+                            type: 'POST'
+                        })
+                        .done(function(res) {
+                            $('.cart .items.items-cannabis').html(res);
+                            alert('Your order have been sent');
+                        }).always(function() {
+                            Mjex.showLoading(false);
+                        });
+                    }else{
+                        clear();
+                        alert('Your order have been sent');
+                    }
                 });
+                
             });
 
             // When quantity changed
@@ -336,14 +383,14 @@
                 clear();
             });
 
-            $('body').delegate('.cart .delete', 'click', function(event) {
+            $('body').delegate('.items-ads .delete', 'click', function(event) {
                 event.preventDefault();
                 var rowId = $(this).parents('li').data('rowid');
                 removeItem(rowId);
                 $(this).parent().remove();
             });
 
-            $('.add-to-cart.btn').click(function(event) {
+            $('.add-to-cart.btn.ads-cart').click(function(event) {
                 var product = $(this).data('product'),
                     strain = $(this).data('strain'),
                     ad_id = $(this).data('ad_id'),
@@ -365,6 +412,41 @@
                     }
                 }
                 add(product, strain, price, qty, ad_id);
+            });
+
+            // Cannabis Products cart
+            $('.btn.add-to-cart.products-cart').click(function(event) {
+                var name = $(this).data('name');
+                var id = $(this).data('id');
+
+                Mjex.showLoading(true);
+                $.ajax({
+                    url: SITE_URL + '/products/add-to-cart',
+                    type: 'POST',
+                    data: {name: name, id: id}
+                })
+                .done(function(res) {
+                    $('.cart .items.items-cannabis').html(res);
+                }).always(function () {
+                    Mjex.showLoading(false);
+                });
+            });
+
+            // Delete cart item
+            $('body').delegate('.items-cannabis .delete','click', function(event) {
+                var rowid = $(this).parents('li').data('rowid');
+                Mjex.showLoading(true);
+
+                $.ajax({
+                    url: SITE_URL + '/products/remove-from-cart',
+                    type: 'POST',
+                    data: {rowid: rowid}
+                })
+                .done(function(res) {
+                    $('.cart .items.items-cannabis').html(res);
+                }).always(function () {
+                    Mjex.showLoading(false);
+                });
             });
         })();
 

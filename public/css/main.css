@@ -372,7 +372,7 @@ input {
 #main-menu li a {
     height: 100%;
     background: #cacaca;
-    width: 14.28%;
+    width: 16.6666666667%;
     float: left;
     line-height: 80px;
     background: #cccccc;
@@ -1733,17 +1733,17 @@ footer {
     margin-right: 7px;
 }
 
-#ShoppingCart .cart li .price,
-#ShoppingCart .cart li .delete {
+#ShoppingCart .cart li .price{
     float: right;
 }
 
 #ShoppingCart .cart li {
-    height: 60px;
-    line-height: 60px;
+    /* height: 60px; */
+    /* line-height: 60px; */
     border-bottom: 1px solid #ddd;
     width: 90%;
     margin: 0 auto;
+    padding: 10px 0;
 }
 
 #ShoppingCart ul {
@@ -1751,7 +1751,7 @@ footer {
 }
 
 #ShoppingCart .cart .items {
-    height: 163px;
+    /* height: 163px; */
 }
 
 #ShoppingCart .gallery li {

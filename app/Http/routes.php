@@ -24,6 +24,9 @@
 */
 
 Route::group(['middleware' => ['web']], function () {
+    Route::get('test', function(){
+        return config('mail.contact');
+    });
     Route::controller('domain-email', 'DomainEmailController');
 
     Route::group(['prefix' => 'mjexadmin'], function () {

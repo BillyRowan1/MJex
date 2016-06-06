@@ -11,6 +11,7 @@ use Mjex\Http\Requests;
 use Mjex\Http\Controllers\Controller;
 use Mjex\Order;
 use Mjex\User;
+use Guzzle;
 
 class CartController extends Controller
 {
@@ -31,7 +32,18 @@ class CartController extends Controller
             $chats = Chat::where('seller_id', $seller->id)->where('seeker_id', auth()->user()->id)->orderBy('created_at','desc')->get();
         }
 
-        return view('cart', compact('seller','ads','chats'));
+        $nextPage = 1; $products = [];
+        try{
+            $page = $request->input('page', 1);
+            $nextPage = $page + 1;
+            $productsRaw = Guzzle::get('https://www.cannabisreports.com/api/v1.0/products?sort=-updatedAt&page='.$page);
+            $productsRaw = (string) $productsRaw->getBody();
+            $products = json_decode($productsRaw, true)['data'];
+        }catch(\Exception $e){
+            echo 'API rate limit exceeded';
+        }
+
+        return view('cart', compact('seller','ads','chats', 'products','nextPage'));
     }
 
     public function postAddToCart(Request $request)
@@ -78,9 +90,11 @@ class CartController extends Controller
             $order->save();
         }
 
-        \Mail::send('emails.order',['seller'=>$seller,'buyer'=>auth()->user()], function ($m) use ($seller){
-            $m->to($seller->email)->subject('Mjex order');
-        });
+        if(Cart::count() > 0) {
+            \Mail::send('emails.order',['seller'=>$seller,'buyer'=>auth()->user()], function ($m) use ($seller){
+                $m->to($seller->email)->subject('Mjex order');
+            });
+        }
 
         return redirect()->back();
     }
@@ -88,6 +102,7 @@ class CartController extends Controller
     public function postClearCart()
     {
         Cart::destroy();
+        Cart::instance('products')->destroy();
     }
 
     public function postSelectAsMyGrower(Request $request)

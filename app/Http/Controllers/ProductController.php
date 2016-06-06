@@ -41,10 +41,14 @@ class ProductController extends Controller
     public function postCheckout(Request $request)
     {
         // Send order to admin
-        \Mail::send('emails.product_order', [], function ($m) {
-            $m->to(config('mail.contact'))->subject('Cannabis Product order from Seeker');
-        });
+        if(Cart::instance('products')->count() > 0) {
+            $send = \Mail::send('emails.product_order', [], function ($m) {
+                $m->to(config('mail.contact'))->subject('Cannabis Product order from Seeker');
+            });    
+        }        
+
         Cart::instance('products')->destroy();
+        Cart::destroy();
         return '';
     }
 }
