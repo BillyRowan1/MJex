@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a68c45e-ab50-4614-a562-6c70354337b4" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor.zip" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="mjex.iws" />
@@ -273,12 +272,6 @@
       <created>1453643038417</created>
       <option name="number" value="Default" />
       <updated>1453643038417</updated>
-    </task>
-    <task id="LOCAL-00006" summary="add login, change profile info, add new fields in users table">
-      <created>1454440808734</created>
-      <option name="number" value="00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1454440808734</updated>
     </task>
     <task id="LOCAL-00007" summary="add latest ads on home page, contact form now working">
       <created>1455474372514</created>
@@ -568,7 +561,13 @@
       <option name="project" value="LOCAL" />
       <updated>1465148871140</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="delete vendor.zip">
+      <created>1465149069292</created>
+      <option name="number" value="00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1465149069292</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -611,7 +610,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="update migration" />
     <MESSAGE value="update schema for user table" />
     <MESSAGE value="fix age popup only display once" />
     <MESSAGE value="change find grower tab" />
@@ -636,7 +634,8 @@
     <MESSAGE value="fix username on admin page, update gitignore" />
     <MESSAGE value="integrate cannabisreport API to Dispensaries page" />
     <MESSAGE value="integrate Products from cannabis report" />
-    <option name="LAST_COMMIT_MESSAGE" value="integrate Products from cannabis report" />
+    <MESSAGE value="delete vendor.zip" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete vendor.zip" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

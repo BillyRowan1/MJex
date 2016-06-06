@@ -108,6 +108,6 @@ return [
 
     'sendmail' => '/usr/sbin/sendmail -bs',
 
-    'contact' => 'cs@mjex.co'
+    'contact' => env('MAIL_CONTACT', 'cs@mjex.co')
 
 ];

@@ -30,4 +30,21 @@ class ProductController extends Controller
 
         return view('partials.product_cart');
     }
+
+    public function postRemoveFromCart(Request $request)
+    {
+        Cart::instance('products')->remove($request->input('rowid'));
+
+        return view('partials.product_cart');
+    }
+
+    public function postCheckout(Request $request)
+    {
+        // Send order to admin
+        \Mail::send('emails.product_order', [], function ($m) {
+            $m->to(config('mail.contact'))->subject('Cannabis Product order from Seeker');
+        });
+        Cart::instance('products')->destroy();
+        return '';
+    }
 }
