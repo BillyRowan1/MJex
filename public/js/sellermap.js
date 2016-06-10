@@ -93,7 +93,7 @@ var SellerMap = (function() {
         }
     }
 
-    function addMarker(location, title, seller_id, icon) {
+    function addMarker(location, title, seller_id, icon, link) {
         if (title == undefined) {
             title = '';
         }
@@ -106,7 +106,7 @@ var SellerMap = (function() {
         });
         markers.push(marker);
         marker.addListener('click', function() {
-            window.open('/cart?seller_id=' + seller_id);
+            window.open(link);
         });
 
         // var bounds = new google.maps.LatLngBounds();
@@ -128,11 +128,19 @@ var SellerMap = (function() {
             .done(function(stores) {
                 for (var i in stores) {
                     if(stores[i].lat) {
-                        addMarker({ lat: parseFloat(stores[i].lat), lng: parseFloat(stores[i].lng) }, stores[i].title, stores[i].seller_id, stores[i].icon);
+                        console.log(stores[i])
+                        addMarker(
+                            { lat: parseFloat(stores[i].lat), lng: parseFloat(stores[i].lng) }, 
+                            stores[i].title, 
+                            stores[i].seller_id, 
+                            stores[i].icon, 
+                            stores[i].link);
                     }else{
-                        geocodeAddress(stores[i].address, function (pos) {
+                        var store = stores[i];
+                        geocodeAddress(store.address, function (pos) {
                             if(pos) {
-                                addMarker({ lat: pos.lat(), lng: pos.lng() }, stores[i].title, stores[i].seller_id, stores[i].icon);
+                                console.log('tjntun', store);
+                                addMarker({ lat: pos.lat(), lng: pos.lng() }, store.title, store.seller_id, store.icon, store.link);
                             }
                         });
                     }

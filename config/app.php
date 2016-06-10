@@ -160,7 +160,8 @@ return [
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Kim\Activity\ActivityServiceProvider::class,
-        'Kozz\Laravel\Providers\Guzzle'
+        'Kozz\Laravel\Providers\Guzzle',
+        Remic\GuzzleCache\GuzzleCacheServiceProvider::class,
     ],
 
     /*
@@ -210,7 +211,8 @@ return [
         'Form'      => Collective\Html\FormFacade::class,
         'Html'      => Collective\Html\HtmlFacade::class,
         'Activity' => Kim\Activity\ActivityFacade::class,
-        'Guzzle' => 'Kozz\Laravel\Facades\Guzzle'
+        'Guzzle' => 'Kozz\Laravel\Facades\Guzzle',
+        'GuzzleCache'   => Remic\GuzzleCache\Facades\GuzzleCache::class,
     ],
 
 ];

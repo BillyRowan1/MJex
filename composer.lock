@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "143c34028369f61b4c6a63f667ec7cb1",
-    "content-hash": "ae3344da5dde061254556f70b212bd7f",
+    "hash": "47384b179d3be13b72d4c988ff0ea3a6",
+    "content-hash": "aacc22cdf5bac3a9e891ed19367f68db",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1455,6 +1455,56 @@
             ],
             "description": "A lightweight implementation of CommonJS Promises/A for PHP",
             "time": "2016-05-03 17:50:52"
+        },
+        {
+            "name": "remic/guzzlecache",
+            "version": "v0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/RemiCollin/GuzzleCache.git",
+                "reference": "dc4e97cee0633d83666f3dd367cd40766c113cf5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/RemiCollin/GuzzleCache/zipball/dc4e97cee0633d83666f3dd367cd40766c113cf5",
+                "reference": "dc4e97cee0633d83666f3dd367cd40766c113cf5",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~5.0",
+                "illuminate/support": "~5.0",
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Remic\\GuzzleCache\\": "src/GuzzleCache"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rémi Collin",
+                    "email": "remi@plateau.io"
+                }
+            ],
+            "description": "Laravel 5 package for caching Guzzle's GET requests.",
+            "keywords": [
+                "Guzzle",
+                "api",
+                "cache",
+                "http",
+                "laravel5",
+                "lumen",
+                "proxy"
+            ],
+            "time": "2016-02-03 08:13:20"
         },
         {
             "name": "stripe/stripe-php",

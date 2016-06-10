@@ -13,7 +13,8 @@
         "laravelcollective/html": "^5.2",
         "kim/activity": "^1.1",
         "kozz/laravel-guzzle-provider": "~5.0",
-        "symfony/psr-http-message-bridge": "0.2"
+        "symfony/psr-http-message-bridge": "0.2",
+        "remic/guzzlecache": "~0.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
