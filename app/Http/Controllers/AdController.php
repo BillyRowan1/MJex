@@ -46,8 +46,9 @@ class AdController extends Controller
     public function getCreatePaid(UserRepo $userRepo)
     {
         $zipcodes = $userRepo->getAllZipcode();
+        $user = User::find(auth()->user()->id);
 
-        return view('post_paid_ad', compact('zipcodes'));
+        return view('post_paid_ad', compact('zipcodes','user'));
     }
 
     public function getEdit(Request $request)
@@ -110,7 +111,7 @@ class AdController extends Controller
             $ad->gallery = json_encode($galleries);
         }
 
-        if(auth()->user()->package == 'free') {
+        if($ad->ad_type == 'free') {
             $ad->content = strip_tags($request->input('adContent'));
         }else{
             $ad->content = $request->input('adContent');
@@ -196,7 +197,9 @@ class AdController extends Controller
             if($type == "paid") {
                 $user = User::find(auth()->user()->id);
                 // Charge $2 per paid ad
-                $user->charge(200);
+                if($user->subscribed()) {
+                    $user->charge(200);
+                }
             }
             if(auth()->user()->package == 'free') {
                 $ad->content = strip_tags($request->input('adContent'));

@@ -78,7 +78,7 @@
                                 </div>
                             </div>
                             <hr class="clearfix" style="border-color: #000000;">
-                            @if(auth()->user()->package == 'weekly' || auth()->user()->package == 'weekly_pro')
+                            @if($ad->ad_type == 'paid')
                                 <div class="form-group col-md-12">
                                     <div class="simple-editor" id="adContent">{!! $ad->content !!}</div>
                                 </div>

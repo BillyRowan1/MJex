@@ -238,20 +238,26 @@
                                                     <strong>You may choose multiple categories if applicable</strong><br>
                                                     <div class="clearfix">
                                                     <div class="col-md-3">
+                                                        <img src="{{ asset('img/marker/adult_use.png') }}" alt="adult">
                                                         <label for="use_for_4">Adult use +21</label>
                                                         <input type="checkbox" name="purpose[]" id="use_for_4" {{ has_purpose('adult_use',$user)?'checked':'' }} value="adult_use" name="use_for[]">
                                                     </div>
                                                     <div class="col-md-3">
+                                                        <img src="{{ asset('img/marker/medical.png') }}" alt="adult">
                                                         <label for="use_for_1">Medical</label>
                                                         <input type="checkbox" name="purpose[]" id="use_for_1" {{ has_purpose('medical',$user)?'checked':'' }} value="medical" name="use_for[]">
                                                     </div>
                                                     @if(auth()->user()->type == 'seller')
                                                     <div class="col-md-3">
+                                                        <img src="{{ asset('img/marker/grower.png') }}" alt="adult">
+
                                                         <label for="use_for_2">Grower</label>
                                                         <input type="checkbox" name="purpose[]" id="use_for_2" {{ has_purpose('grower',$user)?'checked':'' }} value="grower" name="use_for[]">
                                                     </div>
 
                                                     <div class="col-md-3">
+                                                        <img src="{{ asset('img/marker/other.png') }}" alt="adult">
+
                                                         <label for="use_for_3">Other</label>
                                                         <input type="checkbox" name="purpose[]" id="use_for_3" {{ has_purpose('other',$user)?'checked':'' }} value="other" name="use_for[]">
                                                     </div>

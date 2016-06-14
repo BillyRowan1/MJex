@@ -9,7 +9,7 @@
         <h2 class="text-center">Paid ad ($2 per additional ad)</h2>
         <p class="text-center">(This money automatically charge from your saved Credit card)</p>
         @include('inc.msg')
-        <form action="{{ route('ad.store.paid') }}" method="post" enctype="multipart/form-data">
+        <form id="postPaidAdForm" action="{{ route('ad.store.paid') }}" method="post" enctype="multipart/form-data">
             <div id="step1">
                 {!! csrf_field() !!}
                 <input type="hidden" name="ad_type" value="paid">
@@ -110,15 +110,42 @@
                     </div>
                 </div>
             </div>
+            <input type="hidden" name="stripeToken">
             <!-- /#step1 -->
             <div class="btn-group mjex">
-                <button type="submit" class="btn green-gradient">next</button>
+                <button id="postAdBtn" type="submit" class="btn green-gradient">next</button>
             </div>
         </form>
     </section>
 @endsection
 
 @section('page-js')
+    @if(!$user->subscribed())
+    <script src="https://checkout.stripe.com/checkout.js"></script>
+    <script>
+        var handler = StripeCheckout.configure({
+            key: 'pk_test_u4oPjGiJ2fCtkuat5LY1cIjG',
+            image: '/img/logo-stripe.png',
+            locale: 'auto',
+            token: function(token) {
+                // You can access the token ID with `token.id`
+                $('[name=stripeToken]').val(token.id);
+                $('#postPaidAdForm').submit();
+            }
+        });
+
+        $('#postAdBtn').click(function(e){
+            e.preventDefault();
+            handler.open({
+                name: 'Mjex',
+                description: 'Paid Ad',
+                amount: 200,
+                email: '{{ auth()->user()->email  }}'
+            });
+        });
+    </script>
+    @endif
+
     <script>
         function previewFile(input, previewImg) {
             var preview = previewImg;

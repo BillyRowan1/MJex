@@ -152,7 +152,7 @@
                             <a href="{{ route('cart.index', ['seller_id' => $grower->id]) }}">
                                 <div class="post">
                                     <table>
-                                        <thead class="red-bg" style="background-color: {{ $ad->header_color }};">
+                                        <thead class="red-bg">
                                         <th>Name</th>
                                         <th>Spots available</th>
                                         </thead>
@@ -180,4 +180,8 @@
     var currentUserAddress = '{{ auth()->user()->state }}, {{ auth()->user()->country }}';
 </script>
 @endif
+@endsection
+
+@section('page-js')
+    <script src="{{ asset('js/sellermap.js') }}"></script>
 @endsection
